@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 772 390" width="772" height="390" role="img">
+<title>M02-MC — Deutsches Weltwissen, Multiple Choice · ohne Denken</title>
+<style>
+svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --grid:#e4e3df; --bar:#2a78d6; --hatch:#9ec5f4; --accent:#c4520f; }
+@media (prefers-color-scheme: dark) {
+  svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --grid:#383835; --bar:#3987e5; --hatch:#184f95; --accent:#f08a4b; }
+}
+text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+.muted { fill: var(--ink2); }
+.halo { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="var(--surface)"/>
+<text x="0" y="18" font-size="15" font-weight="600">M02-MC — Deutsches Weltwissen, Multiple Choice · ohne Denken</text>
+<line x1="232.0" y1="34" x2="232.0" y2="340" stroke="var(--grid)"/>
+<text x="232.0" y="356" font-size="11" class="muted" text-anchor="middle">0</text>
+<line x1="337.0" y1="34" x2="337.0" y2="340" stroke="var(--grid)"/>
+<text x="337.0" y="356" font-size="11" class="muted" text-anchor="middle">0.25</text>
+<line x1="442.0" y1="34" x2="442.0" y2="340" stroke="var(--grid)"/>
+<text x="442.0" y="356" font-size="11" class="muted" text-anchor="middle">0.5</text>
+<line x1="547.0" y1="34" x2="547.0" y2="340" stroke="var(--grid)"/>
+<text x="547.0" y="356" font-size="11" class="muted" text-anchor="middle">0.75</text>
+<line x1="652.0" y1="34" x2="652.0" y2="340" stroke="var(--grid)"/>
+<text x="652.0" y="356" font-size="11" class="muted" text-anchor="middle">1</text>
+<text x="222.0" y="60.0" font-size="13" text-anchor="end">local/gemma4-31b</text>
+<g><title>local/gemma4-31b-think-off · m02_knowledge_mc · aus: 0.708, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,47.0 h293.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-293.2 z" fill="var(--bar)"/>
+<text x="535.2" y="60.0" font-size="12">0.71<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="90.0" font-size="13" text-anchor="end">local/gemma4-26b-a4b</text>
+<g><title>local/gemma4-26b-a4b-think-off · m02_knowledge_mc · aus: 0.626, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,77.0 h258.8 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-258.8 z" fill="var(--bar)"/>
+<text x="500.8" y="90.0" font-size="12">0.63<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="120.0" font-size="13" text-anchor="end">anthropic/claude-haiku-5-5</text>
+<g><title>anthropic/claude-haiku-5-5-think-none · m02_knowledge_mc · aus: 0.574, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,107.0 h237.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-237.2 z" fill="var(--bar)"/>
+<text x="479.2" y="120.0" font-size="12">0.57<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="150.0" font-size="13" text-anchor="end">local/qwen3.6-35b-a3b</text>
+<g><title>local/qwen3.6-35b-a3b-think-off · m02_knowledge_mc · aus: 0.477, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,137.0 h196.3 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-196.3 z" fill="var(--bar)"/>
+<text x="438.3" y="150.0" font-size="12">0.48<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="180.0" font-size="13" text-anchor="end">local/gemma4-12b</text>
+<g><title>local/gemma4-12b-think-off · m02_knowledge_mc · aus: 0.415, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,167.0 h170.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-170.5 z" fill="var(--bar)"/>
+<text x="412.5" y="180.0" font-size="12">0.42<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="210.0" font-size="13" text-anchor="end">local/kolibri1-78b-a3b</text>
+<g><title>local/kolibri1-78b-a3b-think-off · m02_knowledge_mc · aus: 0.318, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,197.0 h129.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-129.5 z" fill="var(--bar)"/>
+<text x="371.5" y="210.0" font-size="12">0.32<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="240.0" font-size="13" text-anchor="end">local/qwen3.8-27b</text>
+<g><title>local/qwen3.8-27b-think-off · m02_knowledge_mc · aus: 0.318, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,227.0 h129.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-129.5 z" fill="var(--bar)"/>
+<text x="371.5" y="240.0" font-size="12">0.32<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="270.0" font-size="13" text-anchor="end">local/gemma4-e4b</text>
+<g><title>local/gemma4-e4b-think-off · m02_knowledge_mc · aus: 0.297, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,257.0 h120.9 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-120.9 z" fill="var(--bar)"/>
+<text x="362.9" y="270.0" font-size="12">0.30<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="300.0" font-size="13" text-anchor="end">local/qwen3.5-9b</text>
+<g><title>local/qwen3.5-9b-think-off · m02_knowledge_mc · aus: 0.292, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,287.0 h118.8 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-118.8 z" fill="var(--bar)"/>
+<text x="360.8" y="300.0" font-size="12">0.29<tspan class="muted"></tspan></text>
+</g>
+<text x="222.0" y="330.0" font-size="13" text-anchor="end">local/qwen3.5-4b</text>
+<g><title>local/qwen3.5-4b-think-off · m02_knowledge_mc · aus: 0.174, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,317.0 h69.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-69.2 z" fill="var(--bar)"/>
+<text x="311.2" y="330.0" font-size="12">0.17<tspan class="muted"></tspan></text>
+</g>
+<text x="0" y="370" font-size="11" class="muted">Score = Mittel über die Datensätze, je Datensatz der schlechteste von 3 Läufen.</text>
+<text x="0" y="386" font-size="11" class="muted">german-seo-bench 2026.1 · Messzeitraum Oktober 2026</text>
+</svg>

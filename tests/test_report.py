@@ -928,6 +928,17 @@ class TestDenkmodi:
         assert "? = Modellname ohne Endung" in text
         # gamma hat zwei Modi, also steht die Tabelle je vollem Namen dahinter.
         assert "## Je Modellvariante" in text
+
+    def test_markdown_mit_links(self, mode_report) -> None:
+        # Jede Spalte einer Aufgabe verweist auf dieselben Einzelergebnisse.
+        text = render_markdown(mode_report, links=True)
+        assert ("| Modell | Gesamt [a] | Gesamt [b] | Gesamt [c] "
+                "| [m02_knowledge_mc · aus](#m02_knowledge_mc--einzelergebnisse) "
+                "| [m03_facts · aus](#m03_facts--einzelergebnisse) "
+                "| [m03_facts · an](#m03_facts--einzelergebnisse) "
+                "| [m03_facts · ?](#m03_facts--einzelergebnisse) |") in text
+        # Die Fußnoten nennen die Spalten weiter ohne Link.
+        assert "[a] m02_knowledge_mc · aus, m03_facts · aus" in text
         assert "| mockllm/gamma-think-high |" in text
         assert text.index("Je Modell,") < text.index("Je Modellvariante")
 

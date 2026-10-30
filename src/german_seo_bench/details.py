@@ -18,21 +18,18 @@ und die eine abweichende Antwort ginge darin unter.
 
 from __future__ import annotations
 
-import base64
 import re
-import shutil
 import statistics
 from collections.abc import Callable
 from dataclasses import dataclass
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from inspect_ai.log import EvalLog, read_eval_log
-from inspect_ai.model import ContentImage
 
 from german_seo_bench.checks.choice import correct_letter
-from german_seo_bench.media import media_dir
+from german_seo_bench.media import manifest
 from german_seo_bench.modelname import model_label
 
 if TYPE_CHECKING:
@@ -47,9 +44,6 @@ MAX_ANSWER = 600
 # weil „gescheitert an: length“ sonst nicht sagt, um wie viel.
 SHOW_LENGTH = frozenset({"m01_titles", "m10_alt_text"})
 
-# Wohin die Bilder von M10 neben dem Bericht kommen, relativ zu `--out`.
-IMAGE_DIR = "images"
-
 
 @dataclass(frozen=True)
 class Answer:
@@ -62,9 +56,6 @@ class Answer:
     score: float | None
     explanation: str
     metadata: dict[str, Any]
-    # Das Bild aus dem Log als Bytes, falls die Aufgabe eines geschickt hat.
-    # Nur ein Rückgriff: Zuerst gilt die Datei im Medienverzeichnis.
-    image: bytes | None = None
 
 
 def read_answers(files: list[Path]) -> list[Answer]:
@@ -102,21 +93,10 @@ def log_answers(log: EvalLog) -> list[Answer]:
                 score=float(points) if isinstance(points, (int, float)) else None,
                 explanation=score.explanation or "",
                 metadata=dict(sample.metadata or {}),
-                image=_logged_image(sample.input),
             )
         )
     return answers
 
-
-def _logged_image(messages: Any) -> bytes | None:
-    if isinstance(messages, str):
-        return None
-    for message in messages:
-        content = message.content if not isinstance(message.content, str) else []
-        for part in content:
-            if isinstance(part, ContentImage) and part.image.startswith("data:"):
-                return base64.b64decode(part.image.split(",", 1)[1])
-    return None
 
 
 # ---------------------------------------------------------------- Darstellung
@@ -178,44 +158,50 @@ CONTEXT: dict[str, Callable[[dict[str, Any]], list[str]]] = {
 }
 
 
-def _image(answers: list[Answer], out: Path) -> str | None:
-    """Kopiert das Bild eines Datensatzes nach `out/images` und gibt den Markdown-Verweis.
+def _image(answers: list[Answer]) -> str | None:
+    """Der Verweis auf die Pixabay-Seite des Bildes eines Datensatzes.
 
-    Zuerst aus dem Medienverzeichnis, dann aus dem Log. Ein Oracle-Lauf schickt
-    kein Bild und hat deshalb keinen Anhang; fehlt die Datei auch lokal, steht
-    der Dateiname da statt eines kaputten Bildes.
+    Der Bericht liefert die Bilder nicht mit, aus demselben Grund wie das Repo
+    (siehe `german_seo_bench.media`): Er soll sich veröffentlichen lassen, ohne
+    fremde Bilder weiterzuverteilen. Die Seite nennt auch den Uploader.
     """
     name = answers[0].metadata.get("image")
     if not name:
         return None
-    target = out / IMAGE_DIR / Path(name).name
-    if not target.exists():
-        source = media_dir() / name
-        logged = next((a.image for a in answers if a.image), None)
-        if source.is_file():
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, target)
-        elif logged:
-            target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_bytes(logged)
-        else:
-            return f"*Bild {_literal(name)} weder im Medienverzeichnis noch im Log.*"
-    return f"![{_literal(name)}]({IMAGE_DIR}/{target.name})"
+    entry = next((e for e in manifest() if e.path == name), None)
+    if entry is None:
+        return f"**Bild:** {_literal(name)} (nicht im Manifest)"
+    return f"**Bild:** [{_literal(Path(name).name)} bei Pixabay]({entry.page_url}) von {_literal(entry.author)}"
+
+
+def details_heading(task: str) -> str:
+    return f"{task} — Einzelergebnisse"
+
+
+def anchor(heading: str) -> str:
+    """Sprungziel einer Überschrift, so wie GitHub es bildet.
+
+    Kleinbuchstaben, Satzzeichen außer `-` und `_` fallen weg, Leerzeichen
+    werden zu `-`: „m01_titles — Einzelergebnisse“ wird zu
+    `m01_titles--einzelergebnisse`. `render_html` vergibt dieselben Ziele, so
+    funktioniert ein Link aus `report.md` auf GitHub wie in `report.html`.
+    """
+    return re.sub(r"[^\w\- ]", "", heading.lower()).replace(" ", "-")
 
 
 def _score_text(score: float | None) -> str:
     return "—" if score is None else f"{score:.2f}"
 
 
-def render_details(report: Report, answers: list[Answer], out: Path) -> str:
-    """Der Markdown-Teil mit den Einzelergebnissen. Legt die Bilder unter `out` ab."""
+def render_details(report: Report, answers: list[Answer]) -> str:
+    """Der Markdown-Teil mit den Einzelergebnissen."""
     rank = {row.model: i for i, row in enumerate(report.rows)}
     parts: list[str] = []
     for task in report.tasks:
         mine = [a for a in answers if a.task == task.name]
         if not mine:
             continue
-        parts.append(f"## {task.name} — Einzelergebnisse\n")
+        parts.append(f"## {details_heading(task.name)}\n")
         for sample_id in dict.fromkeys(a.sample_id for a in mine):
             group = [a for a in mine if a.sample_id == sample_id]
             scored = [a.score for a in group if a.score is not None]
@@ -223,7 +209,7 @@ def render_details(report: Report, answers: list[Answer], out: Path) -> str:
             parts.append(f"### {_literal(sample_id)}{mean}\n")
             meta = group[0].metadata
             lines = CONTEXT.get(task.name, lambda m: [])(meta)
-            if image := _image(group, out):
+            if image := _image(group):
                 lines.insert(0, image)
             oracle = meta.get("oracle")
             if oracle is not None:
@@ -273,6 +259,25 @@ img.matrix { max-width:100%; }
 """
 
 
+def _heading_ids(body: str) -> str:
+    """Jede Überschrift bekommt ihr Sprungziel nach `anchor`.
+
+    Gleiche Überschriften zählt GitHub mit `-1`, `-2` … durch; hier ebenso,
+    damit ein Ziel auf beiden Seiten dieselbe Überschrift trifft.
+    """
+    seen: dict[str, int] = {}
+
+    def add_id(match: re.Match[str]) -> str:
+        level, inner = match.group(1), match.group(2)
+        base = anchor(unescape(re.sub(r"<[^>]+>", "", inner)))
+        count = seen.get(base, 0)
+        seen[base] = count + 1
+        target = base if count == 0 else f"{base}-{count}"
+        return f'<h{level} id="{escape(target)}">{inner}</h{level}>'
+
+    return re.sub(r"<h([1-6])>(.*?)</h\1>", add_id, body)
+
+
 def render_html(markdown: str, matrix: str | None = "matrix.svg") -> str:
     """Derselbe Bericht als eigenständige HTML-Seite.
 
@@ -281,7 +286,7 @@ def render_html(markdown: str, matrix: str | None = "matrix.svg") -> str:
     """
     from markdown_it import MarkdownIt
 
-    body = MarkdownIt("commonmark", {"html": False}).enable(["table"]).render(markdown)
+    body = _heading_ids(MarkdownIt("commonmark", {"html": False}).enable(["table"]).render(markdown))
     figure = f'<img class="matrix" src="{escape(matrix)}" alt="Score je Aufgabe und Modell">\n' if matrix else ""
     return (
         '<!doctype html>\n<html lang="de">\n<head>\n<meta charset="utf-8">\n'

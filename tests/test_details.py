@@ -15,9 +15,10 @@ from inspect_ai.log import read_eval_log
 from inspect_ai.model import ModelOutput
 from inspect_ai.solver import Generate, Solver, TaskState, solver
 
-from german_seo_bench.details import _literal, read_answers, render_details, render_html
-from german_seo_bench.media import ENV_DIR
-from german_seo_bench.report import build, main
+from german_seo_bench import details
+from german_seo_bench.details import _literal, anchor, read_answers, render_details, render_html
+from german_seo_bench.media import manifest
+from german_seo_bench.report import build, main, render_markdown
 from german_seo_bench.tasks.m01_titles import m01_titles
 from german_seo_bench.tasks.m03_facts import m03_facts
 from german_seo_bench.tasks.m10_alt_text import m10_alt_text
@@ -105,7 +106,7 @@ class TestInhalt:
         # Gegenprobe: Ohne Zusammenfassung stünde alpha je Datensatz zweimal da.
         assert "| mockllm/alpha |" not in section
 
-    def test_verschiedene_antworten_bleiben_getrennt(self, log_dir: Path, tmp_path: Path) -> None:
+    def test_verschiedene_antworten_bleiben_getrennt(self, log_dir: Path) -> None:
         files = sorted(log_dir.glob("*m01-titles*.eval"))
         report = build(log_dir, "*m01-titles*")
         answers = read_answers(files)
@@ -113,7 +114,7 @@ class TestInhalt:
         first = next(i for i, a in enumerate(answers) if a.model == "mockllm/alpha")
         changed = answers[first].__class__(**{**vars(answers[first]), "answer": "Anderer Titel"})
         answers[first] = changed
-        text = render_details(report, answers, tmp_path)
+        text = render_details(report, answers)
         assert "| mockllm/alpha (×2) |" in text  # der andere Datensatz
         assert "Anderer Titel" in text
         assert text.count("| mockllm/alpha |") == 2
@@ -173,6 +174,40 @@ class TestWoertlich:
         assert text.startswith("x" * 600 + " … (1000 Zeichen)")
 
 
+class TestSprungziele:
+    @pytest.mark.parametrize(
+        ("heading", "expected"),
+        [
+            ("m01_titles — Einzelergebnisse", "m01_titles--einzelergebnisse"),
+            ("Je Modell, Denkmodi als Spalten", "je-modell-denkmodi-als-spalten"),
+            ("Größter Kontext (Tokens)", "größter-kontext-tokens"),
+        ],
+    )
+    def test_anchor_wie_github(self, heading: str, expected: str) -> None:
+        assert anchor(heading) == expected
+
+    def test_kopf_verweist_auf_einzelergebnisse(self, markdown: str) -> None:
+        header = next(line for line in markdown.splitlines() if line.startswith("| Modell |"))
+        for task in ("m01_titles", "m03_facts"):
+            assert f"[{task}](#{task}--einzelergebnisse)" in header
+            assert f"## {task} — Einzelergebnisse" in markdown
+
+    def test_jeder_link_hat_ein_ziel_im_html(self, html: str) -> None:
+        targets = re.findall(r'href="#([^"]+)"', html)
+        assert {"m01_titles--einzelergebnisse", "m03_facts--einzelergebnisse"} <= set(targets)
+        ids = re.findall(r'id="([^"]+)"', html)
+        assert len(ids) == len(set(ids))
+        assert set(targets) <= set(ids)
+
+    def test_gleiche_ueberschriften_werden_durchgezaehlt(self) -> None:
+        html = render_html("### a\n\n### a\n\n### a\n", matrix=None)
+        assert re.findall(r'<h3 id="([^"]+)">', html) == ["a", "a-1", "a-2"]
+
+    def test_ohne_links_kein_verweis(self, log_dir: Path) -> None:
+        # Für Tabellen, die allein weiterverwendet werden, etwa auf einer Website.
+        assert "](#" not in render_markdown(build(log_dir))
+
+
 class TestDateien:
     def test_html_neben_markdown(self, out: Path) -> None:
         # Die Balken je Aufgabe prüft test_report.py.
@@ -186,33 +221,40 @@ class TestDateien:
 class TestBilder:
     @pytest.fixture(scope="class")
     @classmethod
-    def m10_log(cls, media_present, tmp_path_factory) -> Path:
-        target = tmp_path_factory.mktemp("m10-logs")
-        _run(m10_alt_text(), "mockllm/alpha", target)
-        return target
+    def m10_logs(cls, media_present, tmp_path_factory) -> Path:
+        logs = tmp_path_factory.mktemp("m10-logs")
+        _run(m10_alt_text(), "mockllm/alpha", logs)
+        return logs
 
-    def test_bild_aus_dem_medienverzeichnis(self, m10_log: Path, media_present, tmp_path: Path) -> None:
-        assert main([str(m10_log), "--out", str(tmp_path)]) == 0
-        images = sorted((tmp_path / "images").iterdir())
-        assert len(images) == LIMIT
-        text = (tmp_path / "report.md").read_text(encoding="utf-8")
-        for image in images:
-            assert f"(images/{image.name})" in text
+    @pytest.fixture(scope="class")
+    @classmethod
+    def m10_out(cls, m10_logs: Path, tmp_path_factory) -> Path:
+        out = tmp_path_factory.mktemp("m10-out")
+        assert main([str(m10_logs), "--out", str(out)]) == 0
+        return out
 
-    def test_bild_aus_dem_log(self, m10_log: Path, tmp_path: Path, monkeypatch) -> None:
-        # Ohne Medienverzeichnis kommt das Bild aus dem Anhang im Log.
-        monkeypatch.setenv(ENV_DIR, str(tmp_path / "leer"))
-        out = tmp_path / "out"
-        assert main([str(m10_log), "--out", str(out)]) == 0
-        assert len(list((out / "images").iterdir())) == LIMIT
-        assert all(p.read_bytes() == b"\xff\xd8\xff\xd9" for p in (out / "images").iterdir())
+    def test_link_auf_pixabay(self, m10_out: Path) -> None:
+        text = (m10_out / "report.md").read_text(encoding="utf-8")
+        pages = {e.path: e for e in manifest()}
+        shown = re.findall(r"\*\*Bild:\*\* \[(\d+)\.jpg bei Pixabay\]\((\S+?)\) von (\S+)", text)
+        assert len(shown) == LIMIT
+        for number, url, author in shown:
+            entry = pages[f"m10_alt_text/{number}.jpg"]
+            assert url == entry.page_url
+            # `_literal` maskiert den Unterstrich, damit Markdown nicht kursiv setzt.
+            assert author.replace("\\_", "_") == entry.author
 
-    def test_ohne_bild_ein_hinweis(self, tmp_path: Path, monkeypatch) -> None:
-        # Der Oracle-Lauf schickt kein Bild; ohne Medienverzeichnis gibt es keins.
-        monkeypatch.setenv(ENV_DIR, str(tmp_path / "leer"))
-        logs = tmp_path / "logs"
-        _run(m10_alt_text(oracle=True), "mockllm/alpha", logs)
-        out = tmp_path / "out"
-        assert main([str(logs), "--out", str(out)]) == 0
-        assert not (out / "images").exists()
-        assert "weder im Medienverzeichnis noch im Log" in (out / "report.md").read_text(encoding="utf-8")
+    def test_link_im_html(self, m10_out: Path) -> None:
+        html = (m10_out / "report.html").read_text(encoding="utf-8")
+        assert html.count('href="https://pixabay.com/photos/') == LIMIT
+
+    def test_keine_bilder_neben_dem_bericht(self, m10_out: Path) -> None:
+        assert not (m10_out / "images").exists()
+        assert not any(p.suffix in (".jpg", ".png") for p in m10_out.rglob("*"))
+        # Das einzige Bild im HTML ist die Matrix.
+        assert (m10_out / "report.html").read_text(encoding="utf-8").count("<img") == 1
+
+    def test_bild_nicht_im_manifest(self, m10_logs: Path, monkeypatch) -> None:
+        answers = read_answers(sorted(m10_logs.glob("*.eval")))
+        monkeypatch.setattr(details, "manifest", lambda: [])
+        assert "(nicht im Manifest)" in details._image(answers[:1])

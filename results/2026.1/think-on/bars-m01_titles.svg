@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 772 390" width="772" height="390" role="img">
+<title>M01 — Deutsche SEO-Seitentitel · mit Denken</title>
+<style>
+svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --grid:#e4e3df; --bar:#2a78d6; --hatch:#9ec5f4; --accent:#c4520f; }
+@media (prefers-color-scheme: dark) {
+  svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --grid:#383835; --bar:#3987e5; --hatch:#184f95; --accent:#f08a4b; }
+}
+text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+.muted { fill: var(--ink2); }
+.halo { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="var(--surface)"/>
+<text x="0" y="18" font-size="15" font-weight="600">M01 — Deutsche SEO-Seitentitel · mit Denken</text>
+<line x1="232.0" y1="34" x2="232.0" y2="340" stroke="var(--grid)"/>
+<text x="232.0" y="356" font-size="11" class="muted" text-anchor="middle">0</text>
+<line x1="337.0" y1="34" x2="337.0" y2="340" stroke="var(--grid)"/>
+<text x="337.0" y="356" font-size="11" class="muted" text-anchor="middle">0.25</text>
+<line x1="442.0" y1="34" x2="442.0" y2="340" stroke="var(--grid)"/>
+<text x="442.0" y="356" font-size="11" class="muted" text-anchor="middle">0.5</text>
+<line x1="547.0" y1="34" x2="547.0" y2="340" stroke="var(--grid)"/>
+<text x="547.0" y="356" font-size="11" class="muted" text-anchor="middle">0.75</text>
+<line x1="652.0" y1="34" x2="652.0" y2="340" stroke="var(--grid)"/>
+<text x="652.0" y="356" font-size="11" class="muted" text-anchor="middle">1</text>
+<text x="222.0" y="60.0" font-size="13" text-anchor="end">anthropic/claude-haiku-5-5</text>
+<g><title>anthropic/claude-haiku-5-5-think-adaptive · m01_titles · an: 0.924, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,47.0 h384.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-384.1 z" fill="var(--bar)"/>
+<text x="626.1" y="60.0" font-size="12">0.92<tspan class="muted"> (n=3)</tspan></text>
+</g>
+<text x="222.0" y="90.0" font-size="13" text-anchor="end">local/qwen3.8-27b</text>
+<g><title>local/qwen3.8-27b-think-medium · m01_titles · an: 0.738, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,77.0 h305.9 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-305.9 z" fill="var(--bar)"/>
+<text x="547.9" y="90.0" font-size="12">0.74<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="120.0" font-size="13" text-anchor="end">local/qwen3.6-35b-a3b</text>
+<g><title>local/qwen3.6-35b-a3b-think-on-precise · m01_titles · an: 0.679, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,107.0 h281.3 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-281.3 z" fill="var(--bar)"/>
+<text x="523.3" y="120.0" font-size="12">0.68<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="150.0" font-size="13" text-anchor="end">local/gemma4-26b-a4b</text>
+<g><title>local/gemma4-26b-a4b-think-on · m01_titles · an: 0.634, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,137.0 h262.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-262.5 z" fill="var(--bar)"/>
+<text x="504.5" y="150.0" font-size="12">0.63<tspan class="muted"> (n=3)</tspan></text>
+</g>
+<text x="222.0" y="180.0" font-size="13" text-anchor="end">local/gemma4-31b</text>
+<g><title>local/gemma4-31b-think-on-budget512 · m01_titles · an: 0.569, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,167.0 h235.0 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-235.0 z" fill="var(--bar)"/>
+<text x="477.0" y="180.0" font-size="12">0.57<tspan class="muted"> (n=3)</tspan></text>
+</g>
+<text x="222.0" y="210.0" font-size="13" text-anchor="end">local/gemma4-12b</text>
+<g><title>local/gemma4-12b-think-on · m01_titles · an: 0.562, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,197.0 h232.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-232.1 z" fill="var(--bar)"/>
+<text x="474.1" y="210.0" font-size="12">0.56<tspan class="muted"> (n=3)</tspan></text>
+</g>
+<text x="222.0" y="240.0" font-size="13" text-anchor="end">local/gemma4-e4b</text>
+<g><title>local/gemma4-e4b-think-on-budget512 · m01_titles · an: 0.562, schlechtester von 3 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,227.0 h232.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-232.1 z" fill="var(--bar)"/>
+<text x="474.1" y="240.0" font-size="12">0.56<tspan class="muted"> (n=3)</tspan></text>
+</g>
+<text x="222.0" y="270.0" font-size="13" text-anchor="end">local/qwen3.5-9b</text>
+<g><title>local/qwen3.5-9b-think-on-precise-budget512 · m01_titles · an: 0.438, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,257.0 h179.9 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-179.9 z" fill="var(--bar)"/>
+<text x="421.9" y="270.0" font-size="12">0.44<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="300.0" font-size="13" text-anchor="end">local/qwen3.5-4b</text>
+<g><title>local/qwen3.5-4b-think-on-precise-budget512 · m01_titles · an: 0.066, schlechtester von 2 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,287.0 h23.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-23.5 z" fill="var(--bar)"/>
+<text x="265.5" y="300.0" font-size="12">0.07<tspan class="muted"> (n=2)</tspan></text>
+</g>
+<text x="222.0" y="330.0" font-size="13" text-anchor="end">local/kolibri1-78b-a3b</text>
+<g><title>local/kolibri1-78b-a3b-think-medium-budget512 · m01_titles · an: 0.000, schlechtester von 2 Lauf/Läufen je Datensatz</title>
+<text x="238.0" y="330.0" font-size="12">0.00<tspan class="muted"> (n=2)</tspan></text>
+</g>
+<text x="0" y="370" font-size="11" class="muted">Score = Mittel über die Datensätze, je Datensatz der schlechteste Lauf, Zahl der Läufe in Klammern.</text>
+<text x="0" y="386" font-size="11" class="muted">german-seo-bench 2026.1 · Messzeitraum Oktober 2026</text>
+</svg>

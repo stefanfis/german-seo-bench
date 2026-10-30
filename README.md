@@ -95,6 +95,11 @@ Mehrere Läufe desselben Modells werden **nicht gemittelt**: Im Bericht zählt
 je Datensatz der schlechteste Lauf, siehe [„So wird gerechnet“](docs/running.md#läufe-zusammenfassen).
 Das klingt auf den ersten Blick eventuell unfair, doch im Einsatz für den SEO-Alltag ist Zuverlässigkeit essenziell: Ein Modell, das in vier von fünf Läufen zuverlässig einen guten Seitentitel schreibt, aber im fünften völlig daneben liegt, ist für den massenhaften Einsatz nicht zu gebrauchen.
 
+## Ergebnisse
+
+Meine eigenen Messungen stehen unter [`results/`](results/README.md), je
+Benchmark-Version und Denkmodus ein Bericht mit allen Antworten.
+
 ## Der Oracle-Lauf
 
 ```bash

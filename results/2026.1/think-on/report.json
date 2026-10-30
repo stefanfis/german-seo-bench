@@ -1,0 +1,5687 @@
+{
+  "aggregation": "worst_run_per_sample_then_mean",
+  "benchmark_versions": {
+    "2026.1": 75
+  },
+  "measurement_period": {
+    "first": "2026-10-21T06:47:02+00:00",
+    "last": "2026-10-30T11:36:15+00:00"
+  },
+  "selection": {
+    "log_dir": "../bench-results/v0.1/logs/think-on",
+    "glob": "*.eval",
+    "since": null,
+    "files": [
+      "2026-10-21T06-47-02-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_NXBZ9FqH3ZRmZVrmwBEqAj.eval",
+      "2026-10-21T07-11-39-00-00_a01-browser-audit_local-gemma4-e4b-think-on_mMmUFoNNKd9oBWmKRdqNXC.eval",
+      "2026-10-21T07-19-27-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_64pno9LhhyoSKudvDjxx2U.eval",
+      "2026-10-21T07-55-07-00-00_a01-browser-audit_local-qwen3.5-4b-think-on-precise_Bj8uD3xgYuaaEjWmxoXLBa.eval",
+      "2026-10-21T08-12-54-00-00_a01-browser-audit_local-qwen3.5-9b-think-on-precise_GaCLGcY4v9NHhdLecabgkS.eval",
+      "2026-10-21T09-35-08-00-00_a01-browser-audit_local-gemma4-31b-think-on_o6GPFa36zDyc45GEM3xj3r.eval",
+      "2026-10-21T11-42-29-00-00_a01-browser-audit_local-kolibri1-78b-a3b-think-medium_CHgB7Acqd3zGtMP4LKwrs6.eval",
+      "2026-10-21T13-20-21-00-00_a01-browser-audit_local-gemma4-12b-think-on_TxyHKNMBnEvfDsTmBHY3Mw.eval",
+      "2026-10-21T13-48-46-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_abDkMfY8neCh5gGp8KkVsx.eval",
+      "2026-10-22T14-31-15-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_FXitY8n7WxWvBBokmfAixL.eval",
+      "2026-10-22T15-22-21-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_YSTBgHfppSYRNqKMXtRspq.eval",
+      "2026-10-22T15-29-08-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_JTbQunkds6TYRMCfST4VEw.eval",
+      "2026-10-22T15-53-09-00-00_m03-facts_anthropic-claude-haiku-5-5_cLgG3vWkDBKbpUvrVaBVCF.eval",
+      "2026-10-22T15-56-32-00-00_m03-facts_anthropic-claude-haiku-5-5_3TdRRmaP8MKc3tB8UmwUWD.eval",
+      "2026-10-22T16-04-03-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_h5PgTVqUHNyoQ8vu4QAtwX.eval",
+      "2026-10-22T16-11-25-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_j3oPHRnzGcasKmuCTSXrWz.eval",
+      "2026-10-22T16-16-04-00-00_m01-titles_anthropic-claude-haiku-5-5_4ivCmu5XgCVp3jCqLqV8Hq.eval",
+      "2026-10-22T16-17-10-00-00_m01-titles_anthropic-claude-haiku-5-5_U6ig58ry6Wgd23d9aZouTL.eval",
+      "2026-10-22T16-18-22-00-00_m01-titles_anthropic-claude-haiku-5-5_Ca6Ze4NVHv9AyLHiKB8YH5.eval",
+      "2026-10-22T16-20-20-00-00_m10-alt-text_anthropic-claude-haiku-5-5_YEZm2Yen4XKJwJg9h2ZPJr.eval",
+      "2026-10-22T16-22-03-00-00_m10-alt-text_anthropic-claude-haiku-5-5_PrGgBcomFTfFesKZ3fsiAJ.eval",
+      "2026-10-22T16-37-04-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_3ZywJpYEZNwsxZwfaVakAq.eval",
+      "2026-10-23T08-26-49-00-00_m01-titles_local-gemma4-26b-a4b-think-on_Pwiy2Z639DABWRNHSwBfa7.eval",
+      "2026-10-23T09-29-44-00-00_m01-titles_local-gemma4-26b-a4b-think-on_HwFBi5jPhtdmNpHztPo2sQ.eval",
+      "2026-10-23T09-52-11-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_H96xGZL5MvGLf43qBHRBEo.eval",
+      "2026-10-23T10-44-38-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_X5DeCJqWtRMow2mXmKvhSP.eval",
+      "2026-10-23T11-48-56-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_dpiicBv5v4c7WLrQDWMGHc.eval",
+      "2026-10-23T12-47-19-00-00_m03-facts_local-gemma4-26b-a4b-think-on_6CfDv3Ea4A2qACSvEkQN7o.eval",
+      "2026-10-23T12-54-50-00-00_m03-facts_local-gemma4-26b-a4b-think-on_dtiyBgStzEybrRt4bC6Keu.eval",
+      "2026-10-23T13-01-52-00-00_m03-facts_local-gemma4-26b-a4b-think-on_3NeRmDHCB6Ri5icHJkBs5n.eval",
+      "2026-10-23T13-08-56-00-00_m10-alt-text_local-gemma4-26b-a4b-think-on_eF2FGS4NwQvkjZbTNZytMd.eval",
+      "2026-10-23T14-10-38-00-00_m10-alt-text_local-gemma4-26b-a4b-think-on_KWX7MGYmwP57NoR5Wo45tP.eval",
+      "2026-10-24T10-03-21-00-00_m01-titles_local-gemma4-12b-think-on_3Wmt9EpbhqWvPD7E8xEfBd.eval",
+      "2026-10-24T12-20-51-00-00_m01-titles_local-gemma4-12b-think-on_SLmKd2XRXLn7LKdF3zGmX4.eval",
+      "2026-10-24T14-12-54-00-00_m02-knowledge-mc_local-gemma4-12b-think-on_Kpik7RzBYmh6LiY9dqLrbq.eval",
+      "2026-10-25T11-43-35-00-00_m01-titles_local-gemma4-26b-a4b-think-on_FFfTQpYrtryfeXxhcD9FSv.eval",
+      "2026-10-25T11-49-37-00-00_m03-facts_local-gemma4-26b-a4b-think-on_SCJ99xUHXXZ3SHjPCSJNou.eval",
+      "2026-10-25T13-43-04-00-00_m10-alt-text_local-gemma4-31b-think-on_F33f7qvacpzfzctZk2kbQP.eval",
+      "2026-10-25T14-17-01-00-00_m01-titles_local-gemma4-12b-think-on_5bYGaSmFfyJk5u7xF4nhLP.eval",
+      "2026-10-25T14-26-06-00-00_m03-facts_local-gemma4-12b-think-on_TktxYm3sXfqVXL9oNautcR.eval",
+      "2026-10-25T14-35-49-00-00_m10-alt-text_local-gemma4-12b-think-on_Bx9pTx9y4FY2M5hRMvYpA7.eval",
+      "2026-10-25T14-49-00-00-00_m03-facts_local-gemma4-e4b-think-on_L8C68DFjC395pQxhT7vxLB.eval",
+      "2026-10-25T14-53-43-00-00_m10-alt-text_local-gemma4-e4b-think-on_7jJw5EHd6PQivpwEf43Rr5.eval",
+      "2026-10-25T14-56-46-00-00_m01-titles_local-qwen3.8-27b-think-medium_jU6LFRJh4kgHK95g6guJvt.eval",
+      "2026-10-25T15-15-30-00-00_m03-facts_local-qwen3.8-27b-think-medium_KdmRi4xRuh8UHiSBKWSYbx.eval",
+      "2026-10-25T15-21-07-00-00_m10-alt-text_local-qwen3.8-27b-think-medium_7dAfyyChJaAJZRzE2vmGBJ.eval",
+      "2026-10-25T16-12-51-00-00_m01-titles_local-qwen3.5-4b-think-on-precise_nRNqArMz8bAnxPjFHLtKpt.eval",
+      "2026-10-25T16-29-42-00-00_m03-facts_local-qwen3.5-4b-think-on-precise_TrPphm9py8ayohwd7uhkdF.eval",
+      "2026-10-25T16-58-24-00-00_m10-alt-text_local-qwen3.5-4b-think-on-precise_fK7nibRUEtvPzSeQPMVJGM.eval",
+      "2026-10-25T17-12-08-00-00_m01-titles_local-qwen3.5-9b-think-on-precise_9dKVrbWDHKJEfVh7nvX44J.eval",
+      "2026-10-25T17-53-59-00-00_m03-facts_local-qwen3.5-9b-think-on-precise_2DMd9m6Yn45iwUMso547Gn.eval",
+      "2026-10-25T18-12-00-00-00_m10-alt-text_local-qwen3.5-9b-think-on-precise_GsLozcwPmcvag53hMhY5NK.eval",
+      "2026-10-25T18-20-33-00-00_m01-titles_local-kolibri1-78b-a3b-think-medium_RTrD3wBjBsvwHs767ZVPVb.eval",
+      "2026-10-26T09-22-46-00-00_m03-facts_local-gemma4-31b-think-on_hHwdGJVcaJfW2XwwC2RD7U.eval",
+      "2026-10-26T09-55-17-00-00_m03-facts_local-kolibri1-78b-a3b-think-medium_n6x6H2ArVNjnCtyS8EFXRU.eval",
+      "2026-10-26T10-26-50-00-00_m01-titles_local-qwen3.5-4b-think-on-precise_fRXjwvDdwQasvSw56d4ucL.eval",
+      "2026-10-26T10-43-31-00-00_m01-titles_local-kolibri1-78b-a3b-think-medium_4KbjxuGLKaYnA69BqqattQ.eval",
+      "2026-10-26T11-33-48-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_9pjTonuyu9Q7kief4DCV3o.eval",
+      "2026-10-26T12-54-40-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_VVkY4GTZANEkA69ySRBT9d.eval",
+      "2026-10-26T13-45-08-00-00_m01-titles_local-qwen3.6-35b-a3b-think-on-precise_GJc6dmCP6AwQWxGYjLVavm.eval",
+      "2026-10-26T14-23-06-00-00_m03-facts_local-qwen3.6-35b-a3b-think-on-precise_MJZyuhSqMHVWBDVEbLNDRR.eval",
+      "2026-10-26T14-46-21-00-00_m10-alt-text_local-qwen3.6-35b-a3b-think-on-precise_hKP9TpGBsnadca4PPctxZ9.eval",
+      "2026-10-27T10-21-16-00-00_m02-knowledge-mc_local-qwen3.8-27b-think-medium_bZUa5aLAWrgcbfEtGhp2Ya.eval",
+      "2026-10-27T10-42-10-00-00_m02-knowledge-mc_local-qwen3.6-35b-a3b-think-on-precise_NLi2V7FPEwHPMBrSL88scy.eval",
+      "2026-10-29T16-00-07-00-00_m01-titles_local-gemma4-31b-think-on_cVurwj87uj7qyifVYjkLGC.eval",
+      "2026-10-29T16-38-07-00-00_m01-titles_local-gemma4-e4b-think-on_bKF3fjwFVWiC6jBtoKd52o.eval",
+      "2026-10-29T16-41-56-00-00_m01-titles_local-gemma4-31b-think-on_b9x9tHXhsuDhHY6LJ469kr.eval",
+      "2026-10-29T17-21-18-00-00_m01-titles_local-gemma4-31b-think-on_2qLMPgYKKTeu6GpeAzeuCB.eval",
+      "2026-10-29T18-03-06-00-00_m01-titles_local-gemma4-e4b-think-on_G5cd3joqKU2KmwZRsZ5ttN.eval",
+      "2026-10-29T18-05-54-00-00_m01-titles_local-gemma4-e4b-think-on_6z4QF9wEggZwqYCGMe8xTd.eval",
+      "2026-10-30T09-31-58-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_hnXcym2KBj8G6TS2frfFhT.eval",
+      "2026-10-30T09-56-07-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_aroWXNzLMcHMVb7jCjnat6.eval",
+      "2026-10-30T10-21-31-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_6n2ZVWhK84GbF73w4nP8ez.eval",
+      "2026-10-30T11-05-13-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_23jVAhPsP6UBD2xySz4u7W.eval",
+      "2026-10-30T11-36-15-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_A5RcvU8RSiv88tBbgWVBot.eval"
+    ]
+  },
+  "tasks": [
+    {
+      "name": "a01_browser_audit",
+      "display_name": "A01 — Browser-Audit einer JS-Site",
+      "version": "1"
+    },
+    {
+      "name": "m01_titles",
+      "display_name": "M01 — Deutsche SEO-Seitentitel",
+      "version": "1"
+    },
+    {
+      "name": "m02_knowledge_mc",
+      "display_name": "M02-MC — Deutsches Weltwissen, Multiple Choice",
+      "version": "1"
+    },
+    {
+      "name": "m03_facts",
+      "display_name": "M03 — Fakten-Extraktion",
+      "version": "1"
+    },
+    {
+      "name": "m10_alt_text",
+      "display_name": "M10 — Deutsche ALT-Texte",
+      "version": "1"
+    }
+  ],
+  "models": [
+    {
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "overall": 0.8996546247839351,
+      "complete": true,
+      "tasks_scored": 5,
+      "tasks_missing": [],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.9057057057057059,
+          "n": 3,
+          "samples": {
+            "kartenshop": 0.9057057057057059
+          },
+          "run_scores": [
+            0.9057057057057059,
+            0.9714285714285713,
+            0.9714285714285713
+          ]
+        },
+        "m01_titles": {
+          "score": 0.9241379310344828,
+          "n": 3,
+          "samples": {
+            "anker": 1.0,
+            "bank": 1.0,
+            "becken": 1.0,
+            "birne": 1.0,
+            "blatt": 1.0,
+            "bremse": 0.0,
+            "cookie": 1.0,
+            "fluegel": 1.0,
+            "gericht": 1.0,
+            "golf": 1.0,
+            "hahn": 1.0,
+            "iris": 1.0,
+            "kiefer": 1.0,
+            "kohl": 1.0,
+            "krebs": 1.0,
+            "laeufer": 1.0,
+            "leiter": 1.0,
+            "mandel": 1.0,
+            "maus": 1.0,
+            "reif": 0.8,
+            "schloss": 1.0,
+            "star": 1.0,
+            "steuer": 1.0,
+            "strauss": 1.0,
+            "strom": 1.0,
+            "ton": 0.0,
+            "wasserhahn": 1.0,
+            "zelle": 1.0,
+            "zug": 1.0
+          },
+          "run_scores": [
+            0.9586206896551724,
+            0.9310344827586207,
+            0.9586206896551724
+          ]
+        },
+        "m02_knowledge_mc": {
+          "score": 0.8871794871794871,
+          "n": 3,
+          "samples": {
+            "at-abgb": 1.0,
+            "at-bahn-bagatelle": 0.0,
+            "at-bundespraesident": 1.0,
+            "at-ebinterface": 1.0,
+            "at-eu-beitritt": 1.0,
+            "at-firmenbuch": 1.0,
+            "at-fisolen": 1.0,
+            "at-laenderkammer": 1.0,
+            "at-nationalrat": 1.0,
+            "at-nic-at": 1.0,
+            "at-paradeiser": 1.0,
+            "at-ribisel": 1.0,
+            "at-sommerferien": 1.0,
+            "at-svnr": 1.0,
+            "at-urlaub": 1.0,
+            "at-vorwahl-0316": 1.0,
+            "at-vorwahl-0662": 1.0,
+            "at-wahlalter": 1.0,
+            "bildung-uni-bamberg": 0.0,
+            "bildung-uni-oldenburg": 1.0,
+            "ch-bundesrat-mitglieder": 1.0,
+            "ch-mwst": 1.0,
+            "ch-natel": 1.0,
+            "ch-qr-rechnung": 1.0,
+            "ch-referendum-frist": 1.0,
+            "ch-switch": 1.0,
+            "ch-volksinitiative": 1.0,
+            "geo_de-fluss-schweinfurt": 1.0,
+            "geo_de-ilz": 1.0,
+            "geo_de-kfz-en": 1.0,
+            "geo_de-kfz-kuen": 1.0,
+            "geo_de-kfz-vs": 1.0,
+            "geo_de-rb-dortmund": 1.0,
+            "geo_de-rb-mittelfranken": 1.0,
+            "geo_de-vorwahl-0761": 1.0,
+            "geo_de-vorwahl-0821": 1.0,
+            "geo_de-wertach": 1.0,
+            "geo_welt-iseosee": 1.0,
+            "geo_welt-nowosibirsk": 1.0,
+            "geschichte-amazon-de": 1.0,
+            "geschichte-de-domain": 1.0,
+            "geschichte-erste-email": 1.0,
+            "geschichte-euro-bulgarien": 1.0,
+            "geschichte-google": 1.0,
+            "geschichte-kanzler-2": 0.0,
+            "geschichte-mindestlohn": 1.0,
+            "geschichte-moedlareuth": 1.0,
+            "geschichte-otto": 0.0,
+            "geschichte-plz": 0.0,
+            "geschichte-zollverein": 1.0,
+            "marken-1860-fussball": 1.0,
+            "marken-alando": 1.0,
+            "marken-billa": 0.0,
+            "marken-borussia": 1.0,
+            "marken-edeka": 1.0,
+            "marken-football-muenchen": 1.0,
+            "marken-hakle": 1.0,
+            "marken-hanuta": 1.0,
+            "marken-leica": 1.0,
+            "marken-lidl": 0.0,
+            "marken-migros": 1.0,
+            "marken-persil": 1.0,
+            "marken-rewe": 1.0,
+            "marken-rimowa": 1.0,
+            "marken-spar": 0.0,
+            "marken-tesa": 0.0,
+            "natwiss-eisen-neutronen": 1.0,
+            "recht-ai-act": 1.0,
+            "recht-aufbewahrung-belege": 1.0,
+            "recht-bayern-bundesrat": 0.0,
+            "recht-beweislastumkehr": 0.0,
+            "recht-bfsg": 1.0,
+            "recht-dsa": 1.0,
+            "recht-dsgvo-bussgeld": 1.0,
+            "recht-dsgvo-meldefrist": 1.0,
+            "recht-e-rechnung": 1.0,
+            "recht-gewaehrleistung-frist": 1.0,
+            "recht-gpsr": 1.0,
+            "recht-gwg": 1.0,
+            "recht-hessen-bundesrat": 1.0,
+            "recht-impressum": 1.0,
+            "recht-jugendschutz-bier": 0.0,
+            "recht-kindergeld-2026": 1.0,
+            "recht-kleinunternehmer": 1.0,
+            "recht-kuendigungsbutton": 1.0,
+            "recht-mietkaution": 1.0,
+            "recht-mindestlohn-2026": 1.0,
+            "recht-mindesturlaub": 1.0,
+            "recht-minijob-2026": 1.0,
+            "recht-omnibus-vergleichspreis": 1.0,
+            "recht-oss-schwelle": 1.0,
+            "recht-probezeit": 1.0,
+            "recht-promille": 0.0,
+            "recht-reparatur-gewaehrleistung": 1.0,
+            "recht-schwerbehinderung": 0.0,
+            "recht-sepa-erstattung": 1.0,
+            "recht-usb-c": 1.0,
+            "recht-ust-19": 1.0,
+            "recht-verjaehrung": 1.0,
+            "recht-verjaehrungsbeginn": 1.0,
+            "recht-verzug-30-tage": 1.0,
+            "recht-verzugspauschale": 1.0,
+            "recht-verzugszins-b2b": 1.0,
+            "recht-widerruf-erloeschen": 1.0,
+            "reisen-adamello-brenta": 1.0,
+            "reisen-ballermann": 1.0,
+            "reisen-dticket-2026": 1.0,
+            "reisen-dticket-start": 0.0,
+            "reisen-dtv-ferienwohnung": 1.0,
+            "reisen-ees": 1.0,
+            "reisen-euro-kroatien": 1.0,
+            "reisen-fluggast-400": 1.0,
+            "reisen-flughafen-bremen": 0.0,
+            "reisen-flughafen-hamburg": 1.0,
+            "reisen-flughafen-linz": 1.0,
+            "reisen-flughafen-nuernberg": 1.0,
+            "reisen-flughafen-stuttgart": 1.0,
+            "reisen-hotelstars": 1.0,
+            "reisen-iata-altenrhein": 1.0,
+            "reisen-iata-hannover": 0.0,
+            "reisen-iata-karlsruhe": 1.0,
+            "reisen-iata-memmingen": 1.0,
+            "reisen-iata-nrn": 1.0,
+            "reisen-iata-saarbruecken": 1.0,
+            "reisen-kinderreisepass": 0.0,
+            "reisen-klimaticket": 1.0,
+            "reisen-novalja": 1.0,
+            "reisen-np-gesaeuse": 1.0,
+            "reisen-np-hainich": 1.0,
+            "reisen-np-kalkalpen": 1.0,
+            "reisen-np-schweiz": 1.0,
+            "reisen-pauschalreise-preis": 1.0,
+            "reisen-schengen-bg-ro": 1.0,
+            "reisen-ski-lech": 1.0,
+            "reisen-ski-saalbach": 1.0,
+            "reisen-sylt-damm": 1.0,
+            "reisen-taburiente": 1.0,
+            "reisen-vignette-ch": 1.0,
+            "shop-alkohol-angabe": 1.0,
+            "shop-alkoholfrei": 1.0,
+            "shop-allergene": 1.0,
+            "shop-alpine-symbol": 1.0,
+            "shop-bh-groesse": 1.0,
+            "shop-bio-anteil": 1.0,
+            "shop-dot-nummer": 1.0,
+            "shop-e14": 1.0,
+            "shop-ean-deutschland": 1.0,
+            "shop-ei-gewicht": 0.0,
+            "shop-elektrog-flaeche": 1.0,
+            "shop-energielabel": 1.0,
+            "shop-eprel": 1.0,
+            "shop-etrto-27-5": 1.0,
+            "shop-etrto-622": 1.0,
+            "shop-feinunze": 1.0,
+            "shop-grossbrief": 1.0,
+            "shop-grundpreis-einheit": 1.0,
+            "shop-gu10": 1.0,
+            "shop-herrengroesse-schlank": 1.0,
+            "shop-ip67": 1.0,
+            "shop-kaschmir": 1.0,
+            "shop-lastindex-91": 1.0,
+            "shop-lemberger": 1.0,
+            "shop-lucid": 1.0,
+            "shop-nord-lead": 1.0,
+            "shop-op-1": 1.0,
+            "shop-papier-b5": 1.0,
+            "shop-pariser-stich": 1.0,
+            "shop-pfand-milch": 0.0,
+            "shop-pflegesymbol-trockner": 0.0,
+            "shop-porto-2025": 1.0,
+            "shop-ringgroesse": 1.0,
+            "shop-schuko-typ": 1.0,
+            "shop-speedindex-h": 1.0,
+            "shop-staubsauger-watt": 1.0,
+            "shop-steckdose-schweiz": 0.0,
+            "shop-synth-jupiter": 1.0,
+            "shop-umschlag-dl": 1.0,
+            "shop-usb-gen2x2": 1.0,
+            "shop-wassersaeule": 1.0,
+            "shop-widerruf": 1.0,
+            "shop-zugferd": 1.0,
+            "web-308": 1.0,
+            "web-451": 1.0,
+            "web-eurid": 1.0,
+            "web-hreflang-ch": 1.0,
+            "web-inp-fid": 1.0,
+            "web-inp-gut": 1.0,
+            "web-lcp-gut": 1.0,
+            "web-mobilegeddon": 1.0,
+            "web-penguin": 1.0,
+            "web-robots-groesse": 1.0,
+            "web-robots-rfc": 1.0,
+            "web-schema-org": 1.0,
+            "web-sitemap-groesse": 1.0,
+            "web-sitemap-urls": 1.0
+          },
+          "run_scores": [
+            0.9282051282051282,
+            0.9230769230769231,
+            0.9282051282051282
+          ]
+        },
+        "m03_facts": {
+          "score": 0.9,
+          "n": 2,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 0.0,
+            "jahresabo": 0.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 0.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 1.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.9333333333333333,
+            0.9
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.88125,
+          "n": 2,
+          "samples": {
+            "alpenbahn": 1.0,
+            "alte-zapfsaeulen": 1.0,
+            "altstadt": 1.0,
+            "bootshaus": 1.0,
+            "brandenburger-tor": 0.0,
+            "erdfunkstelle": 1.0,
+            "fernseher-rauschen": 1.0,
+            "friedensengel": 1.0,
+            "gemuesemarkt": 0.9,
+            "glockenspiel": 1.0,
+            "kameramann": 1.0,
+            "kassendisplay": 0.7,
+            "keramikladen": 1.0,
+            "kuerbisse": 1.0,
+            "ladestecker": 1.0,
+            "oktoberfest": 1.0,
+            "olympiaturm": 1.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 1.0,
+            "reichstag": 1.0,
+            "ritterturnier": 1.0,
+            "roehrenfernseher": 0.5,
+            "schaf": 1.0,
+            "schwimmender-markt": 1.0,
+            "strandstuehle": 1.0,
+            "supermarkt": 0.0,
+            "weihnachtsmarkt": 0.9,
+            "wohnzimmer": 0.7,
+            "zapfpistolen": 0.5
+          },
+          "run_scores": [
+            0.8968750000000001,
+            0.94375
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.8-27b-think-medium",
+      "overall": 0.7856214432612125,
+      "complete": false,
+      "tasks_scored": 4,
+      "tasks_missing": [
+        "m02_knowledge_mc"
+      ],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.6993464052287581,
+          "n": 4,
+          "samples": {
+            "kartenshop": 0.6993464052287581
+          },
+          "run_scores": [
+            0.9333333333333333,
+            1.0,
+            1.0,
+            0.6993464052287581
+          ]
+        },
+        "m01_titles": {
+          "score": 0.7379310344827585,
+          "n": 1,
+          "samples": {
+            "anker": 1.0,
+            "bank": 0.0,
+            "becken": 1.0,
+            "birne": 1.0,
+            "blatt": 1.0,
+            "bremse": 0.0,
+            "cookie": 1.0,
+            "fluegel": 0.0,
+            "gericht": 0.8,
+            "golf": 0.0,
+            "hahn": 0.8,
+            "iris": 1.0,
+            "kiefer": 1.0,
+            "kohl": 1.0,
+            "krebs": 1.0,
+            "laeufer": 0.0,
+            "leiter": 1.0,
+            "mandel": 1.0,
+            "maus": 1.0,
+            "reif": 0.8,
+            "schloss": 1.0,
+            "star": 0.0,
+            "steuer": 1.0,
+            "strauss": 1.0,
+            "strom": 1.0,
+            "ton": 0.0,
+            "wasserhahn": 1.0,
+            "zelle": 1.0,
+            "zug": 1.0
+          },
+          "run_scores": [
+            0.7379310344827585
+          ]
+        },
+        "m03_facts": {
+          "score": 0.9333333333333333,
+          "n": 1,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 0.0,
+            "jahresabo": 0.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 1.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.9333333333333333
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.771875,
+          "n": 1,
+          "samples": {
+            "alpenbahn": 0.0,
+            "alte-zapfsaeulen": 1.0,
+            "altstadt": 0.0,
+            "bootshaus": 0.0,
+            "brandenburger-tor": 0.7,
+            "erdfunkstelle": 1.0,
+            "fernseher-rauschen": 1.0,
+            "friedensengel": 1.0,
+            "gemuesemarkt": 1.0,
+            "glockenspiel": 1.0,
+            "kameramann": 1.0,
+            "kassendisplay": 1.0,
+            "keramikladen": 0.0,
+            "kuerbisse": 1.0,
+            "ladestecker": 1.0,
+            "oktoberfest": 1.0,
+            "olympiaturm": 1.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 1.0,
+            "reichstag": 0.0,
+            "ritterturnier": 0.0,
+            "roehrenfernseher": 1.0,
+            "schaf": 1.0,
+            "schwimmender-markt": 0.0,
+            "strandstuehle": 1.0,
+            "supermarkt": 1.0,
+            "weihnachtsmarkt": 1.0,
+            "wohnzimmer": 1.0,
+            "zapfpistolen": 1.0
+          },
+          "run_scores": [
+            0.771875
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/gemma4-31b-think-on-budget512",
+      "overall": 0.767816091954023,
+      "complete": false,
+      "tasks_scored": 2,
+      "tasks_missing": [
+        "a01_browser_audit",
+        "m02_knowledge_mc",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "m01_titles": {
+          "score": 0.5689655172413793,
+          "n": 3,
+          "samples": {
+            "anker": 1.0,
+            "bank": 1.0,
+            "becken": 0.0,
+            "birne": 1.0,
+            "blatt": 0.0,
+            "bremse": 1.0,
+            "cookie": 1.0,
+            "fluegel": 1.0,
+            "gericht": 0.8,
+            "golf": 1.0,
+            "hahn": 0.8,
+            "iris": 0.0,
+            "kiefer": 1.0,
+            "kohl": 1.0,
+            "krebs": 0.0,
+            "laeufer": 0.0,
+            "leiter": 1.0,
+            "mandel": 1.0,
+            "maus": 0.0,
+            "reif": 0.0,
+            "schloss": 1.0,
+            "star": 0.0,
+            "steuer": 0.0,
+            "strauss": 1.0,
+            "strom": 1.0,
+            "ton": 0.0,
+            "wasserhahn": 0.0,
+            "zelle": 0.9,
+            "zug": 0.0
+          },
+          "run_scores": [
+            0.8793103448275862,
+            0.7862068965517242,
+            0.7862068965517242
+          ]
+        },
+        "m03_facts": {
+          "score": 0.9666666666666667,
+          "n": 1,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 0.0,
+            "jahresabo": 1.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 1.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.9666666666666667
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.8-27b-think-medium-budget512",
+      "overall": 0.717948717948718,
+      "complete": false,
+      "tasks_scored": 1,
+      "tasks_missing": [
+        "a01_browser_audit",
+        "m01_titles",
+        "m03_facts",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "m02_knowledge_mc": {
+          "score": 0.717948717948718,
+          "n": 1,
+          "samples": {
+            "at-abgb": 1.0,
+            "at-bahn-bagatelle": 0.0,
+            "at-bundespraesident": 1.0,
+            "at-ebinterface": 0.0,
+            "at-eu-beitritt": 1.0,
+            "at-firmenbuch": 1.0,
+            "at-fisolen": 1.0,
+            "at-laenderkammer": 1.0,
+            "at-nationalrat": 1.0,
+            "at-nic-at": 1.0,
+            "at-paradeiser": 1.0,
+            "at-ribisel": 1.0,
+            "at-sommerferien": 0.0,
+            "at-svnr": 0.0,
+            "at-urlaub": 0.0,
+            "at-vorwahl-0316": 1.0,
+            "at-vorwahl-0662": 1.0,
+            "at-wahlalter": 1.0,
+            "bildung-uni-bamberg": 1.0,
+            "bildung-uni-oldenburg": 1.0,
+            "ch-bundesrat-mitglieder": 1.0,
+            "ch-mwst": 1.0,
+            "ch-natel": 1.0,
+            "ch-qr-rechnung": 1.0,
+            "ch-referendum-frist": 1.0,
+            "ch-switch": 1.0,
+            "ch-volksinitiative": 1.0,
+            "geo_de-fluss-schweinfurt": 1.0,
+            "geo_de-ilz": 0.0,
+            "geo_de-kfz-en": 0.0,
+            "geo_de-kfz-kuen": 1.0,
+            "geo_de-kfz-vs": 0.0,
+            "geo_de-rb-dortmund": 1.0,
+            "geo_de-rb-mittelfranken": 1.0,
+            "geo_de-vorwahl-0761": 1.0,
+            "geo_de-vorwahl-0821": 1.0,
+            "geo_de-wertach": 1.0,
+            "geo_welt-iseosee": 1.0,
+            "geo_welt-nowosibirsk": 1.0,
+            "geschichte-amazon-de": 0.0,
+            "geschichte-de-domain": 0.0,
+            "geschichte-erste-email": 0.0,
+            "geschichte-euro-bulgarien": 1.0,
+            "geschichte-google": 1.0,
+            "geschichte-kanzler-2": 1.0,
+            "geschichte-mindestlohn": 0.0,
+            "geschichte-moedlareuth": 1.0,
+            "geschichte-otto": 1.0,
+            "geschichte-plz": 1.0,
+            "geschichte-zollverein": 1.0,
+            "marken-1860-fussball": 1.0,
+            "marken-alando": 0.0,
+            "marken-billa": 0.0,
+            "marken-borussia": 1.0,
+            "marken-edeka": 0.0,
+            "marken-football-muenchen": 0.0,
+            "marken-hakle": 1.0,
+            "marken-hanuta": 0.0,
+            "marken-leica": 0.0,
+            "marken-lidl": 0.0,
+            "marken-migros": 0.0,
+            "marken-persil": 1.0,
+            "marken-rewe": 1.0,
+            "marken-rimowa": 0.0,
+            "marken-spar": 0.0,
+            "marken-tesa": 0.0,
+            "natwiss-eisen-neutronen": 1.0,
+            "recht-ai-act": 1.0,
+            "recht-aufbewahrung-belege": 0.0,
+            "recht-bayern-bundesrat": 0.0,
+            "recht-beweislastumkehr": 0.0,
+            "recht-bfsg": 1.0,
+            "recht-dsa": 1.0,
+            "recht-dsgvo-bussgeld": 1.0,
+            "recht-dsgvo-meldefrist": 1.0,
+            "recht-e-rechnung": 1.0,
+            "recht-gewaehrleistung-frist": 1.0,
+            "recht-gpsr": 1.0,
+            "recht-gwg": 1.0,
+            "recht-hessen-bundesrat": 0.0,
+            "recht-impressum": 1.0,
+            "recht-jugendschutz-bier": 0.0,
+            "recht-kindergeld-2026": 1.0,
+            "recht-kleinunternehmer": 1.0,
+            "recht-kuendigungsbutton": 0.0,
+            "recht-mietkaution": 1.0,
+            "recht-mindestlohn-2026": 0.0,
+            "recht-mindesturlaub": 0.0,
+            "recht-minijob-2026": 0.0,
+            "recht-omnibus-vergleichspreis": 0.0,
+            "recht-oss-schwelle": 0.0,
+            "recht-probezeit": 1.0,
+            "recht-promille": 1.0,
+            "recht-reparatur-gewaehrleistung": 0.0,
+            "recht-schwerbehinderung": 1.0,
+            "recht-sepa-erstattung": 1.0,
+            "recht-usb-c": 1.0,
+            "recht-ust-19": 0.0,
+            "recht-verjaehrung": 1.0,
+            "recht-verjaehrungsbeginn": 1.0,
+            "recht-verzug-30-tage": 1.0,
+            "recht-verzugspauschale": 1.0,
+            "recht-verzugszins-b2b": 0.0,
+            "recht-widerruf-erloeschen": 1.0,
+            "reisen-adamello-brenta": 1.0,
+            "reisen-ballermann": 1.0,
+            "reisen-dticket-2026": 0.0,
+            "reisen-dticket-start": 0.0,
+            "reisen-dtv-ferienwohnung": 0.0,
+            "reisen-ees": 0.0,
+            "reisen-euro-kroatien": 1.0,
+            "reisen-fluggast-400": 1.0,
+            "reisen-flughafen-bremen": 0.0,
+            "reisen-flughafen-hamburg": 1.0,
+            "reisen-flughafen-linz": 1.0,
+            "reisen-flughafen-nuernberg": 0.0,
+            "reisen-flughafen-stuttgart": 0.0,
+            "reisen-hotelstars": 1.0,
+            "reisen-iata-altenrhein": 1.0,
+            "reisen-iata-hannover": 1.0,
+            "reisen-iata-karlsruhe": 1.0,
+            "reisen-iata-memmingen": 1.0,
+            "reisen-iata-nrn": 1.0,
+            "reisen-iata-saarbruecken": 1.0,
+            "reisen-kinderreisepass": 0.0,
+            "reisen-klimaticket": 0.0,
+            "reisen-novalja": 1.0,
+            "reisen-np-gesaeuse": 1.0,
+            "reisen-np-hainich": 1.0,
+            "reisen-np-kalkalpen": 1.0,
+            "reisen-np-schweiz": 1.0,
+            "reisen-pauschalreise-preis": 0.0,
+            "reisen-schengen-bg-ro": 1.0,
+            "reisen-ski-lech": 1.0,
+            "reisen-ski-saalbach": 1.0,
+            "reisen-sylt-damm": 1.0,
+            "reisen-taburiente": 0.0,
+            "reisen-vignette-ch": 1.0,
+            "shop-alkohol-angabe": 1.0,
+            "shop-alkoholfrei": 1.0,
+            "shop-allergene": 1.0,
+            "shop-alpine-symbol": 1.0,
+            "shop-bh-groesse": 1.0,
+            "shop-bio-anteil": 1.0,
+            "shop-dot-nummer": 1.0,
+            "shop-e14": 1.0,
+            "shop-ean-deutschland": 1.0,
+            "shop-ei-gewicht": 1.0,
+            "shop-elektrog-flaeche": 0.0,
+            "shop-energielabel": 1.0,
+            "shop-eprel": 1.0,
+            "shop-etrto-27-5": 1.0,
+            "shop-etrto-622": 1.0,
+            "shop-feinunze": 1.0,
+            "shop-grossbrief": 1.0,
+            "shop-grundpreis-einheit": 0.0,
+            "shop-gu10": 1.0,
+            "shop-herrengroesse-schlank": 0.0,
+            "shop-ip67": 1.0,
+            "shop-kaschmir": 1.0,
+            "shop-lastindex-91": 1.0,
+            "shop-lemberger": 1.0,
+            "shop-lucid": 1.0,
+            "shop-nord-lead": 1.0,
+            "shop-op-1": 1.0,
+            "shop-papier-b5": 1.0,
+            "shop-pariser-stich": 1.0,
+            "shop-pfand-milch": 0.0,
+            "shop-pflegesymbol-trockner": 1.0,
+            "shop-porto-2025": 0.0,
+            "shop-ringgroesse": 1.0,
+            "shop-schuko-typ": 1.0,
+            "shop-speedindex-h": 1.0,
+            "shop-staubsauger-watt": 0.0,
+            "shop-steckdose-schweiz": 1.0,
+            "shop-synth-jupiter": 0.0,
+            "shop-umschlag-dl": 1.0,
+            "shop-usb-gen2x2": 1.0,
+            "shop-wassersaeule": 1.0,
+            "shop-widerruf": 1.0,
+            "shop-zugferd": 1.0,
+            "web-308": 1.0,
+            "web-451": 1.0,
+            "web-eurid": 1.0,
+            "web-hreflang-ch": 1.0,
+            "web-inp-fid": 1.0,
+            "web-inp-gut": 1.0,
+            "web-lcp-gut": 1.0,
+            "web-mobilegeddon": 1.0,
+            "web-penguin": 1.0,
+            "web-robots-groesse": 1.0,
+            "web-robots-rfc": 1.0,
+            "web-schema-org": 1.0,
+            "web-sitemap-groesse": 1.0,
+            "web-sitemap-urls": 1.0
+          },
+          "run_scores": [
+            0.717948717948718
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/gemma4-26b-a4b-think-on",
+      "overall": 0.6970802927143305,
+      "complete": true,
+      "tasks_scored": 5,
+      "tasks_missing": [],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.3195084485407066,
+          "n": 3,
+          "samples": {
+            "kartenshop": 0.3195084485407066
+          },
+          "run_scores": [
+            0.4574358974358974,
+            0.31988795518207286,
+            0.3195084485407066
+          ]
+        },
+        "m01_titles": {
+          "score": 0.6344827586206896,
+          "n": 3,
+          "samples": {
+            "anker": 1.0,
+            "bank": 0.0,
+            "becken": 1.0,
+            "birne": 1.0,
+            "blatt": 1.0,
+            "bremse": 1.0,
+            "cookie": 1.0,
+            "fluegel": 0.8,
+            "gericht": 0.0,
+            "golf": 0.0,
+            "hahn": 0.0,
+            "iris": 0.0,
+            "kiefer": 0.0,
+            "kohl": 1.0,
+            "krebs": 1.0,
+            "laeufer": 0.0,
+            "leiter": 0.0,
+            "mandel": 1.0,
+            "maus": 1.0,
+            "reif": 0.8,
+            "schloss": 0.8,
+            "star": 0.0,
+            "steuer": 1.0,
+            "strauss": 1.0,
+            "strom": 1.0,
+            "ton": 0.0,
+            "wasserhahn": 1.0,
+            "zelle": 1.0,
+            "zug": 1.0
+          },
+          "run_scores": [
+            0.8482758620689655,
+            0.8482758620689655,
+            0.9172413793103449
+          ]
+        },
+        "m02_knowledge_mc": {
+          "score": 0.7230769230769231,
+          "n": 3,
+          "samples": {
+            "at-abgb": 1.0,
+            "at-bahn-bagatelle": 0.0,
+            "at-bundespraesident": 0.0,
+            "at-ebinterface": 0.0,
+            "at-eu-beitritt": 1.0,
+            "at-firmenbuch": 1.0,
+            "at-fisolen": 1.0,
+            "at-laenderkammer": 1.0,
+            "at-nationalrat": 0.0,
+            "at-nic-at": 1.0,
+            "at-paradeiser": 1.0,
+            "at-ribisel": 1.0,
+            "at-sommerferien": 0.0,
+            "at-svnr": 1.0,
+            "at-urlaub": 0.0,
+            "at-vorwahl-0316": 1.0,
+            "at-vorwahl-0662": 1.0,
+            "at-wahlalter": 0.0,
+            "bildung-uni-bamberg": 0.0,
+            "bildung-uni-oldenburg": 1.0,
+            "ch-bundesrat-mitglieder": 1.0,
+            "ch-mwst": 1.0,
+            "ch-natel": 1.0,
+            "ch-qr-rechnung": 1.0,
+            "ch-referendum-frist": 1.0,
+            "ch-switch": 1.0,
+            "ch-volksinitiative": 1.0,
+            "geo_de-fluss-schweinfurt": 1.0,
+            "geo_de-ilz": 1.0,
+            "geo_de-kfz-en": 1.0,
+            "geo_de-kfz-kuen": 0.0,
+            "geo_de-kfz-vs": 0.0,
+            "geo_de-rb-dortmund": 1.0,
+            "geo_de-rb-mittelfranken": 1.0,
+            "geo_de-vorwahl-0761": 0.0,
+            "geo_de-vorwahl-0821": 1.0,
+            "geo_de-wertach": 1.0,
+            "geo_welt-iseosee": 1.0,
+            "geo_welt-nowosibirsk": 1.0,
+            "geschichte-amazon-de": 0.0,
+            "geschichte-de-domain": 0.0,
+            "geschichte-erste-email": 1.0,
+            "geschichte-euro-bulgarien": 0.0,
+            "geschichte-google": 0.0,
+            "geschichte-kanzler-2": 1.0,
+            "geschichte-mindestlohn": 1.0,
+            "geschichte-moedlareuth": 1.0,
+            "geschichte-otto": 1.0,
+            "geschichte-plz": 1.0,
+            "geschichte-zollverein": 1.0,
+            "marken-1860-fussball": 0.0,
+            "marken-alando": 1.0,
+            "marken-billa": 0.0,
+            "marken-borussia": 1.0,
+            "marken-edeka": 1.0,
+            "marken-football-muenchen": 0.0,
+            "marken-hakle": 1.0,
+            "marken-hanuta": 1.0,
+            "marken-leica": 1.0,
+            "marken-lidl": 1.0,
+            "marken-migros": 1.0,
+            "marken-persil": 1.0,
+            "marken-rewe": 0.0,
+            "marken-rimowa": 0.0,
+            "marken-spar": 0.0,
+            "marken-tesa": 0.0,
+            "natwiss-eisen-neutronen": 1.0,
+            "recht-ai-act": 1.0,
+            "recht-aufbewahrung-belege": 0.0,
+            "recht-bayern-bundesrat": 0.0,
+            "recht-beweislastumkehr": 1.0,
+            "recht-bfsg": 1.0,
+            "recht-dsa": 1.0,
+            "recht-dsgvo-bussgeld": 1.0,
+            "recht-dsgvo-meldefrist": 1.0,
+            "recht-e-rechnung": 0.0,
+            "recht-gewaehrleistung-frist": 1.0,
+            "recht-gpsr": 1.0,
+            "recht-gwg": 1.0,
+            "recht-hessen-bundesrat": 0.0,
+            "recht-impressum": 1.0,
+            "recht-jugendschutz-bier": 1.0,
+            "recht-kindergeld-2026": 0.0,
+            "recht-kleinunternehmer": 0.0,
+            "recht-kuendigungsbutton": 1.0,
+            "recht-mietkaution": 1.0,
+            "recht-mindestlohn-2026": 0.0,
+            "recht-mindesturlaub": 0.0,
+            "recht-minijob-2026": 0.0,
+            "recht-omnibus-vergleichspreis": 1.0,
+            "recht-oss-schwelle": 0.0,
+            "recht-probezeit": 1.0,
+            "recht-promille": 0.0,
+            "recht-reparatur-gewaehrleistung": 0.0,
+            "recht-schwerbehinderung": 1.0,
+            "recht-sepa-erstattung": 1.0,
+            "recht-usb-c": 1.0,
+            "recht-ust-19": 1.0,
+            "recht-verjaehrung": 1.0,
+            "recht-verjaehrungsbeginn": 1.0,
+            "recht-verzug-30-tage": 1.0,
+            "recht-verzugspauschale": 1.0,
+            "recht-verzugszins-b2b": 1.0,
+            "recht-widerruf-erloeschen": 0.0,
+            "reisen-adamello-brenta": 1.0,
+            "reisen-ballermann": 1.0,
+            "reisen-dticket-2026": 0.0,
+            "reisen-dticket-start": 1.0,
+            "reisen-dtv-ferienwohnung": 0.0,
+            "reisen-ees": 0.0,
+            "reisen-euro-kroatien": 1.0,
+            "reisen-fluggast-400": 1.0,
+            "reisen-flughafen-bremen": 0.0,
+            "reisen-flughafen-hamburg": 1.0,
+            "reisen-flughafen-linz": 1.0,
+            "reisen-flughafen-nuernberg": 0.0,
+            "reisen-flughafen-stuttgart": 0.0,
+            "reisen-hotelstars": 1.0,
+            "reisen-iata-altenrhein": 0.0,
+            "reisen-iata-hannover": 1.0,
+            "reisen-iata-karlsruhe": 1.0,
+            "reisen-iata-memmingen": 1.0,
+            "reisen-iata-nrn": 1.0,
+            "reisen-iata-saarbruecken": 0.0,
+            "reisen-kinderreisepass": 0.0,
+            "reisen-klimaticket": 0.0,
+            "reisen-novalja": 1.0,
+            "reisen-np-gesaeuse": 1.0,
+            "reisen-np-hainich": 1.0,
+            "reisen-np-kalkalpen": 1.0,
+            "reisen-np-schweiz": 1.0,
+            "reisen-pauschalreise-preis": 0.0,
+            "reisen-schengen-bg-ro": 0.0,
+            "reisen-ski-lech": 1.0,
+            "reisen-ski-saalbach": 1.0,
+            "reisen-sylt-damm": 1.0,
+            "reisen-taburiente": 1.0,
+            "reisen-vignette-ch": 0.0,
+            "shop-alkohol-angabe": 1.0,
+            "shop-alkoholfrei": 1.0,
+            "shop-allergene": 1.0,
+            "shop-alpine-symbol": 1.0,
+            "shop-bh-groesse": 1.0,
+            "shop-bio-anteil": 1.0,
+            "shop-dot-nummer": 1.0,
+            "shop-e14": 1.0,
+            "shop-ean-deutschland": 1.0,
+            "shop-ei-gewicht": 1.0,
+            "shop-elektrog-flaeche": 1.0,
+            "shop-energielabel": 1.0,
+            "shop-eprel": 1.0,
+            "shop-etrto-27-5": 1.0,
+            "shop-etrto-622": 1.0,
+            "shop-feinunze": 1.0,
+            "shop-grossbrief": 1.0,
+            "shop-grundpreis-einheit": 0.0,
+            "shop-gu10": 1.0,
+            "shop-herrengroesse-schlank": 0.0,
+            "shop-ip67": 1.0,
+            "shop-kaschmir": 1.0,
+            "shop-lastindex-91": 1.0,
+            "shop-lemberger": 1.0,
+            "shop-lucid": 1.0,
+            "shop-nord-lead": 1.0,
+            "shop-op-1": 1.0,
+            "shop-papier-b5": 1.0,
+            "shop-pariser-stich": 1.0,
+            "shop-pfand-milch": 0.0,
+            "shop-pflegesymbol-trockner": 1.0,
+            "shop-porto-2025": 0.0,
+            "shop-ringgroesse": 1.0,
+            "shop-schuko-typ": 1.0,
+            "shop-speedindex-h": 1.0,
+            "shop-staubsauger-watt": 1.0,
+            "shop-steckdose-schweiz": 1.0,
+            "shop-synth-jupiter": 1.0,
+            "shop-umschlag-dl": 1.0,
+            "shop-usb-gen2x2": 1.0,
+            "shop-wassersaeule": 1.0,
+            "shop-widerruf": 1.0,
+            "shop-zugferd": 1.0,
+            "web-308": 1.0,
+            "web-451": 1.0,
+            "web-eurid": 1.0,
+            "web-hreflang-ch": 1.0,
+            "web-inp-fid": 1.0,
+            "web-inp-gut": 1.0,
+            "web-lcp-gut": 1.0,
+            "web-mobilegeddon": 1.0,
+            "web-penguin": 0.0,
+            "web-robots-groesse": 1.0,
+            "web-robots-rfc": 0.0,
+            "web-schema-org": 1.0,
+            "web-sitemap-groesse": 1.0,
+            "web-sitemap-urls": 1.0
+          },
+          "run_scores": [
+            0.7589743589743589,
+            0.8153846153846154,
+            0.7794871794871795
+          ]
+        },
+        "m03_facts": {
+          "score": 0.9333333333333333,
+          "n": 4,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 0.0,
+            "jahresabo": 0.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 1.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.9333333333333333,
+            0.9333333333333333,
+            0.9666666666666667,
+            0.9333333333333333
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.875,
+          "n": 2,
+          "samples": {
+            "alpenbahn": 1.0,
+            "alte-zapfsaeulen": 1.0,
+            "altstadt": 1.0,
+            "bootshaus": 1.0,
+            "brandenburger-tor": 1.0,
+            "erdfunkstelle": 1.0,
+            "fernseher-rauschen": 1.0,
+            "friedensengel": 1.0,
+            "gemuesemarkt": 1.0,
+            "glockenspiel": 0.0,
+            "kameramann": 1.0,
+            "kassendisplay": 1.0,
+            "keramikladen": 1.0,
+            "kuerbisse": 0.0,
+            "ladestecker": 1.0,
+            "oktoberfest": 1.0,
+            "olympiaturm": 1.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 1.0,
+            "reichstag": 1.0,
+            "ritterturnier": 1.0,
+            "roehrenfernseher": 1.0,
+            "schaf": 1.0,
+            "schwimmender-markt": 1.0,
+            "strandstuehle": 1.0,
+            "supermarkt": 1.0,
+            "weihnachtsmarkt": 1.0,
+            "wohnzimmer": 0.0,
+            "zapfpistolen": 0.0
+          },
+          "run_scores": [
+            0.875,
+            0.96875
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/gemma4-31b-think-on",
+      "overall": 0.6902678571428571,
+      "complete": false,
+      "tasks_scored": 2,
+      "tasks_missing": [
+        "m01_titles",
+        "m02_knowledge_mc",
+        "m03_facts"
+      ],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.4742857142857143,
+          "n": 1,
+          "samples": {
+            "kartenshop": 0.4742857142857143
+          },
+          "run_scores": [
+            0.4742857142857143
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.90625,
+          "n": 1,
+          "samples": {
+            "alpenbahn": 1.0,
+            "alte-zapfsaeulen": 1.0,
+            "altstadt": 1.0,
+            "bootshaus": 1.0,
+            "brandenburger-tor": 1.0,
+            "erdfunkstelle": 1.0,
+            "fernseher-rauschen": 1.0,
+            "friedensengel": 1.0,
+            "gemuesemarkt": 1.0,
+            "glockenspiel": 1.0,
+            "kameramann": 1.0,
+            "kassendisplay": 1.0,
+            "keramikladen": 1.0,
+            "kuerbisse": 1.0,
+            "ladestecker": 1.0,
+            "oktoberfest": 1.0,
+            "olympiaturm": 0.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 1.0,
+            "reichstag": 1.0,
+            "ritterturnier": 1.0,
+            "roehrenfernseher": 1.0,
+            "schaf": 1.0,
+            "schwimmender-markt": 0.0,
+            "strandstuehle": 1.0,
+            "supermarkt": 1.0,
+            "weihnachtsmarkt": 1.0,
+            "wohnzimmer": 0.0,
+            "zapfpistolen": 1.0
+          },
+          "run_scores": [
+            0.90625
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.6-35b-a3b-think-on-precise",
+      "overall": 0.6635403838259442,
+      "complete": false,
+      "tasks_scored": 4,
+      "tasks_missing": [
+        "m02_knowledge_mc"
+      ],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.39047619047619053,
+          "n": 3,
+          "samples": {
+            "kartenshop": 0.39047619047619053
+          },
+          "run_scores": [
+            0.47698412698412695,
+            0.39047619047619053,
+            0.505303910181959
+          ]
+        },
+        "m01_titles": {
+          "score": 0.6793103448275862,
+          "n": 1,
+          "samples": {
+            "anker": 0.9,
+            "bank": 0.0,
+            "becken": 1.0,
+            "birne": 1.0,
+            "blatt": 1.0,
+            "bremse": 1.0,
+            "cookie": 1.0,
+            "fluegel": 1.0,
+            "gericht": 0.8,
+            "golf": 1.0,
+            "hahn": 1.0,
+            "iris": 0.0,
+            "kiefer": 0.0,
+            "kohl": 1.0,
+            "krebs": 0.0,
+            "laeufer": 1.0,
+            "leiter": 1.0,
+            "mandel": 1.0,
+            "maus": 0.0,
+            "reif": 1.0,
+            "schloss": 0.0,
+            "star": 1.0,
+            "steuer": 1.0,
+            "strauss": 1.0,
+            "strom": 0.0,
+            "ton": 0.0,
+            "wasserhahn": 1.0,
+            "zelle": 0.0,
+            "zug": 1.0
+          },
+          "run_scores": [
+            0.6793103448275862
+          ]
+        },
+        "m03_facts": {
+          "score": 0.9,
+          "n": 1,
+          "samples": {
+            "abpreis": 0.0,
+            "aerosafe": 0.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 1.0,
+            "jahresabo": 1.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 0.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.9
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.684375,
+          "n": 1,
+          "samples": {
+            "alpenbahn": 0.0,
+            "alte-zapfsaeulen": 1.0,
+            "altstadt": 0.0,
+            "bootshaus": 0.0,
+            "brandenburger-tor": 1.0,
+            "erdfunkstelle": 0.0,
+            "fernseher-rauschen": 1.0,
+            "friedensengel": 1.0,
+            "gemuesemarkt": 1.0,
+            "glockenspiel": 1.0,
+            "kameramann": 0.9,
+            "kassendisplay": 0.0,
+            "keramikladen": 0.0,
+            "kuerbisse": 1.0,
+            "ladestecker": 0.0,
+            "oktoberfest": 0.0,
+            "olympiaturm": 1.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 1.0,
+            "reichstag": 1.0,
+            "ritterturnier": 1.0,
+            "roehrenfernseher": 1.0,
+            "schaf": 1.0,
+            "schwimmender-markt": 1.0,
+            "strandstuehle": 1.0,
+            "supermarkt": 1.0,
+            "weihnachtsmarkt": 1.0,
+            "wohnzimmer": 0.0,
+            "zapfpistolen": 0.0
+          },
+          "run_scores": [
+            0.684375
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.6-35b-a3b-think-on-precise-budget512",
+      "overall": 0.6615384615384615,
+      "complete": false,
+      "tasks_scored": 1,
+      "tasks_missing": [
+        "a01_browser_audit",
+        "m01_titles",
+        "m03_facts",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "m02_knowledge_mc": {
+          "score": 0.6615384615384615,
+          "n": 1,
+          "samples": {
+            "at-abgb": 1.0,
+            "at-bahn-bagatelle": 0.0,
+            "at-bundespraesident": 1.0,
+            "at-ebinterface": 1.0,
+            "at-eu-beitritt": 1.0,
+            "at-firmenbuch": 1.0,
+            "at-fisolen": 1.0,
+            "at-laenderkammer": 1.0,
+            "at-nationalrat": 1.0,
+            "at-nic-at": 1.0,
+            "at-paradeiser": 1.0,
+            "at-ribisel": 1.0,
+            "at-sommerferien": 0.0,
+            "at-svnr": 0.0,
+            "at-urlaub": 0.0,
+            "at-vorwahl-0316": 1.0,
+            "at-vorwahl-0662": 1.0,
+            "at-wahlalter": 1.0,
+            "bildung-uni-bamberg": 1.0,
+            "bildung-uni-oldenburg": 1.0,
+            "ch-bundesrat-mitglieder": 1.0,
+            "ch-mwst": 1.0,
+            "ch-natel": 1.0,
+            "ch-qr-rechnung": 0.0,
+            "ch-referendum-frist": 0.0,
+            "ch-switch": 1.0,
+            "ch-volksinitiative": 1.0,
+            "geo_de-fluss-schweinfurt": 1.0,
+            "geo_de-ilz": 1.0,
+            "geo_de-kfz-en": 1.0,
+            "geo_de-kfz-kuen": 1.0,
+            "geo_de-kfz-vs": 0.0,
+            "geo_de-rb-dortmund": 1.0,
+            "geo_de-rb-mittelfranken": 0.0,
+            "geo_de-vorwahl-0761": 0.0,
+            "geo_de-vorwahl-0821": 1.0,
+            "geo_de-wertach": 1.0,
+            "geo_welt-iseosee": 1.0,
+            "geo_welt-nowosibirsk": 1.0,
+            "geschichte-amazon-de": 1.0,
+            "geschichte-de-domain": 1.0,
+            "geschichte-erste-email": 0.0,
+            "geschichte-euro-bulgarien": 0.0,
+            "geschichte-google": 1.0,
+            "geschichte-kanzler-2": 1.0,
+            "geschichte-mindestlohn": 1.0,
+            "geschichte-moedlareuth": 0.0,
+            "geschichte-otto": 0.0,
+            "geschichte-plz": 1.0,
+            "geschichte-zollverein": 0.0,
+            "marken-1860-fussball": 1.0,
+            "marken-alando": 0.0,
+            "marken-billa": 0.0,
+            "marken-borussia": 1.0,
+            "marken-edeka": 0.0,
+            "marken-football-muenchen": 0.0,
+            "marken-hakle": 1.0,
+            "marken-hanuta": 0.0,
+            "marken-leica": 1.0,
+            "marken-lidl": 0.0,
+            "marken-migros": 0.0,
+            "marken-persil": 1.0,
+            "marken-rewe": 0.0,
+            "marken-rimowa": 0.0,
+            "marken-spar": 0.0,
+            "marken-tesa": 0.0,
+            "natwiss-eisen-neutronen": 1.0,
+            "recht-ai-act": 1.0,
+            "recht-aufbewahrung-belege": 0.0,
+            "recht-bayern-bundesrat": 0.0,
+            "recht-beweislastumkehr": 0.0,
+            "recht-bfsg": 1.0,
+            "recht-dsa": 1.0,
+            "recht-dsgvo-bussgeld": 1.0,
+            "recht-dsgvo-meldefrist": 1.0,
+            "recht-e-rechnung": 0.0,
+            "recht-gewaehrleistung-frist": 0.0,
+            "recht-gpsr": 1.0,
+            "recht-gwg": 1.0,
+            "recht-hessen-bundesrat": 0.0,
+            "recht-impressum": 0.0,
+            "recht-jugendschutz-bier": 1.0,
+            "recht-kindergeld-2026": 0.0,
+            "recht-kleinunternehmer": 0.0,
+            "recht-kuendigungsbutton": 0.0,
+            "recht-mietkaution": 1.0,
+            "recht-mindestlohn-2026": 0.0,
+            "recht-mindesturlaub": 1.0,
+            "recht-minijob-2026": 0.0,
+            "recht-omnibus-vergleichspreis": 1.0,
+            "recht-oss-schwelle": 0.0,
+            "recht-probezeit": 1.0,
+            "recht-promille": 1.0,
+            "recht-reparatur-gewaehrleistung": 0.0,
+            "recht-schwerbehinderung": 1.0,
+            "recht-sepa-erstattung": 0.0,
+            "recht-usb-c": 0.0,
+            "recht-ust-19": 1.0,
+            "recht-verjaehrung": 1.0,
+            "recht-verjaehrungsbeginn": 1.0,
+            "recht-verzug-30-tage": 1.0,
+            "recht-verzugspauschale": 1.0,
+            "recht-verzugszins-b2b": 1.0,
+            "recht-widerruf-erloeschen": 1.0,
+            "reisen-adamello-brenta": 1.0,
+            "reisen-ballermann": 0.0,
+            "reisen-dticket-2026": 0.0,
+            "reisen-dticket-start": 1.0,
+            "reisen-dtv-ferienwohnung": 0.0,
+            "reisen-ees": 0.0,
+            "reisen-euro-kroatien": 1.0,
+            "reisen-fluggast-400": 0.0,
+            "reisen-flughafen-bremen": 0.0,
+            "reisen-flughafen-hamburg": 1.0,
+            "reisen-flughafen-linz": 1.0,
+            "reisen-flughafen-nuernberg": 0.0,
+            "reisen-flughafen-stuttgart": 0.0,
+            "reisen-hotelstars": 1.0,
+            "reisen-iata-altenrhein": 1.0,
+            "reisen-iata-hannover": 1.0,
+            "reisen-iata-karlsruhe": 1.0,
+            "reisen-iata-memmingen": 1.0,
+            "reisen-iata-nrn": 1.0,
+            "reisen-iata-saarbruecken": 1.0,
+            "reisen-kinderreisepass": 0.0,
+            "reisen-klimaticket": 0.0,
+            "reisen-novalja": 1.0,
+            "reisen-np-gesaeuse": 1.0,
+            "reisen-np-hainich": 1.0,
+            "reisen-np-kalkalpen": 1.0,
+            "reisen-np-schweiz": 1.0,
+            "reisen-pauschalreise-preis": 1.0,
+            "reisen-schengen-bg-ro": 0.0,
+            "reisen-ski-lech": 1.0,
+            "reisen-ski-saalbach": 1.0,
+            "reisen-sylt-damm": 1.0,
+            "reisen-taburiente": 1.0,
+            "reisen-vignette-ch": 1.0,
+            "shop-alkohol-angabe": 1.0,
+            "shop-alkoholfrei": 1.0,
+            "shop-allergene": 1.0,
+            "shop-alpine-symbol": 1.0,
+            "shop-bh-groesse": 0.0,
+            "shop-bio-anteil": 1.0,
+            "shop-dot-nummer": 1.0,
+            "shop-e14": 0.0,
+            "shop-ean-deutschland": 1.0,
+            "shop-ei-gewicht": 0.0,
+            "shop-elektrog-flaeche": 1.0,
+            "shop-energielabel": 1.0,
+            "shop-eprel": 1.0,
+            "shop-etrto-27-5": 1.0,
+            "shop-etrto-622": 0.0,
+            "shop-feinunze": 1.0,
+            "shop-grossbrief": 0.0,
+            "shop-grundpreis-einheit": 1.0,
+            "shop-gu10": 1.0,
+            "shop-herrengroesse-schlank": 0.0,
+            "shop-ip67": 1.0,
+            "shop-kaschmir": 1.0,
+            "shop-lastindex-91": 1.0,
+            "shop-lemberger": 1.0,
+            "shop-lucid": 1.0,
+            "shop-nord-lead": 1.0,
+            "shop-op-1": 1.0,
+            "shop-papier-b5": 1.0,
+            "shop-pariser-stich": 1.0,
+            "shop-pfand-milch": 0.0,
+            "shop-pflegesymbol-trockner": 1.0,
+            "shop-porto-2025": 0.0,
+            "shop-ringgroesse": 1.0,
+            "shop-schuko-typ": 1.0,
+            "shop-speedindex-h": 1.0,
+            "shop-staubsauger-watt": 0.0,
+            "shop-steckdose-schweiz": 0.0,
+            "shop-synth-jupiter": 1.0,
+            "shop-umschlag-dl": 1.0,
+            "shop-usb-gen2x2": 1.0,
+            "shop-wassersaeule": 0.0,
+            "shop-widerruf": 1.0,
+            "shop-zugferd": 0.0,
+            "web-308": 1.0,
+            "web-451": 1.0,
+            "web-eurid": 1.0,
+            "web-hreflang-ch": 1.0,
+            "web-inp-fid": 1.0,
+            "web-inp-gut": 1.0,
+            "web-lcp-gut": 0.0,
+            "web-mobilegeddon": 0.0,
+            "web-penguin": 1.0,
+            "web-robots-groesse": 1.0,
+            "web-robots-rfc": 1.0,
+            "web-schema-org": 1.0,
+            "web-sitemap-groesse": 1.0,
+            "web-sitemap-urls": 1.0
+          },
+          "run_scores": [
+            0.6615384615384615
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/gemma4-12b-think-on",
+      "overall": 0.6109821691718244,
+      "complete": true,
+      "tasks_scored": 5,
+      "tasks_missing": [],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.22393162393162394,
+          "n": 1,
+          "samples": {
+            "kartenshop": 0.22393162393162394
+          },
+          "run_scores": [
+            0.22393162393162394
+          ]
+        },
+        "m01_titles": {
+          "score": 0.5620689655172414,
+          "n": 3,
+          "samples": {
+            "anker": 0.8,
+            "bank": 0.0,
+            "becken": 0.0,
+            "birne": 1.0,
+            "blatt": 1.0,
+            "bremse": 1.0,
+            "cookie": 0.0,
+            "fluegel": 1.0,
+            "gericht": 0.8,
+            "golf": 1.0,
+            "hahn": 0.8,
+            "iris": 1.0,
+            "kiefer": 0.0,
+            "kohl": 1.0,
+            "krebs": 1.0,
+            "laeufer": 1.0,
+            "leiter": 1.0,
+            "mandel": 0.0,
+            "maus": 0.0,
+            "reif": 0.0,
+            "schloss": 1.0,
+            "star": 1.0,
+            "steuer": 0.0,
+            "strauss": 0.0,
+            "strom": 1.0,
+            "ton": 0.0,
+            "wasserhahn": 0.0,
+            "zelle": 0.9,
+            "zug": 0.0
+          },
+          "run_scores": [
+            0.6793103448275862,
+            0.7,
+            0.9482758620689655
+          ]
+        },
+        "m02_knowledge_mc": {
+          "score": 0.7230769230769231,
+          "n": 1,
+          "samples": {
+            "at-abgb": 1.0,
+            "at-bahn-bagatelle": 0.0,
+            "at-bundespraesident": 1.0,
+            "at-ebinterface": 0.0,
+            "at-eu-beitritt": 1.0,
+            "at-firmenbuch": 1.0,
+            "at-fisolen": 1.0,
+            "at-laenderkammer": 1.0,
+            "at-nationalrat": 1.0,
+            "at-nic-at": 1.0,
+            "at-paradeiser": 1.0,
+            "at-ribisel": 1.0,
+            "at-sommerferien": 0.0,
+            "at-svnr": 1.0,
+            "at-urlaub": 0.0,
+            "at-vorwahl-0316": 0.0,
+            "at-vorwahl-0662": 1.0,
+            "at-wahlalter": 1.0,
+            "bildung-uni-bamberg": 0.0,
+            "bildung-uni-oldenburg": 0.0,
+            "ch-bundesrat-mitglieder": 1.0,
+            "ch-mwst": 1.0,
+            "ch-natel": 1.0,
+            "ch-qr-rechnung": 1.0,
+            "ch-referendum-frist": 1.0,
+            "ch-switch": 1.0,
+            "ch-volksinitiative": 1.0,
+            "geo_de-fluss-schweinfurt": 1.0,
+            "geo_de-ilz": 1.0,
+            "geo_de-kfz-en": 1.0,
+            "geo_de-kfz-kuen": 0.0,
+            "geo_de-kfz-vs": 0.0,
+            "geo_de-rb-dortmund": 1.0,
+            "geo_de-rb-mittelfranken": 0.0,
+            "geo_de-vorwahl-0761": 1.0,
+            "geo_de-vorwahl-0821": 0.0,
+            "geo_de-wertach": 0.0,
+            "geo_welt-iseosee": 1.0,
+            "geo_welt-nowosibirsk": 1.0,
+            "geschichte-amazon-de": 1.0,
+            "geschichte-de-domain": 0.0,
+            "geschichte-erste-email": 1.0,
+            "geschichte-euro-bulgarien": 0.0,
+            "geschichte-google": 1.0,
+            "geschichte-kanzler-2": 0.0,
+            "geschichte-mindestlohn": 1.0,
+            "geschichte-moedlareuth": 1.0,
+            "geschichte-otto": 1.0,
+            "geschichte-plz": 1.0,
+            "geschichte-zollverein": 1.0,
+            "marken-1860-fussball": 1.0,
+            "marken-alando": 0.0,
+            "marken-billa": 0.0,
+            "marken-borussia": 0.0,
+            "marken-edeka": 1.0,
+            "marken-football-muenchen": 0.0,
+            "marken-hakle": 1.0,
+            "marken-hanuta": 0.0,
+            "marken-leica": 1.0,
+            "marken-lidl": 1.0,
+            "marken-migros": 1.0,
+            "marken-persil": 1.0,
+            "marken-rewe": 0.0,
+            "marken-rimowa": 0.0,
+            "marken-spar": 1.0,
+            "marken-tesa": 0.0,
+            "natwiss-eisen-neutronen": 1.0,
+            "recht-ai-act": 1.0,
+            "recht-aufbewahrung-belege": 0.0,
+            "recht-bayern-bundesrat": 1.0,
+            "recht-beweislastumkehr": 1.0,
+            "recht-bfsg": 1.0,
+            "recht-dsa": 1.0,
+            "recht-dsgvo-bussgeld": 1.0,
+            "recht-dsgvo-meldefrist": 1.0,
+            "recht-e-rechnung": 1.0,
+            "recht-gewaehrleistung-frist": 1.0,
+            "recht-gpsr": 1.0,
+            "recht-gwg": 1.0,
+            "recht-hessen-bundesrat": 0.0,
+            "recht-impressum": 1.0,
+            "recht-jugendschutz-bier": 0.0,
+            "recht-kindergeld-2026": 0.0,
+            "recht-kleinunternehmer": 0.0,
+            "recht-kuendigungsbutton": 1.0,
+            "recht-mietkaution": 1.0,
+            "recht-mindestlohn-2026": 0.0,
+            "recht-mindesturlaub": 1.0,
+            "recht-minijob-2026": 1.0,
+            "recht-omnibus-vergleichspreis": 1.0,
+            "recht-oss-schwelle": 1.0,
+            "recht-probezeit": 1.0,
+            "recht-promille": 1.0,
+            "recht-reparatur-gewaehrleistung": 0.0,
+            "recht-schwerbehinderung": 1.0,
+            "recht-sepa-erstattung": 1.0,
+            "recht-usb-c": 1.0,
+            "recht-ust-19": 1.0,
+            "recht-verjaehrung": 1.0,
+            "recht-verjaehrungsbeginn": 0.0,
+            "recht-verzug-30-tage": 0.0,
+            "recht-verzugspauschale": 1.0,
+            "recht-verzugszins-b2b": 1.0,
+            "recht-widerruf-erloeschen": 1.0,
+            "reisen-adamello-brenta": 1.0,
+            "reisen-ballermann": 0.0,
+            "reisen-dticket-2026": 0.0,
+            "reisen-dticket-start": 1.0,
+            "reisen-dtv-ferienwohnung": 0.0,
+            "reisen-ees": 0.0,
+            "reisen-euro-kroatien": 1.0,
+            "reisen-fluggast-400": 1.0,
+            "reisen-flughafen-bremen": 0.0,
+            "reisen-flughafen-hamburg": 0.0,
+            "reisen-flughafen-linz": 1.0,
+            "reisen-flughafen-nuernberg": 0.0,
+            "reisen-flughafen-stuttgart": 0.0,
+            "reisen-hotelstars": 1.0,
+            "reisen-iata-altenrhein": 1.0,
+            "reisen-iata-hannover": 0.0,
+            "reisen-iata-karlsruhe": 1.0,
+            "reisen-iata-memmingen": 1.0,
+            "reisen-iata-nrn": 1.0,
+            "reisen-iata-saarbruecken": 0.0,
+            "reisen-kinderreisepass": 0.0,
+            "reisen-klimaticket": 0.0,
+            "reisen-novalja": 1.0,
+            "reisen-np-gesaeuse": 1.0,
+            "reisen-np-hainich": 1.0,
+            "reisen-np-kalkalpen": 1.0,
+            "reisen-np-schweiz": 1.0,
+            "reisen-pauschalreise-preis": 0.0,
+            "reisen-schengen-bg-ro": 0.0,
+            "reisen-ski-lech": 1.0,
+            "reisen-ski-saalbach": 1.0,
+            "reisen-sylt-damm": 1.0,
+            "reisen-taburiente": 1.0,
+            "reisen-vignette-ch": 1.0,
+            "shop-alkohol-angabe": 1.0,
+            "shop-alkoholfrei": 1.0,
+            "shop-allergene": 1.0,
+            "shop-alpine-symbol": 1.0,
+            "shop-bh-groesse": 1.0,
+            "shop-bio-anteil": 1.0,
+            "shop-dot-nummer": 1.0,
+            "shop-e14": 1.0,
+            "shop-ean-deutschland": 1.0,
+            "shop-ei-gewicht": 1.0,
+            "shop-elektrog-flaeche": 1.0,
+            "shop-energielabel": 1.0,
+            "shop-eprel": 1.0,
+            "shop-etrto-27-5": 1.0,
+            "shop-etrto-622": 1.0,
+            "shop-feinunze": 1.0,
+            "shop-grossbrief": 1.0,
+            "shop-grundpreis-einheit": 0.0,
+            "shop-gu10": 1.0,
+            "shop-herrengroesse-schlank": 0.0,
+            "shop-ip67": 1.0,
+            "shop-kaschmir": 1.0,
+            "shop-lastindex-91": 0.0,
+            "shop-lemberger": 0.0,
+            "shop-lucid": 1.0,
+            "shop-nord-lead": 0.0,
+            "shop-op-1": 1.0,
+            "shop-papier-b5": 1.0,
+            "shop-pariser-stich": 1.0,
+            "shop-pfand-milch": 1.0,
+            "shop-pflegesymbol-trockner": 1.0,
+            "shop-porto-2025": 0.0,
+            "shop-ringgroesse": 1.0,
+            "shop-schuko-typ": 1.0,
+            "shop-speedindex-h": 1.0,
+            "shop-staubsauger-watt": 0.0,
+            "shop-steckdose-schweiz": 1.0,
+            "shop-synth-jupiter": 1.0,
+            "shop-umschlag-dl": 1.0,
+            "shop-usb-gen2x2": 1.0,
+            "shop-wassersaeule": 1.0,
+            "shop-widerruf": 1.0,
+            "shop-zugferd": 1.0,
+            "web-308": 1.0,
+            "web-451": 1.0,
+            "web-eurid": 1.0,
+            "web-hreflang-ch": 1.0,
+            "web-inp-fid": 1.0,
+            "web-inp-gut": 1.0,
+            "web-lcp-gut": 1.0,
+            "web-mobilegeddon": 1.0,
+            "web-penguin": 1.0,
+            "web-robots-groesse": 1.0,
+            "web-robots-rfc": 0.0,
+            "web-schema-org": 1.0,
+            "web-sitemap-groesse": 1.0,
+            "web-sitemap-urls": 1.0
+          },
+          "run_scores": [
+            0.7230769230769231
+          ]
+        },
+        "m03_facts": {
+          "score": 0.7333333333333333,
+          "n": 1,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 0.0,
+            "ausgelistet": 1.0,
+            "breezemax": 0.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 0.0,
+            "jahresabo": 0.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 0.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 0.0,
+            "steueranteil": 1.0,
+            "thermogo": 0.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 0.0
+          },
+          "run_scores": [
+            0.7333333333333333
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.8125,
+          "n": 1,
+          "samples": {
+            "alpenbahn": 1.0,
+            "alte-zapfsaeulen": 1.0,
+            "altstadt": 1.0,
+            "bootshaus": 1.0,
+            "brandenburger-tor": 1.0,
+            "erdfunkstelle": 1.0,
+            "fernseher-rauschen": 1.0,
+            "friedensengel": 1.0,
+            "gemuesemarkt": 1.0,
+            "glockenspiel": 1.0,
+            "kameramann": 1.0,
+            "kassendisplay": 1.0,
+            "keramikladen": 0.0,
+            "kuerbisse": 1.0,
+            "ladestecker": 1.0,
+            "oktoberfest": 0.0,
+            "olympiaturm": 0.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 1.0,
+            "reichstag": 1.0,
+            "ritterturnier": 1.0,
+            "roehrenfernseher": 1.0,
+            "schaf": 1.0,
+            "schwimmender-markt": 0.0,
+            "strandstuehle": 0.0,
+            "supermarkt": 1.0,
+            "weihnachtsmarkt": 0.0,
+            "wohnzimmer": 1.0,
+            "zapfpistolen": 1.0
+          },
+          "run_scores": [
+            0.8125
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.5-9b-think-on-precise-budget512",
+      "overall": 0.5987547892720306,
+      "complete": false,
+      "tasks_scored": 3,
+      "tasks_missing": [
+        "a01_browser_audit",
+        "m02_knowledge_mc"
+      ],
+      "cells": {
+        "m01_titles": {
+          "score": 0.4379310344827586,
+          "n": 1,
+          "samples": {
+            "anker": 1.0,
+            "bank": 0.0,
+            "becken": 0.0,
+            "birne": 0.0,
+            "blatt": 0.0,
+            "bremse": 0.0,
+            "cookie": 0.0,
+            "fluegel": 1.0,
+            "gericht": 0.0,
+            "golf": 1.0,
+            "hahn": 0.0,
+            "iris": 1.0,
+            "kiefer": 1.0,
+            "kohl": 1.0,
+            "krebs": 0.0,
+            "laeufer": 0.0,
+            "leiter": 0.0,
+            "mandel": 0.0,
+            "maus": 0.0,
+            "reif": 0.0,
+            "schloss": 1.0,
+            "star": 1.0,
+            "steuer": 0.0,
+            "strauss": 0.0,
+            "strom": 1.0,
+            "ton": 0.8,
+            "wasserhahn": 1.0,
+            "zelle": 0.9,
+            "zug": 1.0
+          },
+          "run_scores": [
+            0.43793103448275866
+          ]
+        },
+        "m03_facts": {
+          "score": 0.9333333333333333,
+          "n": 1,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 1.0,
+            "jahresabo": 0.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 0.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.9333333333333333
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.425,
+          "n": 1,
+          "samples": {
+            "alpenbahn": 1.0,
+            "alte-zapfsaeulen": 0.0,
+            "altstadt": 0.0,
+            "bootshaus": 0.0,
+            "brandenburger-tor": 0.7,
+            "erdfunkstelle": 0.0,
+            "fernseher-rauschen": 0.0,
+            "friedensengel": 0.0,
+            "gemuesemarkt": 0.7,
+            "glockenspiel": 0.7,
+            "kameramann": 1.0,
+            "kassendisplay": 0.0,
+            "keramikladen": 0.0,
+            "kuerbisse": 1.0,
+            "ladestecker": 0.0,
+            "oktoberfest": 0.0,
+            "olympiaturm": 0.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 0.5,
+            "reichstag": 0.0,
+            "ritterturnier": 1.0,
+            "roehrenfernseher": 1.0,
+            "schaf": 1.0,
+            "schwimmender-markt": 0.0,
+            "strandstuehle": 0.0,
+            "supermarkt": 0.0,
+            "weihnachtsmarkt": 1.0,
+            "wohnzimmer": 0.0,
+            "zapfpistolen": 0.0
+          },
+          "run_scores": [
+            0.42500000000000004
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/gemma4-e4b-think-on",
+      "overall": 0.5715277777777777,
+      "complete": false,
+      "tasks_scored": 3,
+      "tasks_missing": [
+        "m01_titles",
+        "m02_knowledge_mc"
+      ],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.0,
+          "n": 1,
+          "samples": {
+            "kartenshop": 0.0
+          },
+          "run_scores": [
+            0.0
+          ]
+        },
+        "m03_facts": {
+          "score": 0.9333333333333333,
+          "n": 1,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 1.0,
+            "jahresabo": 0.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 1.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 0.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.9333333333333333
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.78125,
+          "n": 1,
+          "samples": {
+            "alpenbahn": 1.0,
+            "alte-zapfsaeulen": 0.0,
+            "altstadt": 1.0,
+            "bootshaus": 1.0,
+            "brandenburger-tor": 1.0,
+            "erdfunkstelle": 1.0,
+            "fernseher-rauschen": 1.0,
+            "friedensengel": 1.0,
+            "gemuesemarkt": 1.0,
+            "glockenspiel": 0.0,
+            "kameramann": 1.0,
+            "kassendisplay": 1.0,
+            "keramikladen": 1.0,
+            "kuerbisse": 1.0,
+            "ladestecker": 0.0,
+            "oktoberfest": 1.0,
+            "olympiaturm": 1.0,
+            "palmen-strand": 1.0,
+            "pinguine": 1.0,
+            "porsche": 1.0,
+            "quadriga": 1.0,
+            "radrennen": 1.0,
+            "reichstag": 0.0,
+            "ritterturnier": 1.0,
+            "roehrenfernseher": 1.0,
+            "schaf": 0.0,
+            "schwimmender-markt": 0.0,
+            "strandstuehle": 1.0,
+            "supermarkt": 1.0,
+            "weihnachtsmarkt": 1.0,
+            "wohnzimmer": 1.0,
+            "zapfpistolen": 0.0
+          },
+          "run_scores": [
+            0.78125
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/gemma4-e4b-think-on-budget512",
+      "overall": 0.5620689655172414,
+      "complete": false,
+      "tasks_scored": 1,
+      "tasks_missing": [
+        "a01_browser_audit",
+        "m02_knowledge_mc",
+        "m03_facts",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "m01_titles": {
+          "score": 0.5620689655172414,
+          "n": 3,
+          "samples": {
+            "anker": 1.0,
+            "bank": 0.9,
+            "becken": 0.0,
+            "birne": 0.9,
+            "blatt": 0.0,
+            "bremse": 0.9,
+            "cookie": 0.7,
+            "fluegel": 1.0,
+            "gericht": 0.0,
+            "golf": 0.9,
+            "hahn": 0.0,
+            "iris": 0.0,
+            "kiefer": 0.0,
+            "kohl": 0.9,
+            "krebs": 1.0,
+            "laeufer": 1.0,
+            "leiter": 0.0,
+            "mandel": 0.0,
+            "maus": 1.0,
+            "reif": 0.8,
+            "schloss": 0.0,
+            "star": 0.9,
+            "steuer": 0.9,
+            "strauss": 0.8,
+            "strom": 0.0,
+            "ton": 0.0,
+            "wasserhahn": 0.7,
+            "zelle": 1.0,
+            "zug": 1.0
+          },
+          "run_scores": [
+            0.7310344827586207,
+            0.8172413793103448,
+            0.7793103448275862
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/kolibri1-78b-a3b-think-medium-budget512",
+      "overall": 0.5,
+      "complete": false,
+      "tasks_scored": 2,
+      "tasks_missing": [
+        "a01_browser_audit",
+        "m02_knowledge_mc",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "m01_titles": {
+          "score": 0.0,
+          "n": 2,
+          "samples": {
+            "anker": 0.0,
+            "bank": 0.0,
+            "becken": 0.0,
+            "birne": 0.0,
+            "blatt": 0.0,
+            "bremse": 0.0,
+            "cookie": 0.0,
+            "fluegel": 0.0,
+            "gericht": 0.0,
+            "golf": 0.0,
+            "hahn": 0.0,
+            "iris": 0.0,
+            "kiefer": 0.0,
+            "kohl": 0.0,
+            "krebs": 0.0,
+            "laeufer": 0.0,
+            "leiter": 0.0,
+            "mandel": 0.0,
+            "maus": 0.0,
+            "reif": 0.0,
+            "schloss": 0.0,
+            "star": 0.0,
+            "steuer": 0.0,
+            "strauss": 0.0,
+            "strom": 0.0,
+            "ton": 0.0,
+            "wasserhahn": 0.0,
+            "zelle": 0.0,
+            "zug": 0.0
+          },
+          "run_scores": [
+            0.06896551724137931,
+            0.27586206896551724
+          ]
+        },
+        "m03_facts": {
+          "score": 1.0,
+          "n": 1,
+          "samples": {
+            "abpreis": 1.0,
+            "aerosafe": 1.0,
+            "aquapure": 1.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 1.0,
+            "jahresabo": 1.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 1.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 1.0,
+            "zengrip": 1.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            1.0
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.5-4b-think-on-precise-budget512",
+      "overall": 0.36593630268199234,
+      "complete": false,
+      "tasks_scored": 3,
+      "tasks_missing": [
+        "a01_browser_audit",
+        "m02_knowledge_mc"
+      ],
+      "cells": {
+        "m01_titles": {
+          "score": 0.06551724137931034,
+          "n": 2,
+          "samples": {
+            "anker": 0.0,
+            "bank": 1.0,
+            "becken": 0.9,
+            "birne": 0.0,
+            "blatt": 0.0,
+            "bremse": 0.0,
+            "cookie": 0.0,
+            "fluegel": 0.0,
+            "gericht": 0.0,
+            "golf": 0.0,
+            "hahn": 0.0,
+            "iris": 0.0,
+            "kiefer": 0.0,
+            "kohl": 0.0,
+            "krebs": 0.0,
+            "laeufer": 0.0,
+            "leiter": 0.0,
+            "mandel": 0.0,
+            "maus": 0.0,
+            "reif": 0.0,
+            "schloss": 0.0,
+            "star": 0.0,
+            "steuer": 0.0,
+            "strauss": 0.0,
+            "strom": 0.0,
+            "ton": 0.0,
+            "wasserhahn": 0.0,
+            "zelle": 0.0,
+            "zug": 0.0
+          },
+          "run_scores": [
+            0.18275862068965518,
+            0.303448275862069
+          ]
+        },
+        "m03_facts": {
+          "score": 0.7666666666666667,
+          "n": 1,
+          "samples": {
+            "abpreis": 0.0,
+            "aerosafe": 1.0,
+            "aquapure": 0.0,
+            "ausgelistet": 1.0,
+            "breezemax": 1.0,
+            "chefline": 1.0,
+            "cityroll": 1.0,
+            "ean": 1.0,
+            "ergoflex": 1.0,
+            "farbtitan": 1.0,
+            "flexiflow": 1.0,
+            "grundpreis": 0.0,
+            "jahresabo": 0.0,
+            "lumenarc": 1.0,
+            "mahlwerk": 1.0,
+            "modellnummer": 1.0,
+            "nichtbestellbar": 1.0,
+            "pulseone": 1.0,
+            "reststueck": 1.0,
+            "silentwave": 1.0,
+            "soundrock": 1.0,
+            "sprintx": 1.0,
+            "staffelpreis": 0.0,
+            "steueranteil": 1.0,
+            "thermogo": 1.0,
+            "titancook": 1.0,
+            "trailmaster": 1.0,
+            "voltgo": 0.0,
+            "zengrip": 0.0,
+            "zubehoer": 1.0
+          },
+          "run_scores": [
+            0.7666666666666667
+          ]
+        },
+        "m10_alt_text": {
+          "score": 0.265625,
+          "n": 1,
+          "samples": {
+            "alpenbahn": 0.0,
+            "alte-zapfsaeulen": 0.0,
+            "altstadt": 0.0,
+            "bootshaus": 0.0,
+            "brandenburger-tor": 0.7,
+            "erdfunkstelle": 1.0,
+            "fernseher-rauschen": 0.0,
+            "friedensengel": 0.0,
+            "gemuesemarkt": 0.0,
+            "glockenspiel": 0.0,
+            "kameramann": 0.0,
+            "kassendisplay": 1.0,
+            "keramikladen": 1.0,
+            "kuerbisse": 0.0,
+            "ladestecker": 0.0,
+            "oktoberfest": 0.0,
+            "olympiaturm": 0.0,
+            "palmen-strand": 0.0,
+            "pinguine": 0.0,
+            "porsche": 1.0,
+            "quadriga": 0.9,
+            "radrennen": 0.0,
+            "reichstag": 0.9,
+            "ritterturnier": 0.0,
+            "roehrenfernseher": 0.0,
+            "schaf": 1.0,
+            "schwimmender-markt": 0.0,
+            "strandstuehle": 1.0,
+            "supermarkt": 0.0,
+            "weihnachtsmarkt": 0.0,
+            "wohnzimmer": 0.0,
+            "zapfpistolen": 0.0
+          },
+          "run_scores": [
+            0.265625
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.5-4b-think-on-precise",
+      "overall": 0.06451612903225806,
+      "complete": false,
+      "tasks_scored": 1,
+      "tasks_missing": [
+        "m01_titles",
+        "m02_knowledge_mc",
+        "m03_facts",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.06451612903225806,
+          "n": 1,
+          "samples": {
+            "kartenshop": 0.06451612903225806
+          },
+          "run_scores": [
+            0.06451612903225806
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/qwen3.5-9b-think-on-precise",
+      "overall": 0.03478260869565218,
+      "complete": false,
+      "tasks_scored": 1,
+      "tasks_missing": [
+        "m01_titles",
+        "m02_knowledge_mc",
+        "m03_facts",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.03478260869565218,
+          "n": 1,
+          "samples": {
+            "kartenshop": 0.03478260869565218
+          },
+          "run_scores": [
+            0.03478260869565218
+          ]
+        }
+      },
+      "judge_cells": {}
+    },
+    {
+      "model": "local/kolibri1-78b-a3b-think-medium",
+      "overall": 0.01904761904761905,
+      "complete": false,
+      "tasks_scored": 1,
+      "tasks_missing": [
+        "m01_titles",
+        "m02_knowledge_mc",
+        "m03_facts",
+        "m10_alt_text"
+      ],
+      "cells": {
+        "a01_browser_audit": {
+          "score": 0.01904761904761905,
+          "n": 1,
+          "samples": {
+            "kartenshop": 0.01904761904761905
+          },
+          "run_scores": [
+            0.01904761904761905
+          ]
+        }
+      },
+      "judge_cells": {}
+    }
+  ],
+  "runs": [
+    {
+      "file": "2026-10-21T06-47-02-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_NXBZ9FqH3ZRmZVrmwBEqAj.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.4574358974358974,
+      "stderr": 0,
+      "created": "2026-10-21T06:47:02+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T07-11-39-00-00_a01-browser-audit_local-gemma4-e4b-think-on_mMmUFoNNKd9oBWmKRdqNXC.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/gemma4-e4b-think-on",
+      "score": 0.0,
+      "stderr": 0,
+      "created": "2026-10-21T07:11:39+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T07-19-27-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_64pno9LhhyoSKudvDjxx2U.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium",
+      "score": 0.9333333333333333,
+      "stderr": 0,
+      "created": "2026-10-21T07:19:27+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T07-55-07-00-00_a01-browser-audit_local-qwen3.5-4b-think-on-precise_Bj8uD3xgYuaaEjWmxoXLBa.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.5-4b-think-on-precise",
+      "score": 0.06451612903225806,
+      "stderr": 0,
+      "created": "2026-10-21T07:55:07+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T08-12-54-00-00_a01-browser-audit_local-qwen3.5-9b-think-on-precise_GaCLGcY4v9NHhdLecabgkS.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.5-9b-think-on-precise",
+      "score": 0.03478260869565218,
+      "stderr": 0,
+      "created": "2026-10-21T08:12:54+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T09-35-08-00-00_a01-browser-audit_local-gemma4-31b-think-on_o6GPFa36zDyc45GEM3xj3r.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/gemma4-31b-think-on",
+      "score": 0.4742857142857143,
+      "stderr": 0,
+      "created": "2026-10-21T09:35:08+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T11-42-29-00-00_a01-browser-audit_local-kolibri1-78b-a3b-think-medium_CHgB7Acqd3zGtMP4LKwrs6.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/kolibri1-78b-a3b-think-medium",
+      "score": 0.01904761904761905,
+      "stderr": 0,
+      "created": "2026-10-21T11:42:29+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T13-20-21-00-00_a01-browser-audit_local-gemma4-12b-think-on_TxyHKNMBnEvfDsTmBHY3Mw.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/gemma4-12b-think-on",
+      "score": 0.22393162393162394,
+      "stderr": 0,
+      "created": "2026-10-21T13:20:21+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-21T13-48-46-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_abDkMfY8neCh5gGp8KkVsx.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.6-35b-a3b-think-on-precise",
+      "score": 0.47698412698412695,
+      "stderr": 0,
+      "created": "2026-10-21T13:48:46+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T14-31-15-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_FXitY8n7WxWvBBokmfAixL.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9057057057057059,
+      "stderr": 0,
+      "created": "2026-10-22T14:31:15+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T15-22-21-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_YSTBgHfppSYRNqKMXtRspq.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9714285714285713,
+      "stderr": 0,
+      "created": "2026-10-22T15:22:21+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T15-29-08-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_JTbQunkds6TYRMCfST4VEw.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9714285714285713,
+      "stderr": 0,
+      "created": "2026-10-22T15:29:08+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T15-53-09-00-00_m03-facts_anthropic-claude-haiku-5-5_cLgG3vWkDBKbpUvrVaBVCF.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9333333333333333,
+      "stderr": 0.04632055558531008,
+      "created": "2026-10-22T15:53:09+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T15-56-32-00-00_m03-facts_anthropic-claude-haiku-5-5_3TdRRmaP8MKc3tB8UmwUWD.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9,
+      "stderr": 0.055708601453115555,
+      "created": "2026-10-22T15:56:32+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-04-03-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_h5PgTVqUHNyoQ8vu4QAtwX.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9282051282051282,
+      "stderr": 0.018533943251995637,
+      "created": "2026-10-22T16:04:03+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-11-25-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_j3oPHRnzGcasKmuCTSXrWz.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9230769230769231,
+      "stderr": 0.019131384745146425,
+      "created": "2026-10-22T16:11:25+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-16-04-00-00_m01-titles_anthropic-claude-haiku-5-5_4ivCmu5XgCVp3jCqLqV8Hq.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9586206896551724,
+      "stderr": 0.03492329433451448,
+      "created": "2026-10-22T16:16:04+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-17-10-00-00_m01-titles_anthropic-claude-haiku-5-5_U6ig58ry6Wgd23d9aZouTL.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9310344827586207,
+      "stderr": 0.04788724653995956,
+      "created": "2026-10-22T16:17:10+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-18-22-00-00_m01-titles_anthropic-claude-haiku-5-5_Ca6Ze4NVHv9AyLHiKB8YH5.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9586206896551724,
+      "stderr": 0.03492329433451448,
+      "created": "2026-10-22T16:18:22+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-20-20-00-00_m10-alt-text_anthropic-claude-haiku-5-5_YEZm2Yen4XKJwJg9h2ZPJr.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.8968750000000001,
+      "stderr": 0.04698240383549238,
+      "created": "2026-10-22T16:20:20+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-22-03-00-00_m10-alt-text_anthropic-claude-haiku-5-5_PrGgBcomFTfFesKZ3fsiAJ.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.94375,
+      "stderr": 0.024567837288460254,
+      "created": "2026-10-22T16:22:03+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-22T16-37-04-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_3ZywJpYEZNwsxZwfaVakAq.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "anthropic/claude-haiku-5-5-think-adaptive",
+      "score": 0.9282051282051282,
+      "stderr": 0.018533943251995637,
+      "created": "2026-10-22T16:37:04+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T08-26-49-00-00_m01-titles_local-gemma4-26b-a4b-think-on_Pwiy2Z639DABWRNHSwBfa7.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.8482758620689655,
+      "stderr": 0.06482653809025896,
+      "created": "2026-10-23T08:26:49+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T09-29-44-00-00_m01-titles_local-gemma4-26b-a4b-think-on_HwFBi5jPhtdmNpHztPo2sQ.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.8482758620689655,
+      "stderr": 0.06482653809025894,
+      "created": "2026-10-23T09:29:44+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T09-52-11-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_H96xGZL5MvGLf43qBHRBEo.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.7589743589743589,
+      "stderr": 0.030707489381124192,
+      "created": "2026-10-23T09:52:11+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T10-44-38-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_X5DeCJqWtRMow2mXmKvhSP.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.8153846153846154,
+      "stderr": 0.027855716655754183,
+      "created": "2026-10-23T10:44:38+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T11-48-56-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_dpiicBv5v4c7WLrQDWMGHc.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.7794871794871795,
+      "stderr": 0.029766004661644065,
+      "created": "2026-10-23T11:48:56+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T12-47-19-00-00_m03-facts_local-gemma4-26b-a4b-think-on_6CfDv3Ea4A2qACSvEkQN7o.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.9333333333333333,
+      "stderr": 0.04632055558531008,
+      "created": "2026-10-23T12:47:19+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T12-54-50-00-00_m03-facts_local-gemma4-26b-a4b-think-on_dtiyBgStzEybrRt4bC6Keu.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.9333333333333333,
+      "stderr": 0.04632055558531008,
+      "created": "2026-10-23T12:54:50+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T13-01-52-00-00_m03-facts_local-gemma4-26b-a4b-think-on_3NeRmDHCB6Ri5icHJkBs5n.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.9666666666666667,
+      "stderr": 0.03333333333333333,
+      "created": "2026-10-23T13:01:52+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T13-08-56-00-00_m10-alt-text_local-gemma4-26b-a4b-think-on_eF2FGS4NwQvkjZbTNZytMd.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.875,
+      "stderr": 0.059398870413936426,
+      "created": "2026-10-23T13:08:56+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-23T14-10-38-00-00_m10-alt-text_local-gemma4-26b-a4b-think-on_KWX7MGYmwP57NoR5Wo45tP.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.96875,
+      "stderr": 0.03125,
+      "created": "2026-10-23T14:10:38+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-24T10-03-21-00-00_m01-titles_local-gemma4-12b-think-on_3Wmt9EpbhqWvPD7E8xEfBd.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-12b-think-on",
+      "score": 0.6793103448275862,
+      "stderr": 0.0864430263614298,
+      "created": "2026-10-24T10:03:21+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-24T12-20-51-00-00_m01-titles_local-gemma4-12b-think-on_SLmKd2XRXLn7LKdF3zGmX4.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-12b-think-on",
+      "score": 0.7,
+      "stderr": 0.08245016407897711,
+      "created": "2026-10-24T12:20:51+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-24T14-12-54-00-00_m02-knowledge-mc_local-gemma4-12b-think-on_Kpik7RzBYmh6LiY9dqLrbq.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "local/gemma4-12b-think-on",
+      "score": 0.7230769230769231,
+      "stderr": 0.032127058190759325,
+      "created": "2026-10-24T14:12:54+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T11-43-35-00-00_m01-titles_local-gemma4-26b-a4b-think-on_FFfTQpYrtryfeXxhcD9FSv.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.9172413793103449,
+      "stderr": 0.048134910346033934,
+      "created": "2026-10-25T11:43:35+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T11-49-37-00-00_m03-facts_local-gemma4-26b-a4b-think-on_SCJ99xUHXXZ3SHjPCSJNou.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.9333333333333333,
+      "stderr": 0.04632055558531008,
+      "created": "2026-10-25T11:49:37+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T13-43-04-00-00_m10-alt-text_local-gemma4-31b-think-on_F33f7qvacpzfzctZk2kbQP.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/gemma4-31b-think-on",
+      "score": 0.90625,
+      "stderr": 0.0523514603733822,
+      "created": "2026-10-25T13:43:04+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T14-17-01-00-00_m01-titles_local-gemma4-12b-think-on_5bYGaSmFfyJk5u7xF4nhLP.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-12b-think-on",
+      "score": 0.9482758620689655,
+      "stderr": 0.03531026785705897,
+      "created": "2026-10-25T14:17:01+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T14-26-06-00-00_m03-facts_local-gemma4-12b-think-on_TktxYm3sXfqVXL9oNautcR.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/gemma4-12b-think-on",
+      "score": 0.7333333333333333,
+      "stderr": 0.0821175682735253,
+      "created": "2026-10-25T14:26:06+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T14-35-49-00-00_m10-alt-text_local-gemma4-12b-think-on_Bx9pTx9y4FY2M5hRMvYpA7.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/gemma4-12b-think-on",
+      "score": 0.8125,
+      "stderr": 0.0701021719786843,
+      "created": "2026-10-25T14:35:49+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T14-49-00-00-00_m03-facts_local-gemma4-e4b-think-on_L8C68DFjC395pQxhT7vxLB.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/gemma4-e4b-think-on",
+      "score": 0.9333333333333333,
+      "stderr": 0.046320555585310084,
+      "created": "2026-10-25T14:49:00+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T14-53-43-00-00_m10-alt-text_local-gemma4-e4b-think-on_7jJw5EHd6PQivpwEf43Rr5.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/gemma4-e4b-think-on",
+      "score": 0.78125,
+      "stderr": 0.07424858801742054,
+      "created": "2026-10-25T14:53:43+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T14-56-46-00-00_m01-titles_local-qwen3.8-27b-think-medium_jU6LFRJh4kgHK95g6guJvt.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium",
+      "score": 0.7379310344827585,
+      "stderr": 0.07947081645215819,
+      "created": "2026-10-25T14:56:46+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T15-15-30-00-00_m03-facts_local-qwen3.8-27b-think-medium_KdmRi4xRuh8UHiSBKWSYbx.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium",
+      "score": 0.9333333333333333,
+      "stderr": 0.04632055558531008,
+      "created": "2026-10-25T15:15:30+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T15-21-07-00-00_m10-alt-text_local-qwen3.8-27b-think-medium_7dAfyyChJaAJZRzE2vmGBJ.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium",
+      "score": 0.771875,
+      "stderr": 0.0739488673330343,
+      "created": "2026-10-25T15:21:07+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T16-12-51-00-00_m01-titles_local-qwen3.5-4b-think-on-precise_nRNqArMz8bAnxPjFHLtKpt.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/qwen3.5-4b-think-on-precise-budget512",
+      "score": 0.18275862068965518,
+      "stderr": 0.06824127103046394,
+      "created": "2026-10-25T16:12:51+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T16-29-42-00-00_m03-facts_local-qwen3.5-4b-think-on-precise_TrPphm9py8ayohwd7uhkdF.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/qwen3.5-4b-think-on-precise-budget512",
+      "score": 0.7666666666666667,
+      "stderr": 0.07854032324531729,
+      "created": "2026-10-25T16:29:42+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T16-58-24-00-00_m10-alt-text_local-qwen3.5-4b-think-on-precise_fK7nibRUEtvPzSeQPMVJGM.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/qwen3.5-4b-think-on-precise-budget512",
+      "score": 0.265625,
+      "stderr": 0.0768074381846177,
+      "created": "2026-10-25T16:58:24+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T17-12-08-00-00_m01-titles_local-qwen3.5-9b-think-on-precise_9dKVrbWDHKJEfVh7nvX44J.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/qwen3.5-9b-think-on-precise-budget512",
+      "score": 0.43793103448275866,
+      "stderr": 0.0921037369073681,
+      "created": "2026-10-25T17:12:08+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T17-53-59-00-00_m03-facts_local-qwen3.5-9b-think-on-precise_2DMd9m6Yn45iwUMso547Gn.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/qwen3.5-9b-think-on-precise-budget512",
+      "score": 0.9333333333333333,
+      "stderr": 0.046320555585310084,
+      "created": "2026-10-25T17:53:59+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T18-12-00-00-00_m10-alt-text_local-qwen3.5-9b-think-on-precise_GsLozcwPmcvag53hMhY5NK.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/qwen3.5-9b-think-on-precise-budget512",
+      "score": 0.42500000000000004,
+      "stderr": 0.0836419018311724,
+      "created": "2026-10-25T18:12:00+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-25T18-20-33-00-00_m01-titles_local-kolibri1-78b-a3b-think-medium_RTrD3wBjBsvwHs767ZVPVb.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/kolibri1-78b-a3b-think-medium-budget512",
+      "score": 0.06896551724137931,
+      "stderr": 0.04788724653995956,
+      "created": "2026-10-25T18:20:33+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T09-22-46-00-00_m03-facts_local-gemma4-31b-think-on_hHwdGJVcaJfW2XwwC2RD7U.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/gemma4-31b-think-on-budget512",
+      "score": 0.9666666666666667,
+      "stderr": 0.033333333333333326,
+      "created": "2026-10-26T09:22:46+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T09-55-17-00-00_m03-facts_local-kolibri1-78b-a3b-think-medium_n6x6H2ArVNjnCtyS8EFXRU.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/kolibri1-78b-a3b-think-medium-budget512",
+      "score": 1.0,
+      "stderr": 0.0,
+      "created": "2026-10-26T09:55:17+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T10-26-50-00-00_m01-titles_local-qwen3.5-4b-think-on-precise_fRXjwvDdwQasvSw56d4ucL.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/qwen3.5-4b-think-on-precise-budget512",
+      "score": 0.303448275862069,
+      "stderr": 0.08559884077708949,
+      "created": "2026-10-26T10:26:50+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T10-43-31-00-00_m01-titles_local-kolibri1-78b-a3b-think-medium_4KbjxuGLKaYnA69BqqattQ.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/kolibri1-78b-a3b-think-medium-budget512",
+      "score": 0.27586206896551724,
+      "stderr": 0.08446516354424752,
+      "created": "2026-10-26T10:43:31+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T11-33-48-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_9pjTonuyu9Q7kief4DCV3o.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium",
+      "score": 1.0,
+      "stderr": 0,
+      "created": "2026-10-26T11:33:48+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T12-54-40-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_VVkY4GTZANEkA69ySRBT9d.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.6-35b-a3b-think-on-precise",
+      "score": 0.39047619047619053,
+      "stderr": 0,
+      "created": "2026-10-26T12:54:40+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T13-45-08-00-00_m01-titles_local-qwen3.6-35b-a3b-think-on-precise_GJc6dmCP6AwQWxGYjLVavm.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/qwen3.6-35b-a3b-think-on-precise",
+      "score": 0.6793103448275862,
+      "stderr": 0.08644302636142981,
+      "created": "2026-10-26T13:45:08+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T14-23-06-00-00_m03-facts_local-qwen3.6-35b-a3b-think-on-precise_MJZyuhSqMHVWBDVEbLNDRR.eval",
+      "task": "m03_facts",
+      "version": "1",
+      "model": "local/qwen3.6-35b-a3b-think-on-precise",
+      "score": 0.9,
+      "stderr": 0.055708601453115555,
+      "created": "2026-10-26T14:23:06+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-26T14-46-21-00-00_m10-alt-text_local-qwen3.6-35b-a3b-think-on-precise_hKP9TpGBsnadca4PPctxZ9.eval",
+      "task": "m10_alt_text",
+      "version": "1",
+      "model": "local/qwen3.6-35b-a3b-think-on-precise",
+      "score": 0.684375,
+      "stderr": 0.08292891619410585,
+      "created": "2026-10-26T14:46:21+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-27T10-21-16-00-00_m02-knowledge-mc_local-qwen3.8-27b-think-medium_bZUa5aLAWrgcbfEtGhp2Ya.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium-budget512",
+      "score": 0.717948717948718,
+      "stderr": 0.03230798601799116,
+      "created": "2026-10-27T10:21:16+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-27T10-42-10-00-00_m02-knowledge-mc_local-qwen3.6-35b-a3b-think-on-precise_NLi2V7FPEwHPMBrSL88scy.eval",
+      "task": "m02_knowledge_mc",
+      "version": "1",
+      "model": "local/qwen3.6-35b-a3b-think-on-precise-budget512",
+      "score": 0.6615384615384615,
+      "stderr": 0.033972800327340937,
+      "created": "2026-10-27T10:42:10+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-29T16-00-07-00-00_m01-titles_local-gemma4-31b-think-on_cVurwj87uj7qyifVYjkLGC.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-31b-think-on-budget512",
+      "score": 0.8793103448275862,
+      "stderr": 0.057316705141662205,
+      "created": "2026-10-29T16:00:07+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-29T16-38-07-00-00_m01-titles_local-gemma4-e4b-think-on_bKF3fjwFVWiC6jBtoKd52o.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-e4b-think-on-budget512",
+      "score": 0.7310344827586207,
+      "stderr": 0.07864358840326664,
+      "created": "2026-10-29T16:38:07+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-29T16-41-56-00-00_m01-titles_local-gemma4-31b-think-on_b9x9tHXhsuDhHY6LJ469kr.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-31b-think-on-budget512",
+      "score": 0.7862068965517242,
+      "stderr": 0.07619719974863164,
+      "created": "2026-10-29T16:41:56+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-29T17-21-18-00-00_m01-titles_local-gemma4-31b-think-on_2qLMPgYKKTeu6GpeAzeuCB.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-31b-think-on-budget512",
+      "score": 0.7862068965517242,
+      "stderr": 0.07619719974863165,
+      "created": "2026-10-29T17:21:18+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-29T18-03-06-00-00_m01-titles_local-gemma4-e4b-think-on_G5cd3joqKU2KmwZRsZ5ttN.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-e4b-think-on-budget512",
+      "score": 0.8172413793103448,
+      "stderr": 0.07124317710262433,
+      "created": "2026-10-29T18:03:06+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-29T18-05-54-00-00_m01-titles_local-gemma4-e4b-think-on_6z4QF9wEggZwqYCGMe8xTd.eval",
+      "task": "m01_titles",
+      "version": "1",
+      "model": "local/gemma4-e4b-think-on-budget512",
+      "score": 0.7793103448275862,
+      "stderr": 0.06883608544026597,
+      "created": "2026-10-29T18:05:54+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-30T09-31-58-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_hnXcym2KBj8G6TS2frfFhT.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.31988795518207286,
+      "stderr": 0,
+      "created": "2026-10-30T09:31:58+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-30T09-56-07-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_aroWXNzLMcHMVb7jCjnat6.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/gemma4-26b-a4b-think-on",
+      "score": 0.3195084485407066,
+      "stderr": 0,
+      "created": "2026-10-30T09:56:07+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-30T10-21-31-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_6n2ZVWhK84GbF73w4nP8ez.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium",
+      "score": 1.0,
+      "stderr": 0,
+      "created": "2026-10-30T10:21:31+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-30T11-05-13-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_23jVAhPsP6UBD2xySz4u7W.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.8-27b-think-medium",
+      "score": 0.6993464052287581,
+      "stderr": 0,
+      "created": "2026-10-30T11:05:13+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    },
+    {
+      "file": "2026-10-30T11-36-15-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_A5RcvU8RSiv88tBbgWVBot.eval",
+      "task": "a01_browser_audit",
+      "version": "1",
+      "model": "local/qwen3.6-35b-a3b-think-on-precise",
+      "score": 0.505303910181959,
+      "stderr": 0,
+      "created": "2026-10-30T11:36:15+00:00",
+      "epochs": "1",
+      "benchmark_version": "2026.1"
+    }
+  ],
+  "judges": [],
+  "judge_runs": [],
+  "combined": {
+    "columns": [
+      {
+        "label": "a01_browser_audit · an",
+        "task": "a01_browser_audit",
+        "mode": "an"
+      },
+      {
+        "label": "m01_titles · an",
+        "task": "m01_titles",
+        "mode": "an"
+      },
+      {
+        "label": "m02_knowledge_mc · an",
+        "task": "m02_knowledge_mc",
+        "mode": "an"
+      },
+      {
+        "label": "m03_facts · an",
+        "task": "m03_facts",
+        "mode": "an"
+      },
+      {
+        "label": "m10_alt_text · an",
+        "task": "m10_alt_text",
+        "mode": "an"
+      }
+    ],
+    "totals": [
+      {
+        "label": "Gesamt",
+        "columns": [
+          "a01_browser_audit · an",
+          "m01_titles · an",
+          "m02_knowledge_mc · an",
+          "m03_facts · an",
+          "m10_alt_text · an"
+        ]
+      }
+    ],
+    "models": [
+      {
+        "model": "anthropic/claude-haiku-5-5",
+        "variants": [
+          "anthropic/claude-haiku-5-5-think-adaptive"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.8996546247839351,
+            "complete": true,
+            "tasks_missing": []
+          }
+        },
+        "cells": {
+          "a01_browser_audit · an": {
+            "score": 0.9057057057057059,
+            "n": 3,
+            "source": "anthropic/claude-haiku-5-5-think-adaptive"
+          },
+          "m01_titles · an": {
+            "score": 0.9241379310344828,
+            "n": 3,
+            "source": "anthropic/claude-haiku-5-5-think-adaptive"
+          },
+          "m02_knowledge_mc · an": {
+            "score": 0.8871794871794871,
+            "n": 3,
+            "source": "anthropic/claude-haiku-5-5-think-adaptive"
+          },
+          "m03_facts · an": {
+            "score": 0.9,
+            "n": 2,
+            "source": "anthropic/claude-haiku-5-5-think-adaptive"
+          },
+          "m10_alt_text · an": {
+            "score": 0.88125,
+            "n": 2,
+            "source": "anthropic/claude-haiku-5-5-think-adaptive"
+          }
+        }
+      },
+      {
+        "model": "local/qwen3.8-27b",
+        "variants": [
+          "local/qwen3.8-27b-think-medium",
+          "local/qwen3.8-27b-think-medium-budget512"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.7720868981987137,
+            "complete": true,
+            "tasks_missing": []
+          }
+        },
+        "cells": {
+          "a01_browser_audit · an": {
+            "score": 0.6993464052287581,
+            "n": 4,
+            "source": "local/qwen3.8-27b-think-medium"
+          },
+          "m01_titles · an": {
+            "score": 0.7379310344827585,
+            "n": 1,
+            "source": "local/qwen3.8-27b-think-medium"
+          },
+          "m03_facts · an": {
+            "score": 0.9333333333333333,
+            "n": 1,
+            "source": "local/qwen3.8-27b-think-medium"
+          },
+          "m10_alt_text · an": {
+            "score": 0.771875,
+            "n": 1,
+            "source": "local/qwen3.8-27b-think-medium"
+          },
+          "m02_knowledge_mc · an": {
+            "score": 0.717948717948718,
+            "n": 1,
+            "source": "local/qwen3.8-27b-think-medium-budget512"
+          }
+        }
+      },
+      {
+        "model": "local/gemma4-31b",
+        "variants": [
+          "local/gemma4-31b-think-on",
+          "local/gemma4-31b-think-on-budget512"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.7290419745484401,
+            "complete": false,
+            "tasks_missing": [
+              "m02_knowledge_mc"
+            ]
+          }
+        },
+        "cells": {
+          "m01_titles · an": {
+            "score": 0.5689655172413793,
+            "n": 3,
+            "source": "local/gemma4-31b-think-on-budget512"
+          },
+          "m03_facts · an": {
+            "score": 0.9666666666666667,
+            "n": 1,
+            "source": "local/gemma4-31b-think-on-budget512"
+          },
+          "a01_browser_audit · an": {
+            "score": 0.4742857142857143,
+            "n": 1,
+            "source": "local/gemma4-31b-think-on"
+          },
+          "m10_alt_text · an": {
+            "score": 0.90625,
+            "n": 1,
+            "source": "local/gemma4-31b-think-on"
+          }
+        }
+      },
+      {
+        "model": "local/gemma4-26b-a4b",
+        "variants": [
+          "local/gemma4-26b-a4b-think-on"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.6970802927143305,
+            "complete": true,
+            "tasks_missing": []
+          }
+        },
+        "cells": {
+          "a01_browser_audit · an": {
+            "score": 0.3195084485407066,
+            "n": 3,
+            "source": "local/gemma4-26b-a4b-think-on"
+          },
+          "m01_titles · an": {
+            "score": 0.6344827586206896,
+            "n": 3,
+            "source": "local/gemma4-26b-a4b-think-on"
+          },
+          "m02_knowledge_mc · an": {
+            "score": 0.7230769230769231,
+            "n": 3,
+            "source": "local/gemma4-26b-a4b-think-on"
+          },
+          "m03_facts · an": {
+            "score": 0.9333333333333333,
+            "n": 4,
+            "source": "local/gemma4-26b-a4b-think-on"
+          },
+          "m10_alt_text · an": {
+            "score": 0.875,
+            "n": 2,
+            "source": "local/gemma4-26b-a4b-think-on"
+          }
+        }
+      },
+      {
+        "model": "local/qwen3.6-35b-a3b",
+        "variants": [
+          "local/qwen3.6-35b-a3b-think-on-precise",
+          "local/qwen3.6-35b-a3b-think-on-precise-budget512"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.6631399993684477,
+            "complete": true,
+            "tasks_missing": []
+          }
+        },
+        "cells": {
+          "a01_browser_audit · an": {
+            "score": 0.39047619047619053,
+            "n": 3,
+            "source": "local/qwen3.6-35b-a3b-think-on-precise"
+          },
+          "m01_titles · an": {
+            "score": 0.6793103448275862,
+            "n": 1,
+            "source": "local/qwen3.6-35b-a3b-think-on-precise"
+          },
+          "m03_facts · an": {
+            "score": 0.9,
+            "n": 1,
+            "source": "local/qwen3.6-35b-a3b-think-on-precise"
+          },
+          "m10_alt_text · an": {
+            "score": 0.684375,
+            "n": 1,
+            "source": "local/qwen3.6-35b-a3b-think-on-precise"
+          },
+          "m02_knowledge_mc · an": {
+            "score": 0.6615384615384615,
+            "n": 1,
+            "source": "local/qwen3.6-35b-a3b-think-on-precise-budget512"
+          }
+        }
+      },
+      {
+        "model": "local/gemma4-12b",
+        "variants": [
+          "local/gemma4-12b-think-on"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.6109821691718244,
+            "complete": true,
+            "tasks_missing": []
+          }
+        },
+        "cells": {
+          "a01_browser_audit · an": {
+            "score": 0.22393162393162394,
+            "n": 1,
+            "source": "local/gemma4-12b-think-on"
+          },
+          "m01_titles · an": {
+            "score": 0.5620689655172414,
+            "n": 3,
+            "source": "local/gemma4-12b-think-on"
+          },
+          "m02_knowledge_mc · an": {
+            "score": 0.7230769230769231,
+            "n": 1,
+            "source": "local/gemma4-12b-think-on"
+          },
+          "m03_facts · an": {
+            "score": 0.7333333333333333,
+            "n": 1,
+            "source": "local/gemma4-12b-think-on"
+          },
+          "m10_alt_text · an": {
+            "score": 0.8125,
+            "n": 1,
+            "source": "local/gemma4-12b-think-on"
+          }
+        }
+      },
+      {
+        "model": "local/gemma4-e4b",
+        "variants": [
+          "local/gemma4-e4b-think-on",
+          "local/gemma4-e4b-think-on-budget512"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.5691630747126437,
+            "complete": false,
+            "tasks_missing": [
+              "m02_knowledge_mc"
+            ]
+          }
+        },
+        "cells": {
+          "a01_browser_audit · an": {
+            "score": 0.0,
+            "n": 1,
+            "source": "local/gemma4-e4b-think-on"
+          },
+          "m03_facts · an": {
+            "score": 0.9333333333333333,
+            "n": 1,
+            "source": "local/gemma4-e4b-think-on"
+          },
+          "m10_alt_text · an": {
+            "score": 0.78125,
+            "n": 1,
+            "source": "local/gemma4-e4b-think-on"
+          },
+          "m01_titles · an": {
+            "score": 0.5620689655172414,
+            "n": 3,
+            "source": "local/gemma4-e4b-think-on-budget512"
+          }
+        }
+      },
+      {
+        "model": "local/qwen3.5-9b",
+        "variants": [
+          "local/qwen3.5-9b-think-on-precise",
+          "local/qwen3.5-9b-think-on-precise-budget512"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.457761744127936,
+            "complete": false,
+            "tasks_missing": [
+              "m02_knowledge_mc"
+            ]
+          }
+        },
+        "cells": {
+          "m01_titles · an": {
+            "score": 0.4379310344827586,
+            "n": 1,
+            "source": "local/qwen3.5-9b-think-on-precise-budget512"
+          },
+          "m03_facts · an": {
+            "score": 0.9333333333333333,
+            "n": 1,
+            "source": "local/qwen3.5-9b-think-on-precise-budget512"
+          },
+          "m10_alt_text · an": {
+            "score": 0.425,
+            "n": 1,
+            "source": "local/qwen3.5-9b-think-on-precise-budget512"
+          },
+          "a01_browser_audit · an": {
+            "score": 0.03478260869565218,
+            "n": 1,
+            "source": "local/qwen3.5-9b-think-on-precise"
+          }
+        }
+      },
+      {
+        "model": "local/kolibri1-78b-a3b",
+        "variants": [
+          "local/kolibri1-78b-a3b-think-medium",
+          "local/kolibri1-78b-a3b-think-medium-budget512"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.33968253968253964,
+            "complete": false,
+            "tasks_missing": [
+              "m02_knowledge_mc",
+              "m10_alt_text"
+            ]
+          }
+        },
+        "cells": {
+          "m01_titles · an": {
+            "score": 0.0,
+            "n": 2,
+            "source": "local/kolibri1-78b-a3b-think-medium-budget512"
+          },
+          "m03_facts · an": {
+            "score": 1.0,
+            "n": 1,
+            "source": "local/kolibri1-78b-a3b-think-medium-budget512"
+          },
+          "a01_browser_audit · an": {
+            "score": 0.01904761904761905,
+            "n": 1,
+            "source": "local/kolibri1-78b-a3b-think-medium"
+          }
+        }
+      },
+      {
+        "model": "local/qwen3.5-4b",
+        "variants": [
+          "local/qwen3.5-4b-think-on-precise",
+          "local/qwen3.5-4b-think-on-precise-budget512"
+        ],
+        "totals": {
+          "Gesamt": {
+            "score": 0.2905812592695588,
+            "complete": false,
+            "tasks_missing": [
+              "m02_knowledge_mc"
+            ]
+          }
+        },
+        "cells": {
+          "m01_titles · an": {
+            "score": 0.06551724137931034,
+            "n": 2,
+            "source": "local/qwen3.5-4b-think-on-precise-budget512"
+          },
+          "m03_facts · an": {
+            "score": 0.7666666666666667,
+            "n": 1,
+            "source": "local/qwen3.5-4b-think-on-precise-budget512"
+          },
+          "m10_alt_text · an": {
+            "score": 0.265625,
+            "n": 1,
+            "source": "local/qwen3.5-4b-think-on-precise-budget512"
+          },
+          "a01_browser_audit · an": {
+            "score": 0.06451612903225806,
+            "n": 1,
+            "source": "local/qwen3.5-4b-think-on-precise"
+          }
+        }
+      }
+    ]
+  },
+  "run_stats": {
+    "sampling": {
+      "local/gemma4-26b-a4b-think-on": {
+        "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05": [
+          "a01_browser_audit",
+          "m01_titles",
+          "m02_knowledge_mc",
+          "m03_facts",
+          "m10_alt_text"
+        ]
+      },
+      "local/gemma4-e4b-think-on": {
+        "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05": [
+          "a01_browser_audit",
+          "m03_facts",
+          "m10_alt_text"
+        ]
+      },
+      "local/qwen3.8-27b-think-medium": {
+        "temp 1 · top_p 0.95 · top_k 20 · min_p 0": [
+          "a01_browser_audit",
+          "m01_titles",
+          "m03_facts",
+          "m10_alt_text"
+        ]
+      },
+      "local/qwen3.5-4b-think-on-precise": {
+        "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0": [
+          "a01_browser_audit"
+        ]
+      },
+      "local/qwen3.5-9b-think-on-precise": {
+        "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0": [
+          "a01_browser_audit"
+        ]
+      },
+      "local/gemma4-31b-think-on": {
+        "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05": [
+          "a01_browser_audit",
+          "m10_alt_text"
+        ]
+      },
+      "local/kolibri1-78b-a3b-think-medium": {
+        "temp 1 · top_p 0.97 · top_k 128 · min_p 0.05": [
+          "a01_browser_audit"
+        ]
+      },
+      "local/gemma4-12b-think-on": {
+        "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05": [
+          "a01_browser_audit",
+          "m01_titles",
+          "m02_knowledge_mc",
+          "m03_facts",
+          "m10_alt_text"
+        ]
+      },
+      "local/qwen3.6-35b-a3b-think-on-precise": {
+        "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0": [
+          "a01_browser_audit",
+          "m01_titles",
+          "m03_facts",
+          "m10_alt_text"
+        ]
+      },
+      "local/qwen3.5-4b-think-on-precise-budget512": {
+        "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0": [
+          "m01_titles",
+          "m03_facts",
+          "m10_alt_text"
+        ]
+      },
+      "local/qwen3.5-9b-think-on-precise-budget512": {
+        "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0": [
+          "m01_titles",
+          "m03_facts",
+          "m10_alt_text"
+        ]
+      },
+      "local/kolibri1-78b-a3b-think-medium-budget512": {
+        "temp 1 · top_p 0.97 · top_k 128 · min_p 0.05": [
+          "m01_titles",
+          "m03_facts"
+        ]
+      },
+      "local/gemma4-31b-think-on-budget512": {
+        "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05": [
+          "m03_facts",
+          "m01_titles"
+        ]
+      },
+      "local/qwen3.8-27b-think-medium-budget512": {
+        "temp 1 · top_p 0.95 · top_k 20 · min_p 0": [
+          "m02_knowledge_mc"
+        ]
+      },
+      "local/qwen3.6-35b-a3b-think-on-precise-budget512": {
+        "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0": [
+          "m02_knowledge_mc"
+        ]
+      },
+      "local/gemma4-e4b-think-on-budget512": {
+        "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05": [
+          "m01_titles"
+        ]
+      }
+    },
+    "cells": {
+      "local/gemma4-26b-a4b-think-on": {
+        "a01_browser_audit": {
+          "seconds_median": 1440.0,
+          "generation_tokens_per_s": 53.077584253310796,
+          "prompt_tokens_per_s": 1610.9924092822798,
+          "max_context": 76659,
+          "context_full": false,
+          "timed_calls": 15,
+          "calls": 289
+        },
+        "m01_titles": {
+          "seconds_median": 1344.0,
+          "generation_tokens_per_s": 59.36148888573404,
+          "prompt_tokens_per_s": 1244.255631774054,
+          "max_context": 4999,
+          "context_full": false,
+          "timed_calls": 87,
+          "calls": 87
+        },
+        "m02_knowledge_mc": {
+          "seconds_median": 3501.0,
+          "generation_tokens_per_s": 61.49784324380943,
+          "prompt_tokens_per_s": 671.1254923671344,
+          "max_context": 4328,
+          "context_full": false,
+          "timed_calls": 585,
+          "calls": 585
+        },
+        "m03_facts": {
+          "seconds_median": 420.0,
+          "generation_tokens_per_s": 62.837123075585005,
+          "prompt_tokens_per_s": 898.6274525560449,
+          "max_context": 1804,
+          "context_full": false,
+          "timed_calls": 120,
+          "calls": 120
+        },
+        "m10_alt_text": {
+          "seconds_median": 928.0,
+          "generation_tokens_per_s": 61.516489671212405,
+          "prompt_tokens_per_s": 420.5564691582161,
+          "max_context": 3909,
+          "context_full": false,
+          "timed_calls": 64,
+          "calls": 64
+        }
+      },
+      "local/gemma4-e4b-think-on": {
+        "a01_browser_audit": {
+          "seconds_median": 458.0,
+          "generation_tokens_per_s": 59.81182489792388,
+          "prompt_tokens_per_s": 1993.085076707053,
+          "max_context": 27373,
+          "context_full": false,
+          "timed_calls": 5,
+          "calls": 102
+        },
+        "m03_facts": {
+          "seconds_median": 281.0,
+          "generation_tokens_per_s": 68.13846331299894,
+          "prompt_tokens_per_s": 1761.6438500365803,
+          "max_context": 981,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        },
+        "m10_alt_text": {
+          "seconds_median": 181.0,
+          "generation_tokens_per_s": 68.3377440099763,
+          "prompt_tokens_per_s": 1164.8541007398999,
+          "max_context": 901,
+          "context_full": false,
+          "timed_calls": 32,
+          "calls": 32
+        }
+      },
+      "local/qwen3.8-27b-think-medium": {
+        "a01_browser_audit": {
+          "seconds_median": 2233.0,
+          "generation_tokens_per_s": 38.245333752367664,
+          "prompt_tokens_per_s": 329.6658798607148,
+          "max_context": 131072,
+          "context_full": true,
+          "timed_calls": 20,
+          "calls": 313
+        },
+        "m01_titles": {
+          "seconds_median": 1121.0,
+          "generation_tokens_per_s": 50.533576865920125,
+          "prompt_tokens_per_s": 293.07342018492,
+          "max_context": 3697,
+          "context_full": false,
+          "timed_calls": 29,
+          "calls": 29
+        },
+        "m03_facts": {
+          "seconds_median": 335.0,
+          "generation_tokens_per_s": 50.739782325291806,
+          "prompt_tokens_per_s": 253.5596767432041,
+          "max_context": 950,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        },
+        "m10_alt_text": {
+          "seconds_median": 472.0,
+          "generation_tokens_per_s": 44.028206617079626,
+          "prompt_tokens_per_s": 85.02215443300591,
+          "max_context": 1057,
+          "context_full": false,
+          "timed_calls": 32,
+          "calls": 32
+        }
+      },
+      "local/qwen3.5-4b-think-on-precise": {
+        "a01_browser_audit": {
+          "seconds_median": 1058.0,
+          "generation_tokens_per_s": 75.07964925431756,
+          "prompt_tokens_per_s": 2830.916763822066,
+          "max_context": 80793,
+          "context_full": false,
+          "timed_calls": 5,
+          "calls": 56
+        }
+      },
+      "local/qwen3.5-9b-think-on-precise": {
+        "a01_browser_audit": {
+          "seconds_median": 785.0,
+          "generation_tokens_per_s": 49.88903159176173,
+          "prompt_tokens_per_s": 2078.9905358292176,
+          "max_context": 78096,
+          "context_full": false,
+          "timed_calls": 5,
+          "calls": 102
+        }
+      },
+      "local/gemma4-31b-think-on": {
+        "a01_browser_audit": {
+          "seconds_median": 5103.0,
+          "generation_tokens_per_s": 4.923197904849249,
+          "prompt_tokens_per_s": 113.27108359437852,
+          "max_context": 53400,
+          "context_full": false,
+          "timed_calls": 5,
+          "calls": 57
+        },
+        "m10_alt_text": {
+          "seconds_median": 2035.0,
+          "generation_tokens_per_s": 9.166308783445336,
+          "prompt_tokens_per_s": 44.89110132807904,
+          "max_context": 1276,
+          "context_full": false,
+          "timed_calls": 32,
+          "calls": 32
+        }
+      },
+      "local/kolibri1-78b-a3b-think-medium": {
+        "a01_browser_audit": {
+          "seconds_median": 1355.0,
+          "generation_tokens_per_s": 25.774146775258615,
+          "prompt_tokens_per_s": 60.97715689733799,
+          "max_context": 30791,
+          "context_full": false,
+          "timed_calls": 5,
+          "calls": 18
+        }
+      },
+      "local/gemma4-12b-think-on": {
+        "a01_browser_audit": {
+          "seconds_median": 1695.0,
+          "generation_tokens_per_s": 29.79171275147192,
+          "prompt_tokens_per_s": 1233.177999002332,
+          "max_context": 56630,
+          "context_full": false,
+          "timed_calls": 5,
+          "calls": 100
+        },
+        "m01_titles": {
+          "seconds_median": 3362.0,
+          "generation_tokens_per_s": 31.79672291639573,
+          "prompt_tokens_per_s": 942.9836335572181,
+          "max_context": 4978,
+          "context_full": false,
+          "timed_calls": 87,
+          "calls": 87
+        },
+        "m02_knowledge_mc": {
+          "seconds_median": 4734.0,
+          "generation_tokens_per_s": 32.796443145290944,
+          "prompt_tokens_per_s": 545.6369307885611,
+          "max_context": 4271,
+          "context_full": false,
+          "timed_calls": 195,
+          "calls": 195
+        },
+        "m03_facts": {
+          "seconds_median": 580.0,
+          "generation_tokens_per_s": 33.37573457960102,
+          "prompt_tokens_per_s": 822.5574565517468,
+          "max_context": 1272,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        },
+        "m10_alt_text": {
+          "seconds_median": 579.0,
+          "generation_tokens_per_s": 33.454603140509704,
+          "prompt_tokens_per_s": 215.0423052202116,
+          "max_context": 1118,
+          "context_full": false,
+          "timed_calls": 32,
+          "calls": 32
+        }
+      },
+      "local/qwen3.6-35b-a3b-think-on-precise": {
+        "a01_browser_audit": {
+          "seconds_median": 1389.0,
+          "generation_tokens_per_s": 45.476852808786305,
+          "prompt_tokens_per_s": 193.041782556992,
+          "max_context": 88547,
+          "context_full": false,
+          "timed_calls": 15,
+          "calls": 279
+        },
+        "m01_titles": {
+          "seconds_median": 2275.0,
+          "generation_tokens_per_s": 47.56415692499058,
+          "prompt_tokens_per_s": 214.32195926849238,
+          "max_context": 4974,
+          "context_full": false,
+          "timed_calls": 29,
+          "calls": 29
+        },
+        "m03_facts": {
+          "seconds_median": 1393.0,
+          "generation_tokens_per_s": 47.98374898801417,
+          "prompt_tokens_per_s": 182.34233280416262,
+          "max_context": 3447,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        },
+        "m10_alt_text": {
+          "seconds_median": 1485.0,
+          "generation_tokens_per_s": 47.83413560200626,
+          "prompt_tokens_per_s": 132.26437712926503,
+          "max_context": 4587,
+          "context_full": false,
+          "timed_calls": 32,
+          "calls": 32
+        }
+      },
+      "anthropic/claude-haiku-5-5-think-adaptive": {
+        "a01_browser_audit": {
+          "seconds_median": 319.0,
+          "generation_tokens_per_s": null,
+          "prompt_tokens_per_s": null,
+          "max_context": 145366,
+          "context_full": false,
+          "timed_calls": 0,
+          "calls": 87
+        },
+        "m03_facts": {
+          "seconds_median": 53.0,
+          "generation_tokens_per_s": null,
+          "prompt_tokens_per_s": null,
+          "max_context": 1103,
+          "context_full": false,
+          "timed_calls": 0,
+          "calls": 60
+        },
+        "m02_knowledge_mc": {
+          "seconds_median": 258.0,
+          "generation_tokens_per_s": null,
+          "prompt_tokens_per_s": null,
+          "max_context": 1385,
+          "context_full": false,
+          "timed_calls": 0,
+          "calls": 585
+        },
+        "m01_titles": {
+          "seconds_median": 63.0,
+          "generation_tokens_per_s": null,
+          "prompt_tokens_per_s": null,
+          "max_context": 2113,
+          "context_full": false,
+          "timed_calls": 0,
+          "calls": 87
+        },
+        "m10_alt_text": {
+          "seconds_median": 92.0,
+          "generation_tokens_per_s": null,
+          "prompt_tokens_per_s": null,
+          "max_context": 1968,
+          "context_full": false,
+          "timed_calls": 0,
+          "calls": 64
+        }
+      },
+      "local/qwen3.5-4b-think-on-precise-budget512": {
+        "m01_titles": {
+          "seconds_median": 1003.5,
+          "generation_tokens_per_s": 79.59801577962315,
+          "prompt_tokens_per_s": 1854.4946960099655,
+          "max_context": 4974,
+          "context_full": false,
+          "timed_calls": 58,
+          "calls": 58
+        },
+        "m03_facts": {
+          "seconds_median": 1720.0,
+          "generation_tokens_per_s": 80.27403406753602,
+          "prompt_tokens_per_s": 1380.1765903166017,
+          "max_context": 4457,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        },
+        "m10_alt_text": {
+          "seconds_median": 820.0,
+          "generation_tokens_per_s": 79.97032496864414,
+          "prompt_tokens_per_s": 1263.3897406633894,
+          "max_context": 4607,
+          "context_full": false,
+          "timed_calls": 32,
+          "calls": 32
+        }
+      },
+      "local/qwen3.5-9b-think-on-precise-budget512": {
+        "m01_titles": {
+          "seconds_median": 2508.0,
+          "generation_tokens_per_s": 51.40247216150491,
+          "prompt_tokens_per_s": 1296.849167425568,
+          "max_context": 4961,
+          "context_full": false,
+          "timed_calls": 29,
+          "calls": 29
+        },
+        "m03_facts": {
+          "seconds_median": 1078.0,
+          "generation_tokens_per_s": 51.65912404790828,
+          "prompt_tokens_per_s": 1035.624861837509,
+          "max_context": 4465,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        },
+        "m10_alt_text": {
+          "seconds_median": 510.0,
+          "generation_tokens_per_s": 51.91708378230372,
+          "prompt_tokens_per_s": 881.501714624099,
+          "max_context": 4507,
+          "context_full": false,
+          "timed_calls": 32,
+          "calls": 32
+        }
+      },
+      "local/kolibri1-78b-a3b-think-medium-budget512": {
+        "m01_titles": {
+          "seconds_median": 2369.5,
+          "generation_tokens_per_s": 28.62134583540397,
+          "prompt_tokens_per_s": 80.61950091357461,
+          "max_context": 4795,
+          "context_full": false,
+          "timed_calls": 58,
+          "calls": 58
+        },
+        "m03_facts": {
+          "seconds_median": 1152.0,
+          "generation_tokens_per_s": 28.443288406000566,
+          "prompt_tokens_per_s": 60.30853666024161,
+          "max_context": 2231,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        }
+      },
+      "local/gemma4-31b-think-on-budget512": {
+        "m03_facts": {
+          "seconds_median": 1949.0,
+          "generation_tokens_per_s": 10.043897047029098,
+          "prompt_tokens_per_s": 90.5526903884294,
+          "max_context": 981,
+          "context_full": false,
+          "timed_calls": 30,
+          "calls": 30
+        },
+        "m01_titles": {
+          "seconds_median": 2360.0,
+          "generation_tokens_per_s": 8.07387669220711,
+          "prompt_tokens_per_s": 104.17151046257403,
+          "max_context": 2469,
+          "context_full": false,
+          "timed_calls": 87,
+          "calls": 87
+        }
+      },
+      "local/qwen3.8-27b-think-medium-budget512": {
+        "m02_knowledge_mc": {
+          "seconds_median": 1251.0,
+          "generation_tokens_per_s": 47.06227597243235,
+          "prompt_tokens_per_s": 172.25610706382207,
+          "max_context": 741,
+          "context_full": false,
+          "timed_calls": 195,
+          "calls": 195
+        }
+      },
+      "local/qwen3.6-35b-a3b-think-on-precise-budget512": {
+        "m02_knowledge_mc": {
+          "seconds_median": 2628.0,
+          "generation_tokens_per_s": 48.25475732209771,
+          "prompt_tokens_per_s": 97.25478170149681,
+          "max_context": 4269,
+          "context_full": false,
+          "timed_calls": 195,
+          "calls": 195
+        }
+      },
+      "local/gemma4-e4b-think-on-budget512": {
+        "m01_titles": {
+          "seconds_median": 168.0,
+          "generation_tokens_per_s": 67.04275055305844,
+          "prompt_tokens_per_s": 1890.8756953329994,
+          "max_context": 1438,
+          "context_full": false,
+          "timed_calls": 87,
+          "calls": 87
+        }
+      }
+    },
+    "runs": [
+      {
+        "file": "2026-10-21T06-47-02-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_NXBZ9FqH3ZRmZVrmwBEqAj.eval",
+        "task": "a01_browser_audit",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 1467.0,
+        "prompt_tokens": 11058,
+        "prompt_ms": 6841.073,
+        "generated_tokens": 3781,
+        "generated_ms": 71427.844,
+        "timed_calls": 5,
+        "calls": 85,
+        "max_context": 76515,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-21T07-11-39-00-00_a01-browser-audit_local-gemma4-e4b-think-on_mMmUFoNNKd9oBWmKRdqNXC.eval",
+        "task": "a01_browser_audit",
+        "model": "local/gemma4-e4b-think-on",
+        "seconds": 458.0,
+        "prompt_tokens": 7645,
+        "prompt_ms": 3835.762,
+        "generated_tokens": 1971,
+        "generated_ms": 32953.350000000006,
+        "timed_calls": 5,
+        "calls": 102,
+        "max_context": 27373,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-21T07-19-27-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_64pno9LhhyoSKudvDjxx2U.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.8-27b-think-medium",
+        "seconds": 1762.0,
+        "prompt_tokens": 19575,
+        "prompt_ms": 58965.66900000001,
+        "generated_tokens": 9944,
+        "generated_ms": 248788.035,
+        "timed_calls": 5,
+        "calls": 77,
+        "max_context": 77661,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-21T07-55-07-00-00_a01-browser-audit_local-qwen3.5-4b-think-on-precise_Bj8uD3xgYuaaEjWmxoXLBa.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.5-4b-think-on-precise",
+        "seconds": 1058.0,
+        "prompt_tokens": 10344,
+        "prompt_ms": 3653.9399999999996,
+        "generated_tokens": 1772,
+        "generated_ms": 23601.602,
+        "timed_calls": 5,
+        "calls": 56,
+        "max_context": 80793,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-21T08-12-54-00-00_a01-browser-audit_local-qwen3.5-9b-think-on-precise_GaCLGcY4v9NHhdLecabgkS.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.5-9b-think-on-precise",
+        "seconds": 785.0,
+        "prompt_tokens": 9361,
+        "prompt_ms": 4502.666,
+        "generated_tokens": 827,
+        "generated_ms": 16576.79,
+        "timed_calls": 5,
+        "calls": 102,
+        "max_context": 78096,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-21T09-35-08-00-00_a01-browser-audit_local-gemma4-31b-think-on_o6GPFa36zDyc45GEM3xj3r.eval",
+        "task": "a01_browser_audit",
+        "model": "local/gemma4-31b-think-on",
+        "seconds": 5103.0,
+        "prompt_tokens": 12079,
+        "prompt_ms": 106637.984,
+        "generated_tokens": 2961,
+        "generated_ms": 601438.345,
+        "timed_calls": 5,
+        "calls": 57,
+        "max_context": 53400,
+        "server_context": 65536,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-21T11-42-29-00-00_a01-browser-audit_local-kolibri1-78b-a3b-think-medium_CHgB7Acqd3zGtMP4LKwrs6.eval",
+        "task": "a01_browser_audit",
+        "model": "local/kolibri1-78b-a3b-think-medium",
+        "seconds": 1355.0,
+        "prompt_tokens": 11497,
+        "prompt_ms": 188546.016,
+        "generated_tokens": 2860,
+        "generated_ms": 110963.90599999999,
+        "timed_calls": 5,
+        "calls": 18,
+        "max_context": 30791,
+        "server_context": 32768,
+        "sampling": [
+          "temp 1 · top_p 0.97 · top_k 128 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-21T13-20-21-00-00_a01-browser-audit_local-gemma4-12b-think-on_TxyHKNMBnEvfDsTmBHY3Mw.eval",
+        "task": "a01_browser_audit",
+        "model": "local/gemma4-12b-think-on",
+        "seconds": 1695.0,
+        "prompt_tokens": 9488,
+        "prompt_ms": 7693.942,
+        "generated_tokens": 1656,
+        "generated_ms": 55585.928,
+        "timed_calls": 5,
+        "calls": 100,
+        "max_context": 56630,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-21T13-48-46-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_abDkMfY8neCh5gGp8KkVsx.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.6-35b-a3b-think-on-precise",
+        "seconds": 2059.0,
+        "prompt_tokens": 9349,
+        "prompt_ms": 49534.876000000004,
+        "generated_tokens": 540,
+        "generated_ms": 11732.844000000001,
+        "timed_calls": 5,
+        "calls": 118,
+        "max_context": 88547,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-22T14-31-15-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_FXitY8n7WxWvBBokmfAixL.eval",
+        "task": "a01_browser_audit",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 310.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 26,
+        "max_context": 84143,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T15-22-21-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_YSTBgHfppSYRNqKMXtRspq.eval",
+        "task": "a01_browser_audit",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 383.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 31,
+        "max_context": 145366,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T15-29-08-00-00_a01-browser-audit_anthropic-claude-haiku-5-5_JTbQunkds6TYRMCfST4VEw.eval",
+        "task": "a01_browser_audit",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 319.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 30,
+        "max_context": 100396,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T15-53-09-00-00_m03-facts_anthropic-claude-haiku-5-5_cLgG3vWkDBKbpUvrVaBVCF.eval",
+        "task": "m03_facts",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 54.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 30,
+        "max_context": 1065,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T15-56-32-00-00_m03-facts_anthropic-claude-haiku-5-5_3TdRRmaP8MKc3tB8UmwUWD.eval",
+        "task": "m03_facts",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 52.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 30,
+        "max_context": 1103,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-04-03-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_h5PgTVqUHNyoQ8vu4QAtwX.eval",
+        "task": "m02_knowledge_mc",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 258.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 195,
+        "max_context": 1340,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-11-25-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_j3oPHRnzGcasKmuCTSXrWz.eval",
+        "task": "m02_knowledge_mc",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 257.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 195,
+        "max_context": 1316,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-16-04-00-00_m01-titles_anthropic-claude-haiku-5-5_4ivCmu5XgCVp3jCqLqV8Hq.eval",
+        "task": "m01_titles",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 59.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 29,
+        "max_context": 2113,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-17-10-00-00_m01-titles_anthropic-claude-haiku-5-5_U6ig58ry6Wgd23d9aZouTL.eval",
+        "task": "m01_titles",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 65.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 29,
+        "max_context": 2095,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-18-22-00-00_m01-titles_anthropic-claude-haiku-5-5_Ca6Ze4NVHv9AyLHiKB8YH5.eval",
+        "task": "m01_titles",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 63.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 29,
+        "max_context": 2111,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-20-20-00-00_m10-alt-text_anthropic-claude-haiku-5-5_YEZm2Yen4XKJwJg9h2ZPJr.eval",
+        "task": "m10_alt_text",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 95.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 32,
+        "max_context": 1958,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-22-03-00-00_m10-alt-text_anthropic-claude-haiku-5-5_PrGgBcomFTfFesKZ3fsiAJ.eval",
+        "task": "m10_alt_text",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 89.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 32,
+        "max_context": 1968,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-22T16-37-04-00-00_m02-knowledge-mc_anthropic-claude-haiku-5-5_3ZywJpYEZNwsxZwfaVakAq.eval",
+        "task": "m02_knowledge_mc",
+        "model": "anthropic/claude-haiku-5-5-think-adaptive",
+        "seconds": 258.0,
+        "prompt_tokens": 0,
+        "prompt_ms": 0.0,
+        "generated_tokens": 0,
+        "generated_ms": 0.0,
+        "timed_calls": 0,
+        "calls": 195,
+        "max_context": 1385,
+        "server_context": null,
+        "sampling": []
+      },
+      {
+        "file": "2026-10-23T08-26-49-00-00_m01-titles_local-gemma4-26b-a4b-think-on_Pwiy2Z639DABWRNHSwBfa7.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 1419.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 18975.375,
+        "generated_tokens": 77358,
+        "generated_ms": 1307538.1959999998,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4976,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T09-29-44-00-00_m01-titles_local-gemma4-26b-a4b-think-on_HwFBi5jPhtdmNpHztPo2sQ.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 1344.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 18858.109,
+        "generated_tokens": 76455,
+        "generated_ms": 1292720.69,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4889,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T09-52-11-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_H96xGZL5MvGLf43qBHRBEo.eval",
+        "task": "m02_knowledge_mc",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 3145.0,
+        "prompt_tokens": 23531,
+        "prompt_ms": 34983.16700000003,
+        "generated_tokens": 170300,
+        "generated_ms": 2769627.647000001,
+        "timed_calls": 195,
+        "calls": 195,
+        "max_context": 4306,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T10-44-38-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_X5DeCJqWtRMow2mXmKvhSP.eval",
+        "task": "m02_knowledge_mc",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 3856.0,
+        "prompt_tokens": 23531,
+        "prompt_ms": 35111.714000000014,
+        "generated_tokens": 166709,
+        "generated_ms": 2709907.1560000014,
+        "timed_calls": 195,
+        "calls": 195,
+        "max_context": 4328,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T11-48-56-00-00_m02-knowledge-mc_local-gemma4-26b-a4b-think-on_dpiicBv5v4c7WLrQDWMGHc.eval",
+        "task": "m02_knowledge_mc",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 3501.0,
+        "prompt_tokens": 23531,
+        "prompt_ms": 35091.11000000001,
+        "generated_tokens": 179309,
+        "generated_ms": 2916174.262000001,
+        "timed_calls": 195,
+        "calls": 195,
+        "max_context": 4307,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T12-47-19-00-00_m03-facts_local-gemma4-26b-a4b-think-on_6CfDv3Ea4A2qACSvEkQN7o.eval",
+        "task": "m03_facts",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 449.0,
+        "prompt_tokens": 10041,
+        "prompt_ms": 8901.851,
+        "generated_tokens": 26726,
+        "generated_ms": 426289.9440000001,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 1722,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T12-54-50-00-00_m03-facts_local-gemma4-26b-a4b-think-on_dtiyBgStzEybrRt4bC6Keu.eval",
+        "task": "m03_facts",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 419.0,
+        "prompt_tokens": 1459,
+        "prompt_ms": 3829.0110000000004,
+        "generated_tokens": 25147,
+        "generated_ms": 400775.777,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 1804,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T13-01-52-00-00_m03-facts_local-gemma4-26b-a4b-think-on_3NeRmDHCB6Ri5icHJkBs5n.eval",
+        "task": "m03_facts",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 421.0,
+        "prompt_tokens": 1160,
+        "prompt_ms": 3657.7560000000003,
+        "generated_tokens": 25317,
+        "generated_ms": 403179.09400000004,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 1525,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T13-08-56-00-00_m10-alt-text_local-gemma4-26b-a4b-think-on_eF2FGS4NwQvkjZbTNZytMd.eval",
+        "task": "m10_alt_text",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 980.0,
+        "prompt_tokens": 9299,
+        "prompt_ms": 22097.89,
+        "generated_tokens": 57883,
+        "generated_ms": 943468.5869999999,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 3619,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-23T14-10-38-00-00_m10-alt-text_local-gemma4-26b-a4b-think-on_KWX7MGYmwP57NoR5Wo45tP.eval",
+        "task": "m10_alt_text",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 876.0,
+        "prompt_tokens": 9299,
+        "prompt_ms": 22124.471,
+        "generated_tokens": 50566,
+        "generated_ms": 819457.103,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 3909,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-24T10-03-21-00-00_m01-titles_local-gemma4-12b-think-on_3Wmt9EpbhqWvPD7E8xEfBd.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-12b-think-on",
+        "seconds": 4639.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 24928.967,
+        "generated_tokens": 88415,
+        "generated_ms": 2792757.156000001,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4978,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-24T12-20-51-00-00_m01-titles_local-gemma4-12b-think-on_SLmKd2XRXLn7LKdF3zGmX4.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-12b-think-on",
+        "seconds": 3362.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 24911.538000000004,
+        "generated_tokens": 78981,
+        "generated_ms": 2489646.7899999996,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4978,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-24T14-12-54-00-00_m02-knowledge-mc_local-gemma4-12b-think-on_Kpik7RzBYmh6LiY9dqLrbq.eval",
+        "task": "m02_knowledge_mc",
+        "model": "local/gemma4-12b-think-on",
+        "seconds": 4734.0,
+        "prompt_tokens": 23576,
+        "prompt_ms": 43208.21900000001,
+        "generated_tokens": 139706,
+        "generated_ms": 4259791.203,
+        "timed_calls": 195,
+        "calls": 195,
+        "max_context": 4271,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T11-43-35-00-00_m01-titles_local-gemma4-26b-a4b-think-on_FFfTQpYrtryfeXxhcD9FSv.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 360.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 18812.432,
+        "generated_tokens": 18920,
+        "generated_ms": 309590.63499999995,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4999,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T11-49-37-00-00_m03-facts_local-gemma4-26b-a4b-think-on_SCJ99xUHXXZ3SHjPCSJNou.eval",
+        "task": "m03_facts",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 305.0,
+        "prompt_tokens": 10041,
+        "prompt_ms": 8873.241000000002,
+        "generated_tokens": 17874,
+        "generated_ms": 282618.8449999999,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 981,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T13-43-04-00-00_m10-alt-text_local-gemma4-31b-think-on_F33f7qvacpzfzctZk2kbQP.eval",
+        "task": "m10_alt_text",
+        "model": "local/gemma4-31b-think-on",
+        "seconds": 2035.0,
+        "prompt_tokens": 9299,
+        "prompt_ms": 207145.73099999994,
+        "generated_tokens": 16405,
+        "generated_ms": 1789706.237,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 1276,
+        "server_context": 65536,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T14-17-01-00-00_m01-titles_local-gemma4-12b-think-on_5bYGaSmFfyJk5u7xF4nhLP.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-12b-think-on",
+        "seconds": 543.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 24903.104000000003,
+        "generated_tokens": 15360,
+        "generated_ms": 465232.39,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 1434,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T14-26-06-00-00_m03-facts_local-gemma4-12b-think-on_TktxYm3sXfqVXL9oNautcR.eval",
+        "task": "m03_facts",
+        "model": "local/gemma4-12b-think-on",
+        "seconds": 580.0,
+        "prompt_tokens": 10041,
+        "prompt_ms": 12207.05,
+        "generated_tokens": 18448,
+        "generated_ms": 552736.8979999999,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 1272,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T14-35-49-00-00_m10-alt-text_local-gemma4-12b-think-on_Bx9pTx9y4FY2M5hRMvYpA7.eval",
+        "task": "m10_alt_text",
+        "model": "local/gemma4-12b-think-on",
+        "seconds": 579.0,
+        "prompt_tokens": 9299,
+        "prompt_ms": 43242.65399999998,
+        "generated_tokens": 17373,
+        "generated_ms": 519300.735,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 1118,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T14-49-00-00-00_m03-facts_local-gemma4-e4b-think-on_L8C68DFjC395pQxhT7vxLB.eval",
+        "task": "m03_facts",
+        "model": "local/gemma4-e4b-think-on",
+        "seconds": 281.0,
+        "prompt_tokens": 10041,
+        "prompt_ms": 5699.79,
+        "generated_tokens": 17894,
+        "generated_ms": 262612.321,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 981,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T14-53-43-00-00_m10-alt-text_local-gemma4-e4b-think-on_7jJw5EHd6PQivpwEf43Rr5.eval",
+        "task": "m10_alt_text",
+        "model": "local/gemma4-e4b-think-on",
+        "seconds": 181.0,
+        "prompt_tokens": 9299,
+        "prompt_ms": 7982.973999999999,
+        "generated_tokens": 10881,
+        "generated_ms": 159223.86899999998,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 901,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-25T14-56-46-00-00_m01-titles_local-qwen3.8-27b-think-medium_jU6LFRJh4kgHK95g6guJvt.eval",
+        "task": "m01_titles",
+        "model": "local/qwen3.8-27b-think-medium",
+        "seconds": 1121.0,
+        "prompt_tokens": 22175,
+        "prompt_ms": 75663.634,
+        "generated_tokens": 24949,
+        "generated_ms": 493711.34099999996,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 3697,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T15-15-30-00-00_m03-facts_local-qwen3.8-27b-think-medium_KdmRi4xRuh8UHiSBKWSYbx.eval",
+        "task": "m03_facts",
+        "model": "local/qwen3.8-27b-think-medium",
+        "seconds": 335.0,
+        "prompt_tokens": 9810,
+        "prompt_ms": 38689.11699999999,
+        "generated_tokens": 14121,
+        "generated_ms": 278302.33699999994,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 950,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T15-21-07-00-00_m10-alt-text_local-qwen3.8-27b-think-medium_7dAfyyChJaAJZRzE2vmGBJ.eval",
+        "task": "m10_alt_text",
+        "model": "local/qwen3.8-27b-think-medium",
+        "seconds": 472.0,
+        "prompt_tokens": 13957,
+        "prompt_ms": 164157.214,
+        "generated_tokens": 12676,
+        "generated_ms": 287906.3439999999,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 1057,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T16-12-51-00-00_m01-titles_local-qwen3.5-4b-think-on-precise_nRNqArMz8bAnxPjFHLtKpt.eval",
+        "task": "m01_titles",
+        "model": "local/qwen3.5-4b-think-on-precise-budget512",
+        "seconds": 1009.0,
+        "prompt_tokens": 22769,
+        "prompt_ms": 12293.988,
+        "generated_tokens": 75967,
+        "generated_ms": 954408.129,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4974,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T16-29-42-00-00_m03-facts_local-qwen3.5-4b-think-on-precise_TrPphm9py8ayohwd7uhkdF.eval",
+        "task": "m03_facts",
+        "model": "local/qwen3.5-4b-think-on-precise-budget512",
+        "seconds": 1720.0,
+        "prompt_tokens": 9852,
+        "prompt_ms": 7138.216999999999,
+        "generated_tokens": 52996,
+        "generated_ms": 660188.5730000001,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 4457,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T16-58-24-00-00_m10-alt-text_local-qwen3.5-4b-think-on-precise_fK7nibRUEtvPzSeQPMVJGM.eval",
+        "task": "m10_alt_text",
+        "model": "local/qwen3.5-4b-think-on-precise-budget512",
+        "seconds": 820.0,
+        "prompt_tokens": 13957,
+        "prompt_ms": 11047.264000000001,
+        "generated_tokens": 63531,
+        "generated_ms": 794432.1849999998,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 4607,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T17-12-08-00-00_m01-titles_local-qwen3.5-9b-think-on-precise_9dKVrbWDHKJEfVh7nvX44J.eval",
+        "task": "m01_titles",
+        "model": "local/qwen3.5-9b-think-on-precise-budget512",
+        "seconds": 2508.0,
+        "prompt_tokens": 22769,
+        "prompt_ms": 17557.169,
+        "generated_tokens": 72401,
+        "generated_ms": 1408512.022,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4961,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T17-53-59-00-00_m03-facts_local-qwen3.5-9b-think-on-precise_2DMd9m6Yn45iwUMso547Gn.eval",
+        "task": "m03_facts",
+        "model": "local/qwen3.5-9b-think-on-precise-budget512",
+        "seconds": 1078.0,
+        "prompt_tokens": 9810,
+        "prompt_ms": 9472.542000000001,
+        "generated_tokens": 54512,
+        "generated_ms": 1055225.016,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 4465,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T18-12-00-00-00_m10-alt-text_local-qwen3.5-9b-think-on-precise_GsLozcwPmcvag53hMhY5NK.eval",
+        "task": "m10_alt_text",
+        "model": "local/qwen3.5-9b-think-on-precise-budget512",
+        "seconds": 510.0,
+        "prompt_tokens": 13957,
+        "prompt_ms": 15833.207999999999,
+        "generated_tokens": 24923,
+        "generated_ms": 480053.9280000001,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 4507,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-25T18-20-33-00-00_m01-titles_local-kolibri1-78b-a3b-think-medium_RTrD3wBjBsvwHs767ZVPVb.eval",
+        "task": "m01_titles",
+        "model": "local/kolibri1-78b-a3b-think-medium-budget512",
+        "seconds": 2550.0,
+        "prompt_tokens": 18598,
+        "prompt_ms": 228336.72999999998,
+        "generated_tokens": 59295,
+        "generated_ms": 2069623.266,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4795,
+        "server_context": 32768,
+        "sampling": [
+          "temp 1 · top_p 0.97 · top_k 128 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-26T09-22-46-00-00_m03-facts_local-gemma4-31b-think-on_hHwdGJVcaJfW2XwwC2RD7U.eval",
+        "task": "m03_facts",
+        "model": "local/gemma4-31b-think-on-budget512",
+        "seconds": 1949.0,
+        "prompt_tokens": 10041,
+        "prompt_ms": 110885.71699999998,
+        "generated_tokens": 17385,
+        "generated_ms": 1730901.8520000002,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 981,
+        "server_context": 65536,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-26T09-55-17-00-00_m03-facts_local-kolibri1-78b-a3b-think-medium_n6x6H2ArVNjnCtyS8EFXRU.eval",
+        "task": "m03_facts",
+        "model": "local/kolibri1-78b-a3b-think-medium-budget512",
+        "seconds": 1152.0,
+        "prompt_tokens": 7583,
+        "prompt_ms": 125736.76,
+        "generated_tokens": 22166,
+        "generated_ms": 779305.1100000001,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 2231,
+        "server_context": 32768,
+        "sampling": [
+          "temp 1 · top_p 0.97 · top_k 128 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-26T10-26-50-00-00_m01-titles_local-qwen3.5-4b-think-on-precise_fRXjwvDdwQasvSw56d4ucL.eval",
+        "task": "m01_titles",
+        "model": "local/qwen3.5-4b-think-on-precise-budget512",
+        "seconds": 998.0,
+        "prompt_tokens": 22769,
+        "prompt_ms": 12261.488,
+        "generated_tokens": 75955,
+        "generated_ms": 954207.287,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4964,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-26T10-43-31-00-00_m01-titles_local-kolibri1-78b-a3b-think-medium_4KbjxuGLKaYnA69BqqattQ.eval",
+        "task": "m01_titles",
+        "model": "local/kolibri1-78b-a3b-think-medium-budget512",
+        "seconds": 2189.0,
+        "prompt_tokens": 18598,
+        "prompt_ms": 233040.475,
+        "generated_tokens": 48677,
+        "generated_ms": 1702805.907,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4779,
+        "server_context": 32768,
+        "sampling": [
+          "temp 1 · top_p 0.97 · top_k 128 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-26T11-33-48-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_9pjTonuyu9Q7kief4DCV3o.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.8-27b-think-medium",
+        "seconds": 4843.0,
+        "prompt_tokens": 24738,
+        "prompt_ms": 75582.748,
+        "generated_tokens": 17271,
+        "generated_ms": 472395.22400000005,
+        "timed_calls": 5,
+        "calls": 125,
+        "max_context": 131072,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-26T12-54-40-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_VVkY4GTZANEkA69ySRBT9d.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.6-35b-a3b-think-on-precise",
+        "seconds": 1389.0,
+        "prompt_tokens": 10164,
+        "prompt_ms": 52229.53400000001,
+        "generated_tokens": 767,
+        "generated_ms": 16826.017,
+        "timed_calls": 5,
+        "calls": 87,
+        "max_context": 60623,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-26T13-45-08-00-00_m01-titles_local-qwen3.6-35b-a3b-think-on-precise_GJc6dmCP6AwQWxGYjLVavm.eval",
+        "task": "m01_titles",
+        "model": "local/qwen3.6-35b-a3b-think-on-precise",
+        "seconds": 2275.0,
+        "prompt_tokens": 22769,
+        "prompt_ms": 106237.36400000002,
+        "generated_tokens": 101533,
+        "generated_ms": 2134653.625,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 4974,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-26T14-23-06-00-00_m03-facts_local-qwen3.6-35b-a3b-think-on-precise_MJZyuhSqMHVWBDVEbLNDRR.eval",
+        "task": "m03_facts",
+        "model": "local/qwen3.6-35b-a3b-think-on-precise",
+        "seconds": 1393.0,
+        "prompt_tokens": 9810,
+        "prompt_ms": 53799.904,
+        "generated_tokens": 63524,
+        "generated_ms": 1323864.878,
+        "timed_calls": 30,
+        "calls": 30,
+        "max_context": 3447,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-26T14-46-21-00-00_m10-alt-text_local-qwen3.6-35b-a3b-think-on-precise_hKP9TpGBsnadca4PPctxZ9.eval",
+        "task": "m10_alt_text",
+        "model": "local/qwen3.6-35b-a3b-think-on-precise",
+        "seconds": 1485.0,
+        "prompt_tokens": 13957,
+        "prompt_ms": 105523.5,
+        "generated_tokens": 65167,
+        "generated_ms": 1362353.4569999997,
+        "timed_calls": 32,
+        "calls": 32,
+        "max_context": 4587,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-27T10-21-16-00-00_m02-knowledge-mc_local-qwen3.8-27b-think-medium_bZUa5aLAWrgcbfEtGhp2Ya.eval",
+        "task": "m02_knowledge_mc",
+        "model": "local/qwen3.8-27b-think-medium-budget512",
+        "seconds": 1251.0,
+        "prompt_tokens": 24123,
+        "prompt_ms": 140041.47900000005,
+        "generated_tokens": 44192,
+        "generated_ms": 939011.1099999994,
+        "timed_calls": 195,
+        "calls": 195,
+        "max_context": 741,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-27T10-42-10-00-00_m02-knowledge-mc_local-qwen3.6-35b-a3b-think-on-precise_NLi2V7FPEwHPMBrSL88scy.eval",
+        "task": "m02_knowledge_mc",
+        "model": "local/qwen3.6-35b-a3b-think-on-precise-budget512",
+        "seconds": 2628.0,
+        "prompt_tokens": 24123,
+        "prompt_ms": 248039.21800000023,
+        "generated_tokens": 106743,
+        "generated_ms": 2212072.051000001,
+        "timed_calls": 195,
+        "calls": 195,
+        "max_context": 4269,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-29T16-00-07-00-00_m01-titles_local-gemma4-31b-think-on_cVurwj87uj7qyifVYjkLGC.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-31b-think-on-budget512",
+        "seconds": 2277.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 225718.36600000007,
+        "generated_tokens": 15734,
+        "generated_ms": 1947141.9959999998,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 1990,
+        "server_context": 65536,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-29T16-38-07-00-00_m01-titles_local-gemma4-e4b-think-on_bKF3fjwFVWiC6jBtoKd52o.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-e4b-think-on-budget512",
+        "seconds": 170.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 11562.957999999999,
+        "generated_tokens": 8177,
+        "generated_ms": 121692.10100000001,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 1438,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-29T16-41-56-00-00_m01-titles_local-gemma4-31b-think-on_b9x9tHXhsuDhHY6LJ469kr.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-31b-think-on-budget512",
+        "seconds": 2360.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 225542.79499999998,
+        "generated_tokens": 16841,
+        "generated_ms": 2089769.6670000004,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 2114,
+        "server_context": 65536,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-29T17-21-18-00-00_m01-titles_local-gemma4-31b-think-on_2qLMPgYKKTeu6GpeAzeuCB.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-31b-think-on-budget512",
+        "seconds": 2506.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 225334.577,
+        "generated_tokens": 18257,
+        "generated_ms": 2258948.670000001,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 2469,
+        "server_context": 65536,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-29T18-03-06-00-00_m01-titles_local-gemma4-e4b-think-on_G5cd3joqKU2KmwZRsZ5ttN.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-e4b-think-on-budget512",
+        "seconds": 166.0,
+        "prompt_tokens": 23494,
+        "prompt_ms": 11466.452000000003,
+        "generated_tokens": 9217,
+        "generated_ms": 136859.03199999998,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 1435,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-29T18-05-54-00-00_m01-titles_local-gemma4-e4b-think-on_6z4QF9wEggZwqYCGMe8xTd.eval",
+        "task": "m01_titles",
+        "model": "local/gemma4-e4b-think-on-budget512",
+        "seconds": 168.0,
+        "prompt_tokens": 145,
+        "prompt_ms": 1897.1360000000004,
+        "generated_tokens": 10256,
+        "generated_ms": 153872.28000000003,
+        "timed_calls": 29,
+        "calls": 29,
+        "max_context": 1438,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-30T09-31-58-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_hnXcym2KBj8G6TS2frfFhT.eval",
+        "task": "a01_browser_audit",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 1440.0,
+        "prompt_tokens": 7744,
+        "prompt_ms": 4910.901,
+        "generated_tokens": 2317,
+        "generated_ms": 43333.465,
+        "timed_calls": 5,
+        "calls": 113,
+        "max_context": 76659,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-30T09-56-07-00-00_a01-browser-audit_local-gemma4-26b-a4b-think-on_aroWXNzLMcHMVb7jCjnat6.eval",
+        "task": "a01_browser_audit",
+        "model": "local/gemma4-26b-a4b-think-on",
+        "seconds": 1207.0,
+        "prompt_tokens": 9379,
+        "prompt_ms": 5740.969999999999,
+        "generated_tokens": 3916,
+        "generated_ms": 73905.90599999999,
+        "timed_calls": 5,
+        "calls": 91,
+        "max_context": 60753,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 64 · min_p 0.05"
+        ]
+      },
+      {
+        "file": "2026-10-30T10-21-31-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_6n2ZVWhK84GbF73w4nP8ez.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.8-27b-think-medium",
+        "seconds": 2613.0,
+        "prompt_tokens": 13085,
+        "prompt_ms": 39582.584,
+        "generated_tokens": 6468,
+        "generated_ms": 164655.094,
+        "timed_calls": 5,
+        "calls": 77,
+        "max_context": 107510,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-30T11-05-13-00-00_a01-browser-audit_local-qwen3.8-27b-think-medium_23jVAhPsP6UBD2xySz4u7W.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.8-27b-think-medium",
+        "seconds": 1853.0,
+        "prompt_tokens": 11420,
+        "prompt_ms": 34619.75,
+        "generated_tokens": 6232,
+        "generated_ms": 157818.378,
+        "timed_calls": 5,
+        "calls": 34,
+        "max_context": 83868,
+        "server_context": 131072,
+        "sampling": [
+          "temp 1 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      },
+      {
+        "file": "2026-10-30T11-36-15-00-00_a01-browser-audit_local-qwen3.6-35b-a3b-think-on-precise_A5RcvU8RSiv88tBbgWVBot.eval",
+        "task": "a01_browser_audit",
+        "model": "local/qwen3.6-35b-a3b-think-on-precise",
+        "seconds": 1375.0,
+        "prompt_tokens": 11721,
+        "prompt_ms": 60034.759,
+        "generated_tokens": 1153,
+        "generated_ms": 25534.592,
+        "timed_calls": 5,
+        "calls": 74,
+        "max_context": 60808,
+        "server_context": 131072,
+        "sampling": [
+          "temp 0.6 · top_p 0.95 · top_k 20 · min_p 0"
+        ]
+      }
+    ]
+  },
+  "failed": []
+}

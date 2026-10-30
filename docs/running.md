@@ -366,10 +366,9 @@ alle stehen schon im Log; neu laufen muss dafür nichts.
 Musterlösung und darunter jede Antwort mit Score und Begründung, so wie der
 Scorer sie ins Log geschrieben hat. Über jedem Datensatz steht, was man zum
 Beurteilen braucht: bei M01 die `<h1>` des Artikels und die Pflichtphrasen,
-bei M02 die Frage mit
-der richtigen Option, bei M03 der Produkttext, bei
-M10 das Bild mit Motiv- und Kontextliste. Dazu kommt das Mittel über alle
-Antworten, an dem man Datensätze erkennt, die für alle Modelle schwer sind.
+bei M02 die Frage mit der richtigen Option, bei M03 der Produkttext, bei M10
+der Link auf die Pixabay-Seite des Bildes mit Motiv- und Kontextliste. Dazu
+kommt das Mittel über alle Antworten, an dem man Datensätze erkennt, die für alle Modelle schwer sind.
 
 - Die Zeilen folgen der Reihenfolge der Tabelle. Gleiche Antworten eines
   Modells über mehrere Läufe stehen als eine Zeile mit „(×n)“ da; eine
@@ -378,9 +377,13 @@ Antworten, an dem man Datensätze erkennt, die für alle Modelle schwer sind.
   fett, ein Zeilenumbruch als `↵`. Genau das sind die Fehler, die `format`
   meldet. Bei M01 und M10 steht die Zeichenzahl daneben („(63 Z.)“). Über 600
   Zeichen wird gekürzt.
-- Die Bilder von M10 landen unter `images/` neben dem Bericht, aus dem
-  Medienverzeichnis oder, wo es fehlt, aus dem Anhang im Log. `report.html`
-  und `images/` gehören deshalb zusammen.
+- Die Bilder von M10 liefert der Bericht nicht mit, er verlinkt die
+  Pixabay-Seite aus `data/media.json`. So lässt er sich veröffentlichen, ohne
+  fremde Bilder weiterzuverteilen.
+- In `report.md` und `report.html` ist der Kopf jeder Aufgabenspalte der
+  Scoretabellen ein Link auf die Einzelergebnisse der Aufgabe. Die Sprungziele
+  bildet der Bericht wie GitHub (`m01_titles--einzelergebnisse`), so führt
+  derselbe Link auf GitHub und in der HTML-Seite an dieselbe Stelle.
 
 **Denkmodi.** Der Modus steht im Modellnamen, als Endung `-think-<variante>`
 (`local/gemma4-31b-think-off`, `local/qwen3.8-27b-think-medium`,

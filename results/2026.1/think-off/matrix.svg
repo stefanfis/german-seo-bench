@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 884 432" width="884" height="432" role="img">
+<title>Score je Aufgabe und Modell · ohne Denken</title>
+<style>
+svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --grid:#e4e3df; --bar:#2a78d6; --hatch:#9ec5f4; --accent:#c4520f; }
+@media (prefers-color-scheme: dark) {
+  svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --grid:#383835; --bar:#3987e5; --hatch:#184f95; --accent:#f08a4b; }
+}
+text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+.muted { fill: var(--ink2); }
+.halo { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="var(--surface)"/>
+<text x="0" y="18" font-size="15" font-weight="600">Score je Aufgabe und Modell · ohne Denken</text>
+<text x="284.0" y="42" font-size="12" text-anchor="middle">a01_browser_audit</text>
+<text x="284.0" y="56" font-size="11" class="muted" text-anchor="middle">aus</text>
+<text x="390.0" y="42" font-size="12" text-anchor="middle">m01_titles</text>
+<text x="390.0" y="56" font-size="11" class="muted" text-anchor="middle">aus</text>
+<text x="496.0" y="42" font-size="12" text-anchor="middle">m02_knowledge_mc</text>
+<text x="496.0" y="56" font-size="11" class="muted" text-anchor="middle">aus</text>
+<text x="602.0" y="42" font-size="12" text-anchor="middle">m03_facts</text>
+<text x="602.0" y="56" font-size="11" class="muted" text-anchor="middle">aus</text>
+<text x="708.0" y="42" font-size="12" text-anchor="middle">m10_alt_text</text>
+<text x="708.0" y="56" font-size="11" class="muted" text-anchor="middle">aus</text>
+<text x="828.0" y="56" font-size="12" font-weight="600" text-anchor="middle">Gesamt</text>
+<text x="222.0" y="86" font-size="13" text-anchor="end">local/gemma4-31b</text>
+<g><title>local/gemma4-31b · a01_browser_audit · aus: 0.216, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-31b-think-off)</title>
+<rect x="232.0" y="66" width="104" height="30" rx="3" fill="#86b6ef"/>
+<text x="284.0" y="86" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.22</text>
+</g>
+<g><title>local/gemma4-31b · m01_titles · aus: 0.914, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-31b-think-off)</title>
+<rect x="338.0" y="66" width="104" height="30" rx="3" fill="#104281"/>
+<text x="390.0" y="86" font-size="12" text-anchor="middle" style="fill:#ffffff">0.91</text>
+</g>
+<g><title>local/gemma4-31b · m02_knowledge_mc · aus: 0.708, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-31b-think-off)</title>
+<rect x="444.0" y="66" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="496.0" y="86" font-size="12" text-anchor="middle" style="fill:#ffffff">0.71</text>
+</g>
+<g><title>local/gemma4-31b · m03_facts · aus: 0.933, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-31b-think-off)</title>
+<rect x="550.0" y="66" width="104" height="30" rx="3" fill="#104281"/>
+<text x="602.0" y="86" font-size="12" text-anchor="middle" style="fill:#ffffff">0.93</text>
+</g>
+<g><title>local/gemma4-31b · m10_alt_text · aus: 0.844, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-31b-think-off)</title>
+<rect x="656.0" y="66" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="708.0" y="86" font-size="12" text-anchor="middle" style="fill:#ffffff">0.84</text>
+</g>
+<g><title>local/gemma4-31b · Gesamt: 0.723</title>
+<rect x="776.0" y="66" width="104" height="30" rx="3" fill="#1c5cab"/>
+<text x="828.0" y="86" font-size="12" text-anchor="middle" style="fill:#ffffff">0.72</text>
+</g>
+<text x="222.0" y="118" font-size="13" text-anchor="end">local/gemma4-26b-a4b</text>
+<g><title>local/gemma4-26b-a4b · a01_browser_audit · aus: 0.035, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-26b-a4b-think-off)</title>
+<rect x="232.0" y="98" width="104" height="30" rx="3" fill="#cde2fb"/>
+<text x="284.0" y="118" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.03</text>
+</g>
+<g><title>local/gemma4-26b-a4b · m01_titles · aus: 0.938, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-26b-a4b-think-off)</title>
+<rect x="338.0" y="98" width="104" height="30" rx="3" fill="#104281"/>
+<text x="390.0" y="118" font-size="12" text-anchor="middle" style="fill:#ffffff">0.94</text>
+</g>
+<g><title>local/gemma4-26b-a4b · m02_knowledge_mc · aus: 0.626, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-26b-a4b-think-off)</title>
+<rect x="444.0" y="98" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="496.0" y="118" font-size="12" text-anchor="middle" style="fill:#ffffff">0.63</text>
+</g>
+<g><title>local/gemma4-26b-a4b · m03_facts · aus: 0.933, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-26b-a4b-think-off)</title>
+<rect x="550.0" y="98" width="104" height="30" rx="3" fill="#104281"/>
+<text x="602.0" y="118" font-size="12" text-anchor="middle" style="fill:#ffffff">0.93</text>
+</g>
+<g><title>local/gemma4-26b-a4b · m10_alt_text · aus: 0.875, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-26b-a4b-think-off)</title>
+<rect x="656.0" y="98" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="708.0" y="118" font-size="12" text-anchor="middle" style="fill:#ffffff">0.88</text>
+</g>
+<g><title>local/gemma4-26b-a4b · Gesamt: 0.681</title>
+<rect x="776.0" y="98" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="828.0" y="118" font-size="12" text-anchor="middle" style="fill:#ffffff">0.68</text>
+</g>
+<text x="222.0" y="150" font-size="13" text-anchor="end">anthropic/claude-haiku-5-5</text>
+<g><title>anthropic/claude-haiku-5-5 · a01_browser_audit · aus: 0.000, schlechtester von 3 Lauf/Läufen je Datensatz (anthropic/claude-haiku-5-5-think-none)</title>
+<rect x="232.0" y="130" width="104" height="30" rx="3" fill="#cde2fb"/>
+<text x="284.0" y="150" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.00</text>
+</g>
+<g><title>anthropic/claude-haiku-5-5 · m01_titles · aus: 0.883, schlechtester von 3 Lauf/Läufen je Datensatz (anthropic/claude-haiku-5-5-think-none)</title>
+<rect x="338.0" y="130" width="104" height="30" rx="3" fill="#104281"/>
+<text x="390.0" y="150" font-size="12" text-anchor="middle" style="fill:#ffffff">0.88</text>
+</g>
+<g><title>anthropic/claude-haiku-5-5 · m02_knowledge_mc · aus: 0.574, schlechtester von 3 Lauf/Läufen je Datensatz (anthropic/claude-haiku-5-5-think-none)</title>
+<rect x="444.0" y="130" width="104" height="30" rx="3" fill="#2a78d6"/>
+<text x="496.0" y="150" font-size="12" text-anchor="middle" style="fill:#ffffff">0.57</text>
+</g>
+<g><title>anthropic/claude-haiku-5-5 · m03_facts · aus: 0.867, schlechtester von 3 Lauf/Läufen je Datensatz (anthropic/claude-haiku-5-5-think-none)</title>
+<rect x="550.0" y="130" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="602.0" y="150" font-size="12" text-anchor="middle" style="fill:#ffffff">0.87</text>
+</g>
+<g><title>anthropic/claude-haiku-5-5 · m10_alt_text · aus: 0.800, schlechtester von 3 Lauf/Läufen je Datensatz (anthropic/claude-haiku-5-5-think-none)</title>
+<rect x="656.0" y="130" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="708.0" y="150" font-size="12" text-anchor="middle" style="fill:#ffffff">0.80</text>
+</g>
+<g><title>anthropic/claude-haiku-5-5 · Gesamt: 0.625</title>
+<rect x="776.0" y="130" width="104" height="30" rx="3" fill="#2a78d6"/>
+<text x="828.0" y="150" font-size="12" text-anchor="middle" style="fill:#ffffff">0.62</text>
+</g>
+<text x="222.0" y="182" font-size="13" text-anchor="end">local/gemma4-12b</text>
+<g><title>local/gemma4-12b · a01_browser_audit · aus: 0.000, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-12b-think-off)</title>
+<rect x="232.0" y="162" width="104" height="30" rx="3" fill="#cde2fb"/>
+<text x="284.0" y="182" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.00</text>
+</g>
+<g><title>local/gemma4-12b · m01_titles · aus: 0.797, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-12b-think-off)</title>
+<rect x="338.0" y="162" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="390.0" y="182" font-size="12" text-anchor="middle" style="fill:#ffffff">0.80</text>
+</g>
+<g><title>local/gemma4-12b · m02_knowledge_mc · aus: 0.415, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-12b-think-off)</title>
+<rect x="444.0" y="162" width="104" height="30" rx="3" fill="#5598e7"/>
+<text x="496.0" y="182" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.42</text>
+</g>
+<g><title>local/gemma4-12b · m03_facts · aus: 0.833, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-12b-think-off)</title>
+<rect x="550.0" y="162" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="602.0" y="182" font-size="12" text-anchor="middle" style="fill:#ffffff">0.83</text>
+</g>
+<g><title>local/gemma4-12b · m10_alt_text · aus: 0.844, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-12b-think-off)</title>
+<rect x="656.0" y="162" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="708.0" y="182" font-size="12" text-anchor="middle" style="fill:#ffffff">0.84</text>
+</g>
+<g><title>local/gemma4-12b · Gesamt: 0.578</title>
+<rect x="776.0" y="162" width="104" height="30" rx="3" fill="#2a78d6"/>
+<text x="828.0" y="182" font-size="12" text-anchor="middle" style="fill:#ffffff">0.58</text>
+</g>
+<text x="222.0" y="214" font-size="13" text-anchor="end">local/qwen3.8-27b</text>
+<g><title>local/qwen3.8-27b · a01_browser_audit · aus: 0.522, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.8-27b-think-off)</title>
+<rect x="232.0" y="194" width="104" height="30" rx="3" fill="#3987e5"/>
+<text x="284.0" y="214" font-size="12" text-anchor="middle" style="fill:#ffffff">0.52</text>
+</g>
+<g><title>local/qwen3.8-27b · m01_titles · aus: 0.707, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.8-27b-think-off)</title>
+<rect x="338.0" y="194" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="390.0" y="214" font-size="12" text-anchor="middle" style="fill:#ffffff">0.71</text>
+</g>
+<g><title>local/qwen3.8-27b · m02_knowledge_mc · aus: 0.318, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.8-27b-think-off)</title>
+<rect x="444.0" y="194" width="104" height="30" rx="3" fill="#6da7ec"/>
+<text x="496.0" y="214" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.32</text>
+</g>
+<g><title>local/qwen3.8-27b · m03_facts · aus: 0.867, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.8-27b-think-off)</title>
+<rect x="550.0" y="194" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="602.0" y="214" font-size="12" text-anchor="middle" style="fill:#ffffff">0.87</text>
+</g>
+<g><title>local/qwen3.8-27b · m10_alt_text · aus: 0.362, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.8-27b-think-off)</title>
+<rect x="656.0" y="194" width="104" height="30" rx="3" fill="#6da7ec"/>
+<text x="708.0" y="214" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.36</text>
+</g>
+<g><title>local/qwen3.8-27b · Gesamt: 0.555</title>
+<rect x="776.0" y="194" width="104" height="30" rx="3" fill="#2a78d6"/>
+<text x="828.0" y="214" font-size="12" text-anchor="middle" style="fill:#ffffff">0.56</text>
+</g>
+<text x="222.0" y="246" font-size="13" text-anchor="end">local/qwen3.6-35b-a3b</text>
+<g><title>local/qwen3.6-35b-a3b · a01_browser_audit · aus: 0.446, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.6-35b-a3b-think-off)</title>
+<rect x="232.0" y="226" width="104" height="30" rx="3" fill="#5598e7"/>
+<text x="284.0" y="246" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.45</text>
+</g>
+<g><title>local/qwen3.6-35b-a3b · m01_titles · aus: 0.686, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.6-35b-a3b-think-off)</title>
+<rect x="338.0" y="226" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="390.0" y="246" font-size="12" text-anchor="middle" style="fill:#ffffff">0.69</text>
+</g>
+<g><title>local/qwen3.6-35b-a3b · m02_knowledge_mc · aus: 0.477, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.6-35b-a3b-think-off)</title>
+<rect x="444.0" y="226" width="104" height="30" rx="3" fill="#3987e5"/>
+<text x="496.0" y="246" font-size="12" text-anchor="middle" style="fill:#ffffff">0.48</text>
+</g>
+<g><title>local/qwen3.6-35b-a3b · m03_facts · aus: 0.500, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.6-35b-a3b-think-off)</title>
+<rect x="550.0" y="226" width="104" height="30" rx="3" fill="#3987e5"/>
+<text x="602.0" y="246" font-size="12" text-anchor="middle" style="fill:#ffffff">0.50</text>
+</g>
+<g><title>local/qwen3.6-35b-a3b · m10_alt_text · aus: 0.441, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.6-35b-a3b-think-off)</title>
+<rect x="656.0" y="226" width="104" height="30" rx="3" fill="#5598e7"/>
+<text x="708.0" y="246" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.44</text>
+</g>
+<g><title>local/qwen3.6-35b-a3b · Gesamt: 0.510</title>
+<rect x="776.0" y="226" width="104" height="30" rx="3" fill="#3987e5"/>
+<text x="828.0" y="246" font-size="12" text-anchor="middle" style="fill:#ffffff">0.51</text>
+</g>
+<text x="222.0" y="278" font-size="13" text-anchor="end">local/kolibri1-78b-a3b</text>
+<g><title>local/kolibri1-78b-a3b · a01_browser_audit · aus: 0.000, schlechtester von 3 Lauf/Läufen je Datensatz (local/kolibri1-78b-a3b-think-off)</title>
+<rect x="232.0" y="258" width="104" height="30" rx="3" fill="#cde2fb"/>
+<text x="284.0" y="278" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.00</text>
+</g>
+<g><title>local/kolibri1-78b-a3b · m01_titles · aus: 0.514, schlechtester von 3 Lauf/Läufen je Datensatz (local/kolibri1-78b-a3b-think-off)</title>
+<rect x="338.0" y="258" width="104" height="30" rx="3" fill="#3987e5"/>
+<text x="390.0" y="278" font-size="12" text-anchor="middle" style="fill:#ffffff">0.51</text>
+</g>
+<g><title>local/kolibri1-78b-a3b · m02_knowledge_mc · aus: 0.318, schlechtester von 3 Lauf/Läufen je Datensatz (local/kolibri1-78b-a3b-think-off)</title>
+<rect x="444.0" y="258" width="104" height="30" rx="3" fill="#6da7ec"/>
+<text x="496.0" y="278" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.32</text>
+</g>
+<g><title>local/kolibri1-78b-a3b · m03_facts · aus: 0.800, schlechtester von 3 Lauf/Läufen je Datensatz (local/kolibri1-78b-a3b-think-off)</title>
+<rect x="550.0" y="258" width="104" height="30" rx="3" fill="#184f95"/>
+<text x="602.0" y="278" font-size="12" text-anchor="middle" style="fill:#ffffff">0.80</text>
+</g>
+<g><title>local/kolibri1-78b-a3b · m10_alt_text · aus: nicht gelaufen</title>
+<rect x="656.0" y="258" width="104" height="30" rx="3" fill="none" stroke="var(--grid)" stroke-dasharray="3 3"/>
+<text x="708.0" y="278" font-size="12" class="muted" text-anchor="middle">—</text>
+</g>
+<g><title>local/kolibri1-78b-a3b · Gesamt: 0.408</title>
+<rect x="776.0" y="258" width="104" height="30" rx="3" fill="#5598e7"/>
+<text x="828.0" y="278" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.41*</text>
+</g>
+<text x="222.0" y="310" font-size="13" text-anchor="end">local/qwen3.5-9b</text>
+<g><title>local/qwen3.5-9b · a01_browser_audit · aus: 0.000, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-9b-think-off)</title>
+<rect x="232.0" y="290" width="104" height="30" rx="3" fill="#cde2fb"/>
+<text x="284.0" y="310" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.00</text>
+</g>
+<g><title>local/qwen3.5-9b · m01_titles · aus: 0.703, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-9b-think-off)</title>
+<rect x="338.0" y="290" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="390.0" y="310" font-size="12" text-anchor="middle" style="fill:#ffffff">0.70</text>
+</g>
+<g><title>local/qwen3.5-9b · m02_knowledge_mc · aus: 0.292, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-9b-think-off)</title>
+<rect x="444.0" y="290" width="104" height="30" rx="3" fill="#6da7ec"/>
+<text x="496.0" y="310" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.29</text>
+</g>
+<g><title>local/qwen3.5-9b · m03_facts · aus: 0.700, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-9b-think-off)</title>
+<rect x="550.0" y="290" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="602.0" y="310" font-size="12" text-anchor="middle" style="fill:#ffffff">0.70</text>
+</g>
+<g><title>local/qwen3.5-9b · m10_alt_text · aus: 0.291, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-9b-think-off)</title>
+<rect x="656.0" y="290" width="104" height="30" rx="3" fill="#86b6ef"/>
+<text x="708.0" y="310" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.29</text>
+</g>
+<g><title>local/qwen3.5-9b · Gesamt: 0.397</title>
+<rect x="776.0" y="290" width="104" height="30" rx="3" fill="#5598e7"/>
+<text x="828.0" y="310" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.40</text>
+</g>
+<text x="222.0" y="342" font-size="13" text-anchor="end">local/gemma4-e4b</text>
+<g><title>local/gemma4-e4b · a01_browser_audit · aus: 0.000, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-e4b-think-off)</title>
+<rect x="232.0" y="322" width="104" height="30" rx="3" fill="#cde2fb"/>
+<text x="284.0" y="342" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.00</text>
+</g>
+<g><title>local/gemma4-e4b · m01_titles · aus: 0.693, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-e4b-think-off)</title>
+<rect x="338.0" y="322" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="390.0" y="342" font-size="12" text-anchor="middle" style="fill:#ffffff">0.69</text>
+</g>
+<g><title>local/gemma4-e4b · m02_knowledge_mc · aus: 0.297, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-e4b-think-off)</title>
+<rect x="444.0" y="322" width="104" height="30" rx="3" fill="#6da7ec"/>
+<text x="496.0" y="342" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.30</text>
+</g>
+<g><title>local/gemma4-e4b · m03_facts · aus: 0.600, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-e4b-think-off)</title>
+<rect x="550.0" y="322" width="104" height="30" rx="3" fill="#2a78d6"/>
+<text x="602.0" y="342" font-size="12" text-anchor="middle" style="fill:#ffffff">0.60</text>
+</g>
+<g><title>local/gemma4-e4b · m10_alt_text · aus: 0.312, schlechtester von 3 Lauf/Läufen je Datensatz (local/gemma4-e4b-think-off)</title>
+<rect x="656.0" y="322" width="104" height="30" rx="3" fill="#6da7ec"/>
+<text x="708.0" y="342" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.31</text>
+</g>
+<g><title>local/gemma4-e4b · Gesamt: 0.381</title>
+<rect x="776.0" y="322" width="104" height="30" rx="3" fill="#5598e7"/>
+<text x="828.0" y="342" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.38</text>
+</g>
+<text x="222.0" y="374" font-size="13" text-anchor="end">local/qwen3.5-4b</text>
+<g><title>local/qwen3.5-4b · a01_browser_audit · aus: 0.133, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-4b-think-off)</title>
+<rect x="232.0" y="354" width="104" height="30" rx="3" fill="#9ec5f4"/>
+<text x="284.0" y="374" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.13</text>
+</g>
+<g><title>local/qwen3.5-4b · m01_titles · aus: 0.579, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-4b-think-off)</title>
+<rect x="338.0" y="354" width="104" height="30" rx="3" fill="#2a78d6"/>
+<text x="390.0" y="374" font-size="12" text-anchor="middle" style="fill:#ffffff">0.58</text>
+</g>
+<g><title>local/qwen3.5-4b · m02_knowledge_mc · aus: 0.174, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-4b-think-off)</title>
+<rect x="444.0" y="354" width="104" height="30" rx="3" fill="#9ec5f4"/>
+<text x="496.0" y="374" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.17</text>
+</g>
+<g><title>local/qwen3.5-4b · m03_facts · aus: 0.667, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-4b-think-off)</title>
+<rect x="550.0" y="354" width="104" height="30" rx="3" fill="#256abf"/>
+<text x="602.0" y="374" font-size="12" text-anchor="middle" style="fill:#ffffff">0.67</text>
+</g>
+<g><title>local/qwen3.5-4b · m10_alt_text · aus: 0.291, schlechtester von 3 Lauf/Läufen je Datensatz (local/qwen3.5-4b-think-off)</title>
+<rect x="656.0" y="354" width="104" height="30" rx="3" fill="#86b6ef"/>
+<text x="708.0" y="374" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.29</text>
+</g>
+<g><title>local/qwen3.5-4b · Gesamt: 0.369</title>
+<rect x="776.0" y="354" width="104" height="30" rx="3" fill="#6da7ec"/>
+<text x="828.0" y="374" font-size="12" text-anchor="middle" style="fill:#0b0b0b">0.37</text>
+</g>
+<text x="0" y="404" font-size="11" class="muted">* Gesamt ohne die fehlenden Aufgaben (gestrichelt).</text>
+<text x="0" y="420" font-size="11" class="muted">german-seo-bench 2026.1 · Messzeitraum Oktober 2026</text>
+</svg>

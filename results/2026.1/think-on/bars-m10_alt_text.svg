@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 772 360" width="772" height="360" role="img">
+<title>M10 — Deutsche ALT-Texte · mit Denken</title>
+<style>
+svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --grid:#e4e3df; --bar:#2a78d6; --hatch:#9ec5f4; --accent:#c4520f; }
+@media (prefers-color-scheme: dark) {
+  svg { --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --grid:#383835; --bar:#3987e5; --hatch:#184f95; --accent:#f08a4b; }
+}
+text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+.muted { fill: var(--ink2); }
+.halo { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="var(--surface)"/>
+<text x="0" y="18" font-size="15" font-weight="600">M10 — Deutsche ALT-Texte · mit Denken</text>
+<line x1="232.0" y1="34" x2="232.0" y2="310" stroke="var(--grid)"/>
+<text x="232.0" y="326" font-size="11" class="muted" text-anchor="middle">0</text>
+<line x1="337.0" y1="34" x2="337.0" y2="310" stroke="var(--grid)"/>
+<text x="337.0" y="326" font-size="11" class="muted" text-anchor="middle">0.25</text>
+<line x1="442.0" y1="34" x2="442.0" y2="310" stroke="var(--grid)"/>
+<text x="442.0" y="326" font-size="11" class="muted" text-anchor="middle">0.5</text>
+<line x1="547.0" y1="34" x2="547.0" y2="310" stroke="var(--grid)"/>
+<text x="547.0" y="326" font-size="11" class="muted" text-anchor="middle">0.75</text>
+<line x1="652.0" y1="34" x2="652.0" y2="310" stroke="var(--grid)"/>
+<text x="652.0" y="326" font-size="11" class="muted" text-anchor="middle">1</text>
+<text x="222.0" y="60.0" font-size="13" text-anchor="end">local/gemma4-31b</text>
+<g><title>local/gemma4-31b-think-on · m10_alt_text · an: 0.906, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,47.0 h376.6 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-376.6 z" fill="var(--bar)"/>
+<text x="618.6" y="60.0" font-size="12">0.91<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="90.0" font-size="13" text-anchor="end">anthropic/claude-haiku-5-5</text>
+<g><title>anthropic/claude-haiku-5-5-think-adaptive · m10_alt_text · an: 0.881, schlechtester von 2 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,77.0 h366.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-366.1 z" fill="var(--bar)"/>
+<text x="608.1" y="90.0" font-size="12">0.88<tspan class="muted"> (n=2)</tspan></text>
+</g>
+<text x="222.0" y="120.0" font-size="13" text-anchor="end">local/gemma4-26b-a4b</text>
+<g><title>local/gemma4-26b-a4b-think-on · m10_alt_text · an: 0.875, schlechtester von 2 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,107.0 h363.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-363.5 z" fill="var(--bar)"/>
+<text x="605.5" y="120.0" font-size="12">0.88<tspan class="muted"> (n=2)</tspan></text>
+</g>
+<text x="222.0" y="150.0" font-size="13" text-anchor="end">local/gemma4-12b</text>
+<g><title>local/gemma4-12b-think-on · m10_alt_text · an: 0.812, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,137.0 h337.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-337.2 z" fill="var(--bar)"/>
+<text x="579.2" y="150.0" font-size="12">0.81<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="180.0" font-size="13" text-anchor="end">local/gemma4-e4b</text>
+<g><title>local/gemma4-e4b-think-on · m10_alt_text · an: 0.781, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,167.0 h324.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-324.1 z" fill="var(--bar)"/>
+<text x="566.1" y="180.0" font-size="12">0.78<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="210.0" font-size="13" text-anchor="end">local/qwen3.8-27b</text>
+<g><title>local/qwen3.8-27b-think-medium · m10_alt_text · an: 0.772, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,197.0 h320.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-320.2 z" fill="var(--bar)"/>
+<text x="562.2" y="210.0" font-size="12">0.77<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="240.0" font-size="13" text-anchor="end">local/qwen3.6-35b-a3b</text>
+<g><title>local/qwen3.6-35b-a3b-think-on-precise · m10_alt_text · an: 0.684, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,227.0 h283.4 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-283.4 z" fill="var(--bar)"/>
+<text x="525.4" y="240.0" font-size="12">0.68<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="270.0" font-size="13" text-anchor="end">local/qwen3.5-9b</text>
+<g><title>local/qwen3.5-9b-think-on-precise-budget512 · m10_alt_text · an: 0.425, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,257.0 h174.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-174.5 z" fill="var(--bar)"/>
+<text x="416.5" y="270.0" font-size="12">0.42<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="222.0" y="300.0" font-size="13" text-anchor="end">local/qwen3.5-4b</text>
+<g><title>local/qwen3.5-4b-think-on-precise-budget512 · m10_alt_text · an: 0.266, schlechtester von 1 Lauf/Läufen je Datensatz</title>
+<path d="M232.0,287.0 h107.6 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-107.6 z" fill="var(--bar)"/>
+<text x="349.6" y="300.0" font-size="12">0.27<tspan class="muted"> (n=1)</tspan></text>
+</g>
+<text x="0" y="340" font-size="11" class="muted">Score = Mittel über die Datensätze, je Datensatz der schlechteste Lauf, Zahl der Läufe in Klammern.</text>
+<text x="0" y="356" font-size="11" class="muted">german-seo-bench 2026.1 · Messzeitraum Oktober 2026</text>
+</svg>

@@ -75,6 +75,7 @@ Mit `--out` stehen in `report.md` und `report.html` hinter der Tabelle die
 Laufdaten — Sampling, Laufzeit, Tokens/s, größter Kontext (`runstats.py`) —
 und die Einzelergebnisse: jede Antwort mit Score und Begründung aus dem Log,
 neben der Musterlösung (`details.py`). Auch dort wird nichts neu gewertet.
+Der Kopf jeder Aufgabenspalte verweist auf ihre Einzelergebnisse.
 Dazu kommen Diagramme: Gesamtscore und Heatmap, je Aufgabe ein
 Balkendiagramm und mit `--model-sizes` der Score gegen die Dateigröße.
 """
@@ -96,7 +97,9 @@ from xml.sax.saxutils import escape
 
 from inspect_ai.log import EvalLog, read_eval_log
 
-from german_seo_bench.details import Answer, log_answers, render_details, render_html
+from german_seo_bench.details import (
+    Answer, anchor, details_heading, log_answers, render_details, render_html,
+)
 from german_seo_bench.judge import sidecar_path
 from german_seo_bench.modelname import BUDGET_MARK, THINK_OFF, THINK_SUFFIX, model_label
 from german_seo_bench.runstats import (
@@ -899,10 +902,16 @@ def _overall_text(overall: Overall | None) -> str:
     return f"{overall.value:.2f}" + ("" if overall.complete else "*")
 
 
-def _table(matrix: Matrix, uniform: bool) -> tuple[list[str], list[list[str]]]:
-    """Kopf und Zeilen einer Tabelle — eine Quelle für Terminal und Markdown."""
+def _table(matrix: Matrix, uniform: bool,
+           links: frozenset[str] = frozenset()) -> tuple[list[str], list[list[str]]]:
+    """Kopf und Zeilen einer Tabelle — eine Quelle für Terminal und Markdown.
+
+    Spalten einer Aufgabe aus `links` verweisen im Kopf auf ihre Einzelergebnisse.
+    """
     header = [
-        "Modell", *(t.label for t in matrix.totals), *(c.label for c in matrix.columns),
+        "Modell", *(t.label for t in matrix.totals),
+        *(f"[{c.label}](#{anchor(details_heading(c.task))})" if c.task in links else c.label
+          for c in matrix.columns),
         *(f"Judge {j.label}" for j in matrix.judges),
     ]
     body = [
@@ -1108,12 +1117,17 @@ def render_terminal(report: Report) -> str:
     return "\n".join(out + _common_notes(report) + ([""] + failed if failed else []))
 
 
-def render_markdown(report: Report) -> str:
-    """Pipe-Tabellen, wie Hugo (Goldmark) sie ohne Erweiterung rendert."""
+def render_markdown(report: Report, links: bool = False) -> str:
+    """Pipe-Tabellen, wie Hugo (Goldmark) sie ohne Erweiterung rendert.
+
+    Mit `links` verweist der Kopf jeder Aufgabenspalte auf ihre Einzelergebnisse.
+    Nur für `report.md`, wo sie dahinter stehen; allein kopiert liefe der Link ins Leere.
+    """
     uniform = _uniform_n(report) is not None
+    detailed = frozenset(a.task for a in report.answers) if links else frozenset()
     parts: list[str] = []
     for heading, matrix in sections(report):
-        header, body = _table(matrix, uniform)
+        header, body = _table(matrix, uniform, detailed)
         align = [":---", *("---:" for _ in header[1:])]
         table = "\n".join("| " + " | ".join(r) + " |" for r in [header, align, *body])
         parts += ([f"## {heading}"] if heading else []) + [table, *_matrix_notes(matrix)]
@@ -1912,9 +1926,9 @@ def write_outputs(report: Report, out: Path, sizes: dict[str, float] | None = No
     """Alle Dateien des Berichts; die Streudiagramme nur mit Modellgrößen."""
     out.mkdir(parents=True, exist_ok=True)
     failed = render_failed(report)
-    markdown = (render_markdown(report) + "\n" + (failed + "\n" if failed else "")
+    markdown = (render_markdown(report, links=True) + "\n" + (failed + "\n" if failed else "")
                 + render_runstats(report) + "\n"
-                + render_details(report, report.answers, out))
+                + render_details(report, report.answers))
     written = {
         "report.md": markdown,
         "report.html": render_html(markdown),
