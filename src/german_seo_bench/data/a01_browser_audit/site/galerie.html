@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galerie – Kartenshop</title>
+<meta name="description" content="Wandkarten im Wohnraum – Bildergalerie.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav><a href="home.html">Start</a> · <a href="kategorie.html">Karten</a></nav>
+<div id="hinweis"></div>
+<h1>Galerie</h1>
+<img src="hero.svg" width="1200" height="600" loading="lazy"
+     alt="Große Weltkarte über einem Sideboard im Wohnzimmer">
+<p>Alle Motive gibt es in drei Größen und vier Rahmenfarben.</p>
+<script>
+if (window.matchMedia('print').matches) {
+  document.title = 'Galerie – Druckansicht | Kartenshop';
+}
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    document.getElementById('hinweis').innerHTML =
+      '<div style="min-height:260px;background:#eef2f6;padding:16px">' +
+      '<strong>Versandkostenfrei ab 50 Euro</strong>' +
+      '<p>Aktion bis Ende des Monats, gilt für alle Formate.</p></div>';
+  }, 250);
+});
+</script>
+</body>
+</html>

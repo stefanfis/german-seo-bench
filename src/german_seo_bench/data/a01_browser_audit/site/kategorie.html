@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politische Karten – Kartenshop</title>
+<meta name="description" content="Alle politischen Wandkarten im Überblick.">
+</head>
+<body>
+<section id="head"></section>
+<p>Stöbern Sie in unseren politischen Karten.</p>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var h = document.createElement('h1');
+  h.textContent = 'Politische Karten';
+  document.getElementById('head').appendChild(h);
+});
+// Motive ohne eigenes Bild bekommen den Platzhalter der Kategorie.
+var platzhalter = '/img/kategorie-platzhalter.jpg';
+var motive = document.querySelectorAll('img.motiv');
+for (var i = 0; i < motive.length; i++) {
+  if (!motive[i].getAttribute('src')) { motive[i].setAttribute('src', platzhalter); }
+}
+</script>
+</body>
+</html>

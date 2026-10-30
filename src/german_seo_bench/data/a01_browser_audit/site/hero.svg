@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="Wandkarte">
+  <rect width="1200" height="600" fill="#dce6ef"/>
+  <rect x="60" y="60" width="1080" height="480" fill="#f7fafc" stroke="#8aa0b4" stroke-width="8"/>
+  <circle cx="600" cy="300" r="170" fill="#b9cbdc"/>
+  <text x="600" y="310" text-anchor="middle" font-size="48" font-family="sans-serif" fill="#33475b">Wandkarte</text>
+</svg>

@@ -1,0 +1,10 @@
+body { font-family: system-ui, sans-serif; margin: 16px; }
+nav { margin-bottom: 12px; }
+
+/* Zweispaltiges Raster der Detailseiten. Die Randspalte wird zurückgehalten,
+   bis das Raster steht; ihre Kinder bringen die Sichtbarkeit selbst mit. */
+.spalten { display: flex; gap: 24px; align-items: flex-start; }
+.haupt { flex: 1 1 auto; min-width: 0; }
+.rand { flex: 0 0 300px; visibility: hidden; }
+.rand > * { visibility: visible; }
+.rand.offen { visibility: visible; }

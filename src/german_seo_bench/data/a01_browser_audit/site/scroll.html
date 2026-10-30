@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuheiten – Kartenshop</title>
+<meta name="description" content="Neu eingetroffene Karten und Poster.">
+<style>#liste li { min-height: 140px; list-style: none; }</style>
+</head>
+<body>
+<nav><a href="home.html">Start</a></nav>
+<h1>Neuheiten</h1>
+<ul id="liste">
+<li><a onclick="goTo('produkt.html')">Weltkarte politisch</a></li>
+<li><a onclick="goTo('produkt.html')">Weltkarte physisch</a></li>
+<li><a onclick="goTo('produkt.html')">Europa 1914</a></li>
+<li><a onclick="goTo('produkt.html')">Sternenkarte Nordhalbkugel</a></li>
+<li><a onclick="goTo('produkt.html')">Alpen im Relief</a></li>
+<li><a onclick="goTo('produkt.html')">Deutschland Verwaltung</a></li>
+</ul>
+<p id="ende">Alle Neuheiten, sortiert nach Eingang.</p>
+<script>
+var messung = { skript: 'analytics-v2.js', aktiv: false };
+if (messung.aktiv) {
+  var mess = document.createElement('script');
+  mess.src = messung.skript;
+  document.head.appendChild(mess);
+}
+function goTo(ziel) { window.location.href = ziel; }
+var seite = 1;
+function nachladen() {
+  if (seite >= 4) return;
+  seite++;
+  var ul = document.getElementById('liste');
+  for (var i = 1; i <= 6; i++) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.textContent = 'Motiv ' + seite + '-' + i;
+    a.setAttribute('onclick', "goTo('produkt.html')");
+    li.appendChild(a);
+    ul.appendChild(li);
+  }
+}
+window.addEventListener('scroll', function () {
+  if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 80) {
+    nachladen();
+  }
+});
+</script>
+</body>
+</html>

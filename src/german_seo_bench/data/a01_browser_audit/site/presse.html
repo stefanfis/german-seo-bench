@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presse – Kartenshop</title>
+<meta name="description" content="Pressemitteilungen und Bildmaterial für Redaktionen.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav><a href="home.html">Start</a></nav>
+<h1>Presse</h1>
+<p>Redaktionen erhalten Bildmaterial in Druckauflösung auf Anfrage, ohne Wasserzeichen und zur einmaligen Verwendung.</p>
+<p>Aktuelle Mitteilung: Die Auflage der historischen Europakarte von 1914 wird im Frühjahr neu gedruckt.</p>
+<p><a href="assets.html">Versand und Service</a></p>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.title = 'Presse und Bildmaterial für Redaktionen | Kartenshop';
+});
+// Aus dem Redaktionsbereich kommend zurück auf die Startseite.
+if (document.body.dataset.redaktion === 'aktiv') {
+  window.location.replace('home.html');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,716 @@
+{
+  "task": "M01",
+  "title": "Deutsche SEO-Seitentitel",
+  "version": 1,
+  "samples": [
+    {
+      "id": "bank",
+      "input": {
+        "text": "<h1>Ein fester Platz im Garten</h1>\n<p>Wer im Frühjahr den Garten herrichtet, merkt schnell, dass ein Sitzplatz fehlt. Eine Gartenbank ist dafür die einfachste Lösung: Sie braucht weniger Stellfläche als eine komplette Sitzgruppe, findet auch an einer Hauswand oder unter einem Baum Platz und lädt selbst dann zu einer Viertelstunde draußen ein, wenn das Wetter für ein ganzes Abendessen im Freien nicht reicht.</p>\n<h2>Welches Material hält wirklich?</h2>\n<p>Teak, Robinie und Lärche sind witterungsfest und bekommen mit den Jahren eine silbergraue Patina. Wer die nicht mag, ölt einmal im Jahr nach. Robinie wächst in Europa und ist deshalb meist die günstigere Alternative zum importierten Teak.</p>\n<p>Pulverbeschichteter Stahl lässt sich schlanker bauen und steht durch sein Gewicht auch bei Wind sicher. Aluminium ist leichter zu tragen, kippt dafür eher. Kunststoff ist pflegeleicht, verblasst aber in der Sonne und wirkt auf einer gepflasterten Terrasse schnell billig.</p>\n<h2>Maße, die im Alltag passen</h2>\n<ul>\n<li>Sitzhöhe 43 bis 46 Zentimeter, sonst hängen die Beine oder der Rücken rutscht durch</li>\n<li>Sitztiefe ab 45 Zentimeter, damit die Lehne überhaupt genutzt wird</li>\n<li>120 Zentimeter Breite reichen für zwei Erwachsene, ab 150 wird es bequem</li>\n</ul>\n<h2>Der Untergrund entscheidet über die Lebensdauer</h2>\n<p>Steht die Bank dauerhaft auf feuchter Erde, zieht Wasser von unten ins Holz und die Füße faulen von innen, lange bevor man es sieht. Zwei Gehwegplatten, eine Kiesschüttung oder aufgeschraubte Gummifüße lösen das Problem für ein paar Euro.</p>\n<p>Ob Gartenmöbel im Winter draußen bleiben dürfen, hängt weniger vom Material als von den Verbindungen ab: Verschraubte Konstruktionen überstehen Frost besser als geleimte. Eine Plane schadet mehr, als sie nützt, wenn die Feuchtigkeit darunter nicht abtrocknen kann.</p>\n<div class=\"teaser\"><p>Sie planen einen größeren Umbau am Haus? Unser Ratgeber zeigt, worauf es beim Vergleich von Angeboten ankommt, wie sich ein halber Prozentpunkt bei den Zinsen auf die Gesamtsumme auswirkt und warum ein Kredit mit kurzer Laufzeit nicht automatisch der günstigere ist.</p><p><a href=\"baufinanzierung-vergleich.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Gartenbank",
+          "Gartenbänke"
+        ],
+        "forbidden": [
+          "Kredit",
+          "Konto",
+          "Zinsen",
+          "Darlehen",
+          "Sparkasse",
+          "Girokonto",
+          "Finanzierung",
+          "Filiale"
+        ],
+        "level": 1,
+        "oracle": "Gartenbank aus Holz: robuste Sitzbank für den Garten"
+      }
+    },
+    {
+      "id": "maus",
+      "input": {
+        "text": "<h1>Was am Schreibtisch wirklich zählt</h1>\n<p>Kein Gerät im Büro wird häufiger angefasst, und kaum eines wird seltener ersetzt: Die Maus kommt beim Rechner mit und bleibt, bis sie kaputtgeht. Dabei entscheidet gerade ihre Form darüber, ob nach vier Stunden am Bildschirm das Handgelenk zwickt.</p>\n<h2>Die Form muss zur Hand passen</h2>\n<p>Messen Sie die Hand von der Spitze des Mittelfingers bis zum Handballen. Unter 17 Zentimetern greift man kleine Modelle mit den Fingerspitzen, darüber liegt die ganze Hand auf. Eine zu flache Maus zwingt die Finger in eine Kralle, eine zu große lässt sich nur aus dem Arm bewegen.</p>\n<p>Vertikale Modelle stellen die Hand fast senkrecht und entlasten den Unterarm spürbar, weil die Speiche nicht mehr über die Elle gedreht wird. Die Umstellung dauert ein bis zwei Wochen, in denen die Treffsicherheit merklich leidet. Wer nur gelegentlich am Rechner sitzt, braucht sie nicht.</p>\n<h2>Technik: Worauf es ankommt und worauf nicht</h2>\n<p>Die Auflösung wird in DPI angegeben, und die großen Zahlen auf der Verpackung sind fürs Büro bedeutungslos. 800 bis 1600 DPI genügen; alles darüber ist ein Argument für Spieler mit großen Bildschirmen. Wichtiger ist, ob der Sensor auf der vorhandenen Tischplatte sauber läuft. Glas und stark gemaserte Oberflächen bringen günstige Sensoren ins Stocken, dagegen hilft eine schlichte Stoffunterlage.</p>\n<p>Bei der Funkverbindung stehen Bluetooth und ein eigener Empfänger zur Wahl. Der Empfänger reagiert schneller und funktioniert schon vor dem Start des Betriebssystems, belegt aber dauerhaft einen USB-Anschluss. Bluetooth spart den Anschluss und wechselt per Tastendruck zwischen Rechner und Tablet.</p>\n<h2>Akku und Geräusch</h2>\n<p>Herstellerangaben zur Laufzeit schwanken zwischen drei Wochen und einem halben Jahr und beruhen auf völlig verschiedenen Nutzungsprofilen. Praktischer ist die Frage, was beim leeren Akku passiert: Modelle mit fest verbautem Akku lassen sich per Kabel weiternutzen, solche mit AA-Zelle sind in zehn Sekunden wieder einsatzbereit. Leise Taster ohne hörbares Klicken sind im Großraumbüro ein Gewinn, geben aber weniger Rückmeldung.</p>\n<div class=\"teaser\"><p>Ebenfalls im Ratgeber: Mäuse im Keller. Woran Sie einen Befall früh erkennen, warum offene Vorräte und Katzenfutter die häufigste Ursache sind und welche Lücken im Mauerwerk Sie zuerst schließen sollten.</p><p><a href=\"maeuse-im-haus.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Maus",
+          "Computermaus",
+          "Büromaus"
+        ],
+        "forbidden": [
+          "Mausefalle",
+          "Schädling",
+          "Nager",
+          "Befall",
+          "bekämpfen",
+          "Keller",
+          "vertreiben"
+        ],
+        "level": 4,
+        "oracle": "Kabellose Maus fürs Büro: ergonomisch und präzise"
+      }
+    },
+    {
+      "id": "schloss",
+      "input": {
+        "text": "<h1>Ausflugsziele in der Umgebung</h1>\n<p>Zwischen Fluss und Mittelgebirge liegen mehr Residenzen, Burgen und Herrensitze, als ein Wochenende hergibt. Wir haben die lohnendsten zusammengestellt, samt der Frage, die vor Ort am häufigsten falsch eingeschätzt wird: Wie viel Zeit man tatsächlich braucht.</p>\n<h2>Die große Barockresidenz</h2>\n<p>Das bekannteste Schloss der Region ist nur mit Führung zugänglich, und die dauert 50 Minuten. Wer den Park und die Orangerie mitnehmen will, sollte einen halben Tag einplanen. Tickets gibt es zeitgebunden im Voraus; an Sonntagen im Mai und Juni sind die Vormittagstermine oft schon am Vortag vergeben.</p>\n<h2>Drei kleinere Alternativen</h2>\n<ul>\n<li>Das Wasserschloss im Tal, außen frei zugänglich, innen nur an Wochenenden geöffnet</li>\n<li>Die Burgruine über dem Weinort, ganzjährig offen und kostenlos, mit steilem Aufstieg von 20 Minuten</li>\n<li>Das Jagdschloss im Forst, sehenswert vor allem wegen der Innenausstattung aus dem 18. Jahrhundert</li>\n</ul>\n<h2>Mit Kindern unterwegs</h2>\n<p>Lange Führungen durch Prunkräume überfordern jüngere Kinder zuverlässig. Zwei Häuser bieten eigene Rundgänge mit Suchaufgaben an, die etwa 30 Minuten dauern. In den Parkanlagen darf man abseits der Rabatten laufen, Kinderwagen kommen überall bis zum Eingang, im Obergeschoss selten weiter.</p>\n<h2>Anfahrt und Kosten</h2>\n<p>Alle genannten Ziele sind mit dem Regionalzug und einem kurzen Fußweg erreichbar. Die Parkplätze an der Barockresidenz sind kostenpflichtig und an Feiertagen gegen elf Uhr voll. Der Eintritt liegt zwischen sieben und zwölf Euro, Familienkarten lohnen sich ab zwei Kindern. Wer mehrere Häuser besuchen will, spart mit dem Verbundticket des Landesbetriebs, das 14 Tage gilt.</p>\n<div class=\"teaser\"><p>Aus unserem Wohnratgeber: Schließzylinder selbst tauschen. Wie Sie das richtige Maß ausmessen, warum ein Zylinder nicht über die Beschlagkante hinausstehen darf und was ein Aufsperrdienst nachts kosten darf.</p><p><a href=\"schliesszylinder-tauschen.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Schloss",
+          "Schlösser",
+          "Jagdschloss"
+        ],
+        "forbidden": [
+          "Schließzylinder",
+          "aufsperren",
+          "Schlüssel",
+          "Türschloss",
+          "Einbruch",
+          "Schlosser",
+          "Schließanlage"
+        ],
+        "level": 3,
+        "oracle": "Schloss besichtigen: die schönsten Schlösser der Region"
+      }
+    },
+    {
+      "id": "kiefer",
+      "input": {
+        "text": "<h1>Nadelgehölze für kleine Gärten</h1>\n<p>Kiefern haben einen zweifelhaften Ruf, weil viele sie nur als kahl gewordene Fichtenersatzpflanzung am Straßenrand kennen. Im Garten sind sie dagegen genügsam: Sie kommen mit Sandboden und Trockenheit zurecht, verlieren keine Nadeln in Massen und sehen im Winter nach etwas aus.</p>\n<h2>Welche Art für welchen Platz</h2>\n<p>Die Waldkiefer wird 20 Meter hoch und passt nur in große Grundstücke. Für normale Gärten eignen sich die Schwarzkiefer als Solitär und vor allem die Bergkiefer, die je nach Sorte zwischen einem und drei Metern bleibt. Sehr kompakte Auslesen wie „Mops\" oder „Gnom\" wachsen kaum zehn Zentimeter im Jahr und funktionieren auch im großen Kübel.</p>\n<h2>Standort und Pflanzung</h2>\n<p>Volle Sonne ist Pflicht, Halbschatten führt zu kahlen Innenbereichen. Der Boden darf mager und sandig sein, Staunässe verträgt keine Art. Schwere Böden lockert man großzügig mit Kies oder Splitt auf, nicht mit Kompost. Gepflanzt wird im Frühjahr oder im September, damit die Wurzeln vor dem Frost anwachsen. In den ersten zwei Sommern muss auch eine trockenheitsverträgliche Kiefer regelmäßig gegossen werden.</p>\n<h2>Schnitt zur richtigen Zeit</h2>\n<p>Ein normaler Rückschnitt funktioniert nicht: Aus altem Holz ohne Nadeln treibt nichts mehr nach. Kompakt hält man eine Kiefer stattdessen über die Kerzen, also die weichen Neutriebe im Mai. Man bricht sie mit den Fingern auf ein Drittel bis die Hälfte ab, solange sie noch nicht verholzt sind. Wer zur Schere greift, schneidet die jungen Nadeln an, und die Spitzen werden braun.</p>\n<h2>Wenn die Nadeln braun werden</h2>\n<p>Im Herbst innen liegende Nadeln abzuwerfen ist normal, das tun alle Kiefern nach zwei bis drei Jahren. Bedenklich wird es, wenn ganze Triebspitzen absterben oder Harz austritt. Dahinter steckt meist das Diplodia-Triebsterben nach nassen Frühjahren; befallene Triebe schneidet man bei trockenem Wetter weit ins gesunde Holz zurück und entsorgt sie im Restmüll.</p>\n<div class=\"teaser\"><p>Aus dem Gesundheitsteil: Zähneknirschen in der Nacht. Welche Beschwerden am Morgen darauf hindeuten, wann eine Schiene vom Zahnarzt sinnvoll ist und was Entspannungsübungen am Abend tatsächlich bringen.</p><p><a href=\"zaehneknirschen.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Kiefer",
+          "Kiefern"
+        ],
+        "forbidden": [
+          "Zahn",
+          "Zahnarzt",
+          "Knirschen",
+          "Schiene",
+          "Kiefergelenk",
+          "Kieferorthopädie",
+          "Aufbissschiene"
+        ],
+        "level": 4,
+        "oracle": "Kiefer pflanzen und pflegen: Standort, Schnitt und Tipps"
+      }
+    },
+    {
+      "id": "ton",
+      "input": {
+        "text": "<h1>Podcast aufnehmen</h1>\n<p>Für einen Podcast verzeihen Hörerinnen und Hörer viel: holprige Übergänge, lange Pausen, ein schiefes Intro. Schlechten Ton verzeihen sie nicht. Wer nach zehn Minuten abschaltet, tut das fast immer wegen eines Halls im Raum oder eines Rauschens im Hintergrund, nicht wegen des Themas.</p>\n<h2>Mikrofon</h2>\n<p>Dynamische Mikrofone nehmen vor allem das auf, was direkt davor passiert, und blenden den Rest weitgehend aus. Für ein unbehandeltes Wohnzimmer sind sie deshalb die sichere Wahl. Kondensatormikrofone klingen offener und detaillierter, hören aber auch die Heizung, die Tastatur und die Straße. Der Sprechabstand liegt bei beiden bei etwa einer Handbreit, seitlich versetzt, damit die Explosivlaute nicht direkt in die Kapsel schlagen.</p>\n<h2>Der Raum ist wichtiger als das Gerät</h2>\n<p>Ein 400-Euro-Mikrofon im leeren Zimmer klingt schlechter als ein günstiges im vollgestellten. Teppich, Vorhänge, ein gefülltes Bücherregal und ein Sofa schlucken genau die Reflexionen, die eine Aufnahme dumpf und hohl wirken lassen. Testen lässt sich das ohne Technik: einmal laut klatschen und hören, ob es nachhallt.</p>\n<h2>Pegel und Nachbearbeitung</h2>\n<p>Nehmen Sie mit Spitzen um minus 12 dB auf. Das lässt genug Luft für einen unerwartet lauten Lacher, ohne dass etwas übersteuert. Übersteuerte Stellen lassen sich später nicht reparieren, zu leise Aufnahmen dagegen schon.</p>\n<p>In der Bearbeitung reichen vier Schritte: Störgeräusche entfernen, Atmer und lange Pausen kürzen, leicht komprimieren, am Ende auf etwa minus 16 LUFS normalisieren. Das ist der Wert, bei dem Ihre Folge in der Playlist genauso laut ist wie die Sendung davor.</p>\n<h2>Zwei Personen, zwei Spuren</h2>\n<p>Nehmen Sie jede Stimme getrennt auf, auch im selben Raum. Sonst lässt sich später kein Räuspern entfernen, ohne den anderen mit abzuschneiden. Bei Ferngesprächen zeichnet jede Seite lokal auf und schickt die Datei hinterher; die Verbindung selbst dient nur der Verständigung.</p>\n<div class=\"teaser\"><p>Im Kursteil: Töpfern für Anfänger. Was ein Wochenende an der Drehscheibe kostet, welche Keramik in den Brennofen darf und warum die erste eigene Schale fast immer zu dickwandig wird.</p><p><a href=\"toepferkurs.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Ton",
+          "Tonqualität",
+          "Aufnahmequalität"
+        ],
+        "forbidden": [
+          "Töpfer",
+          "Keramik",
+          "Brennofen",
+          "Drehscheibe",
+          "Lehm",
+          "Tonerde",
+          "Töpferkurs"
+        ],
+        "level": 4,
+        "oracle": "Guter Ton beim Podcast: Mikrofon, Aufnahme und Schnitt"
+      }
+    },
+    {
+      "id": "steuer",
+      "input": {
+        "text": "<h1>Frühjahr, Zeit für den Papierkram</h1>\n<p>Für Freiberufler und kleine Gewerbetreibende ist der Jahresabschluss weniger ein finanzielles als ein organisatorisches Problem. Wer unterjährig sortiert, sitzt im Frühjahr zwei Abende daran. Wer einen Schuhkarton füllt, zwei Wochen.</p>\n<h2>Was sich absetzen lässt</h2>\n<ul>\n<li>Arbeitsmittel, die überwiegend beruflich genutzt werden, bis 800 Euro netto sofort in voller Höhe</li>\n<li>Das häusliche Arbeitszimmer, wenn es ein abgeschlossener Raum ist und nicht nebenbei als Gästezimmer dient</li>\n<li>Fortbildungen samt Fahrt und Übernachtung</li>\n<li>Beiträge zu Kammern, Berufsverbänden und Fachliteratur</li>\n<li>Bewirtung von Geschäftspartnern zu 70 Prozent, mit maschinellem Beleg und Anlass</li>\n</ul>\n<p>Die Abgrenzung zwischen beruflich und privat erzeugt die meisten Rückfragen. Ein Laptop, auf dem abends Serien laufen, ist keine hundertprozentige Betriebsausgabe. Ein geschätzter Anteil von 50 Prozent wird häufig akzeptiert, ist aber kein Rechtsanspruch, und bei größeren Beträgen fragt das Finanzamt nach.</p>\n<h2>Die Falle im zweiten guten Jahr</h2>\n<p>Wer die erste Nachzahlung übersteht, wird im Folgejahr von den Vorauszahlungen überrascht: Sie werden auf Basis des Vorjahres festgesetzt und kommen quartalsweise, zusätzlich zur laufenden Nachzahlung. Planen Sie dafür von Anfang an einen festen Anteil jeder Einnahme auf ein zweites Konto. Bricht der Umsatz ein, lässt sich eine Herabsetzung formlos und mit kurzer Begründung beantragen.</p>\n<h2>Fristen</h2>\n<p>Ohne steuerliche Beratung ist die Erklärung bis zum 31. Juli des Folgejahres abzugeben, mit Beratung deutlich später. Eine Fristverlängerung bekommt man auf Antrag meist ohne Diskussion, solange man vorher fragt und nicht erst nach der Erinnerung. Verspätungszuschläge fallen ab einer gewissen Verzögerung automatisch an, unabhängig davon, ob am Ende eine Erstattung herauskommt.</p>\n<p>Die Diskussion um Einnahmenüberschussrechnung gegenüber doppelter Buchführung ist für die meisten müßig: Unterhalb der Schwellenwerte bleibt es bei der einfachen Variante, und die werden seltener überschritten, als man denkt.</p>\n<div class=\"teaser\"><p>Ebenfalls neu: Handy am Steuer. Was der Bußgeldkatalog nach der letzten Novelle vorsieht, ab wann ein Fahrverbot droht und warum schon das Umlegen des Geräts an der roten Ampel als Benutzung gilt.</p><p><a href=\"handy-am-steuer.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Steuer",
+          "Steuern",
+          "Steuererklärung",
+          "Jahresabschluss"
+        ],
+        "forbidden": [
+          "Lenkrad",
+          "Bußgeld",
+          "Fahrverbot",
+          "Führerschein",
+          "Handy",
+          "Promille",
+          "Ruderpinne"
+        ],
+        "level": 5,
+        "oracle": "Steuer sparen als Selbstständiger: Tipps zur Erklärung"
+      }
+    },
+    {
+      "id": "fluegel",
+      "input": {
+        "text": "<h1>Instrumente kaufen</h1>\n<p>Der Schritt vom Klavier zum Flügel ist selten eine Frage des Könnens und fast immer eine des Raums. Die Mechanik arbeitet waagerecht und mit der Schwerkraft, die Repetition ist dadurch schneller und die Dynamik feiner abstufbar. Spürbar wird das aber nur, wenn das Instrument im Zimmer auch klingen darf.</p>\n<h2>Größe und Raum</h2>\n<p>Stutzflügel beginnen bei etwa 150 Zentimetern Länge, Salonflügel liegen zwischen 180 und 210, Konzertflügel darüber. Länger heißt längere Saiten und damit ein tragfähigerer Bass. Im Wohnzimmer kehrt sich der Vorteil aber um: Ein 210er in einem 20-Quadratmeter-Raum mit Parkett und wenig Möblierung wird im Fortissimo unangenehm, während ein 160er dort ausgewogen klingt. Als Anhaltspunkt gelten 25 Quadratmeter für Instrumente bis 180 Zentimeter.</p>\n<h2>Neu oder gebraucht</h2>\n<p>Gebrauchte Instrumente sind der Regelfall, denn ein gut gepflegter Flügel hält Jahrzehnte. Entscheidend ist der Zustand von Stimmstock und Resonanzboden. Hält das Instrument die Stimmung über Monate, ist der Stimmstock in Ordnung. Feine Risse im Resonanzboden sind verbreitet und oft unkritisch, solange die Rippen nicht gelöst sind. Ein unabhängiger Klavierbauer prüft das in einer Stunde, und diese Ausgabe ist die sinnvollste beim ganzen Kauf.</p>\n<h2>Was nach dem Kauf kommt</h2>\n<ul>\n<li>Transport nur durch eine spezialisierte Spedition, mit Treppenzuschlag</li>\n<li>Stimmen zweimal jährlich, nach dem Umzug zusätzlich nach etwa vier Wochen</li>\n<li>Raumluft möglichst zwischen 45 und 60 Prozent Feuchte halten</li>\n<li>Kein Platz an der Außenwand, über der Heizung oder in direkter Sonne</li>\n</ul>\n<p>Wer zur Miete wohnt, klärt das Spielen am besten vorher: Üblich sind Ruhezeiten und eine Begrenzung auf zwei bis drei Stunden täglich. Ein Silent-System, das die Hämmer abfängt und die Bewegung elektronisch abnimmt, ist bei einem Flügel nachrüstbar, kostet aber deutlich mehr als beim Klavier.</p>\n<div class=\"teaser\"><p>Aus dem Heimwerkerteil: Fensterflügel neu einstellen. Woran Sie erkennen, dass ein Fenster schleift, welche Schrauben am Band wofür zuständig sind und wann die Dichtung statt des Beschlags das Problem ist.</p><p><a href=\"fenster-einstellen.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Flügel"
+        ],
+        "forbidden": [
+          "Vogel",
+          "Fensterflügel",
+          "Türflügel",
+          "Beschlag",
+          "Scharnier",
+          "Gefieder",
+          "Flügelschlag"
+        ],
+        "level": 2,
+        "oracle": "Flügel kaufen: Konzertflügel und Stutzflügel im Test"
+      }
+    },
+    {
+      "id": "birne",
+      "input": {
+        "text": "<h1>Obst im eigenen Garten</h1>\n<p>Bei Birnen entscheidet sich die Qualität nicht am Baum, sondern im Keller. Wer zu spät pflückt, hat mehliges Obst, das innen schon braun ist. Wer zu früh pflückt, bekommt Früchte, die hart bleiben und nie richtig süß werden. Der Zeitraum dazwischen ist bei manchen Sorten kaum eine Woche lang.</p>\n<h2>Pflückreif ist nicht genussreif</h2>\n<p>Anders als Äpfel reifen die meisten Birnen nach der Ernte nach. Geerntet wird bei Pflückreife: Die Grundfarbe schlägt von Grün nach Gelbgrün um, die Kerne sind braun, und die Frucht löst sich beim leichten Anheben mit dem Stiel vom Zweig. Muss man ziehen oder drehen, ist es noch zu früh.</p>\n<h2>Drei bewährte Sorten</h2>\n<ul>\n<li>Williams Christ: Ernte Mitte August, nur wenige Tage haltbar, klassisch zum Einkochen</li>\n<li>Conference: Ernte Anfang September, lagert gekühlt bis zu drei Monate, sehr zuverlässig im Ertrag</li>\n<li>Gute Luise: Ernte Mitte September, saftig, aber druckempfindlich beim Transport</li>\n</ul>\n<h2>Richtig lagern</h2>\n<p>Ideal sind ein bis vier Grad bei hoher Luftfeuchtigkeit, also ein kühler Keller oder das Gemüsefach. Die Früchte liegen nebeneinander, ohne sich zu berühren, Stiel nach oben. Äpfel gehören nicht dazu, weil sie viel Ethylen abgeben und die Birnen dadurch innerhalb weniger Tage weich werden. Zum Nachreifen nimmt man portionsweise heraus: Bei Zimmertemperatur dauert es je nach Sorte zwei bis fünf Tage, und der Reifepunkt ist erreicht, wenn der Hals am Stielansatz auf sanften Daumendruck leicht nachgibt.</p>\n<h2>Wenn der Ertrag ausbleibt</h2>\n<p>Die meisten Sorten sind auf eine zweite, gleichzeitig blühende Sorte in der Nähe angewiesen. Fehlt sie, blüht der Baum üppig und trägt trotzdem kaum. Auch Spätfrost während der Blüte im April kostet regelmäßig die ganze Ernte. Ein Birnbaum an der windgeschützten Südwand ist davon weniger betroffen als einer im offenen Feld.</p>\n<div class=\"teaser\"><p>Im Technikteil: Leuchtmittel richtig auswählen. Warum die Wattangabe seit dem Umstieg auf LED nichts mehr über die Helligkeit sagt, welche Fassung wo sitzt und wie Sie an der Kelvinzahl warmes von kaltem Licht unterscheiden.</p><p><a href=\"led-leuchtmittel.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Birne",
+          "Birnen",
+          "Birnenernte"
+        ],
+        "forbidden": [
+          "Glühbirne",
+          "Leuchtmittel",
+          "Watt",
+          "LED",
+          "Lampe",
+          "Fassung",
+          "Kelvin",
+          "Glühlampe"
+        ],
+        "level": 3,
+        "oracle": "Birne ernten und lagern: Sorten und Erntezeit im Überblick"
+      }
+    },
+    {
+      "id": "leiter",
+      "input": {
+        "text": "<h1>Sicher arbeiten in der Höhe</h1>\n<p>Stürze aus zwei Metern Höhe führen jedes Jahr zu mehr schweren Verletzungen im Haushalt als jede andere Heimwerkertätigkeit. Die Ursache ist fast nie ein defektes Gerät, sondern der falsche Aufstellwinkel, ein weicher Untergrund oder der Griff zur Seite, einen halben Meter zu weit.</p>\n<h2>Anlegeleiter oder Stehleiter</h2>\n<p>Die Anlegeleiter braucht eine tragfähige Wand und erreicht große Höhen, die Stehleiter steht frei und eignet sich für Arbeiten mitten im Raum. Für den Dachboden oder die Obstbaumpflege gibt es zusätzlich Mehrzweckleitern, die sich beides klappen lassen. Sie sind schwerer und in jeder Einzelfunktion etwas unhandlicher, ersetzen aber zwei Geräte im Keller.</p>\n<h2>Woran Sie eine gute Leiter erkennen</h2>\n<ul>\n<li>Kennzeichnung nach EN 131 mit Angabe der maximalen Belastung, üblich sind 150 Kilogramm</li>\n<li>Bei Anlegeleitern über drei Metern eine Traverse am Fuß, seit der Normänderung Pflicht</li>\n<li>Rutschhemmende Füße, die sich austauschen lassen</li>\n<li>Sprossen fest verpresst, nicht nur geklebt, und ohne Spiel beim Rütteln</li>\n</ul>\n<h2>Der richtige Winkel</h2>\n<p>Für Anlegeleitern gelten 68 bis 75 Grad. Messen Sie nicht, sondern nutzen Sie die Ellenbogenprobe: An der Leiter stehen, Arm waagerecht ausstrecken. Erreicht die Handfläche die Sprosse auf Schulterhöhe, stimmt der Winkel ungefähr. Oben sollte die Leiter mindestens einen Meter über die Austrittsstelle hinausragen.</p>\n<h2>Die drei häufigsten Fehler</h2>\n<p>Erstens der weiche Untergrund: Rasen und frisch verlegter Splitt geben unter Last einseitig nach. Ein Brett unterlegen genügt. Zweitens das seitliche Hinauslehnen. Die Faustregel lautet, dass der Gürtel innerhalb der Holme bleiben muss, sonst lieber umstellen. Drittens die obersten Stufen: Die letzten drei Sprossen einer Anlegeleiter und die Plattform einer Stehleiter sind kein Standplatz. Auf feuchtem Laub oder frisch gewischten Fliesen rutscht selbst eine gut gewartete Leiter weg.</p>\n<div class=\"teaser\"><p>Im Karriereteil: Der Sprung in die erste Führungsposition. Was sich im Verhältnis zu früheren Kollegen verändert, welche Aufgaben Sie im ersten Monat abgeben sollten und warum fachliche Stärke allein selten reicht.</p><p><a href=\"erste-fuehrungsposition.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Leiter",
+          "Leitern",
+          "Stehleiter",
+          "Anlegeleiter"
+        ],
+        "forbidden": [
+          "Teamleiter",
+          "Abteilungsleiter",
+          "Führungsposition",
+          "Karriere",
+          "Vorgesetzte",
+          "Mitarbeiterführung",
+          "Chef"
+        ],
+        "level": 1,
+        "oracle": "Leiter kaufen: Anlege- und Stehleiter sicher nutzen"
+      }
+    },
+    {
+      "id": "krebs",
+      "input": {
+        "text": "<h1>Vorsorge ernst nehmen</h1>\n<p>Je früher eine bösartige Erkrankung entdeckt wird, desto besser sind die Aussichten. Das ist keine Floskel: Bei Darmkrebs im Frühstadium liegen die Heilungschancen deutlich über 90 Prozent, bei später Entdeckung fallen sie drastisch. Trotzdem nimmt nur etwa die Hälfte der Berechtigten die angebotenen Untersuchungen wahr.</p>\n<h2>Warnzeichen, die abgeklärt gehören</h2>\n<ul>\n<li>Knoten oder Verhärtungen, die sich neu bilden und nicht zurückgehen</li>\n<li>Blut im Stuhl oder Urin, auch einmalig</li>\n<li>Muttermale, die sich in Größe, Farbe oder Rand verändern</li>\n<li>Heiserkeit oder Husten über mehrere Wochen ohne Erkältung</li>\n<li>Ungewollter Gewichtsverlust und anhaltende Erschöpfung</li>\n</ul>\n<p>Keines dieser Zeichen bedeutet für sich genommen eine Krebserkrankung, die meisten haben harmlose Ursachen. Sie sind aber ein Grund, innerhalb weniger Wochen in die Praxis zu gehen statt abzuwarten.</p>\n<h2>Was die Kassen bezahlen</h2>\n<p>Die gesetzlichen Früherkennungsprogramme sind nach Alter gestaffelt. Ab 35 gibt es alle zwei Jahre ein Hautkrebsscreening, ab 50 die Untersuchung auf verstecktes Blut im Stuhl und für Männer die Tastuntersuchung der Prostata. Frauen werden zwischen 50 und 75 alle zwei Jahre zur Mammografie eingeladen. Die Darmspiegelung steht Männern ab 50 und Frauen ab 55 zu, bei unauffälligem Befund mit einer Wiederholung nach zehn Jahren.</p>\n<h2>Familiäre Vorbelastung</h2>\n<p>Gab es in der engen Verwandtschaft Erkrankungen in jungem Alter, gelten kürzere Abstände und ein früherer Beginn. Sprechen Sie das aktiv an, denn ohne Hinweis richtet sich die Einladung nach dem Standardschema. In einzelnen Fällen kommt eine genetische Beratung infrage.</p>\n<h2>Was Sie selbst beeinflussen können</h2>\n<p>Rauchverzicht, wenig Alkohol, Bewegung und ein stabiles Körpergewicht senken das Risiko für mehrere Krebsarten nachweislich. Das ersetzt die Früherkennung nicht, verringert aber die Wahrscheinlichkeit, überhaupt betroffen zu sein. Dieser Text ersetzt keine ärztliche Beratung.</p>\n<div class=\"teaser\"><p>Aus der Naturreihe: Flusskrebse in heimischen Bächen. Wie Sie den geschützten Edelkrebs vom eingeschleppten Signalkrebs unterscheiden, warum die Krebspest ganze Bestände auslöscht und was das für Angler bedeutet.</p><p><a href=\"flusskrebse.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Krebs",
+          "Krebserkrankung",
+          "Krebsarten",
+          "Krebsvorsorge",
+          "Krebsfrüherkennung",
+          "Darmkrebs"
+        ],
+        "forbidden": [
+          "Flusskrebs",
+          "Signalkrebs",
+          "Sternzeichen",
+          "Horoskop",
+          "Angler",
+          "Panzer",
+          "Wendekreis"
+        ],
+        "level": 2,
+        "oracle": "Krebs früh erkennen: Symptome, Diagnose und Vorsorge"
+      }
+    },
+    {
+      "id": "strom",
+      "input": {
+        "text": "<h1>Weniger verbrauchen im Haushalt</h1>\n<p>Die Rechnung kommt einmal im Jahr, der Verbrauch entsteht jeden Tag. Genau deshalb fällt es schwer, Ursachen zu finden: Ein Vier-Personen-Haushalt liegt im Schnitt bei 3.000 bis 4.000 Kilowattstunden jährlich, und die Abweichung nach oben lässt sich meist auf drei oder vier Geräte zurückführen.</p>\n<h2>Erst messen, dann handeln</h2>\n<p>Ein Messgerät für die Steckdose kostet unter 20 Euro und ist in vielen Stadtbibliotheken kostenlos auszuleihen. Hängen Sie es nacheinander für je 24 Stunden an Kühlschrank, Gefriertruhe, Router, Fernseher und den Rechner im Arbeitszimmer. Fast immer findet sich dabei ein altes Gerät, das im Dauerbetrieb mehr zieht als alle bewussten Sparmaßnahmen zusammen einbringen.</p>\n<h2>Die größten Posten</h2>\n<ul>\n<li>Warmwasser über einen elektrischen Boiler oder Durchlauferhitzer</li>\n<li>Kühl- und Gefriergeräte, weil sie ununterbrochen laufen</li>\n<li>Wäschetrockner ohne Wärmepumpe</li>\n<li>Alte Umwälzpumpen der Heizung, die ganzjährig auf höchster Stufe arbeiten</li>\n</ul>\n<p>Eine Gefriertruhe aus den Neunzigern verbraucht das Zwei- bis Dreifache eines heutigen Geräts. Bei durchgehendem Betrieb rechnet sich ein Austausch je nach Gerät in vier bis sechs Jahren, was für Kühlgeräte meist die einzige Anschaffung ist, die sich tatsächlich lohnt.</p>\n<h2>Was im Alltag wirklich etwas bringt</h2>\n<p>Waschen bei 30 statt 60 Grad halbiert den Verbrauch pro Gang, und moderne Waschmittel arbeiten in diesem Bereich zuverlässig. Der Kühlschrank braucht bei sieben Grad genug Kühlung; jedes Grad kälter kostet spürbar. Wäsche auf der Leine ist der größte Einzelhebel überhaupt. Standby ist dagegen kleiner geworden als sein Ruf, weil die gesetzlichen Grenzwerte inzwischen greifen. Eine schaltbare Steckdosenleiste an Fernseher und Spielkonsole lohnt trotzdem.</p>\n<h2>Heizen mit Strom</h2>\n<p>Elektrische Heizlüfter gelten als Notlösung und sind die teuerste Form der Wärme überhaupt. Wer ein einzelnes Zimmer damit zuheizt, zahlt dafür schnell mehr als für die gesamte Gasheizung des Hauses im selben Monat.</p>\n<div class=\"teaser\"><p>Aus der Naturreihe: Baden im Fluss. Wie Sie die Strömung an der Oberfläche richtig einschätzen, warum es an Buhnen und hinter Brückenpfeilern gefährlich wird und woran Sie eine freigegebene Stelle am Ufer erkennen.</p><p><a href=\"baden-im-fluss.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Strom",
+          "Stromverbrauch",
+          "Stromkosten"
+        ],
+        "forbidden": [
+          "Strömung",
+          "Flussufer",
+          "Badestelle",
+          "Buhne",
+          "Golfstrom",
+          "schwimmen"
+        ],
+        "level": 3,
+        "oracle": "Strom sparen im Haushalt: die besten Tipps gegen hohe Kosten"
+      }
+    },
+    {
+      "id": "hahn",
+      "input": {
+        "text": "<h1>Kleine Reparaturen im Bad</h1>\n<p>Ein gleichmäßiges Tropfen summiert sich über ein Jahr auf mehrere tausend Liter. Ärgerlicher als die Wasserkosten ist für die meisten aber der Kalkrand, der sich im Becken festsetzt, und das Geräusch in der stillen Wohnung nachts.</p>\n<h2>Zuerst die Ursache eingrenzen</h2>\n<p>Wo das Wasser austritt, verrät das defekte Bauteil. Tropft es aus dem Auslauf, sitzt der Fehler bei einer Zweigriffarmatur in der Dichtscheibe des Oberteils und beim Einhebelmischer in der Kartusche. Nässt es dagegen unterhalb des Griffs oder am Sockel, ist ein O-Ring hart geworden. Diese Unterscheidung spart den zweiten Weg in den Baumarkt.</p>\n<h2>Dichtung wechseln, Schritt für Schritt</h2>\n<p>Drehen Sie das Eckventil unter dem Waschtisch zu und lassen Sie den Restdruck über den offenen Hahn ablaufen. Die farbige Kappe auf dem Griff lässt sich mit einem kleinen Schraubendreher heraushebeln, darunter sitzt die Befestigungsschraube. Das Oberteil wird mit dem Maulschlüssel gelöst, die alte Dichtscheibe abgeschraubt und gegen eine neue gleicher Größe getauscht. Ein Satz gemischter Scheiben kostet wenige Euro. Beim Zusammenbau hilft ein Tropfen Armaturenfett auf dem Gewinde, und angezogen wird handfest plus eine Vierteldrehung.</p>\n<h2>Wenn es hakt</h2>\n<ul>\n<li>Der Schraubenkopf dreht rund: Mit einem Schraubenausdreher arbeiten, nicht mit größerer Kraft</li>\n<li>Das Oberteil sitzt fest: Über Nacht mit Essigessenz einwirken lassen</li>\n<li>Das Eckventil schließt nach Jahren nicht mehr dicht: Dann wird der Haupthahn abgedreht, und das Ventil gehört gleich mit erneuert</li>\n</ul>\n<p>Eine halbe Stunde sollte reichen. Wird es mehr, liegt es fast immer am Kalk, nicht am fehlenden Werkzeug. Bei Thermostatarmaturen in der Dusche gilt das nicht: Dort steckt ein Dehnstoffelement, das sich kaum zerlegen lässt und im Zweifel komplett getauscht wird.</p>\n<div class=\"teaser\"><p>Neu im Gartenteil: Hühner im eigenen Garten halten. Wie groß Stall und Auslauf sein müssen, warum ein einzelnes Huhn unglücklich wird, was die Tiere im Winter brauchen und warum sich Nachbarn eher am Krähen stören als am Gackern.</p><p><a href=\"huehner-halten.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Hahn",
+          "Wasserhahn",
+          "Armatur",
+          "Armaturen"
+        ],
+        "forbidden": [
+          "Huhn",
+          "Hühner",
+          "Hühnerstall",
+          "krähen",
+          "gackern",
+          "Geflügel",
+          "Federvieh",
+          "Legehenne"
+        ],
+        "level": 4,
+        "oracle": "Hahn tropft: Armatur reparieren und Dichtung wechseln"
+      }
+    },
+    {
+      "id": "becken",
+      "input": {
+        "text": "<h1>Sommer im Garten</h1>\n<p>Beim Kauf eines Pools wird der Aufbau überschätzt und die Pflege unterschätzt. Aufgestellt ist ein Becken an einem Wochenende. Danach folgen Monate mit Filterlaufzeiten, Wasserwerten und dem regelmäßigen Absaugen des Bodens, und genau daran scheitern die meisten im zweiten Sommer.</p>\n<h2>Die drei Werte, auf die es ankommt</h2>\n<p>Der pH-Wert steht an erster Stelle, weil er darüber entscheidet, ob das Desinfektionsmittel überhaupt wirkt. Zwischen 7,0 und 7,4 arbeitet Chlor zuverlässig. Liegt der Wert über 7,6, verpufft ein großer Teil wirkungslos, und man dosiert immer weiter nach, statt die Ursache zu beheben. Das freie Chlor soll bei 0,3 bis 0,6 Milligramm je Liter liegen, die Karbonathärte bei etwa 80 bis 150 Milligramm. Eine zu niedrige Härte lässt den pH-Wert nach jedem Regen springen.</p>\n<h2>Umwälzung und Filter</h2>\n<p>Als Faustregel wird der gesamte Inhalt zwei- bis dreimal täglich umgewälzt. Eine kleinere Pumpe, die lange läuft, ist dabei sparsamer und wirksamer als eine große in kurzen Intervallen. Den Sandfilter spült man zurück, sobald der Druck etwa 0,3 bar über dem Normalwert liegt, danach kurz nachspülen, damit sich das Bett wieder setzt.</p>\n<h2>Grünes Wasser</h2>\n<p>Algen sind fast immer die Folge zu kurzer Umwälzzeiten bei warmem Wetter, nicht zu geringer Chlorgabe. Wer nur nachdosiert, behandelt das Symptom. Nach einer Stoßchlorung gehört der Boden abgesaugt, sonst kommen die abgestorbenen Algen als milchige Trübung zurück. Bei sehr hartem Wasser hilft ein Flockungsmittel, das feinste Schwebstoffe bindet, damit der Filter sie überhaupt fassen kann.</p>\n<h2>Abdeckung und Winter</h2>\n<p>Eine Solarfolie hält Wärme und Laub zurück, muss aber täglich auf und ab. Wer das nicht durchhält, hat am Ende mehr Arbeit als ohne. Zum Überwintern wird der Wasserstand unter die Einlaufdüsen abgesenkt, alle Leitungen werden entleert, und Schwimmkörper nehmen den Eisdruck von den Wänden.</p>\n<div class=\"teaser\"><p>Aus dem Gesundheitsteil: Beckenbodentraining. Welche Übungen nach einer Geburt sinnvoll sind, warum auch Männer nach Operationen davon profitieren und wie lange es dauert, bis sich die Muskulatur spürbar stabilisiert.</p><p><a href=\"beckenbodentraining.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Becken",
+          "Schwimmbecken",
+          "Pool",
+          "Pools",
+          "Gartenpool",
+          "Poolpflege"
+        ],
+        "forbidden": [
+          "Beckenboden",
+          "Physiotherapie",
+          "Geburt",
+          "Hüfte",
+          "Schlagzeug",
+          "Rückbildung",
+          "Muskulatur"
+        ],
+        "level": 5,
+        "oracle": "Becken reinigen: Poolpflege für klares Schwimmbadwasser"
+      }
+    },
+    {
+      "id": "star",
+      "input": {
+        "text": "<h1>Vögel im Garten beobachten</h1>\n<p>Im Frühjahr sitzt er auf der Antenne, plustert sich auf und gibt Geräusche von sich, die nicht nach Vogel klingen: Türklingeln, Handytöne, der Ruf eines Mäusebussards. Der Star ist einer der wenigen heimischen Vögel, die fremde Laute nachahmen, und er tut es mit erstaunlicher Genauigkeit.</p>\n<h2>Woran Sie ihn erkennen</h2>\n<p>Auf den ersten Blick wirkt er schwarz wie eine Amsel, ist aber kleiner, schlanker und kurzschwänziger. Aus der Nähe zeigt das Gefieder einen grünvioletten Metallglanz, im Winterkleid dazu dichte helle Tupfen. Der Schnabel ist im Frühjahr gelb, sonst dunkel. Auf dem Boden läuft er hastig und stochert, statt wie die Amsel zu hüpfen.</p>\n<h2>Nistkasten und Brut</h2>\n<p>Stare brüten in Höhlen und nehmen Kästen bereitwillig an. Das Einflugloch muss 45 Millimeter messen, deutlich größer als bei Meisen, und der Kasten sollte in mindestens drei Metern Höhe frei anfliegbar hängen, gern an einem Baumstamm oder unter dem Dachvorsprung. Aufgehängt wird bis Februar, denn die ersten Vögel besetzen ihre Plätze früh. Gereinigt wird einmal im Jahr im Herbst, ohne Reinigungsmittel.</p>\n<h2>Im Obstgarten</h2>\n<p>Im Juli fallen Trupps über reife Kirschen und Weintrauben her, und das kann eine Ernte tatsächlich kosten. Dagegen hilft nur ein engmaschiges Netz, das straff gespannt und am Stamm geschlossen wird. Flatterbänder und Attrappen wirken höchstens ein paar Tage. Den Rest des Jahres vertilgt derselbe Vogel große Mengen an Insektenlarven im Rasen.</p>\n<h2>Die Schwärme im Herbst</h2>\n<p>Vor dem Zug sammeln sich Tausende Tiere und fliegen in dichten, wogenden Formationen, bevor sie gemeinsam im Schilf einfallen. Trotz dieser Massen ist der Bestand rückläufig, weil Insekten und offene Weideflächen fehlen. Ein Garten ohne Mähroboter und mit einer ungespritzten Wiesenecke hilft mehr als jede Fütterung.</p>\n<div class=\"teaser\"><p>Im Gesundheitsteil: Grauer Star. Woran Sie die langsam zunehmende Trübung im Alltag bemerken, wie der Eingriff abläuft, welche Linsen die Kasse bezahlt und warum das Autofahren bei Nacht oft das erste Warnzeichen ist.</p><p><a href=\"grauer-star-operation.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Star",
+          "Stare"
+        ],
+        "forbidden": [
+          "Auge",
+          "Linse",
+          "Operation",
+          "Augenarzt",
+          "Trübung",
+          "Sehkraft",
+          "Katarakt",
+          "Prominente"
+        ],
+        "level": 3,
+        "oracle": "Star im Garten: den Vogel erkennen, füttern und schützen"
+      }
+    },
+    {
+      "id": "blatt",
+      "input": {
+        "text": "<h1>Zimmerpflanzen retten</h1>\n<p>Gelbe Blätter sind kein eigenständiges Krankheitsbild, sondern eine Reaktion, mit der Pflanzen auf sehr verschiedene Störungen antworten. Deshalb führt die Frage „Was hilft gegen gelbe Blätter?\" selten weiter. Nützlicher ist es, zu schauen, welche Blätter betroffen sind und wie schnell es passiert ist.</p>\n<h2>Erst schauen, dann gießen</h2>\n<p>Die häufigste Ursache ist zu viel Wasser, nicht zu wenig. Bei Staunässe faulen die feinen Wurzeln, die Pflanze kann kein Wasser mehr aufnehmen und sieht deshalb aus wie vertrocknet. Typisch sind weiche, gelbe untere Blätter und ein muffiger Geruch aus dem Topf. Prüfen Sie mit dem Finger zwei Zentimeter tief: Fühlt sich die Erde feucht an, wird nicht gegossen. Wasser im Übertopf gehört nach zehn Minuten weg.</p>\n<h2>Was die Verteilung verrät</h2>\n<ul>\n<li>Untere, ältere Blätter gleichmäßig gelb: meist Stickstoffmangel oder normales Altern</li>\n<li>Junge Blätter gelb mit grün bleibenden Adern: Eisenmangel, oft durch zu kalkhaltiges Gießwasser</li>\n<li>Gelbe Sprenkel plus feine Gespinste auf der Unterseite: Spinnmilben bei trockener Heizungsluft</li>\n<li>Braune, trockene Ränder an sonst grünen Blättern: zu niedrige Luftfeuchte oder Salz aus Überdüngung</li>\n</ul>\n<h2>Standort und Umzug</h2>\n<p>Viele Pflanzen werfen nach einem Standortwechsel Blätter ab, auch wenn der neue Platz besser ist. Diese Umstellung dauert zwei bis drei Wochen und braucht vor allem Ruhe. Ein Fensterplatz im Winter kann gleichzeitig zu dunkel und zu kalt sein: Wo die Blätter die Scheibe berühren, erfrieren sie stellenweise.</p>\n<h2>Umtopfen als letzte Maßnahme</h2>\n<p>Bleibt die Ursache unklar, nehmen Sie die Pflanze aus dem Topf. Gesunde Wurzeln sind hell und fest, faule braun und matschig. Faules Gewebe wird abgeschnitten, die Pflanze kommt in frische Erde und einen Topf mit Abzugsloch, der nur wenig größer ist. Gedüngt wird erst nach vier Wochen wieder.</p>\n<div class=\"teaser\"><p>Aus der Werkstatt: Sägeblatt wechseln. Welche Zahnung zu welchem Material passt, warum ein stumpfes Blatt gefährlicher ist als ein scharfes und wie Sie die Drehrichtung vor dem Einsetzen zuverlässig prüfen.</p><p><a href=\"saegeblatt-wechseln.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Zimmerpflanze",
+          "Zimmerpflanzen"
+        ],
+        "forbidden": [
+          "Sägeblatt",
+          "Säge",
+          "Zahnung",
+          "Papier",
+          "Zeitung",
+          "Drucker",
+          "Notenblatt"
+        ],
+        "level": 2,
+        "oracle": "Blatt wird gelb: Ursachen bei Zimmerpflanzen und Hilfe"
+      }
+    },
+    {
+      "id": "reif",
+      "input": {
+        "text": "<h1>Der Garten im Spätherbst</h1>\n<p>Die erste weiße Schicht auf dem Rasen kommt fast immer früher als erwartet, meist in einer klaren, windstillen Nacht im Oktober. Gefährlich ist dabei weniger die Kälte selbst als der schnelle Wechsel: Pflanzen, die morgens gefroren in die Sonne kommen, nehmen mehr Schaden als solche im Schatten.</p>\n<h2>Was in den ersten Nächten passiert</h2>\n<p>In klaren Nächten kühlt der Boden durch Abstrahlung stärker aus als die Luft, deshalb liegt die Temperatur direkt über der Wiese oft drei bis fünf Grad unter dem, was das Thermometer an der Hauswand anzeigt. Bodenfrost gibt es also lange vor dem ersten Luftfrost. Eine leichte Bewölkung oder ein Standort unter einem Baum wirkt wie eine Decke.</p>\n<h2>Was jetzt geschützt werden muss</h2>\n<ul>\n<li>Kübelpflanzen von der Terrasse an die Hauswand rücken und den Topf in Vlies oder Jute packen</li>\n<li>Den Kübel auf Styropor oder eine Holzplatte stellen, damit die Wurzeln nicht von unten durchfrieren</li>\n<li>Dahlien, Gladiolen und Begonien nach dem ersten Frost ausgraben, abtrocknen lassen und kühl einlagern</li>\n<li>Immergrüne an frostfreien Tagen gießen, denn sie verdunsten weiter und vertrocknen im Winter häufiger, als sie erfrieren</li>\n</ul>\n<h2>Was der Frost sogar braucht</h2>\n<p>Grünkohl, Rosenkohl und Pastinaken werden durch Kälte süßer, weil die Pflanze Stärke in Zucker umbaut. Zweijährige Stauden und viele Wildstauden benötigen die Kälte sogar, um im Frühjahr zu keimen. Ein Rückschnitt der Staudenbeete kann deshalb bis zum Spätwinter warten: Die trockenen Halme schützen die Wurzeln und geben Insekten ein Winterquartier.</p>\n<h2>Vlies richtig einsetzen</h2>\n<p>Gartenvlies kommt locker über die Pflanze, nicht straff, und wird am Boden beschwert, damit die warme Luft darunter bleibt. Folie ist ungeeignet: Darunter sammelt sich Kondenswasser, das bei der nächsten Nacht gefriert. An milden Tagen lüften, sonst treibt die Pflanze unter der Abdeckung viel zu früh aus.</p>\n<div class=\"teaser\"><p>Im Autoteil: Reifendruck richtig einstellen. Wo die Werte für Ihr Fahrzeug stehen, warum bei voller Beladung andere Angaben gelten und wie viel Sprit ein halbes Bar zu wenig auf Dauer tatsächlich kostet.</p><p><a href=\"reifendruck.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Frost",
+          "Reif",
+          "Raureif",
+          "Frostschutz"
+        ],
+        "forbidden": [
+          "Reifendruck",
+          "Autoreifen",
+          "Winterreifen",
+          "Felge",
+          "Luftdruck",
+          "Profiltiefe",
+          "Fahrzeug"
+        ],
+        "level": 1,
+        "oracle": "Reif im Garten: Pflanzen im Herbst vor Frost schützen"
+      }
+    },
+    {
+      "id": "zug",
+      "input": {
+        "text": "<h1>Unterwegs mit der Bahn</h1>\n<p>Verspätungen sind ärgerlich, aber gut geregelt. Die meisten Reisenden kennen ihre Ansprüche nur ungefähr und verzichten deshalb auf Geld, das ihnen zusteht. Erhebungen der Verbraucherzentralen zufolge macht nur eine Minderheit der Berechtigten die Erstattung überhaupt geltend.</p>\n<h2>Ab wann es Geld zurückgibt</h2>\n<p>Ab 60 Minuten Verspätung am Ziel stehen Ihnen 25 Prozent des Fahrpreises zu, ab 120 Minuten die Hälfte. Maßgeblich ist die Ankunft, nicht die Abfahrt. Bei einer durchgehenden Fahrkarte zählt die gesamte Verbindung, nicht der einzelne Abschnitt. Der Grund spielt keine Rolle, solange es sich nicht um höhere Gewalt handelt.</p>\n<h2>Anschluss verpasst, was jetzt?</h2>\n<p>Ist absehbar, dass der Anschluss nicht erreicht wird, entfällt die Zugbindung: Sie nehmen die nächste Verbindung, auch eine höherwertige, und müssen nichts nachzahlen. Lassen Sie sich die Verspätung vor Ort bestätigen. Ein Stempel am Schalter, der Eintrag im Zug oder ein Screenshot der Verbindungsanzeige mit Uhrzeit reicht später als Nachweis. Ohne Beleg wird es zäh, weil rückwirkend kaum noch zu klären ist, welcher Zug wann stand.</p>\n<h2>Wenn es spät wird</h2>\n<p>Verzögert sich die geplante Ankunft nach Mitternacht um mehr als 60 Minuten, werden Übernachtungskosten bis zu einer Obergrenze übernommen, ebenso eine Taxifahrt, wenn kein Zug mehr fährt. Fällt der letzte Zug ganz aus, gilt dasselbe. Heben Sie alle Belege auf und buchen Sie nichts Aufwendigeres, als für die Weiterfahrt nötig ist.</p>\n<h2>So stellen Sie den Antrag</h2>\n<p>Das Formular gibt es online, am Schalter und in der App, einzureichen innerhalb eines Jahres. Ausgezahlt wird auf Wunsch per Überweisung statt als Gutschein. Bei Ablehnung ist die Schlichtungsstelle für den öffentlichen Personenverkehr zuständig, das Verfahren ist für Reisende kostenlos.</p>\n<p>Eine Randnotiz zur Reservierung: Sie verfällt, wenn der Platz zehn Minuten nach Abfahrt nicht eingenommen wurde. Umgekehrt heißt das, dass ein als reserviert markierter Platz nicht dauerhaft blockiert bleibt.</p>\n<div class=\"teaser\"><p>Im Wohnratgeber: Zugluft im Altbau abdichten. Woran Sie undichte Stellen ohne Messgerät finden, welche Dichtungsprofile für welchen Spalt taugen und warum eine Wohnung trotz Abdichtung regelmäßig gelüftet werden muss.</p><p><a href=\"zugluft-abdichten.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Zug",
+          "Züge",
+          "Verspätung",
+          "Verspätungen",
+          "Zugverspätung",
+          "Bahnverspätung"
+        ],
+        "forbidden": [
+          "Zugluft",
+          "abdichten",
+          "Dichtungsprofil",
+          "Fensterspalt",
+          "Schachzug",
+          "Lüften",
+          "Altbaufenster"
+        ],
+        "level": 3,
+        "oracle": "Zug verpasst: Rechte, Erstattung und nächste Verbindung"
+      }
+    },
+    {
+      "id": "kohl",
+      "input": {
+        "text": "<h1>Das Gemüsebeet im Sommer</h1>\n<p>Kohl gehört zu den dankbarsten Gemüsen im Garten, weil er Kälte verträgt, lange auf dem Beet stehen kann und selbst im Dezember noch geerntet wird. Er ist allerdings ein Starkzehrer mit Eigenheiten, und wer diese ignoriert, erntet drei Monate später Pflanzen mit Löchern und ohne festen Kopf.</p>\n<h2>Aussaat und Pflanzung</h2>\n<p>Frühe Sorten werden ab März im Haus vorgezogen und Mitte April gepflanzt, späte Sorten wie Grünkohl und Rosenkohl kommen im Mai ins Beet. Vorgezogene Pflanzen setzt man tiefer, als sie im Topf standen, bis knapp unter die ersten Blätter. Das stabilisiert die Pflanze gegen Wind und fördert zusätzliche Wurzeln.</p>\n<p>Der Abstand wird regelmäßig unterschätzt. Weißkohl und Rosenkohl brauchen 50 bis 60 Zentimeter in jede Richtung, Kohlrabi kommt mit 25 aus. Zu eng gesetzte Pflanzen bilden kleine Köpfe und trocknen nach Regen schlechter ab, was Pilzbefall begünstigt.</p>\n<h2>Boden und Fruchtfolge</h2>\n<p>Kohl braucht einen tiefgründigen, humosen Boden und gleichmäßige Feuchtigkeit. Kompost im Herbst und eine Nachdüngung im Juni decken den Bedarf. Entscheidend ist die Pause: Auf derselben Fläche sollte mindestens vier Jahre kein Kreuzblütler stehen, also auch kein Radieschen, Rettich oder Senf als Gründüngung. Sonst droht die Kohlhernie, bei der sich die Wurzeln knotig verdicken und die Pflanze trotz Wässern welkt. Der Erreger bleibt viele Jahre im Boden.</p>\n<h2>Die wichtigsten Schädlinge</h2>\n<ul>\n<li>Kohlweißling: Ein feinmaschiges Kulturschutznetz ab dem Pflanztag hilft zuverlässig, Absammeln nur bei wenigen Pflanzen</li>\n<li>Erdfloh: Kleine Löcher in Jungpflanzen, dagegen hilft konsequentes Feuchthalten der Oberfläche</li>\n<li>Kohlfliege: Eine Manschette aus Pappe um den Wurzelhals verhindert die Eiablage</li>\n</ul>\n<h2>Ernte</h2>\n<p>Kopfkohl wird geerntet, wenn sich der Kopf fest anfühlt, mit zwei Umblättern als Schutz. Grünkohl und Rosenkohl schmecken nach den ersten Frostnächten milder und süßer, weil die Pflanze Stärke in Zucker umwandelt. Rosenkohl bricht man von unten nach oben ab, dann reifen die oberen Röschen in Ruhe nach.</p>\n<div class=\"teaser\"><p>Ebenfalls praktisch: Ein Hochbeet selbst bauen. Welches Holz der Feuchtigkeit standhält, wie die Schichten von der Grobstruktur bis zur Erde aufgebaut werden und warum ein Wühlmausgitter am Boden nie fehlen sollte.</p><p><a href=\"hochbeet-bauen.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Kohl"
+        ],
+        "forbidden": [
+          "Kohlekraftwerk",
+          "Grillkohle",
+          "Kohlenhydrate",
+          "Hochbeet",
+          "Wühlmausgitter",
+          "Bundeskanzler"
+        ],
+        "level": 1,
+        "oracle": "Kohl anbauen im Garten: Aussaat, Pflege und Ernte richtig"
+      }
+    },
+    {
+      "id": "laeufer",
+      "input": {
+        "text": "<h1>Einrichten im Flur</h1>\n<p>Der Flur ist der am stärksten beanspruchte Raum der Wohnung und zugleich der am wenigsten geplante. Ein schmaler Teppich löst hier gleich mehrere Probleme: Er nimmt Feuchtigkeit von Schuhen auf, dämpft Schritte im Treppenhaus und macht einen langen, dunklen Gang optisch weniger schlauchartig.</p>\n<h2>Die richtige Größe</h2>\n<p>An beiden Längsseiten sollten etwa 20 bis 30 Zentimeter Boden frei bleiben, damit der Raum nicht vollständig zugedeckt wirkt. In der Länge gilt: lieber deutlich kürzer als der Flur als knapp zu kurz, denn ein Teppich, der 30 Zentimeter vor der Tür endet, sieht nach Fehlkauf aus. Übliche Breiten liegen zwischen 65 und 100 Zentimetern. Vor Türen, die nach innen öffnen, muss die Florhöhe passen, sonst schleift das Blatt.</p>\n<h2>Material</h2>\n<ul>\n<li>Sisal und Kokos sind robust und günstig, reagieren aber empfindlich auf Nässe und fühlen sich barfuß kratzig an</li>\n<li>Wolle ist strapazierfähig, schmutzabweisend und teuer, dafür über Jahrzehnte haltbar</li>\n<li>Polypropylen lässt sich feucht wischen und ist die praktische Wahl mit Kindern und Hund</li>\n<li>Flachgewebe ohne Flor sammelt weniger Staub und lässt sich in der Maschine waschen, sofern der Hersteller es erlaubt</li>\n</ul>\n<h2>Rutschen verhindern</h2>\n<p>Auf glatten Böden ist eine Antirutschmatte kein Zubehör, sondern Pflicht, gerade in einem Flur, in dem gerannt wird. Die Matte wird zwei Zentimeter kleiner zugeschnitten als der Teppich. Auf geöltem Parkett sollte man Matten mit Weichmachern meiden, weil sie sich mit der Zeit in die Oberfläche eindrücken. Ein Filzgleiter-Teppichband an den Enden ist dort die schonendere Lösung.</p>\n<h2>Pflege</h2>\n<p>Zweimal wöchentlich saugen reicht, bei Schlingenware ohne rotierende Bürste. Flecken werden immer von außen nach innen betupft, nie gerieben. Sand und Streusalz im Winter sind die härtesten Gegner: Ein zusätzlicher Schmutzfangläufer direkt hinter der Wohnungstür verlängert die Lebensdauer des eigentlichen Teppichs erheblich.</p>\n<div class=\"teaser\"><p>Im Sportteil: Der Einstieg ins Lauftraining. Warum die ersten Wochen langsamer sein müssen, als es sich anfühlt, wie Sie Schienbeinschmerzen vermeiden und welche Rolle die Regenerationstage tatsächlich spielen.</p><p><a href=\"lauftraining-einstieg.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Läufer",
+          "Schmutzfangläufer",
+          "Teppich",
+          "Teppiche",
+          "Flurteppich"
+        ],
+        "forbidden": [
+          "Joggen",
+          "Lauftraining",
+          "Marathon",
+          "Laufschuhe",
+          "Schienbein",
+          "Regeneration",
+          "Schach"
+        ],
+        "level": 5,
+        "oracle": "Läufer für den Flur: schmale Teppiche richtig auswählen"
+      }
+    },
+    {
+      "id": "golf",
+      "input": {
+        "text": "<h1>Neu im Sport</h1>\n<p>Golf gilt als teuer, kompliziert und abweisend. Zwei davon stimmen nur noch eingeschränkt. Wer heute anfängt, braucht vor allem Geduld für die erste Saison, denn kaum eine Sportart belohnt Kraft so wenig und sauberes Timing so deutlich.</p>\n<h2>Der Einstieg über die Platzreife</h2>\n<p>Bevor man auf einen Platz darf, weist man Grundkenntnisse nach. Die Platzreife umfasst meist fünf bis zehn Übungsstunden, eine kurze Regelprüfung und eine Runde unter Aufsicht. Viele Clubs bieten sie als Paket zwischen 150 und 400 Euro an, häufig inklusive Leihschlägern. Nehmen Sie die Stunden bei einem Pro und nicht bei Bekannten: Ein früh eingeschliffener Griff hält sich jahrelang.</p>\n<h2>Welche Schläger Sie am Anfang brauchen</h2>\n<p>Ein vollständiger Satz mit 14 Schlägern ist erlaubt, aber für Anfänger unnötig. Sinnvoll sind ein Eisen 7, ein Eisen 9, ein Pitching Wedge, ein Hybrid und ein Putter. Damit lässt sich ein ganzer Platz spielen. Ein gebrauchter Halbsatz kostet 200 bis 400 Euro und reicht für zwei Jahre. Eine Schlägeranpassung lohnt erst, wenn der Schwung stabil ist, sonst wird das Material an einen Fehler angepasst, der wieder verschwindet.</p>\n<h2>Was es kostet</h2>\n<ul>\n<li>Jahresmitgliedschaft je nach Region zwischen 600 und 2.000 Euro</li>\n<li>Greenfee für eine Runde ohne Mitgliedschaft meist 40 bis 90 Euro</li>\n<li>Fernmitgliedschaft als günstige Variante für Gelegenheitsspieler</li>\n</ul>\n<h2>Etikette und Tempo</h2>\n<p>Die wichtigsten Regeln haben nichts mit dem Schlagen zu tun. Reparieren Sie Ihre Pitchmarke auf dem Grün, legen Sie ausgeschlagene Rasenstücke zurück, und stehen Sie nie in der Schlagrichtung eines Mitspielers. Am meisten Ärger erzeugt langsames Spiel: Wenn die Gruppe hinter Ihnen aufläuft, lässt man sie durch. Das ist normal und gilt nicht als Schwäche.</p>\n<p>Das Handicap beschreibt übrigens keine Auszeichnung, sondern dient dem Ausgleich: Es ermöglicht, dass Spieler unterschiedlicher Stärke miteinander um dasselbe Ergebnis spielen können.</p>\n<div class=\"teaser\"><p>Im Autoteil: Gebrauchte Kompaktwagen im Vergleich. Welche Motorisierungen sich im Alltag bewähren, worauf Sie bei Modellen mit hoher Laufleistung achten sollten und warum der Diesel bei wenig Kilometern selten die günstigere Wahl ist.</p><p><a href=\"kompaktwagen-gebraucht.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Golf",
+          "Golfen"
+        ],
+        "forbidden": [
+          "Gebrauchtwagen",
+          "Diesel",
+          "GTI",
+          "Kompaktklasse",
+          "Motorisierung",
+          "Laufleistung",
+          "Golfstrom"
+        ],
+        "level": 1,
+        "oracle": "Golf lernen für Anfänger: Regeln, Schläger und erste Tipps"
+      }
+    },
+    {
+      "id": "bremse",
+      "input": {
+        "text": "<h1>Sommer am Badesee</h1>\n<p>Es gibt Stiche, die man erst bemerkt, wenn es juckt, und es gibt den einen, der sofort brennt wie eine Nadel. Der zweite kommt fast immer von einer Bremse. Die Tiere sind an warmen, schwülen Nachmittagen am aktivsten und suchen gezielt Menschen auf, die nass aus dem Wasser kommen.</p>\n<h2>Warum der Stich so wehtut</h2>\n<p>Bremsen saugen nicht durch einen feinen Stechrüssel, sondern ritzen die Haut mit kräftigen Mundwerkzeugen auf und nehmen das austretende Blut auf. Das ist eine kleine Wunde statt eines Einstichs, und genau deshalb blutet sie oft nach und schmerzt sofort. Nur die Weibchen stechen, und sie tun es hartnäckig: Verscheuchen hilft selten länger als ein paar Sekunden.</p>\n<h2>Typische Reaktion</h2>\n<p>Normal sind eine handtellergroße Rötung, deutliche Schwellung und Juckreiz über mehrere Tage, oft stärker als bei einem Mückenstich. Kühlen lindert am zuverlässigsten, dazu eignen sich ein feuchtes Tuch oder ein Kühlpack im Stoffbeutel. Nicht kratzen, denn die offene Wunde entzündet sich leichter als ein Mückenstich. Bleibt die Stelle sauber, heilt sie folgenlos ab.</p>\n<h2>Wann Sie zum Arzt sollten</h2>\n<ul>\n<li>Die Rötung breitet sich nach ein bis zwei Tagen streifenförmig aus</li>\n<li>Die Stelle wird heiß, pocht oder nässt gelblich</li>\n<li>Fieber oder geschwollene Lymphknoten kommen hinzu</li>\n<li>Atemnot, Schwindel oder Quaddeln am ganzen Körper: dann sofort den Notruf</li>\n</ul>\n<h2>Sich schützen</h2>\n<p>Bremsen orientieren sich an Bewegung, Wärme, Schweiß und Kohlendioxid, dunkle Kleidung zieht sie zusätzlich an. Helle, lange und vor allem weit geschnittene Sachen helfen, denn durch eng anliegenden Stoff stechen sie hindurch. Handelsübliche Repellents wirken kürzer als gegen Mücken und müssen häufiger aufgetragen werden. Praktischer ist der Zeitpunkt: Am frühen Morgen und nach Sonnenuntergang sind die Tiere kaum unterwegs. Wer nach dem Baden zügig abtrocknet, wird spürbar seltener angeflogen.</p>\n<div class=\"teaser\"><p>Aus der Fahrradwerkstatt: Bremsbeläge selbst wechseln. Woran Sie den Verschleiß rechtzeitig erkennen, worin sich Felgen- und Scheibenbremse beim Einbau unterscheiden und warum Öl auf der Scheibe den ganzen Belag unbrauchbar macht.</p><p><a href=\"bremsbelaege-wechseln.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Bremse",
+          "Bremsen",
+          "Bremsenstich",
+          "Bremsenstiche"
+        ],
+        "forbidden": [
+          "Fahrrad",
+          "Bremsbelag",
+          "Bremsbeläge",
+          "Scheibenbremse",
+          "Felgenbremse",
+          "quietscht",
+          "Werkstatt"
+        ],
+        "level": 1,
+        "oracle": "Bremse am Badesee: Stiche erkennen und richtig schützen"
+      }
+    },
+    {
+      "id": "cookie",
+      "input": {
+        "text": "<h1>Recht im Web</h1>\n<p>Kaum ein Thema wird auf Websites so routiniert falsch umgesetzt wie die Einwilligung in Cookies und Tracking. Das liegt weniger an unklaren Vorgaben als daran, dass fertige Cookie-Banner ungeprüft eingebaut und nie wieder angefasst werden. Die Anforderungen sind inzwischen gut beschrieben, und die Aufsichtsbehörden prüfen sie zunehmend aktiv.</p>\n<h2>Was überhaupt eine Einwilligung braucht</h2>\n<p>Maßgeblich ist der Zugriff auf Informationen im Endgerät, unabhängig davon, ob dabei personenbezogene Daten verarbeitet werden. Ohne Einwilligung zulässig ist nur, was für den vom Nutzer gewünschten Dienst unbedingt erforderlich ist: Warenkorb, Spracheinstellung, Sitzungskennung, Lastverteilung. Reichweitenmessung, Werbenetzwerke, eingebettete Videos und externe Schriftarten gehören nicht dazu.</p>\n<h2>Woran Banner in der Praxis scheitern</h2>\n<ul>\n<li>„Alle akzeptieren\" ist farbig hervorgehoben, „Ablehnen\" nur als grauer Text im Kleingedruckten</li>\n<li>Es gibt auf der ersten Ebene gar keine Ablehnen-Schaltfläche, sondern nur „Einstellungen\"</li>\n<li>Kategorien sind vorangekreuzt oder Schieber stehen auf aktiv</li>\n<li>Skripte laden bereits, während das Banner noch angezeigt wird</li>\n<li>Die einmal erteilte Einwilligung lässt sich später nirgends widerrufen</li>\n</ul>\n<p>Ablehnen muss mit der gleichen Zahl an Klicks möglich sein wie Zustimmen. Gestalterische Tricks, die zur Zustimmung drängen, gelten als unzulässige Beeinflussung, und Weiterscrollen ist keine Einwilligung.</p>\n<h2>Dokumentation</h2>\n<p>Die Zustimmung muss nachweisbar sein. Protokolliert gehören Zeitpunkt, die gewählten Kategorien und die Version des Textes, der zu diesem Zeitpunkt angezeigt wurde. Üblich ist eine Laufzeit von sechs bis zwölf Monaten, danach wird erneut gefragt. Wer den Anbieter wechselt oder neue Dienste einbindet, braucht eine neue Einwilligung, denn die alte deckt den neuen Zweck nicht ab.</p>\n<h2>Der pragmatische Weg</h2>\n<p>Jedes Skript weniger ist ein Dialog weniger. Werden Schriften lokal ausgeliefert, Videos erst nach einem Klick nachgeladen und die Statistik serverseitig ohne Kennungen ausgewertet, schrumpft die Zahl einwilligungspflichtiger Dienste oft auf null. Das ist schneller, rechtlich unkomplizierter und für Besucher deutlich angenehmer.</p>\n<div class=\"teaser\"><p>Aus der Backstube: Plätzchen, die nicht zerlaufen. Warum der Teig zwingend in den Kühlschrank muss, welche Rolle das Verhältnis von Butter zu Mehl spielt und wie Sie mehrere Bleche nacheinander gleichmäßig backen.</p><p><a href=\"plaetzchen-backen.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Cookie",
+          "Cookies"
+        ],
+        "forbidden": [
+          "backen",
+          "Plätzchen",
+          "Mürbeteig",
+          "Butter",
+          "Backblech",
+          "Keks",
+          "Zuckerguss"
+        ],
+        "level": 2,
+        "oracle": "Cookie-Einwilligung richtig umsetzen: Pflichten im Web"
+      }
+    },
+    {
+      "id": "anker",
+      "input": {
+        "text": "<h1>SEO in der Praxis</h1>\n<p>Die interne Verlinkung ist der Teil der Suchmaschinenoptimierung, den man vollständig selbst in der Hand hat: kein Linkaufbau, kein Warten auf fremde Redaktionen, keine Kosten. Trotzdem bleibt sie in den meisten Projekten dem Zufall überlassen. Verlinkt wird, was beim Schreiben gerade einfällt.</p>\n<h2>Warum der Linktext zählt</h2>\n<p>Suchmaschinen werten den Text im Anker als Beschreibung der Zielseite, und Nutzer entscheiden daran, ob sich der Klick lohnt. „Hier klicken\" und „mehr erfahren\" verschenken beides. Beschreibende Formulierungen wie „Einhebelmischer reparieren\" sagen dagegen vor dem Klick, was danach kommt, und das senkt die Zahl der sofortigen Rücksprünge.</p>\n<h2>Variation statt Wiederholung</h2>\n<p>Sinnvoll ist ein Korridor aus einer Hauptformulierung, zwei bis drei Varianten und gelegentlich dem Seitentitel selbst. Wer hundertmal exakt dieselbe Formulierung setzt, erzeugt ein Muster, das künstlich wirkt und im Zweifel entwertet wird. Für Menschen liest sich ein Text mit immer gleichen Verweisen ohnehin schlecht.</p>\n<h2>Wie viele Verweise pro Seite</h2>\n<p>Eine harte Obergrenze gibt es seit Jahren nicht mehr. Die praktische Grenze ist die Lesbarkeit: Ein Absatz mit vier Verweisen wird überflogen statt gelesen. Wichtiger als die Zahl ist die Position. Verweise aus dem Fließtext wiegen schwerer als solche aus Navigation, Seitenleiste oder Fußbereich, weil sie im inhaltlichen Zusammenhang stehen.</p>\n<h2>Womit Sie anfangen</h2>\n<ul>\n<li>Die Seiten bestimmen, die ranken sollen, und prüfen, wie viele interne Verweise auf sie zeigen</li>\n<li>Ältere Beiträge zum selben Thema öffnen und dort einen Verweis im Fließtext ergänzen</li>\n<li>Verweise auf Seiten mit noindex oder auf Weiterleitungsketten entfernen</li>\n<li>Bildverweise ohne Alternativtext ergänzen, denn dieser übernimmt dort die Funktion des Linktextes</li>\n</ul>\n<p>Im E-Commerce kommt eine Besonderheit hinzu: Filter- und Sortierseiten erzeugen automatisch riesige Mengen an Verweisen ohne jede Beschreibung. Ein Blick in den Quelltext einer Kategorieseite bringt dort meist mehr als jede Strategie.</p>\n<div class=\"teaser\"><p>Im Reiseteil: Ankern in der Ostsee. Welcher Grund wirklich hält, wie viel Kette Sie bei welcher Wassertiefe stecken sollten und woran Sie nachts merken, dass das Boot zu treiben begonnen hat.</p><p><a href=\"ankern-ostsee.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "interne Verlinkung",
+          "Interne Verlinkung",
+          "internen Verlinkung",
+          "Interne Verlinkungen",
+          "interne Verlinkungen",
+          "internen Verlinkungen"
+        ],
+        "forbidden": [
+          "Boot",
+          "Ostsee",
+          "Ankerkette",
+          "Segeln",
+          "Schiff",
+          "Yacht",
+          "Hafen",
+          "Ankerplatz"
+        ],
+        "level": 5,
+        "oracle": "Interne Verlinkung nutzen: die richtigen Linktexte im SEO"
+      }
+    },
+    {
+      "id": "gericht",
+      "input": {
+        "text": "<h1>Aus der Küche</h1>\n<p>Es gibt Rezepte, die in jeder Familie anders gehen und über die sich trefflich streiten lässt. Dieses gehört dazu. Die Grundzüge sind unstrittig, alles Weitere hängt davon ab, aus welchem Landkreis die Großmutter stammte. Wir halten uns an die Variante, die in den Wirtshäusern der Gegend seit Jahrzehnten so serviert wird.</p>\n<h2>Woher es kommt</h2>\n<p>Belegt ist die Zubereitung seit dem 18. Jahrhundert als Resteverwertung: Was am Vortag übrig blieb, kam am nächsten Tag mit Zwiebeln in die Pfanne. Zum Sonntagsessen wurde daraus erst, als Fleisch erschwinglich wurde und die bäuerliche Variante ihren Weg in die Gasthäuser fand.</p>\n<h2>Die Zutaten</h2>\n<ul>\n<li>1,2 kg durchwachsenes Rindfleisch aus der Schulter, am Stück</li>\n<li>Je zwei Karotten, Petersilienwurzeln und Zwiebeln</li>\n<li>Ein gehäufter Esslöffel Tomatenmark</li>\n<li>Einen halben Liter Flüssigkeit: kräftige Brühe, dunkles Bier oder Rotwein</li>\n<li>Lorbeer, Wacholder, Pfefferkörner</li>\n</ul>\n<p>Entscheidend ist das Fleischstück. Es braucht Bindegewebe, das beim langen Schmoren zu Gelatine wird und die Sauce bindet. Magere Teile aus der Keule bleiben trocken, egal wie lange sie im Topf liegen. Fragen Sie an der Theke nach Schulter oder Wade, nicht nach Braten.</p>\n<h2>Zubereitung</h2>\n<p>Das Fleisch trocken tupfen, kräftig salzen und in heißem Fett von allen Seiten dunkel anbraten. Herausnehmen, das kleingeschnittene Gemüse im selben Topf rösten, das Tomatenmark kurz mitrösten, bis es die Farbe wechselt, dann in drei Schritten ablöschen und jedes Mal wieder einkochen lassen. Das Fleisch zurücklegen, Gewürze dazu, Deckel leicht versetzt auflegen.</p>\n<p>Dann zweieinhalb bis drei Stunden bei kleiner Hitze, das Fleisch soll nur leise sieden. Der häufigste Fehler passiert ganz am Anfang: Ein zu voll gepackter Topf zieht Wasser, und das Fleisch kocht, statt zu bräunen. Lieber in zwei Durchgängen anbraten.</p>\n<h2>Vorbereiten und aufwärmen</h2>\n<p>Am zweiten Tag schmeckt es besser. Das ist kein Küchenmythos: Beim Abkühlen verbinden sich die Aromen, und die Sauce lässt sich dann entfetten, indem man die erstarrte Schicht abhebt. Im Schnellkochtopf dauert es nur vierzig Minuten, doch es fehlen die Röstaromen, die sich in der langen Zeit an der Topfwand bilden.</p>\n<div class=\"teaser\"><p>Im Rechtsteil: Streit um die Nebenkostenabrechnung. Welche Fristen für Vermieter gelten, wie Sie Belege einsehen und wann sich der Gang vor Gericht tatsächlich lohnt.</p><p><a href=\"nebenkosten-streit.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Gericht",
+          "Gerichte",
+          "Rezept",
+          "Rezepte",
+          "Schmorgericht"
+        ],
+        "forbidden": [
+          "Anwalt",
+          "Klage",
+          "Urteil",
+          "Prozess",
+          "Richter",
+          "Mietrecht",
+          "Nebenkosten",
+          "verklagen"
+        ],
+        "level": 4,
+        "oracle": "Gericht aus der Region: Zutaten und Zubereitung"
+      }
+    },
+    {
+      "id": "mandel",
+      "input": {
+        "text": "<h1>Hals, Nase, Ohren</h1>\n<p>Halsschmerzen sind der häufigste Grund, eine Hausarztpraxis aufzusuchen, und in den meisten Fällen steckt eine harmlose Virusinfektion dahinter. Manchmal aber sind die Gaumenmandeln selbst entzündet. Eine solche Mandelentzündung verläuft anders als ein gewöhnlicher Halsinfekt: heftiger, plötzlicher und mit deutlich stärkeren Schluckbeschwerden.</p>\n<h2>Woran Sie es erkennen</h2>\n<p>Typisch sind starke, oft einseitig betonte Schluckschmerzen, die bis ins Ohr ziehen, dazu Fieber, geschwollene Lymphknoten am Kieferwinkel und sichtbar gerötete, vergrößerte Mandeln. Weißliche Stippchen darauf sprechen eher für eine bakterielle Ursache. Läuft die Nase stark und kommt Husten dazu, ist es eher ein Virusinfekt.</p>\n<h2>Was hilft</h2>\n<p>Bei viraler Ursache heilt die Entzündung in der Regel binnen einer Woche von selbst aus. Wirksam sind Schmerzmittel wie Ibuprofen, ausreichend Trinken, weiche Kost und Ruhe. Kühle Getränke und Halswickel lindern, warme Milchgetränke empfinden viele als unangenehm. Lutschtabletten mit lokalem Betäubungsmittel machen das Schlucken vorübergehend erträglicher, verkürzen den Verlauf aber nicht.</p>\n<p>Antibiotika helfen nur bei bakterieller Ursache, meist Streptokokken der Gruppe A. Ob sie nötig sind, entscheidet die Ärztin anhand des Befunds und gegebenenfalls eines Schnelltests. Bei Verordnung wird die Packung zu Ende genommen, auch wenn es nach zwei Tagen besser geht.</p>\n<h2>Wann es dringend wird</h2>\n<ul>\n<li>Atemnot, kloßige Sprache oder starker Speichelfluss</li>\n<li>Der Mund lässt sich kaum noch öffnen</li>\n<li>Einseitige, rasch zunehmende Schwellung mit hohem Fieber</li>\n<li>Keine Besserung nach drei bis vier Tagen oder erneuter Fieberanstieg</li>\n</ul>\n<p>Dahinter kann ein Abszess neben der Mandel stecken, der rasch behandelt werden muss.</p>\n<h2>Vorbeugen und der Sonderfall der Operation</h2>\n<p>Ein Allheilmittel gibt es nicht, aber Händewaschen, ausreichend Schlaf, Rauchverzicht und ein eigener Trinkbecher im Haushalt senken die Ansteckungsgefahr. Eine Entfernung der Mandeln kommt erst infrage, wenn die Entzündungen sich über Jahre häufen oder Komplikationen auftreten. Die Schwelle liegt hoch, und der Eingriff bringt eine mehrtägige, schmerzhafte Heilungsphase mit sich. Dieser Text ersetzt keine ärztliche Beratung.</p>\n<div class=\"teaser\"><p>In der Warenkunde: Mandeln in der Küche. Wie sich süße von bitteren Sorten unterscheiden, warum das Blanchieren die Haut in Sekunden löst und welche Mahlung Marzipan von Mandelmehl trennt.</p><p><a href=\"mandeln-warenkunde.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Mandelentzündung",
+          "Mandeln"
+        ],
+        "forbidden": [
+          "Marzipan",
+          "Kuchen",
+          "backen",
+          "Nuss",
+          "Rezept",
+          "blanchieren",
+          "Mandelmilch",
+          "Mandelmehl"
+        ],
+        "level": 2,
+        "oracle": "Mandelentzündung: Symptome, Behandlung und Vorbeugung"
+      }
+    },
+    {
+      "id": "zelle",
+      "input": {
+        "text": "<h1>Technik am E-Bike</h1>\n<p>Der Akku ist das teuerste Einzelteil am E-Bike und das einzige, das auch ohne Nutzung altert. Wer verstanden hat, was im Inneren passiert, verlängert seine Lebensdauer um Jahre, ohne dafür etwas kaufen zu müssen.</p>\n<h2>Was im Gehäuse steckt</h2>\n<p>Im Akku sitzen zwischen 40 und 80 zylindrische Lithium-Ionen-Zellen, meist in den Bauformen 18650 oder 21700, benannt nach Durchmesser und Länge in Millimetern. Sie sind in Reihe und parallel verschaltet und liefern zusammen 36 oder 48 Volt. Eine Steuerelektronik überwacht Spannung, Temperatur und Ladezustand jedes Blocks und gleicht Unterschiede aus. Fällt eine Zelle ab, begrenzt sie die Leistung des gesamten Pakets.</p>\n<h2>Kapazität richtig lesen</h2>\n<p>Vergleichbar ist allein die Angabe in Wattstunden, also Spannung mal Amperestunden. Ein 36-Volt-Akku mit 14 Ah hat 504 Wh, ein 48-Volt-Akku mit 11 Ah nur 528 Wh, obwohl die Amperestunden niedriger aussehen. Als grober Anhaltspunkt gelten 7 bis 12 Wh pro Kilometer, je nach Unterstützungsstufe, Steigung, Gegenwind und Zuladung.</p>\n<h2>Warum Zellen altern</h2>\n<p>Zwei Vorgänge laufen parallel. Die Zyklenalterung entsteht durch Laden und Entladen; nach 500 bis 1.000 vollen Zyklen sind noch etwa 70 bis 80 Prozent der Kapazität übrig. Die kalendarische Alterung läuft unabhängig davon weiter und beschleunigt sich bei hohem Ladestand und Wärme. Ein voll geladener Akku neben der Heizung verliert in einem Jahr mehr als einer, der bei 50 Prozent im kühlen Flur liegt.</p>\n<h2>Was im Alltag wirklich hilft</h2>\n<ul>\n<li>Für die Lagerung über den Winter auf 30 bis 60 Prozent bringen und alle zwei bis drei Monate nachsehen</li>\n<li>Kühl lagern, aber frostfrei, ideal sind 10 bis 15 Grad</li>\n<li>Im Winter den Akku erst kurz vor der Fahrt einsetzen und kalt nicht laden</li>\n<li>Vollständige Tiefentladung vermeiden, häufiges Zwischenladen ist dagegen unschädlich</li>\n</ul>\n<p>Eine defekte Zelle lässt sich theoretisch tauschen, doch Zellen unterschiedlichen Alters im selben Paket arbeiten schlecht zusammen. Fachbetriebe bauen deshalb ganze Blöcke neu auf. Beschädigte Akkus gehören nie in den Hausmüll, sondern zur Sammelstelle, und ein aufgeblähtes oder nach einem Sturz verformtes Gehäuse wird gar nicht erst wieder geladen.</p>\n<div class=\"teaser\"><p>Im Energieteil: Solarzellen auf dem Carport. Welche Ausrichtung sich rechnet, ab welcher Modulzahl eine Anmeldung nötig wird und wie viel ein Speicher im Einfamilienhaus tatsächlich beiträgt.</p><p><a href=\"solar-carport.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Akku",
+          "Akkus"
+        ],
+        "forbidden": [
+          "Solarzelle",
+          "Photovoltaik",
+          "Carport",
+          "Gefängnis",
+          "Haftzelle",
+          "Zellkern",
+          "Biologie"
+        ],
+        "level": 2,
+        "oracle": "Zelle im E-Bike-Akku: Kapazität, Alterung und Pflege"
+      }
+    },
+    {
+      "id": "strauss",
+      "input": {
+        "text": "<h1>Blumen aus dem eigenen Garten</h1>\n<p>Ein gekaufter Strauß ist fertig arrangiert, ein selbst gebundener wirkt schnell wie zufällig zusammengesteckt. Der Unterschied liegt weniger im Talent als in zwei Regeln, die Floristinnen in der ersten Woche ihrer Ausbildung lernen: ungerade Mengen und klare Rollenverteilung.</p>\n<h2>Die Zusammenstellung</h2>\n<p>Ein guter Strauß besteht aus drei Gruppen. Die Hauptblume gibt Farbe und Größe vor, drei bis fünf Stiele genügen. Die Begleitblumen sind kleiner und treten in größerer Zahl auf, etwa Schafgarbe, Kornblume oder Wiesenkerbel. Das Grün füllt die Lücken und gibt Halt. Ungerade Stückzahlen wirken lebendiger als gerade, weil das Auge keine Symmetrie findet und weiterwandert.</p>\n<p>Bei den Farben führen zwei Wege verlässlich zum Ziel: benachbarte Töne, also Rosa mit Violett und Weiß, oder ein klarer Kontrast wie Gelb und Blau. Wer alles mischt, bekommt ein unruhiges Bündel. Gräser und Samenstände sorgen für Struktur, die reine Blütenmengen nicht liefern.</p>\n<h2>Spiralig binden</h2>\n<p>Alle Blätter im unteren Drittel werden entfernt, denn Laub im Wasser fault innerhalb eines Tages. Dann nimmt man den ersten Stiel in die Hand und legt jeden weiteren schräg in dieselbe Richtung an, immer über den vorherigen, und dreht den Strauß nach jedem Stiel ein Stück weiter. So entsteht die Spirale, die den Strauß von selbst stehen lässt. Gebunden wird an der schmalsten Stelle mit Bast, nicht zu fest, danach werden alle Enden auf einer Höhe gerade abgeschnitten.</p>\n<h2>Damit er länger hält</h2>\n<ul>\n<li>Früh am Morgen schneiden, dann sind die Stiele mit Wasser gefüllt</li>\n<li>Vase heiß ausspülen, Bakterien im Belag verkürzen die Haltbarkeit stärker als jeder andere Faktor</li>\n<li>Stiele schräg anschneiden und alle zwei Tage erneuern, Wasser dabei wechseln</li>\n<li>Nicht in die pralle Sonne und nicht neben die Obstschale stellen, das Reifegas lässt Blüten schneller altern</li>\n</ul>\n<p>Einige Arten brauchen eine Sonderbehandlung. Narzissen sondern nach dem Schnitt einen Schleim ab, der andere Blumen schädigt, und sollten erst ein paar Stunden allein stehen. Tulpen wachsen in der Vase weiter und neigen sich zum Licht, was man einplanen kann, statt sich darüber zu ärgern.</p>\n<div class=\"teaser\"><p>Im Ausflugsteil: Straußenfarm im Umland. Wie die Tiere gehalten werden, warum ein einzelnes Ei zwanzig Hühnereiern entspricht und was man beim Besuch mit kleinen Kindern beachten sollte.</p><p><a href=\"straussenfarm.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Strauß",
+          "Sträuße",
+          "Blumenstrauß",
+          "Blumensträuße",
+          "Gartenstrauß"
+        ],
+        "forbidden": [
+          "Straußenfarm",
+          "Straußenei",
+          "Laufvogel",
+          "Gehege",
+          "Zoo",
+          "Federn",
+          "Straußenfleisch"
+        ],
+        "level": 5,
+        "oracle": "Strauß binden: Blumen richtig kombinieren und pflegen"
+      }
+    },
+    {
+      "id": "iris",
+      "input": {
+        "text": "<h1>Der Körper im Detail</h1>\n<p>Die Regenbogenhaut, fachsprachlich Iris genannt, ist der einzige Teil des Körpers, den man ohne Gerät von außen arbeiten sehen kann. Bei Helligkeit zieht sie sich zusammen, im Dunkeln weitet sie sich, und beide Bewegungen laufen unwillkürlich über zwei gegeneinander arbeitende Muskeln.</p>\n<h2>Die Blende des Auges</h2>\n<p>Ihre Aufgabe ist die einer Blende: Sie regelt, wie viel Licht auf die Netzhaut fällt. Der Durchmesser der Pupille schwankt dabei zwischen etwa anderthalb und acht Millimetern. Die Reaktion erfolgt immer beidseitig. Leuchtet man in ein Auge, verengt sich auch die Pupille des anderen, und weil dieser Reflex über den Hirnstamm verschaltet ist, gehört seine Prüfung zu den ersten Handgriffen in der Notfallmedizin.</p>\n<h2>Woher die Augenfarbe kommt</h2>\n<p>Es gibt keinen blauen Farbstoff im Auge. Die Färbung entsteht durch die Menge an Melanin im vorderen Gewebe und durch Streuung des Lichts: Wenig Melanin lässt das Auge blau erscheinen, viel Melanin braun, Zwischenstufen ergeben Grün und Grau. Bei Neugeborenen ist die Einlagerung noch nicht abgeschlossen, weshalb sich die Farbe im ersten Lebensjahr noch deutlich ändern kann. Unterscheiden sich beide Augen oder Teile desselben Auges, spricht man von Heterochromie; meist ist sie angeboren und harmlos, gelegentlich Folge einer Verletzung oder Entzündung.</p>\n<h2>Wenn sie sich entzündet</h2>\n<p>Eine Regenbogenhautentzündung äußert sich durch dumpfen Schmerz, ausgeprägte Lichtempfindlichkeit, verschwommenes Sehen und ein gerötetes Auge, wobei die Rötung rund um die Hornhaut am stärksten ist. Sie gehört rasch augenärztlich behandelt, weil die Regenbogenhaut mit der Linse verkleben kann und daraus bleibende Schäden entstehen. Auffällig oft tritt sie zusammen mit rheumatischen Erkrankungen auf, weshalb Betroffene regelmäßige Kontrollen wahrnehmen sollten.</p>\n<h2>Als Erkennungsmerkmal</h2>\n<p>Das Muster aus Krypten, Furchen und Ringen ist individuell und verändert sich nach dem Kleinkindalter praktisch nicht mehr. Deshalb eignet es sich zur Identifikation sogar besser als der Fingerabdruck, der sich abnutzt. An Grenzkontrollen wird das Verfahren eingesetzt, am Smartphone hat es sich nicht durchgesetzt, weil es bei Brillen, Kontaktlinsen und schlechtem Licht unzuverlässig wird.</p>\n<p>Eine kosmetische Einfärbung durch Implantate wird im Ausland beworben und von den Fachgesellschaften einhellig abgelehnt: Die Komplikationsrate ist hoch, und dauerhafte Verluste an Sehschärfe sind beschrieben.</p>\n<div class=\"teaser\"><p>Im Gartenteil: Schwertlilien im Staudenbeet. Welcher Boden den Rhizomen bekommt, warum sie nicht zu tief gepflanzt werden dürfen und wann der beste Zeitpunkt zum Teilen alter Horste ist.</p><p><a href=\"schwertlilien.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Iris",
+          "Regenbogenhaut"
+        ],
+        "forbidden": [
+          "Schwertlilie",
+          "Staude",
+          "Rhizom",
+          "Beet",
+          "Blüte",
+          "Gartenblume",
+          "Horst"
+        ],
+        "level": 4,
+        "oracle": "Iris im Auge: Aufbau, Farbe und häufige Erkrankungen"
+      }
+    },
+    {
+      "id": "wasserhahn",
+      "input": {
+        "text": "<h1>Do it yourself</h1>\n<p>Es ist die häufigste Reparatur im Haushalt und eine der wenigen, die sich fast immer ohne Fachbetrieb erledigen lässt. Vorausgesetzt, man findet vorher heraus, welches Bauteil im Wasserhahn undicht ist. Sonst steht man am Ende mit zwei Ersatzteilen da, von denen keines passt.</p>\n<h2>Zwei Bauarten, zwei Verschleißteile</h2>\n<p>Bei der Zweigriffarmatur sitzt in jedem Griff ein Oberteil mit einer Dichtscheibe aus Gummi, die mit den Jahren hart und spröde wird. Sie kostet wenige Cent und ist in gemischten Sätzen erhältlich. Beim Einhebelmischer übernimmt eine Kartusche mit zwei Keramikscheiben beide Aufgaben, Menge und Temperatur. Diese Kartuschen sind nicht genormt: Ohne das ausgebaute Teil oder die Typenbezeichnung des Herstellers wird der Kauf zum Ratespiel. Fotografieren Sie vor dem Gang in den Baumarkt die Armatur samt aufgedruckter Kennung.</p>\n<h2>So gehen Sie vor</h2>\n<p>Schließen Sie zuerst die Eckventile unter dem Waschtisch und lassen Sie den Restdruck über den geöffneten Hebel ab. Legen Sie ein Tuch ins Becken, damit kleine Teile nicht im Abfluss verschwinden. Die farbige Kappe am Griff lässt sich mit einem kleinen Schraubendreher heraushebeln, darunter sitzt eine Madenschraube, meist für einen Innensechskant. Danach wird der Klemmring gelöst und die Kartusche gerade nach oben herausgezogen. Achten Sie auf die Position der Führungsnasen, denn verdreht eingesetzt vertauscht die neue Kartusche warm und kalt.</p>\n<h2>Was schiefgehen kann</h2>\n<ul>\n<li>Der Schraubenkopf dreht rund: Ein Schraubenausdreher hilft, mehr Kraft nicht</li>\n<li>Das Eckventil schließt nach Jahren nicht mehr vollständig, dann muss der Haupthahn zu</li>\n<li>Kalk hat die Kartusche im Gehäuse verklebt: über Nacht mit Essigessenz einweichen</li>\n<li>Beim Zusammenbau zu fest angezogen, dadurch reißt die Keramik oder der Hebel klemmt</li>\n</ul>\n<h2>Der Perlator ist ein anderes Thema</h2>\n<p>Ein unregelmäßiger oder spritzender Strahl hat mit dem Tropfen nichts zu tun. Der Perlator am Auslauf ist kein Verschleißteil, er verkalkt nur: herausschrauben, über Nacht in Essigwasser legen, ausbürsten, in gleicher Reihenfolge wieder einsetzen. Thermostatarmaturen in der Dusche folgen wiederum einer eigenen Logik. Dort arbeitet ein Dehnstoffelement, das sich kaum zerlegen lässt und meist komplett getauscht wird.</p>\n<div class=\"teaser\"><p>Im Versicherungsteil: Wasserschaden in der Wohnung. Welche Police wofür aufkommt, warum die Ursache über die Zuständigkeit entscheidet und welche Fotos Sie machen sollten, bevor Sie mit dem Trocknen beginnen.</p><p><a href=\"wasserschaden-versicherung.html\">Weiterlesen…</a></p></div>"
+      },
+      "reference": {
+        "required": [
+          "Wasserhahn",
+          "Wasserhähne"
+        ],
+        "forbidden": [
+          "Wasserschaden",
+          "Versicherung",
+          "Hausrat",
+          "Gutachter",
+          "Trocknungsgerät",
+          "Schimmel"
+        ],
+        "level": 3,
+        "oracle": "Wasserhahn tropft: Dichtung und Kartusche wechseln"
+      }
+    }
+  ]
+}

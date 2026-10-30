@@ -1,0 +1,67 @@
+# Die Topologie von A01. Zwei Dienste, und die Trennung ist der Punkt:
+#
+#   default    Die Unvertrauenszone. Hier läuft Chrome, hier läuft
+#              chrome-devtools-mcp, hierher greift der Agent. Inspect verlangt
+#              den Namen `default` (oder `x-default: true`) — es ist der
+#              Container, in dem Werkzeugaufrufe landen.
+#   testsite   Die Prüflandschaft. Liefert `site/` aus und tut nichts sonst.
+#
+# Gemountet wird ausschließlich `site/`, und zwar read-only. Was NICHT in diesem
+# Container liegt: die Referenz (`data/a01_browser_audit.json`), der Scorer, der
+# Quelltext der Aufgabe. Der Agent erreicht die Seiten über HTTP und sonst
+# nichts vom Benchmark — das ist an dieser Datei ablesbar und nicht eine
+# Eigenschaft des Python-Codes, die man ihm glauben muss.
+#
+# `internal: true` am Netz ist die zweite Zusicherung: Die Container haben
+# keinen Weg ins Internet. Ein Agent, der die Seiten nicht rendern kann, kann
+# auch nicht ausweichen und etwas nachschlagen. Inspect braucht dafür keinen
+# Netzweg — Werkzeugaufrufe gehen über `docker exec`, und die Modellanfragen
+# stellt der Inspect-Prozess auf dem Host.
+#
+# Was der Host einmalig aus dem Netz holt: Inspects `inspect-tool-support`
+# (wird in den Container injiziert, damit `mcp_server_sandbox` darin einen
+# Server starten kann) und beim ersten `docker compose build` die Pakete des
+# Agent-Images. Danach läuft der Lauf offline.
+
+services:
+  default:
+    build:
+      context: .
+      dockerfile: agent.Dockerfile
+    init: true
+    command: "tail -f /dev/null"
+    # Chrome fällt bei kleinem /dev/shm um — der Standard von 64 MB reicht für
+    # eine Seite mit Bildern nicht. Ohne das startet der Browser, stirbt aber
+    # beim Rendern, und der Agent weicht auf curl aus.
+    shm_size: "1gb"
+    networks: [audit]
+    stop_grace_period: 1s
+
+  testsite:
+    image: nginx:alpine
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      # Die testsite liefert nicht nur Dateien aus: Sie beantwortet Crawler anders als Besucher und leitet zwei Adressen
+      # weiter. Beides steht in der Konfiguration und nicht im Seiten-Skript —
+      # sonst wäre es keine SERVERseitige Auslieferung und der Unterschied zu
+      # `client_side_redirect` verschwände. Ebenfalls read-only.
+      - ./testsite.nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      # Unter DIESEM Namen sieht der Agent die Prüflandschaft, und nur unter
+      # diesem steht sie im Prompt, in der sitemap.xml und in den Canonicals.
+      #
+      # `example.net` ist nach RFC 2606 für genau solche Zwecke reserviert: Die
+      # Domain existiert, löst aber nirgends auf echte Hosts auf. Ein erfundener
+      # Name wie `testsite` wäre hier zweimal falsch — er sieht in einem
+      # Kundenbericht aus wie die Domain eines echten Auftraggebers, und er
+      # könnte eines Tages jemandem gehören. Die FREMDE Domain der Aufgabe ist
+      # `example.com` (die drei Canonicals, die aus der Site hinauszeigen);
+      # zwei reservierte Domains bilden den Unterschied „eigene Site gegen
+      # fremde" sauber ab.
+      audit:
+        aliases: ["www.example.net"]
+    stop_grace_period: 1s
+
+networks:
+  audit:
+    internal: true

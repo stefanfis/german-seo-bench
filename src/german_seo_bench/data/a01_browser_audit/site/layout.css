@@ -1,0 +1,10 @@
+/* Randspalte ab Desktop-Breite: Sie folgt dann ihrem Container, statt die
+   Sichtbarkeit selbst mitzubringen. */
+@media (min-width: 68.75em) {
+  .rand > .einschub { visibility: inherit; }
+}
+
+/* Bildgrößen des Zubehör-Rasters. Maßgeblich ist die gerenderte Größe, nicht
+   das width-Attribut am Bild. */
+.motiv-gross { display: block; width: 900px; height: 600px; }
+.motiv-klein { display: block; width: 220px; height: 110px; }

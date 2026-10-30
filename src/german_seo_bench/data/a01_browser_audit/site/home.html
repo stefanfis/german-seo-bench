@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartenshop – Startseite</title>
+<meta name="description" content="Hochwertige Wandkarten und Poster für Zuhause und Büro.">
+</head>
+<body>
+<h1>Willkommen im Kartenshop</h1>
+<main id="content"></main>
+<nav>
+<a href="kategorie.html">Politische Karten</a> ·
+<a href="poster.html">Poster</a> ·
+<a href="galerie.html">Galerie</a> ·
+<a href="liste.html">Alle Motive</a> ·
+<a href="preise.html">Preise</a> ·
+<a href="sale.html">Restposten</a> ·
+<a href="angebot.html">Angebote</a>
+</nav>
+<nav>
+<a href="produkt.html">Weltkarte politisch</a> ·
+<a href="scroll.html">Neuheiten</a> ·
+<a href="suche.html">Suche</a> ·
+<a href="filter.html">Filter</a> ·
+<a href="blog.html">Blog</a> ·
+<a href="ratgeber.html">Ratgeber</a> ·
+<a href="assets.html">Service und Versand</a> ·
+<a href="technik.html">Papier und Druck</a> ·
+<a href="zubehoer.html">Zubehör</a> ·
+<a href="schulen.html">Karten für Schulen</a> ·
+<a href="archiv.html">Frühere Auflagen</a> ·
+<a href="shop.html">Shop</a> ·
+<a href="umzug.html">Kartenarchiv</a> ·
+<a href="alt.html">Ältere Übersicht</a>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('content').innerHTML =
+    '<h2>Unsere Kategorien</h2><p>Politische Karten, physische Karten und historische Poster in mehreren Größen und Rahmenfarben.</p>';
+  var l = document.createElement('link');
+  l.rel = 'canonical'; l.href = 'http://example.com/home';
+  document.head.appendChild(l);
+});
+</script>
+</body>
+</html>

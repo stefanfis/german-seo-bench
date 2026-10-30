@@ -1,0 +1,44 @@
+# Die Topologie der Referenz-Erzeugung. Sie ist NICHT die Messtopologie —
+# hier darf gemountet werden, hier gibt es keinen Agenten, und was hier läuft,
+# sieht kein Modell.
+#
+# Zwei Dinge sind trotzdem gleich, und das ist der Punkt: dieselbe testsite mit
+# derselben nginx-Konfiguration, und derselbe Browser aus derselben
+# Distribution. Entstünde die Referenz gegen einen anderen Server als die
+# Messung, rechnete man eine Referenz für eine Auslieferung, die niemand misst.
+
+services:
+  referencegen:
+    build:
+      context: .
+      dockerfile: reference.Dockerfile
+    init: true
+    shm_size: "1gb"
+    environment:
+      BENCH_TESTSITE_URL: "http://www.example.net/"
+      BENCH_CAPTURE: "/out/capture.json"
+      BENCH_SITE: "/site"
+      # Die Seitenliste kommt aus dem Datensatz und wird vom Treiber gesetzt —
+      # sonst gäbe es sie zweimal und die Fassungen liefen auseinander.
+      BENCH_PAGES: "${BENCH_PAGES:-[]}"
+    volumes:
+      - ./site:/site:ro
+      - ${BENCH_CAPTURE_DIR:-./capture}:/out
+    networks: [reference]
+    depends_on: [testsite]
+
+  testsite:
+    image: nginx:alpine
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./testsite.nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      # Derselbe Name wie im Messaufbau. Ohne den Alias entstünde die Referenz
+      # unter einer anderen Adresse als die Messung — und jede absolute URL im
+      # Capture (Canonicals, sitemap.xml) wiche ab.
+      reference:
+        aliases: ["www.example.net"]
+
+networks:
+  reference:
+    internal: true

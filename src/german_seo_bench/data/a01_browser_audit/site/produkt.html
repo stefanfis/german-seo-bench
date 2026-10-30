@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produkt – Kartenshop</title>
+<meta name="description" content="Produktdetails im Kartenshop.">
+</head>
+<body>
+<h1>Weltkarte politisch</h1>
+<img src="/img/detail-01.jpg" alt="Weltkarte politisch, 100 mal 70 Zentimeter">
+<p>Details zur Weltkarte.</p>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.title = 'Weltkarte politisch 100x70 cm | Kartenshop';
+});
+// Vorschau aus der Redaktion: nicht in den Index.
+if (new URLSearchParams(location.search).get('vorschau') === '1') {
+  var m = document.createElement('meta');
+  m.name = 'robots'; m.content = 'noindex, follow';
+  document.head.appendChild(m);
+}
+</script>
+</body>
+</html>

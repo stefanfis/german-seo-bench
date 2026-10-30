@@ -1,0 +1,78 @@
+[project]
+name = "german-seo-bench"
+version = "2026.1"
+description = "Nachvollziehbare Benchmarks für Sprachmodelle in deutschen SEO-Aufgaben"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Stefan Fischerländer", email = "stefan@fischerlaender.de" }]
+
+dependencies = [
+    "inspect-ai>=0.3.263",
+    # Harte Abhängigkeit, nicht optional: Ohne Detektor misst die Prüfung
+    # `german` schwächer, und zwei Läufe hießen gleich, wären aber nicht
+    # vergleichbar. py3langid statt lingua, weil es bei gleichem Ergebnis
+    # 4,4 MB statt 164 MB lädt. Siehe checks/language.py.
+    "py3langid>=0.4",
+    # Der OpenAI-Client ist der Weg zu llama-swap, llama-server, Ollama und
+    # LM Studio. Inspect zieht ihn nicht selbst.
+    "openai>=1.60",
+    # Bringt Inspect ohnehin mit; steht hier, weil `media` es direkt
+    # importiert und nicht bloß erbt.
+    "python-dotenv>=1.0",
+    # Der Anthropic-Client, aus demselben Grund: Der Vergleich lokal gegen
+    # Frontier IST die Frage, für die es dieses Repo gibt — ein Cloud-Lauf ist
+    # hier kein Sonderfall, sondern die halbe Messung. Als Extra wäre es ein
+    # Schalter, den man vergisst, und der Fehler käme erst beim Start eines
+    # bezahlten Laufs. 8 MB dafür sind der bessere Handel. Andere Anbieter
+    # bleiben ungebunden — für einen einzelnen Lauf genügt
+    # `uv run --with google-genai inspect eval …`.
+    "anthropic>=1.0",
+    # MCP-Client für die Agent-Aufgaben (A01 fährt chrome-devtools-mcp im
+    # Container). Inspect führt `mcp` nur in seiner dev-Gruppe und prüft zur
+    # Laufzeit, ob das Paket da ist — ohne diesen Eintrag scheitert ein
+    # Agent-Lauf mit einem Dependency-Fehler statt mit einer Messung.
+    "mcp>=1.23.0",
+    # Markdown → HTML für den Kundenbericht von A01 (`reports/*.pdf`). Liegt
+    # über Inspect ohnehin im Baum (rich benutzt es), steht hier aber
+    # ausdrücklich: Eine Abhängigkeit, die nur transitiv da ist, verschwindet
+    # beim nächsten Upgrade von Inspect, und dann fehlt sie genau in dem
+    # Schritt, der keinen Lauf kosten darf.
+    "markdown-it-py>=3.0",
+]
+
+# Dependency-Group statt optional-dependencies: uv zieht die Gruppe `dev` bei
+# `uv run` von selbst mit. Als Extra müsste man jedes Mal `--extra dev`
+# tippen — und ein Testbefehl, den man falsch tippen kann, wird seltener
+# getippt.
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    # Die Tests lesen `compose.yaml` von A01 und prüfen die Container-Topologie.
+    # Inspect bringt PyYAML ohnehin mit; hier steht es, weil die Tests es
+    # benutzen und nicht bloß erben.
+    "pyyaml>=6.0",
+]
+
+[project.entry-points.inspect_ai]
+german_seo_bench = "german_seo_bench._registry"
+
+# Der einzige eigene Befehl: `uv run german-seo-bench` zeigt die typischen
+# Aufrufe und die aktuelle Aufgabenliste. Er führt keinen Lauf aus — gemessen wird weiter mit
+# `inspect eval`, damit dessen Optionen nicht hinter einer Hülle verschwinden.
+[project.scripts]
+german-seo-bench = "german_seo_bench.help:main"
+
+[project.urls]
+Homepage = "https://fischerlaender.de"
+Repository = "https://github.com/stefanfis/german-seo-bench"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/german_seo_bench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

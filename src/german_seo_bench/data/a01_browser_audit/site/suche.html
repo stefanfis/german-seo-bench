@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suche: Weltkarte – Kartenshop</title>
+<meta name="description" content="Suchergebnisse im Kartenshop.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav><a href="home.html">Start</a></nav>
+<h1>Suchergebnisse für „Weltkarte“</h1>
+<p id="treffer">12 Treffer.</p>
+<button id="filter">Nur lieferbare anzeigen</button>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var m = document.createElement('meta');
+  m.name = 'robots'; m.content = 'noindex, follow';
+  document.head.appendChild(m);
+});
+document.getElementById('filter').addEventListener('click', function () {
+  var ende = Date.now() + 700;
+  while (Date.now() < ende) { }
+  document.getElementById('treffer').textContent = '7 Treffer.';
+});
+</script>
+</body>
+</html>

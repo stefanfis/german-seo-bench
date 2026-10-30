@@ -1,0 +1,833 @@
+{
+  "task": "M03",
+  "title": "Fakten-Extraktion aus deutschen Produkttexten",
+  "version": 1,
+  "samples": [
+    {
+      "id": "ergoflex",
+      "input": {
+        "text": "Der ergonomische Bürostuhl ErgoFlex von SitzWohl überzeugt mit atmungsaktivem Netzrücken. Farbe: Anthrazit, Bezug aus Polyester. Art.-Nr. SW-4471. Statt 249,00 € jetzt nur 199,95 €. 4,6 Sterne bei 312 Bewertungen. Auf Lager, sofort lieferbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "ErgoFlex",
+          "brand": "SitzWohl",
+          "price_eur": 199.95,
+          "color": "Anthrazit",
+          "material": "Polyester",
+          "sku": "SW-4471",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 249.0,
+            "kind": "Streichpreis"
+          },
+          {
+            "value": 4.6,
+            "kind": "Sternebewertung"
+          },
+          {
+            "value": 312,
+            "kind": "Anzahl Bewertungen"
+          }
+        ],
+        "level": 3,
+        "oracle": "{\"name\": \"ErgoFlex\", \"brand\": \"SitzWohl\", \"price_eur\": 199.95, \"color\": \"Anthrazit\", \"material\": \"Polyester\", \"sku\": \"SW-4471\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "aquapure",
+      "input": {
+        "text": "AquaPure Trinkflasche aus Edelstahl, 750 ml, hält Getränke 12 Stunden warm. Farbe Mattschwarz. SKU: AQ-0099. Preis: 29,90 €. Versand 4,99 €. Derzeit ausverkauft."
+      },
+      "reference": {
+        "facts": {
+          "name": "AquaPure",
+          "brand": null,
+          "price_eur": 29.9,
+          "color": "Mattschwarz",
+          "material": "Edelstahl",
+          "sku": "AQ-0099",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 4.99,
+            "kind": "Versandkosten"
+          },
+          {
+            "value": 750,
+            "kind": "Füllmenge in ml"
+          },
+          {
+            "value": 12,
+            "kind": "Stunden Warmhaltezeit"
+          }
+        ],
+        "level": 3,
+        "oracle": "{\"name\": \"AquaPure\", \"brand\": null, \"price_eur\": 29.9, \"color\": \"Mattschwarz\", \"material\": \"Edelstahl\", \"sku\": \"AQ-0099\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "trailmaster",
+      "input": {
+        "text": "Wanderrucksack TrailMaster 40 Liter von NordPfad. Robustes Ripstop-Nylon, Farbe Waldgrün. Nur 1.199,00 g leicht. Artikelnummer NP-2255-A. 1.049,00 € inkl. MwSt. 5 Jahre Garantie. Sofort lieferbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "TrailMaster",
+          "brand": "NordPfad",
+          "price_eur": 1049.0,
+          "color": "Waldgrün",
+          "material": "Ripstop-Nylon",
+          "sku": "NP-2255-A",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 1199.0,
+            "kind": "Gewicht in Gramm"
+          },
+          {
+            "value": 40,
+            "kind": "Volumen in Liter"
+          },
+          {
+            "value": 5,
+            "kind": "Garantiejahre"
+          }
+        ],
+        "level": 3,
+        "oracle": "{\"name\": \"TrailMaster\", \"brand\": \"NordPfad\", \"price_eur\": 1049.0, \"color\": \"Waldgrün\", \"material\": \"Ripstop-Nylon\", \"sku\": \"NP-2255-A\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "pulseone",
+      "input": {
+        "text": "Smartwatch PulseOne, Aluminiumgehäuse, misst Puls und Schlaf. Art.-Nr.: PO-7788. Einführungspreis 149,00 € statt 179,00 €. Nicht auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "PulseOne",
+          "brand": null,
+          "price_eur": 149.0,
+          "color": null,
+          "material": "Aluminium",
+          "sku": "PO-7788",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 179.0,
+            "kind": "Streichpreis"
+          }
+        ],
+        "level": 2,
+        "oracle": "{\"name\": \"PulseOne\", \"brand\": null, \"price_eur\": 149.0, \"color\": null, \"material\": \"Aluminium\", \"sku\": \"PO-7788\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "mahlwerk",
+      "input": {
+        "text": "Die Kaffeemühle MahlWerk M3 von BrühGut mahlt gleichmäßig in 12 Stufen. Gehäuse aus Buchenholz, Farbe Natur. Art.-Nr. BG-1120. 1.299,00 €. Bewertung 4,8 von 5. Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "MahlWerk",
+          "brand": "BrühGut",
+          "price_eur": 1299.0,
+          "color": "Natur",
+          "material": "Buchenholz",
+          "sku": "BG-1120",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 4.8,
+            "kind": "Sternebewertung"
+          },
+          {
+            "value": 12,
+            "kind": "Mahlstufen"
+          }
+        ],
+        "level": 3,
+        "oracle": "{\"name\": \"MahlWerk\", \"brand\": \"BrühGut\", \"price_eur\": 1299.0, \"color\": \"Natur\", \"material\": \"Buchenholz\", \"sku\": \"BG-1120\", \"in_stock\": true}",
+        "note": "Der Modellname steht als 'MahlWerk M3' im Text."
+      }
+    },
+    {
+      "id": "zengrip",
+      "input": {
+        "text": "Yogamatte ZenGrip, rutschfest, aus Naturkautschuk. Maße 183 x 61 cm. SKU ZG-5510. Farbe Beere. 39,99 €. Lieferbar in 2-3 Werktagen."
+      },
+      "reference": {
+        "facts": {
+          "name": "ZenGrip",
+          "brand": null,
+          "price_eur": 39.99,
+          "color": "Beere",
+          "material": "Naturkautschuk",
+          "sku": "ZG-5510",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 183,
+            "kind": "Länge in cm"
+          },
+          {
+            "value": 61,
+            "kind": "Breite in cm"
+          }
+        ],
+        "level": 3,
+        "oracle": "{\"name\": \"ZenGrip\", \"brand\": null, \"price_eur\": 39.99, \"color\": \"Beere\", \"material\": \"Naturkautschuk\", \"sku\": \"ZG-5510\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "lumenarc",
+      "input": {
+        "text": "Schreibtischlampe LumenArc von HellWerk, dimmbar, mit USB-Anschluss. Aluminium, Farbe Weiß. Artikelnummer HW-3033. Aktionspreis 59,90 €, regulär 74,90 €. 24 Monate Garantie. Ausverkauft."
+      },
+      "reference": {
+        "facts": {
+          "name": "LumenArc",
+          "brand": "HellWerk",
+          "price_eur": 59.9,
+          "color": "Weiß",
+          "material": "Aluminium",
+          "sku": "HW-3033",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 74.9,
+            "kind": "Streichpreis"
+          },
+          {
+            "value": 24,
+            "kind": "Garantiemonate"
+          }
+        ],
+        "level": 1,
+        "oracle": "{\"name\": \"LumenArc\", \"brand\": \"HellWerk\", \"price_eur\": 59.9, \"color\": \"Weiß\", \"material\": \"Aluminium\", \"sku\": \"HW-3033\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "soundrock",
+      "input": {
+        "text": "Bluetooth-Lautsprecher SoundRock, wasserdicht nach IP67. Art.-Nr. SR-8080. 89,00 €. Farbe Ozeanblau. Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "SoundRock",
+          "brand": null,
+          "price_eur": 89.0,
+          "color": "Ozeanblau",
+          "material": null,
+          "sku": "SR-8080",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 67,
+            "kind": "Schutzart IP67"
+          }
+        ],
+        "level": 2,
+        "oracle": "{\"name\": \"SoundRock\", \"brand\": null, \"price_eur\": 89.0, \"color\": \"Ozeanblau\", \"material\": null, \"sku\": \"SR-8080\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "flexiflow",
+      "input": {
+        "text": "Gartenschlauch FlexiFlow von GrünReich, 20 Meter, knickfrei. Material TPE. SKU: GR-4004. 2.499,00 g Gewicht. 34,95 €. Momentan nicht verfügbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "FlexiFlow",
+          "brand": "GrünReich",
+          "price_eur": 34.95,
+          "color": null,
+          "material": "TPE",
+          "sku": "GR-4004",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 2499.0,
+            "kind": "Gewicht in Gramm"
+          },
+          {
+            "value": 20,
+            "kind": "Länge in Meter"
+          }
+        ],
+        "level": 1,
+        "oracle": "{\"name\": \"FlexiFlow\", \"brand\": \"GrünReich\", \"price_eur\": 34.95, \"color\": null, \"material\": \"TPE\", \"sku\": \"GR-4004\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "sprintx",
+      "input": {
+        "text": "Laufschuh SprintX, Obermaterial aus Mesh, Farbe Neongelb. Von FleetFoot. Artikelnummer FF-6161. Reduziert auf 79,99 € (UVP 129,00 €). Sofort lieferbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "SprintX",
+          "brand": "FleetFoot",
+          "price_eur": 79.99,
+          "color": "Neongelb",
+          "material": "Mesh",
+          "sku": "FF-6161",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 129.0,
+            "kind": "UVP"
+          }
+        ],
+        "level": 2,
+        "oracle": "{\"name\": \"SprintX\", \"brand\": \"FleetFoot\", \"price_eur\": 79.99, \"color\": \"Neongelb\", \"material\": \"Mesh\", \"sku\": \"FF-6161\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "silentwave",
+      "input": {
+        "text": "Kopfhörer SilentWave mit aktiver Geräuschunterdrückung. SKU SW-2027. Farbe Graphit. 1.049,00 €. Bewertung 4,3 Sterne. Auf Lager, versandfertig in 24 Stunden."
+      },
+      "reference": {
+        "facts": {
+          "name": "SilentWave",
+          "brand": null,
+          "price_eur": 1049.0,
+          "color": "Graphit",
+          "material": null,
+          "sku": "SW-2027",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 4.3,
+            "kind": "Sternebewertung"
+          },
+          {
+            "value": 24,
+            "kind": "Stunden Versandfertigkeit"
+          }
+        ],
+        "level": 3,
+        "oracle": "{\"name\": \"SilentWave\", \"brand\": null, \"price_eur\": 1049.0, \"color\": \"Graphit\", \"material\": null, \"sku\": \"SW-2027\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "titancook",
+      "input": {
+        "text": "Pfanne TitanCook von KochMeister, 28 cm, Grundkörper aus geschmiedetem Aluminium mit Titan-Antihaftbeschichtung. Farbe Schwarz. Art.-Nr. KM-9090. 64,90 € inkl. Versand. 12 Jahre Garantie. Ausverkauft."
+      },
+      "reference": {
+        "facts": {
+          "name": "TitanCook",
+          "brand": "KochMeister",
+          "price_eur": 64.9,
+          "color": "Schwarz",
+          "material": "Aluminium",
+          "sku": "KM-9090",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 28,
+            "kind": "Durchmesser in cm"
+          },
+          {
+            "value": 12,
+            "kind": "Garantiejahre"
+          }
+        ],
+        "level": 2,
+        "oracle": "{\"name\": \"TitanCook\", \"brand\": \"KochMeister\", \"price_eur\": 64.9, \"color\": \"Schwarz\", \"material\": \"Aluminium\", \"sku\": \"KM-9090\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "cityroll",
+      "input": {
+        "text": "Rucksack CityRoll aus recyceltem Polyester, Farbe Sand, von UrbanGo. SKU: UG-1717. 54,00 €. 4,7 Sterne. Lieferbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "CityRoll",
+          "brand": "UrbanGo",
+          "price_eur": 54.0,
+          "color": "Sand",
+          "material": "Polyester",
+          "sku": "UG-1717",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 4.7,
+            "kind": "Sternebewertung"
+          }
+        ],
+        "level": 1,
+        "oracle": "{\"name\": \"CityRoll\", \"brand\": \"UrbanGo\", \"price_eur\": 54.0, \"color\": \"Sand\", \"material\": \"Polyester\", \"sku\": \"UG-1717\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "breezemax",
+      "input": {
+        "text": "Standventilator BreezeMax, drei Stufen, leise. Artikelnummer BM-3300. Statt 89,00 € nur 69,95 €. Farbe Creme. Nicht auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "BreezeMax",
+          "brand": null,
+          "price_eur": 69.95,
+          "color": "Creme",
+          "material": null,
+          "sku": "BM-3300",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 89.0,
+            "kind": "Streichpreis"
+          }
+        ],
+        "level": 1,
+        "oracle": "{\"name\": \"BreezeMax\", \"brand\": null, \"price_eur\": 69.95, \"color\": \"Creme\", \"material\": null, \"sku\": \"BM-3300\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "thermogo",
+      "input": {
+        "text": "Trinkbecher ThermoGo von WarmHalt, doppelwandiges Glas, 350 ml. Art.-Nr. WH-1234. 24,90 €. Versandkosten 3,99 €. Sofort lieferbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "ThermoGo",
+          "brand": "WarmHalt",
+          "price_eur": 24.9,
+          "color": null,
+          "material": "Glas",
+          "sku": "WH-1234",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 3.99,
+            "kind": "Versandkosten"
+          },
+          {
+            "value": 350,
+            "kind": "Füllmenge in ml"
+          }
+        ],
+        "level": 2,
+        "oracle": "{\"name\": \"ThermoGo\", \"brand\": \"WarmHalt\", \"price_eur\": 24.9, \"color\": null, \"material\": \"Glas\", \"sku\": \"WH-1234\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "aerosafe",
+      "input": {
+        "text": "Fahrradhelm AeroSafe, Größe M, Farbe Rot. SKU AS-5656. 1.199,00 € — Achtung, Sammlerstück. Nur noch heute. Ausverkauft."
+      },
+      "reference": {
+        "facts": {
+          "name": "AeroSafe",
+          "brand": null,
+          "price_eur": 1199.0,
+          "color": "Rot",
+          "material": null,
+          "sku": "AS-5656",
+          "in_stock": false
+        },
+        "price_distractors": [],
+        "level": 1,
+        "oracle": "{\"name\": \"AeroSafe\", \"brand\": null, \"price_eur\": 1199.0, \"color\": \"Rot\", \"material\": null, \"sku\": \"AS-5656\", \"in_stock\": false}",
+        "note": "Gegenprobe zur Gewichtsfalle: 1.199,00 € ist hier der Preis."
+      }
+    },
+    {
+      "id": "chefline",
+      "input": {
+        "text": "Messerset ChefLine von SchneidGut, sechs Teile, Klingen aus rostfreiem Stahl. Artikelnummer SG-4242. 129,00 €. Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "ChefLine",
+          "brand": "SchneidGut",
+          "price_eur": 129.0,
+          "color": null,
+          "material": "Stahl",
+          "sku": "SG-4242",
+          "in_stock": true
+        },
+        "price_distractors": [],
+        "level": 1,
+        "oracle": "{\"name\": \"ChefLine\", \"brand\": \"SchneidGut\", \"price_eur\": 129.0, \"color\": null, \"material\": \"Stahl\", \"sku\": \"SG-4242\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "voltgo",
+      "input": {
+        "text": "Powerbank VoltGo, 20000 mAh, Farbe Petrol, Gehäuse aus Kunststoff. SKU: VG-0808. Aktion: 39,90 € statt 49,90 €. Lieferbar in 3-5 Tagen."
+      },
+      "reference": {
+        "facts": {
+          "name": "VoltGo",
+          "brand": null,
+          "price_eur": 39.9,
+          "color": "Petrol",
+          "material": "Kunststoff",
+          "sku": "VG-0808",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 49.9,
+            "kind": "Streichpreis"
+          },
+          {
+            "value": 20000,
+            "kind": "Kapazität in mAh"
+          }
+        ],
+        "level": 2,
+        "oracle": "{\"name\": \"VoltGo\", \"brand\": null, \"price_eur\": 39.9, \"color\": \"Petrol\", \"material\": \"Kunststoff\", \"sku\": \"VG-0808\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "grundpreis",
+      "input": {
+        "text": "Pflegedusche SanftRein von BadeGut, 300 ml. Farbe der Flasche: Mintgrün. Flasche aus recyceltem Kunststoff. Art.-Nr. BG-1170. 5,97 € (100 ml = 1,99 €). Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "SanftRein",
+          "brand": "BadeGut",
+          "price_eur": 5.97,
+          "color": "Mintgrün",
+          "material": "Kunststoff",
+          "sku": "BG-1170",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 1.99,
+            "kind": "Grundpreis je 100 ml"
+          },
+          {
+            "value": 300,
+            "kind": "Füllmenge in ml"
+          }
+        ],
+        "level": 4,
+        "oracle": "{\"name\": \"SanftRein\", \"brand\": \"BadeGut\", \"price_eur\": 5.97, \"color\": \"Mintgrün\", \"material\": \"Kunststoff\", \"sku\": \"BG-1170\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "abpreis",
+      "input": {
+        "text": "Esstisch NordLicht in Eiche massiv, 180 × 90 cm. Farbe: Natur geölt. Alle Größen ab 449,00 €; die hier gezeigte Ausführung mit 180 cm Länge kostet 629,00 €. Artikelnummer: TL-9004. Lieferbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "NordLicht",
+          "brand": null,
+          "price_eur": 629.0,
+          "color": "Natur geölt",
+          "material": "Eiche",
+          "sku": "TL-9004",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 449.0,
+            "kind": "Ab-Preis der kleinsten Variante"
+          },
+          {
+            "value": 180,
+            "kind": "Länge in cm"
+          },
+          {
+            "value": 90,
+            "kind": "Breite in cm"
+          }
+        ],
+        "level": 4,
+        "oracle": "{\"name\": \"NordLicht\", \"brand\": null, \"price_eur\": 629.0, \"color\": \"Natur geölt\", \"material\": \"Eiche\", \"sku\": \"TL-9004\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "zubehoer",
+      "input": {
+        "text": "Wasserfilter-Kanne PureFlow von KlarWerk. Gehäuse aus BPA-freiem Tritan, Farbe Transparent. Art.-Nr. KW-3312. 34,90 €. Passendes Zubehör: Ersatzkartusche im 2er-Pack, 12,90 €. Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "PureFlow",
+          "brand": "KlarWerk",
+          "price_eur": 34.9,
+          "color": "Transparent",
+          "material": "Tritan",
+          "sku": "KW-3312",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 12.9,
+            "kind": "Preis des Zubehörs"
+          },
+          {
+            "value": 2,
+            "kind": "Stückzahl im Zubehör-Pack"
+          }
+        ],
+        "level": 4,
+        "oracle": "{\"name\": \"PureFlow\", \"brand\": \"KlarWerk\", \"price_eur\": 34.9, \"color\": \"Transparent\", \"material\": \"Tritan\", \"sku\": \"KW-3312\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "ean",
+      "input": {
+        "text": "Handmixer MixFix von Küchenstern, 450 Watt. Gehäuse aus Edelstahl, Farbe Silber. EAN 4012345678901, Art.-Nr. KS-7741. 49,95 €. Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "MixFix",
+          "brand": "Küchenstern",
+          "price_eur": 49.95,
+          "color": "Silber",
+          "material": "Edelstahl",
+          "sku": "KS-7741",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 450,
+            "kind": "Leistung in Watt"
+          },
+          {
+            "value": 4012345678901,
+            "kind": "EAN"
+          }
+        ],
+        "level": 4,
+        "oracle": "{\"name\": \"MixFix\", \"brand\": \"Küchenstern\", \"price_eur\": 49.95, \"color\": \"Silber\", \"material\": \"Edelstahl\", \"sku\": \"KS-7741\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "reststueck",
+      "input": {
+        "text": "Over-Ear-Kopfhörer SilentOne von AudioNord. Ohrpolster aus Memoryschaum, Farbe Nachtblau. Art.-Nr. AN-5520. 129,00 €. Nur noch 2 Stück verfügbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "SilentOne",
+          "brand": "AudioNord",
+          "price_eur": 129.0,
+          "color": "Nachtblau",
+          "material": "Memoryschaum",
+          "sku": "AN-5520",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 2,
+            "kind": "verbleibende Stückzahl"
+          }
+        ],
+        "level": 4,
+        "oracle": "{\"name\": \"SilentOne\", \"brand\": \"AudioNord\", \"price_eur\": 129.0, \"color\": \"Nachtblau\", \"material\": \"Memoryschaum\", \"sku\": \"AN-5520\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "nichtbestellbar",
+      "input": {
+        "text": "Gartenschlauch AquaLine, 20 Meter, dreilagiges Gewebe aus PVC. Artikelnummer GL-0042. 27,50 €. Vorübergehend nicht bestellbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "AquaLine",
+          "brand": null,
+          "price_eur": 27.5,
+          "color": null,
+          "material": "PVC",
+          "sku": "GL-0042",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 20,
+            "kind": "Länge in Meter"
+          }
+        ],
+        "level": 4,
+        "oracle": "{\"name\": \"AquaLine\", \"brand\": null, \"price_eur\": 27.5, \"color\": null, \"material\": \"PVC\", \"sku\": \"GL-0042\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "farbtitan",
+      "input": {
+        "text": "Armbanduhr ChronoFix von Zeitwerk. Farbe Titan, Gehäuse aus gebürstetem Aluminium. Art.-Nr. ZW-8802. 189,00 € statt 239,00 €. Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "ChronoFix",
+          "brand": "Zeitwerk",
+          "price_eur": 189.0,
+          "color": "Titan",
+          "material": "Aluminium",
+          "sku": "ZW-8802",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 239.0,
+            "kind": "Streichpreis"
+          }
+        ],
+        "level": 5,
+        "oracle": "{\"name\": \"ChronoFix\", \"brand\": \"Zeitwerk\", \"price_eur\": 189.0, \"color\": \"Titan\", \"material\": \"Aluminium\", \"sku\": \"ZW-8802\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "jahresabo",
+      "input": {
+        "text": "Jahrbuch PlanVoll vom Verlag Fachblatt, gedruckt auf Recyclingpapier. Farbe des Einbands: Dunkelrot. Art.-Nr. FB-0231. Das Jahrbuch kostet 129,00 €; wer stattdessen das Monatsheft abonniert, zahlt 12,99 € pro Monat. Sofort verfügbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "PlanVoll",
+          "brand": "Fachblatt",
+          "price_eur": 129.0,
+          "color": "Dunkelrot",
+          "material": "Recyclingpapier",
+          "sku": "FB-0231",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 12.99,
+            "kind": "Monatspreis des anderen Abos"
+          }
+        ],
+        "level": 5,
+        "oracle": "{\"name\": \"PlanVoll\", \"brand\": \"Fachblatt\", \"price_eur\": 129.0, \"color\": \"Dunkelrot\", \"material\": \"Recyclingpapier\", \"sku\": \"FB-0231\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "staffelpreis",
+      "input": {
+        "text": "Schraubendreher-Set WerkFix, sechs Größen, Klingen aus Chrom-Vanadium-Stahl. Farbe der Griffe: Signalgelb. Art.-Nr. WF-1188. Einzelpreis 11,50 €, ab 10 Stück 8,90 €. Restposten, solange der Vorrat reicht."
+      },
+      "reference": {
+        "facts": {
+          "name": "WerkFix",
+          "brand": null,
+          "price_eur": 11.5,
+          "color": "Signalgelb",
+          "material": "Chrom-Vanadium-Stahl",
+          "sku": "WF-1188",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 8.9,
+            "kind": "Staffelpreis ab 10 Stück"
+          },
+          {
+            "value": 10,
+            "kind": "Staffelmenge"
+          }
+        ],
+        "level": 5,
+        "oracle": "{\"name\": \"WerkFix\", \"brand\": null, \"price_eur\": 11.5, \"color\": \"Signalgelb\", \"material\": \"Chrom-Vanadium-Stahl\", \"sku\": \"WF-1188\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "steueranteil",
+      "input": {
+        "text": "Werkstattwagen RollFest von StahlGut. Korpus aus pulverbeschichtetem Stahlblech, Farbe Verkehrsrot. Art.-Nr. SG-4407. 299,00 € inkl. 19 % MwSt. (enthaltener Steueranteil 47,74 €). Auf Lager."
+      },
+      "reference": {
+        "facts": {
+          "name": "RollFest",
+          "brand": "StahlGut",
+          "price_eur": 299.0,
+          "color": "Verkehrsrot",
+          "material": "Stahlblech",
+          "sku": "SG-4407",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 47.74,
+            "kind": "enthaltener Steueranteil"
+          },
+          {
+            "value": 19,
+            "kind": "Steuersatz in Prozent"
+          }
+        ],
+        "level": 5,
+        "oracle": "{\"name\": \"RollFest\", \"brand\": \"StahlGut\", \"price_eur\": 299.0, \"color\": \"Verkehrsrot\", \"material\": \"Stahlblech\", \"sku\": \"SG-4407\", \"in_stock\": true}"
+      }
+    },
+    {
+      "id": "ausgelistet",
+      "input": {
+        "text": "Vase Solvig, mundgeblasenes Glas, Höhe 32 cm. Farbe Rauchgrau. Art.-Nr. DV-6610. 79,00 €. Dieser Artikel wird nicht mehr geführt."
+      },
+      "reference": {
+        "facts": {
+          "name": "Solvig",
+          "brand": null,
+          "price_eur": 79.0,
+          "color": "Rauchgrau",
+          "material": "Glas",
+          "sku": "DV-6610",
+          "in_stock": false
+        },
+        "price_distractors": [
+          {
+            "value": 32,
+            "kind": "Höhe in cm"
+          }
+        ],
+        "level": 5,
+        "oracle": "{\"name\": \"Solvig\", \"brand\": null, \"price_eur\": 79.0, \"color\": \"Rauchgrau\", \"material\": \"Glas\", \"sku\": \"DV-6610\", \"in_stock\": false}"
+      }
+    },
+    {
+      "id": "modellnummer",
+      "input": {
+        "text": "Profi-Nähmaschine NahtPerfekt von TextilTec, 1.299,00 €. Gehäuse aus Metall, Farbe Perlweiß. Modellnummer 4200 (interne Bezeichnung), Art.-Nr. TT-0917. Lieferbar."
+      },
+      "reference": {
+        "facts": {
+          "name": "NahtPerfekt",
+          "brand": "TextilTec",
+          "price_eur": 1299.0,
+          "color": "Perlweiß",
+          "material": "Metall",
+          "sku": "TT-0917",
+          "in_stock": true
+        },
+        "price_distractors": [
+          {
+            "value": 4200,
+            "kind": "Modellnummer"
+          }
+        ],
+        "level": 5,
+        "oracle": "{\"name\": \"NahtPerfekt\", \"brand\": \"TextilTec\", \"price_eur\": 1299.0, \"color\": \"Perlweiß\", \"material\": \"Metall\", \"sku\": \"TT-0917\", \"in_stock\": true}"
+      }
+    }
+  ]
+}

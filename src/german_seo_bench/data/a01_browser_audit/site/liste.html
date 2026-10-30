@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alle Motive, Seite 1 – Kartenshop</title>
+<meta name="description" content="Alle Motive im Überblick, Seite 1 von 3.">
+<link rel="stylesheet" href="style.css">
+<link rel="next" href="liste-2.html">
+</head>
+<body>
+<nav><a href="home.html">Start</a> · <a href="kategorie.html">Karten</a></nav>
+<h1>Alle Motive</h1>
+<ul>
+<li><a href="produkt.html">Weltkarte politisch</a></li>
+<li><a href="galerie.html">Weltkarte physisch</a></li>
+<li><a href="poster.html">Alpen im Relief</a></li>
+<li><a href="kategorie.html">Deutschland Verwaltung</a></li>
+</ul>
+<p><button id="sortieren">Nach Größe sortieren</button></p>
+<p id="hinweis-sortierung">Sortierung: nach Eingang.</p>
+<nav class="paginierung">
+Seite 1 ·
+<a href="liste-2.html">2</a> ·
+<a href="liste-3.html">3</a>
+</nav>
+<script>
+document.getElementById('sortieren').addEventListener('click', function () {
+  var ende = Date.now() + 150;
+  while (Date.now() < ende) { }
+  document.getElementById('hinweis-sortierung').textContent = 'Sortierung: nach Größe.';
+});
+</script>
+</body>
+</html>

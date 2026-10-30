@@ -1,0 +1,4672 @@
+{
+  "task": "M02",
+  "title": "Deutsches Weltwissen, Multiple Choice",
+  "version": 1,
+  "samples": [
+    {
+      "id": "geo_de-rb-dortmund",
+      "input": {
+        "question": "In welchem Regierungsbezirk liegt die Stadt Dortmund?",
+        "choices": [
+          "Bochum",
+          "Köln",
+          "Hagen",
+          "Essen",
+          "Westfalen-Mitte",
+          "Ruhr",
+          "Münster",
+          "Arnsberg",
+          "Düsseldorf",
+          "Detmold"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "geo_de",
+        "answer": "Arnsberg"
+      }
+    },
+    {
+      "id": "geo_de-rb-mittelfranken",
+      "input": {
+        "question": "Wie heißt die Hauptstadt des Regierungsbezirks Mittelfranken?",
+        "choices": [
+          "Rothenburg ob der Tauber",
+          "Ansbach",
+          "Nürnberg",
+          "Fürth",
+          "Bamberg",
+          "Weißenburg in Bayern",
+          "Dinkelsbühl",
+          "Erlangen",
+          "Schwabach",
+          "Roth"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "geo_de",
+        "answer": "Ansbach"
+      }
+    },
+    {
+      "id": "geo_de-fluss-schweinfurt",
+      "input": {
+        "question": "Welcher Fluss durchfließt die Stadt Schweinfurt?",
+        "choices": [
+          "Fränkische Saale",
+          "Rhein",
+          "Aisch",
+          "Donau",
+          "Itz",
+          "Main",
+          "Regnitz",
+          "Tauber",
+          "Pegnitz",
+          "Sinn"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geo_de",
+        "answer": "Main"
+      }
+    },
+    {
+      "id": "geo_de-ilz",
+      "input": {
+        "question": "In welchen Fluss mündet die Ilz?",
+        "choices": [
+          "Inn",
+          "Donau",
+          "Naab",
+          "Vils",
+          "Rhein",
+          "Elbe",
+          "Moldau",
+          "Regen",
+          "Rott",
+          "Isar"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geo_de",
+        "answer": "Donau"
+      }
+    },
+    {
+      "id": "geo_de-wertach",
+      "input": {
+        "question": "In welchen Fluss mündet die Wertach?",
+        "choices": [
+          "Ammer",
+          "Isar",
+          "Mindel",
+          "Iller",
+          "Paar",
+          "Main",
+          "Singold",
+          "Inn",
+          "Lech",
+          "Donau"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "geo_de",
+        "answer": "Lech"
+      }
+    },
+    {
+      "id": "geo_welt-iseosee",
+      "input": {
+        "question": "In welchem Land liegt der Iseosee?",
+        "choices": [
+          "Schweiz",
+          "Österreich",
+          "Liechtenstein",
+          "Monaco",
+          "San Marino",
+          "Slowenien",
+          "Deutschland",
+          "Italien",
+          "Kroatien",
+          "Frankreich"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "geo_welt",
+        "answer": "Italien"
+      }
+    },
+    {
+      "id": "geo_welt-nowosibirsk",
+      "input": {
+        "question": "An welchem Fluss liegt die russische Stadt Nowosibirsk?",
+        "choices": [
+          "Wolga",
+          "Irtysch",
+          "Jenissei",
+          "Ural",
+          "Lena",
+          "Kama",
+          "Ob",
+          "Tom",
+          "Angara",
+          "Amur"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geo_welt",
+        "answer": "Ob"
+      }
+    },
+    {
+      "id": "geschichte-kanzler-2",
+      "input": {
+        "question": "Wie hieß der zweite Bundeskanzler der Bundesrepublik Deutschland?",
+        "choices": [
+          "Heinrich Lübke",
+          "Helmut Schmidt",
+          "Franz Josef Strauß",
+          "Theodor Heuss",
+          "Ludwig Erhard",
+          "Konrad Adenauer",
+          "Erich Mende",
+          "Helmut Kohl",
+          "Kurt Georg Kiesinger",
+          "Willy Brandt"
+        ]
+      },
+      "reference": {
+        "level": 2,
+        "topic": "geschichte",
+        "answer": "Ludwig Erhard"
+      }
+    },
+    {
+      "id": "geschichte-moedlareuth",
+      "input": {
+        "question": "Wofür ist das Dorf Mödlareuth bekannt?",
+        "choices": [
+          "Es war durch die Grenze zwischen Bayern und Tschechien in zwei Teile geteilt.",
+          "Dort wurde im Jahr 1806 eine entscheidende Schlacht gegen Napoleon geschlagen.",
+          "Dort wurde im Jahr 1833 der Vertrag über den Deutschen Zollverein unterzeichnet.",
+          "Dort steht das älteste noch bewohnte Benediktinerkloster in ganz Franken.",
+          "Dort entspringt die Saale, der längste Nebenfluss der Elbe in Deutschland.",
+          "Es war durch die Grenze zwischen Bayern und Österreich in zwei Teile geteilt.",
+          "Es ist der amtlich vermessene geografische Mittelpunkt Deutschlands.",
+          "Es ist ein bekannter Wallfahrtsort mit einer berühmten Marienerscheinung.",
+          "Es wurde für den Bau einer großen Talsperre vollständig geflutet und verlassen.",
+          "Es war durch die innerdeutsche Grenze in einen West- und einen Ostteil geteilt."
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geschichte",
+        "answer": "Es war durch die innerdeutsche Grenze in einen West- und einen Ostteil geteilt."
+      }
+    },
+    {
+      "id": "geschichte-zollverein",
+      "input": {
+        "question": "An welchem Tag trat der Deutsche Zollverein in Kraft?",
+        "choices": [
+          "1. Juli 1834",
+          "1. Januar 1834",
+          "1. Januar 1828",
+          "1. Januar 1833",
+          "1. Januar 1835",
+          "18. Januar 1871",
+          "1. Oktober 1834",
+          "1. Januar 1843",
+          "1. April 1834",
+          "22. März 1833"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geschichte",
+        "answer": "1. Januar 1834",
+        "source": "https://de.wikipedia.org/wiki/Deutscher_Zollverein"
+      }
+    },
+    {
+      "id": "marken-borussia",
+      "input": {
+        "question": "Wofür steht das Wort \"Borussia\" im Vereinsnamen \"Borussia Dortmund\"?",
+        "choices": [
+          "Russland",
+          "Grenzland",
+          "Bierbrauer",
+          "Bürgerschaft",
+          "Bergarbeiter",
+          "Ruhrgebiet",
+          "Westfalen",
+          "Brüderschaft",
+          "Preußen",
+          "Borsig"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "marken",
+        "answer": "Preußen"
+      }
+    },
+    {
+      "id": "marken-football-muenchen",
+      "input": {
+        "question": "Welches Münchner American-Football-Team hat den German Bowl gewonnen?",
+        "choices": [
+          "Munich Bulls",
+          "Munich Rams",
+          "Munich Panthers",
+          "Munich Ravens",
+          "Munich Kings",
+          "Munich Thunder",
+          "Munich Wolves",
+          "Munich Dragons",
+          "Munich Lions",
+          "Munich Cowboys"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "marken",
+        "answer": "Munich Cowboys"
+      }
+    },
+    {
+      "id": "marken-1860-fussball",
+      "input": {
+        "question": "In welchem Jahr wurde die Fußballabteilung des TSV 1860 München gegründet?",
+        "choices": [
+          "1899",
+          "1889",
+          "1919",
+          "1909",
+          "1900",
+          "1902",
+          "1879",
+          "1896",
+          "1860",
+          "1898"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "1899"
+      }
+    },
+    {
+      "id": "natwiss-eisen-neutronen",
+      "input": {
+        "question": "Wie viele Neutronen enthält der Kern des Eisen-Isotops Fe-56?",
+        "choices": [
+          "28",
+          "56",
+          "31",
+          "26",
+          "32",
+          "24",
+          "82",
+          "27",
+          "29",
+          "30"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "natwiss",
+        "answer": "30"
+      }
+    },
+    {
+      "id": "recht-bayern-bundesrat",
+      "input": {
+        "question": "Wie viele Stimmen hat das Bundesland Bayern im Bundesrat?",
+        "choices": [
+          "12",
+          "4",
+          "9",
+          "3",
+          "10",
+          "6",
+          "2",
+          "5",
+          "8",
+          "7"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "recht",
+        "answer": "6"
+      }
+    },
+    {
+      "id": "recht-gewaehrleistung-frist",
+      "input": {
+        "question": "Wie lange beträgt in Deutschland die gesetzliche Gewährleistungsfrist beim Kauf einer neuen beweglichen Sache?",
+        "choices": [
+          "6 Jahre",
+          "6 Monate",
+          "8 Jahre",
+          "2 Jahre",
+          "3 Jahre",
+          "3 Monate",
+          "10 Jahre",
+          "18 Monate",
+          "1 Jahr",
+          "4 Jahre"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "recht",
+        "answer": "2 Jahre"
+      }
+    },
+    {
+      "id": "reisen-iata-memmingen",
+      "input": {
+        "question": "Welchen IATA-Code hat der Flughafen Memmingen (Allgäu Airport)?",
+        "choices": [
+          "FKB",
+          "AMM",
+          "MGL",
+          "MMG",
+          "FMM",
+          "ALG",
+          "FDH",
+          "FMO",
+          "AGB",
+          "MEM"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "FMM",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Memmingen"
+      }
+    },
+    {
+      "id": "reisen-iata-nrn",
+      "input": {
+        "question": "Zu welchem Flughafen gehört der IATA-Code NRN?",
+        "choices": [
+          "Münster/Osnabrück",
+          "Nürnberg",
+          "Neubrandenburg",
+          "Mönchengladbach",
+          "Dortmund",
+          "Paderborn/Lippstadt",
+          "Weeze",
+          "Neuruppin",
+          "Norderney",
+          "Düsseldorf"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "Weeze",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Weeze"
+      }
+    },
+    {
+      "id": "reisen-flughafen-nuernberg",
+      "input": {
+        "question": "Nach welcher Person ist der Flughafen Nürnberg benannt?",
+        "choices": [
+          "Hans Sachs",
+          "Willibald Pirckheimer",
+          "Albrecht Dürer",
+          "Ludwig Feuerbach",
+          "Veit Stoß",
+          "Martin Behaim",
+          "Johann Pachelbel",
+          "Peter Henlein",
+          "Adam Kraft",
+          "Albrecht Altdorfer"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "Albrecht Dürer",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Nürnberg"
+      }
+    },
+    {
+      "id": "reisen-flughafen-hamburg",
+      "input": {
+        "question": "Nach welcher Person ist der Hamburger Flughafen benannt?",
+        "choices": [
+          "Carl Hagenbeck",
+          "Helmut Kohl",
+          "Max Brauer",
+          "Gerd Bucerius",
+          "Klaus Störtebeker",
+          "Hans Albers",
+          "Herbert Weichmann",
+          "Helmut Schmidt",
+          "Willy Brandt",
+          "Johannes Brahms"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "reisen",
+        "answer": "Helmut Schmidt",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Hamburg"
+      }
+    },
+    {
+      "id": "reisen-flughafen-stuttgart",
+      "input": {
+        "question": "Nach welcher Person ist der Stuttgarter Flughafen benannt?",
+        "choices": [
+          "Gottlieb Daimler",
+          "Friedrich Schiller",
+          "Ferdinand Porsche",
+          "Lothar Späth",
+          "Robert Bosch",
+          "Theodor Heuss",
+          "Hermann Hesse",
+          "Manfred Rommel",
+          "Erwin Rommel",
+          "Ferdinand Graf von Zeppelin"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "Manfred Rommel",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Stuttgart"
+      }
+    },
+    {
+      "id": "reisen-ballermann",
+      "input": {
+        "question": "An welchem Strand auf Mallorca liegt der „Ballermann“?",
+        "choices": [
+          "Cala Ratjada",
+          "Santa Ponça",
+          "Port d'Andratx",
+          "Platja des Trenc",
+          "Playa de Muro",
+          "Magaluf",
+          "Cala d'Or",
+          "Can Picafort",
+          "Playa de Palma",
+          "Cala Millor"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "reisen",
+        "answer": "Playa de Palma",
+        "source": "https://de.wikipedia.org/wiki/Ballermann"
+      }
+    },
+    {
+      "id": "reisen-adamello-brenta",
+      "input": {
+        "question": "In welcher italienischen Provinz liegt der Naturpark Adamello-Brenta?",
+        "choices": [
+          "Sondrio",
+          "Bozen",
+          "Udine",
+          "Verona",
+          "Como",
+          "Bergamo",
+          "Belluno",
+          "Vicenza",
+          "Trient",
+          "Aosta"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Trient",
+        "source": "https://de.wikipedia.org/wiki/Naturpark_Adamello-Brenta"
+      }
+    },
+    {
+      "id": "reisen-np-hainich",
+      "input": {
+        "question": "In welchem Bundesland liegt der Nationalpark Hainich?",
+        "choices": [
+          "Bayern",
+          "Nordrhein-Westfalen",
+          "Niedersachsen",
+          "Baden-Württemberg",
+          "Sachsen-Anhalt",
+          "Hessen",
+          "Rheinland-Pfalz",
+          "Brandenburg",
+          "Thüringen",
+          "Sachsen"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "Thüringen",
+        "source": "https://de.wikipedia.org/wiki/Nationalpark_Hainich"
+      }
+    },
+    {
+      "id": "reisen-np-kalkalpen",
+      "input": {
+        "question": "In welchem österreichischen Bundesland liegt der Nationalpark Kalkalpen?",
+        "choices": [
+          "Steiermark",
+          "Niederösterreich",
+          "Bayern",
+          "Tirol",
+          "Wien",
+          "Burgenland",
+          "Vorarlberg",
+          "Oberösterreich",
+          "Salzburg",
+          "Kärnten"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Oberösterreich",
+        "source": "https://de.wikipedia.org/wiki/Nationalpark_Kalkalpen"
+      }
+    },
+    {
+      "id": "reisen-np-schweiz",
+      "input": {
+        "question": "In welchem Kanton liegt der Schweizerische Nationalpark?",
+        "choices": [
+          "Wallis",
+          "Glarus",
+          "Bern",
+          "Luzern",
+          "Graubünden",
+          "Tessin",
+          "Appenzell Innerrhoden",
+          "Schwyz",
+          "Uri",
+          "St. Gallen"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "reisen",
+        "answer": "Graubünden",
+        "source": "https://de.wikipedia.org/wiki/Schweizerischer_Nationalpark"
+      }
+    },
+    {
+      "id": "reisen-sylt-damm",
+      "input": {
+        "question": "Über welchen Damm fährt die Bahn vom Festland nach Sylt?",
+        "choices": [
+          "Hindenburgdamm",
+          "Nordstrander Damm",
+          "Lindauer Seedamm",
+          "Kaiser-Wilhelm-Damm",
+          "Bismarckdamm",
+          "Sylter Seedamm",
+          "Rügendamm",
+          "Halligdamm",
+          "Westerländer Damm",
+          "Friedrich-Wilhelm-Damm"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "reisen",
+        "answer": "Hindenburgdamm",
+        "source": "https://de.wikipedia.org/wiki/Hindenburgdamm"
+      }
+    },
+    {
+      "id": "at-paradeiser",
+      "input": {
+        "question": "Was ist in Österreich ein „Paradeiser“?",
+        "choices": [
+          "Blumenkohl",
+          "Meerrettich",
+          "Aprikose",
+          "Paprika",
+          "Pflaume",
+          "Aubergine",
+          "Kartoffel",
+          "Sahne",
+          "Johannisbeere",
+          "Tomate"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "at",
+        "answer": "Tomate",
+        "source": "https://de.wikipedia.org/wiki/Tomate"
+      }
+    },
+    {
+      "id": "at-laenderkammer",
+      "input": {
+        "question": "Wie heißt die Länderkammer des österreichischen Parlaments?",
+        "choices": [
+          "Landtag",
+          "Landeshauptleutekonferenz",
+          "Ständerat",
+          "Länderrat",
+          "Nationalrat",
+          "Staatsrat",
+          "Herrenhaus",
+          "Bundesrat",
+          "Bundesversammlung",
+          "Reichsrat"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "Bundesrat",
+        "source": "https://de.wikipedia.org/wiki/Bundesrat_(Österreich)"
+      }
+    },
+    {
+      "id": "at-wahlalter",
+      "input": {
+        "question": "Ab welchem Alter darf man in Österreich bei der Nationalratswahl wählen?",
+        "choices": [
+          "15 Jahre",
+          "25 Jahre",
+          "19 Jahre",
+          "20 Jahre",
+          "23 Jahre",
+          "18 Jahre",
+          "16 Jahre",
+          "14 Jahre",
+          "21 Jahre",
+          "17 Jahre"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "16 Jahre",
+        "source": "https://www.bundeskanzleramt.gv.at/agenda/jugend/beteiligung-und-engagement/waehlen-mit-16.html"
+      }
+    },
+    {
+      "id": "shop-synth-jupiter",
+      "input": {
+        "question": "Welcher Hersteller baute den Synthesizer Jupiter-8?",
+        "choices": [
+          "Korg",
+          "Sequential Circuits",
+          "ARP",
+          "Roland",
+          "Moog",
+          "Yamaha",
+          "Ensoniq",
+          "Oberheim",
+          "Kawai",
+          "Casio"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Roland",
+        "source": "https://en.wikipedia.org/wiki/Roland_Jupiter-8"
+      }
+    },
+    {
+      "id": "shop-kaschmir",
+      "input": {
+        "question": "Von welchem Tier stammt Kaschmirwolle?",
+        "choices": [
+          "Moschusochse",
+          "Seidenraupe",
+          "Ziege",
+          "Vikunja",
+          "Schaf",
+          "Kaninchen",
+          "Yak",
+          "Lama",
+          "Kamel",
+          "Alpaka"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "shop",
+        "answer": "Ziege",
+        "source": "https://de.wikipedia.org/wiki/Kaschmirwolle"
+      }
+    },
+    {
+      "id": "shop-widerruf",
+      "input": {
+        "question": "Wie lange beträgt in Deutschland die gesetzliche Widerrufsfrist bei Online-Käufen?",
+        "choices": [
+          "14 Tage",
+          "30 Tage",
+          "10 Tage",
+          "12 Wochen",
+          "3 Monate",
+          "28 Tage",
+          "7 Tage",
+          "21 Tage",
+          "5 Werktage",
+          "6 Wochen"
+        ]
+      },
+      "reference": {
+        "level": 2,
+        "topic": "shop",
+        "answer": "14 Tage",
+        "source": "https://www.gesetze-im-internet.de/bgb/__355.html"
+      }
+    },
+    {
+      "id": "bildung-uni-oldenburg",
+      "input": {
+        "question": "Nach welcher Person ist die Universität Oldenburg benannt?",
+        "choices": [
+          "Erich Maria Remarque",
+          "Karl Jaspers",
+          "Carl von Ossietzky",
+          "Heinrich Böll",
+          "Hannah Arendt",
+          "Theodor Storm",
+          "Kurt Tucholsky",
+          "Wilhelm Raabe",
+          "Theodor W. Adorno",
+          "Friedrich Ebert"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "bildung",
+        "answer": "Carl von Ossietzky",
+        "source": "https://de.wikipedia.org/wiki/Carl_von_Ossietzky_Universität_Oldenburg"
+      }
+    },
+    {
+      "id": "bildung-uni-bamberg",
+      "input": {
+        "question": "Wie lautet der vollständige Name der Universität Bamberg?",
+        "choices": [
+          "Ruprecht-Karls-Universität",
+          "Johannes Gutenberg-Universität",
+          "Friedrich-Alexander-Universität",
+          "Christian-Albrechts-Universität",
+          "Georg-August-Universität",
+          "Eberhard Karls Universität",
+          "Otto-Friedrich-Universität",
+          "Ludwig-Maximilians-Universität",
+          "Julius-Maximilians-Universität",
+          "Albert-Ludwigs-Universität"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "bildung",
+        "answer": "Otto-Friedrich-Universität",
+        "source": "https://de.wikipedia.org/wiki/Otto-Friedrich-Universität_Bamberg"
+      }
+    },
+    {
+      "id": "reisen-ski-saalbach",
+      "input": {
+        "question": "In welchem österreichischen Bundesland liegt das Skigebiet Saalbach-Hinterglemm?",
+        "choices": [
+          "Niederösterreich",
+          "Steiermark",
+          "Oberösterreich",
+          "Tirol",
+          "Salzburg",
+          "Wien",
+          "Vorarlberg",
+          "Südtirol",
+          "Burgenland",
+          "Kärnten"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "Salzburg",
+        "source": "https://de.wikipedia.org/wiki/Saalbach-Hinterglemm"
+      }
+    },
+    {
+      "id": "reisen-ski-lech",
+      "input": {
+        "question": "In welchem österreichischen Bundesland liegt der Wintersportort Lech am Arlberg?",
+        "choices": [
+          "Kärnten",
+          "Wien",
+          "Südtirol",
+          "Oberösterreich",
+          "Vorarlberg",
+          "Niederösterreich",
+          "Burgenland",
+          "Salzburg",
+          "Steiermark",
+          "Tirol"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "Vorarlberg",
+        "source": "https://de.wikipedia.org/wiki/Lech_(Vorarlberg)"
+      }
+    },
+    {
+      "id": "reisen-taburiente",
+      "input": {
+        "question": "Auf welcher Insel liegt der Nationalpark Caldera de Taburiente?",
+        "choices": [
+          "Mallorca",
+          "El Hierro",
+          "La Palma",
+          "Madeira",
+          "Gran Canaria",
+          "Teneriffa",
+          "Lanzarote",
+          "La Graciosa",
+          "Fuerteventura",
+          "La Gomera"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "La Palma",
+        "source": "https://de.wikipedia.org/wiki/Nationalpark_Caldera_de_Taburiente"
+      }
+    },
+    {
+      "id": "reisen-novalja",
+      "input": {
+        "question": "Auf welcher kroatischen Insel liegt der Partyort Novalja?",
+        "choices": [
+          "Vis",
+          "Mljet",
+          "Rab",
+          "Cres",
+          "Lošinj",
+          "Pag",
+          "Brač",
+          "Krk",
+          "Hvar",
+          "Korčula"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Pag",
+        "source": "https://de.wikipedia.org/wiki/Novalja"
+      }
+    },
+    {
+      "id": "reisen-np-gesaeuse",
+      "input": {
+        "question": "In welchem österreichischen Bundesland liegt der Nationalpark Gesäuse?",
+        "choices": [
+          "Vorarlberg",
+          "Salzburg",
+          "Oberösterreich",
+          "Steiermark",
+          "Kärnten",
+          "Burgenland",
+          "Wien",
+          "Südtirol",
+          "Tirol",
+          "Niederösterreich"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Steiermark",
+        "source": "https://de.wikipedia.org/wiki/Nationalpark_Gesäuse"
+      }
+    },
+    {
+      "id": "reisen-iata-hannover",
+      "input": {
+        "question": "Welchen IATA-Code hat der Flughafen Hannover?",
+        "choices": [
+          "HAA",
+          "HVR",
+          "HAN",
+          "HJA",
+          "HAR",
+          "HNO",
+          "HNV",
+          "HNR",
+          "HAJ",
+          "HAM"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "HAJ",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Hannover-Langenhagen"
+      }
+    },
+    {
+      "id": "reisen-iata-karlsruhe",
+      "input": {
+        "question": "Welchen IATA-Code hat der Flughafen Karlsruhe/Baden-Baden?",
+        "choices": [
+          "KSR",
+          "BAD",
+          "KAR",
+          "FKB",
+          "BBK",
+          "KRH",
+          "KBB",
+          "FBB",
+          "KAB",
+          "FKA"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "FKB",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Karlsruhe/Baden-Baden"
+      }
+    },
+    {
+      "id": "reisen-iata-altenrhein",
+      "input": {
+        "question": "Welchen IATA-Code hat der Flughafen St. Gallen-Altenrhein?",
+        "choices": [
+          "GAL",
+          "ACH",
+          "ARH",
+          "SGA",
+          "ALT",
+          "SAL",
+          "SGN",
+          "AHN",
+          "SGL",
+          "STG"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "ACH",
+        "source": "https://de.wikipedia.org/wiki/Flugplatz_St._Gallen-Altenrhein"
+      }
+    },
+    {
+      "id": "reisen-iata-saarbruecken",
+      "input": {
+        "question": "Welchen IATA-Code hat der Flughafen Saarbrücken?",
+        "choices": [
+          "SBK",
+          "SAA",
+          "SAB",
+          "SRB",
+          "SAR",
+          "SCN",
+          "SCB",
+          "SRK",
+          "SBR",
+          "SRN"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "SCN",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Saarbrücken"
+      }
+    },
+    {
+      "id": "geo_de-kfz-kuen",
+      "input": {
+        "question": "Für welchen Kreis steht das Kfz-Kennzeichen KÜN?",
+        "choices": [
+          "Landkreis Kusel",
+          "Landkreis Kulmbach",
+          "Landkreis Kelheim",
+          "Hohenlohekreis",
+          "Landkreis Fulda",
+          "Main-Tauber-Kreis",
+          "Neckar-Odenwald-Kreis",
+          "Landkreis Kronach",
+          "Landkreis Schwäbisch Hall",
+          "Landkreis Kitzingen"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "geo_de",
+        "answer": "Hohenlohekreis",
+        "source": "https://de.wikipedia.org/wiki/Hohenlohekreis"
+      }
+    },
+    {
+      "id": "geo_de-kfz-vs",
+      "input": {
+        "question": "Für welchen Kreis steht das Kfz-Kennzeichen VS?",
+        "choices": [
+          "Landkreis Tuttlingen",
+          "Landkreis Vorpommern-Greifswald",
+          "Landkreis Konstanz",
+          "Landkreis Verden",
+          "Landkreis Vulkaneifel",
+          "Landkreis Rottweil",
+          "Landkreis Vechta",
+          "Schwarzwald-Baar-Kreis",
+          "Vogelsbergkreis",
+          "Vogtlandkreis"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geo_de",
+        "answer": "Schwarzwald-Baar-Kreis",
+        "source": "https://de.wikipedia.org/wiki/Schwarzwald-Baar-Kreis"
+      }
+    },
+    {
+      "id": "geo_de-kfz-en",
+      "input": {
+        "question": "Für welchen Kreis steht das Kfz-Kennzeichen EN?",
+        "choices": [
+          "Hochsauerlandkreis",
+          "Landkreis Emmendingen",
+          "Ennepe-Ruhr-Kreis",
+          "Landkreis Erlangen-Höchstadt",
+          "Landkreis Esslingen",
+          "Kreis Euskirchen",
+          "Märkischer Kreis",
+          "Kreis Recklinghausen",
+          "Landkreis Emsland",
+          "Enzkreis"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geo_de",
+        "answer": "Ennepe-Ruhr-Kreis",
+        "source": "https://de.wikipedia.org/wiki/Ennepe-Ruhr-Kreis"
+      }
+    },
+    {
+      "id": "geo_de-vorwahl-0821",
+      "input": {
+        "question": "Welche Stadt hat die Telefonvorwahl 0821?",
+        "choices": [
+          "Rosenheim",
+          "Augsburg",
+          "Landshut",
+          "Würzburg",
+          "Bamberg",
+          "Ingolstadt",
+          "Ulm",
+          "Regensburg",
+          "Kempten (Allgäu)",
+          "Erlangen"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geo_de",
+        "answer": "Augsburg",
+        "source": "https://de.wikipedia.org/wiki/Augsburg"
+      }
+    },
+    {
+      "id": "geo_de-vorwahl-0761",
+      "input": {
+        "question": "Welche Stadt hat die Telefonvorwahl 0761?",
+        "choices": [
+          "Konstanz",
+          "Freiburg im Breisgau",
+          "Mannheim",
+          "Heilbronn",
+          "Pforzheim",
+          "Karlsruhe",
+          "Offenburg",
+          "Tübingen",
+          "Ulm",
+          "Stuttgart"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geo_de",
+        "answer": "Freiburg im Breisgau",
+        "source": "https://de.wikipedia.org/wiki/Freiburg_im_Breisgau"
+      }
+    },
+    {
+      "id": "at-vorwahl-0662",
+      "input": {
+        "question": "Welche österreichische Stadt hat die Telefonvorwahl 0662?",
+        "choices": [
+          "Steyr",
+          "Salzburg",
+          "St. Pölten",
+          "Villach",
+          "Bregenz",
+          "Innsbruck",
+          "Wels",
+          "Klagenfurt am Wörthersee",
+          "Graz",
+          "Linz"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "Salzburg",
+        "source": "https://de.wikipedia.org/wiki/Salzburg"
+      }
+    },
+    {
+      "id": "at-vorwahl-0316",
+      "input": {
+        "question": "Welche österreichische Stadt hat die Telefonvorwahl 0316?",
+        "choices": [
+          "Steyr",
+          "St. Pölten",
+          "Klagenfurt am Wörthersee",
+          "Innsbruck",
+          "Linz",
+          "Leoben",
+          "Wels",
+          "Eisenstadt",
+          "Salzburg",
+          "Graz"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "Graz",
+        "source": "https://de.wikipedia.org/wiki/Graz"
+      }
+    },
+    {
+      "id": "recht-impressum",
+      "input": {
+        "question": "Welches Gesetz regelt seit Mai 2024 in Deutschland die Impressumspflicht für Websites?",
+        "choices": [
+          "Digitale-Dienste-Gesetz",
+          "Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz",
+          "Netzwerkdurchsetzungsgesetz",
+          "Telemediengesetz",
+          "Urheberrechtsgesetz",
+          "Telekommunikationsgesetz",
+          "Bundesdatenschutzgesetz",
+          "Handelsgesetzbuch",
+          "Gewerbeordnung",
+          "Gesetz gegen den unlauteren Wettbewerb"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "Digitale-Dienste-Gesetz",
+        "source": "https://www.gesetze-im-internet.de/ddg/__5.html"
+      }
+    },
+    {
+      "id": "recht-promille",
+      "input": {
+        "question": "Ab wie viel Promille gilt ein Autofahrer in Deutschland als absolut fahruntüchtig?",
+        "choices": [
+          "1,6 Promille",
+          "0,5 Promille",
+          "0,3 Promille",
+          "0,0 Promille",
+          "0,8 Promille",
+          "1,5 Promille",
+          "1,1 Promille",
+          "1,0 Promille",
+          "2,0 Promille",
+          "1,3 Promille"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "1,1 Promille",
+        "source": "https://de.wikipedia.org/wiki/Fahruntüchtigkeit"
+      }
+    },
+    {
+      "id": "at-abgb",
+      "input": {
+        "question": "Wie heißt das zentrale Gesetzbuch des österreichischen Zivilrechts?",
+        "choices": [
+          "Österreichisches Zivilrechtsgesetz",
+          "Obligationenrecht",
+          "Unternehmensgesetzbuch",
+          "Allgemeines bürgerliches Gesetzbuch",
+          "Konsumentenschutzgesetz",
+          "Bürgerliches Gesetzbuch",
+          "Zivilgesetzbuch",
+          "Allgemeines Landrecht",
+          "Code civil",
+          "Handelsgesetzbuch"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "Allgemeines bürgerliches Gesetzbuch",
+        "source": "https://de.wikipedia.org/wiki/Allgemeines_bürgerliches_Gesetzbuch"
+      }
+    },
+    {
+      "id": "at-eu-beitritt",
+      "input": {
+        "question": "An welchem Tag trat Österreich der Europäischen Union bei?",
+        "choices": [
+          "24. Juni 1994",
+          "1. Januar 1994",
+          "1. Januar 1995",
+          "1. Januar 1993",
+          "1. Januar 2002",
+          "1. Januar 1996",
+          "12. Juni 1994",
+          "1. Januar 1999",
+          "1. Juli 1995",
+          "1. Mai 2004"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "1. Januar 1995",
+        "source": "https://de.wikipedia.org/wiki/Volksabstimmung_in_Österreich_über_den_Beitritt_zur_Europäischen_Union"
+      }
+    },
+    {
+      "id": "shop-feinunze",
+      "input": {
+        "question": "Wie viel wiegt eine Feinunze Gold?",
+        "choices": [
+          "Etwa 32,15 Gramm",
+          "Etwa 28,35 Gramm",
+          "Etwa 25 Gramm",
+          "Etwa 30,5 Gramm",
+          "Etwa 30 Gramm",
+          "Etwa 31,0 Gramm",
+          "Etwa 31,1 Gramm",
+          "Etwa 29,6 Gramm",
+          "Etwa 50 Gramm",
+          "Etwa 33,3 Gramm"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Etwa 31,1 Gramm",
+        "source": "https://de.wikipedia.org/wiki/Unze"
+      }
+    },
+    {
+      "id": "shop-wassersaeule",
+      "input": {
+        "question": "Was gibt die Wassersäule bei Regenjacken und Zelten an?",
+        "choices": [
+          "Wie atmungsaktiv das Material ist",
+          "Wie viel Liter Stauraum es bietet",
+          "Wie winddicht das Material ist",
+          "Wie lange die Imprägnierung hält",
+          "Wie schnell es trocknet",
+          "Wie viel Wasser das Material aufnimmt",
+          "Bei welcher Temperatur es waschbar ist",
+          "Wie wasserdicht das Material ist",
+          "Wie stark Wasser vom Stoff abperlt",
+          "Wie viel es nass wiegt"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Wie wasserdicht das Material ist",
+        "source": "https://www.outdoor-renner.de/blog/wasserabweisend-vs-wasserdicht-welcher-schutz-ist-der-beste.html"
+      }
+    },
+    {
+      "id": "shop-lemberger",
+      "input": {
+        "question": "Unter welchem Namen ist die österreichische Rebsorte Blaufränkisch in Deutschland bekannt?",
+        "choices": [
+          "Regent",
+          "Spätburgunder",
+          "Schwarzriesling",
+          "Dornfelder",
+          "St. Laurent",
+          "Zweigelt",
+          "Portugieser",
+          "Merlot",
+          "Trollinger",
+          "Lemberger"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "Lemberger",
+        "source": "https://de.wikipedia.org/wiki/Blaufränkisch"
+      }
+    },
+    {
+      "id": "shop-nord-lead",
+      "input": {
+        "question": "Welcher Hersteller baut die Synthesizer der Serie Nord Lead?",
+        "choices": [
+          "Waldorf",
+          "Arturia",
+          "Elektron",
+          "Roland",
+          "Korg",
+          "Novation",
+          "Access",
+          "Clavia",
+          "Teenage Engineering",
+          "Yamaha"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "Clavia",
+        "source": "https://de.wikipedia.org/wiki/Clavia"
+      }
+    },
+    {
+      "id": "shop-op-1",
+      "input": {
+        "question": "Welcher Hersteller baut den Synthesizer OP-1?",
+        "choices": [
+          "Clavia",
+          "Akai",
+          "Teenage Engineering",
+          "Behringer",
+          "Roland",
+          "Elektron",
+          "Novation",
+          "Native Instruments",
+          "Korg",
+          "Arturia"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "Teenage Engineering",
+        "source": "https://en.wikipedia.org/wiki/Teenage_Engineering"
+      }
+    },
+    {
+      "id": "shop-steckdose-schweiz",
+      "input": {
+        "question": "Welcher Steckdosentyp ist in der Schweiz üblich?",
+        "choices": [
+          "Typ J",
+          "Typ K",
+          "Typ B",
+          "Typ L",
+          "Typ C",
+          "Typ F",
+          "Typ E",
+          "Typ A",
+          "Typ G",
+          "Typ I"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "Typ J",
+        "source": "https://de.wikipedia.org/wiki/SEV_1011"
+      }
+    },
+    {
+      "id": "shop-etrto-622",
+      "input": {
+        "question": "Was gibt bei der Fahrradreifen-Angabe 37-622 die Zahl 622 an?",
+        "choices": [
+          "Den maximalen Luftdruck in Millibar",
+          "Den Innendurchmesser des Reifens in Millimetern",
+          "Das Reifengewicht in Gramm",
+          "Den Außendurchmesser des Reifens in Millimetern",
+          "Die Reifenbreite in Millimetern",
+          "Den Reifenumfang in Zentimetern",
+          "Die Felgenbreite in Zehntelmillimetern",
+          "Die Tragfähigkeit in Newton",
+          "Die Profiltiefe in Hundertstelmillimetern",
+          "Die Herstellernummer nach ETRTO"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "Den Innendurchmesser des Reifens in Millimetern",
+        "source": "https://de.wikipedia.org/wiki/Fahrradreifen"
+      }
+    },
+    {
+      "id": "shop-dot-nummer",
+      "input": {
+        "question": "Was geben die letzten vier Ziffern der DOT-Nummer auf einem Autoreifen an?",
+        "choices": [
+          "Die Reifenbreite und den Querschnitt",
+          "Den maximalen Luftdruck",
+          "Die maximale Geschwindigkeit",
+          "Die Gummimischung",
+          "Woche und Jahr der Herstellung",
+          "Das Ablaufdatum der Zulassung",
+          "Die Laufleistungsgarantie in Tausend km",
+          "Den Tragfähigkeitsindex",
+          "Die Seriennummer des Reifens",
+          "Das Werk, in dem der Reifen gebaut wurde"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Woche und Jahr der Herstellung",
+        "source": "https://de.wikipedia.org/wiki/DOT-Nummer"
+      }
+    },
+    {
+      "id": "shop-pflegesymbol-trockner",
+      "input": {
+        "question": "Was bedeutet ein Kreis in einem Quadrat auf einem Pflegeetikett?",
+        "choices": [
+          "Bleichen",
+          "Bügeln",
+          "Chemische Reinigung",
+          "Dampfbügeln",
+          "Nicht wringen",
+          "Trocknen auf der Leine",
+          "Handwäsche",
+          "Liegend trocknen",
+          "Trocknen im Wäschetrockner",
+          "Schonwaschgang"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Trocknen im Wäschetrockner",
+        "source": "https://de.wikipedia.org/wiki/Pflegekennzeichen"
+      }
+    },
+    {
+      "id": "shop-energielabel",
+      "input": {
+        "question": "Welche Skala verwendet das EU-Energielabel für Kühlschränke und Waschmaschinen seit März 2021?",
+        "choices": [
+          "0 bis 10",
+          "A+++ bis A",
+          "AAA bis C",
+          "A bis G",
+          "A bis K",
+          "1 bis 7",
+          "A+ bis F",
+          "1 bis 10",
+          "A++ bis E",
+          "A+++ bis D"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "shop",
+        "answer": "A bis G",
+        "source": "https://de.wikipedia.org/wiki/EU-Energielabel"
+      }
+    },
+    {
+      "id": "shop-grundpreis-einheit",
+      "input": {
+        "question": "Auf welche Menge muss der Grundpreis bei nach Gewicht verkaufter Ware in Deutschland seit 2022 bezogen werden?",
+        "choices": [
+          "250 Gramm",
+          "1 Pfund",
+          "Wahlweise 100 Gramm oder 1 Kilogramm",
+          "Die tatsächliche Füllmenge",
+          "100 Gramm",
+          "10 Gramm",
+          "50 Gramm",
+          "500 Gramm",
+          "200 Gramm",
+          "1 Kilogramm"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "1 Kilogramm",
+        "source": "https://www.gesetze-im-internet.de/pangv_2022/__5.html"
+      }
+    },
+    {
+      "id": "shop-elektrog-flaeche",
+      "input": {
+        "question": "Ab welcher Verkaufsfläche für Elektrogeräte müssen Händler in Deutschland Altgeräte zurücknehmen?",
+        "choices": [
+          "300 Quadratmeter",
+          "800 Quadratmeter",
+          "600 Quadratmeter",
+          "1200 Quadratmeter",
+          "400 Quadratmeter",
+          "250 Quadratmeter",
+          "1000 Quadratmeter",
+          "100 Quadratmeter",
+          "200 Quadratmeter",
+          "500 Quadratmeter"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "400 Quadratmeter",
+        "source": "https://www.gesetze-im-internet.de/elektrog_2015/__17.html"
+      }
+    },
+    {
+      "id": "shop-ean-deutschland",
+      "input": {
+        "question": "Mit welchen Ziffern beginnen EAN-Strichcodes, die über GS1 Germany vergeben wurden?",
+        "choices": [
+          "900 bis 919",
+          "540 bis 549",
+          "760 bis 769",
+          "000 bis 019",
+          "690 bis 699",
+          "400 bis 440",
+          "300 bis 379",
+          "870 bis 879",
+          "500 bis 509",
+          "800 bis 839"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "400 bis 440",
+        "source": "https://en.wikipedia.org/wiki/List_of_GS1_country_codes"
+      }
+    },
+    {
+      "id": "shop-pariser-stich",
+      "input": {
+        "question": "Wie lang ist ein Pariser Stich, die Einheit der deutschen Schuhgrößen?",
+        "choices": [
+          "5 Millimeter",
+          "2/3 Zentimeter",
+          "1/3 Zoll",
+          "1/2 Zentimeter",
+          "3/4 Zentimeter",
+          "1/4 Zoll",
+          "1 Zentimeter",
+          "1/2 Zoll",
+          "3/8 Zoll",
+          "4/5 Zentimeter"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "2/3 Zentimeter",
+        "source": "https://de.wikipedia.org/wiki/Schuhgröße"
+      }
+    },
+    {
+      "id": "shop-e14",
+      "input": {
+        "question": "Wie heißt die kleine Schraubfassung, die in Deutschland für Kerzen- und Tropfenlampen üblich ist?",
+        "choices": [
+          "GU5.3",
+          "GU10",
+          "E12",
+          "E10",
+          "E27",
+          "E40",
+          "E14",
+          "G4",
+          "G9",
+          "B22"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "shop",
+        "answer": "E14",
+        "source": "https://de.wikipedia.org/wiki/Lampensockel"
+      }
+    },
+    {
+      "id": "shop-allergene",
+      "input": {
+        "question": "Wie viele Hauptallergene müssen nach der EU-Lebensmittelinformationsverordnung gekennzeichnet werden?",
+        "choices": [
+          "7",
+          "13",
+          "10",
+          "16",
+          "14",
+          "20",
+          "18",
+          "15",
+          "12",
+          "8"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "14",
+        "source": "https://www.verbraucherzentrale.nrw/kennzeichnung-von-allergenen-und-zusatzstoffen-94938"
+      }
+    },
+    {
+      "id": "shop-staubsauger-watt",
+      "input": {
+        "question": "Welche Leistung darf ein neuer Haushaltsstaubsauger in der EU seit September 2017 höchstens haben?",
+        "choices": [
+          "700 Watt",
+          "1600 Watt",
+          "1200 Watt",
+          "2000 Watt",
+          "1000 Watt",
+          "1100 Watt",
+          "1400 Watt",
+          "800 Watt",
+          "900 Watt",
+          "750 Watt"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "900 Watt",
+        "source": "https://de.wikipedia.org/wiki/Staubsauger"
+      }
+    },
+    {
+      "id": "recht-reparatur-gewaehrleistung",
+      "input": {
+        "question": "Um wie lange verlängert sich nach der EU-Richtlinie zum Recht auf Reparatur die Gewährleistung, wenn der Käufer die Reparatur statt eines Ersatzes wählt?",
+        "choices": [
+          "Um 14 Tage",
+          "Um 18 Monate",
+          "Um sechs Monate",
+          "Um neun Monate",
+          "Um 24 Monate",
+          "Um zwölf Monate",
+          "Um 30 Tage",
+          "Um die Dauer der Reparatur",
+          "Um drei Monate",
+          "Gar nicht"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "Um zwölf Monate",
+        "source": "https://de.wikipedia.org/wiki/Recht_auf_Reparatur"
+      }
+    },
+    {
+      "id": "recht-sepa-erstattung",
+      "input": {
+        "question": "Wie lange kann ein Verbraucher eine autorisierte SEPA-Lastschrift ohne Angabe von Gründen zurückgeben?",
+        "choices": [
+          "13 Monate",
+          "Sechs Wochen",
+          "Sechs Monate",
+          "Drei Monate",
+          "30 Tage",
+          "Acht Wochen",
+          "Zwölf Wochen",
+          "14 Tage",
+          "Vier Wochen",
+          "Zehn Wochen"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "Acht Wochen",
+        "source": "https://www.gesetze-im-internet.de/bgb/__675x.html"
+      }
+    },
+    {
+      "id": "recht-omnibus-vergleichspreis",
+      "input": {
+        "question": "Welchen früheren Preis muss ein Händler in Deutschland bei einer Preisermäßigung angeben?",
+        "choices": [
+          "Den Durchschnittspreis der letzten 30 Tage",
+          "Den niedrigsten Preis der letzten 30 Tage",
+          "Den höchsten Preis der letzten 30 Tage",
+          "Den niedrigsten Preis der letzten 60 Tage",
+          "Den Preis des Vorjahres am selben Tag",
+          "Den niedrigsten Preis der letzten 7 Tage",
+          "Den Preis zu Jahresbeginn",
+          "Den unmittelbar vorher verlangten Preis",
+          "Den niedrigsten Preis der letzten 90 Tage",
+          "Die unverbindliche Preisempfehlung"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "Den niedrigsten Preis der letzten 30 Tage",
+        "source": "https://www.gesetze-im-internet.de/pangv_2022/__11.html"
+      }
+    },
+    {
+      "id": "recht-bfsg",
+      "input": {
+        "question": "Ab welchem Tag gelten in Deutschland die Barrierefreiheitsanforderungen des BFSG für Online-Shops?",
+        "choices": [
+          "17. Februar 2024",
+          "13. Dezember 2024",
+          "25. Mai 2018",
+          "28. Dezember 2024",
+          "14. Mai 2024",
+          "1. Januar 2025",
+          "1. Juli 2022",
+          "28. Juni 2025",
+          "28. Juni 2024",
+          "28. Mai 2022"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "28. Juni 2025",
+        "source": "https://de.wikipedia.org/wiki/Barrierefreiheitsstärkungsgesetz"
+      }
+    },
+    {
+      "id": "recht-gpsr",
+      "input": {
+        "question": "Ab welchem Tag gilt die EU-Produktsicherheitsverordnung (GPSR)?",
+        "choices": [
+          "13. Dezember 2024",
+          "1. Januar 2025",
+          "17. Februar 2024",
+          "28. Juni 2025",
+          "25. Mai 2018",
+          "28. Mai 2022",
+          "28. Dezember 2024",
+          "14. Mai 2024",
+          "28. Juni 2024",
+          "1. Juli 2022"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "13. Dezember 2024",
+        "source": "https://de.wikipedia.org/wiki/Verordnung_(EU)_2023/988"
+      }
+    },
+    {
+      "id": "recht-usb-c",
+      "input": {
+        "question": "Ab welchem Tag müssen in der EU neu in Verkehr gebrachte Smartphones eine USB-C-Ladebuchse haben?",
+        "choices": [
+          "28. Juni 2024",
+          "25. Mai 2018",
+          "14. Mai 2024",
+          "28. Juni 2025",
+          "17. Februar 2024",
+          "1. Januar 2025",
+          "28. Dezember 2024",
+          "28. Mai 2022",
+          "13. Dezember 2024",
+          "1. Juli 2022"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "28. Dezember 2024",
+        "source": "https://www.test.de/Einheitliche-Ladebuchse-Alle-Smartphones-ab-2024-mit-USB-C-4687115-0/"
+      }
+    },
+    {
+      "id": "recht-kuendigungsbutton",
+      "input": {
+        "question": "Seit welchem Tag müssen online abschließbare Verträge in Deutschland über einen Kündigungsbutton kündbar sein?",
+        "choices": [
+          "1. Januar 2025",
+          "28. Mai 2022",
+          "25. Mai 2018",
+          "14. Mai 2024",
+          "13. Dezember 2024",
+          "28. Dezember 2024",
+          "28. Juni 2025",
+          "28. Juni 2024",
+          "1. Juli 2022",
+          "17. Februar 2024"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "1. Juli 2022",
+        "source": "https://de.wikipedia.org/wiki/Kündigungsbutton"
+      }
+    },
+    {
+      "id": "recht-verjaehrung",
+      "input": {
+        "question": "Wie lang ist die regelmäßige Verjährungsfrist nach dem BGB?",
+        "choices": [
+          "Vier Jahre",
+          "Fünf Jahre",
+          "Drei Jahre",
+          "Zehn Jahre",
+          "Ein Jahr",
+          "Zwei Jahre",
+          "Sechs Jahre",
+          "Sechs Monate",
+          "Acht Jahre",
+          "30 Jahre"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "recht",
+        "answer": "Drei Jahre",
+        "source": "https://www.gesetze-im-internet.de/bgb/__195.html"
+      }
+    },
+    {
+      "id": "recht-verjaehrungsbeginn",
+      "input": {
+        "question": "Wann beginnt die regelmäßige Verjährungsfrist nach dem BGB in der Regel zu laufen?",
+        "choices": [
+          "Mit Zustellung eines Mahnbescheids",
+          "Mit dem Ende des Monats, in dem der Anspruch entstanden ist",
+          "Am 30. Juni des Folgejahres",
+          "Mit dem Schluss des Jahres, in dem der Anspruch entstanden ist",
+          "Am Tag nach Zugang der Rechnung",
+          "Mit der ersten Mahnung",
+          "Mit Ablauf der Zahlungsfrist",
+          "Am Tag, an dem der Anspruch entsteht",
+          "Am 1. Januar des Jahres, in dem der Anspruch entsteht",
+          "Mit dem Ende des Quartals, in dem der Anspruch entstanden ist"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "Mit dem Schluss des Jahres, in dem der Anspruch entstanden ist",
+        "source": "https://www.gesetze-im-internet.de/bgb/__199.html"
+      }
+    },
+    {
+      "id": "recht-probezeit",
+      "input": {
+        "question": "Welche Kündigungsfrist gilt in Deutschland während einer vereinbarten Probezeit von höchstens sechs Monaten?",
+        "choices": [
+          "Zehn Tage",
+          "Sechs Wochen zum Quartalsende",
+          "Eine Woche",
+          "Keine, fristlos",
+          "Drei Wochen",
+          "Vier Wochen zum 15. oder zum Monatsende",
+          "Zwei Wochen",
+          "Drei Tage",
+          "Vier Wochen",
+          "Ein Monat"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "Zwei Wochen",
+        "source": "https://www.gesetze-im-internet.de/bgb/__622.html"
+      }
+    },
+    {
+      "id": "recht-mindesturlaub",
+      "input": {
+        "question": "Wie viele Werktage Mindesturlaub sieht das Bundesurlaubsgesetz vor?",
+        "choices": [
+          "18",
+          "24",
+          "12",
+          "20",
+          "22",
+          "25",
+          "21",
+          "26",
+          "30",
+          "28"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "24",
+        "source": "https://www.gesetze-im-internet.de/burlg/__3.html"
+      }
+    },
+    {
+      "id": "recht-mietkaution",
+      "input": {
+        "question": "Wie hoch darf eine Mietkaution für Wohnraum in Deutschland höchstens sein?",
+        "choices": [
+          "Es gibt keine gesetzliche Obergrenze",
+          "Vier Monatsmieten ohne Nebenkosten",
+          "Eine Monatsmiete ohne Nebenkosten",
+          "Zwei Monatsmieten einschließlich Nebenkosten",
+          "Drei Monatsmieten einschließlich Nebenkosten",
+          "Sechs Monatsmieten ohne Nebenkosten",
+          "Zehn Prozent der Jahresmiete",
+          "Drei Monatsmieten ohne Nebenkosten",
+          "Fünf Monatsmieten ohne Nebenkosten",
+          "Zwei Monatsmieten ohne Nebenkosten"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "recht",
+        "answer": "Drei Monatsmieten ohne Nebenkosten",
+        "source": "https://www.gesetze-im-internet.de/bgb/__551.html"
+      }
+    },
+    {
+      "id": "recht-schwerbehinderung",
+      "input": {
+        "question": "Ab welchem Grad der Behinderung gilt man in Deutschland als schwerbehindert?",
+        "choices": [
+          "20",
+          "40",
+          "70",
+          "50",
+          "25",
+          "30",
+          "60",
+          "100",
+          "45",
+          "80"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "recht",
+        "answer": "50",
+        "source": "https://www.gesetze-im-internet.de/sgb_9_2018/__2.html"
+      }
+    },
+    {
+      "id": "recht-hessen-bundesrat",
+      "input": {
+        "question": "Wie viele Stimmen hat das Land Hessen im Bundesrat?",
+        "choices": [
+          "11",
+          "10",
+          "3",
+          "8",
+          "4",
+          "6",
+          "9",
+          "5",
+          "7",
+          "2"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "5",
+        "source": "https://de.wikipedia.org/wiki/Bundesrat_(Deutschland)"
+      }
+    },
+    {
+      "id": "at-urlaub",
+      "input": {
+        "question": "Wie viele Werktage Urlaub stehen Arbeitnehmern in Österreich bei weniger als 25 Dienstjahren gesetzlich zu?",
+        "choices": [
+          "36",
+          "28",
+          "27",
+          "30",
+          "35",
+          "24",
+          "20",
+          "26",
+          "32",
+          "22"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "30",
+        "source": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008376"
+      }
+    },
+    {
+      "id": "ch-bundesrat-mitglieder",
+      "input": {
+        "question": "Aus wie vielen Mitgliedern besteht der Schweizer Bundesrat, die Landesregierung?",
+        "choices": [
+          "10",
+          "8",
+          "12",
+          "5",
+          "16",
+          "7",
+          "26",
+          "9",
+          "6",
+          "11"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "ch",
+        "answer": "7",
+        "source": "https://de.wikipedia.org/wiki/Bundesrat_(Schweiz)"
+      }
+    },
+    {
+      "id": "geschichte-plz",
+      "input": {
+        "question": "An welchem Tag wurden in Deutschland die fünfstelligen Postleitzahlen eingeführt?",
+        "choices": [
+          "11. März 1993",
+          "1. Januar 1992",
+          "1. Juli 1990",
+          "1. Januar 1994",
+          "1. Juli 1994",
+          "1. Januar 1993",
+          "1. Juli 1992",
+          "1. April 1993",
+          "1. Juli 1993",
+          "3. Oktober 1990"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geschichte",
+        "answer": "1. Juli 1993",
+        "source": "https://de.wikipedia.org/wiki/Postleitzahl_(Deutschland)"
+      }
+    },
+    {
+      "id": "geschichte-google",
+      "input": {
+        "question": "An welchem Tag wurde das Unternehmen Google gegründet?",
+        "choices": [
+          "11. Januar 1996",
+          "4. September 1998",
+          "27. September 1998",
+          "19. August 2004",
+          "7. September 1998",
+          "4. Oktober 1998",
+          "27. September 1999",
+          "1. April 2004",
+          "4. September 1997",
+          "15. September 1997"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "geschichte",
+        "answer": "4. September 1998",
+        "source": "https://de.wikipedia.org/wiki/Google_LLC"
+      }
+    },
+    {
+      "id": "geschichte-erste-email",
+      "input": {
+        "question": "An welchem Tag wurde in Deutschland die erste Internet-E-Mail empfangen?",
+        "choices": [
+          "3. August 1983",
+          "3. August 1986",
+          "3. August 1984",
+          "1. Januar 1983",
+          "1. Januar 1984",
+          "12. November 1984",
+          "5. November 1986",
+          "29. Oktober 1969",
+          "2. August 1984",
+          "3. Oktober 1984"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "geschichte",
+        "answer": "3. August 1984",
+        "source": "https://de.wikipedia.org/wiki/E-Mail"
+      }
+    },
+    {
+      "id": "geschichte-de-domain",
+      "input": {
+        "question": "An welchem Tag wurde die Top-Level-Domain .de eingeführt?",
+        "choices": [
+          "5. November 1985",
+          "5. November 1986",
+          "1. Januar 1990",
+          "3. Oktober 1990",
+          "1. Januar 1985",
+          "15. März 1985",
+          "5. November 1987",
+          "24. Dezember 1986",
+          "1. Juli 1987",
+          "3. August 1984"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "geschichte",
+        "answer": "5. November 1986",
+        "source": "https://de.wikipedia.org/wiki/.de"
+      }
+    },
+    {
+      "id": "geschichte-mindestlohn",
+      "input": {
+        "question": "An welchem Tag wurde in Deutschland der allgemeine gesetzliche Mindestlohn eingeführt?",
+        "choices": [
+          "1. Januar 2013",
+          "1. August 2014",
+          "1. Juli 2014",
+          "1. Januar 2019",
+          "1. Juli 2015",
+          "1. Oktober 2022",
+          "1. Januar 2015",
+          "1. Januar 2016",
+          "1. Januar 2017",
+          "1. Januar 2014"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "geschichte",
+        "answer": "1. Januar 2015",
+        "source": "https://de.wikipedia.org/wiki/Mindestlohngesetz_(Deutschland)"
+      }
+    },
+    {
+      "id": "marken-hanuta",
+      "input": {
+        "question": "Aus welchem Wort ist der Markenname Hanuta gebildet?",
+        "choices": [
+          "Hanseatische Tafel",
+          "Hannoversche Nusstorte",
+          "Haselnusstafel",
+          "Handnusstaler",
+          "Haselnusstorte",
+          "Hanseatische Nussware",
+          "Haselnusstüte",
+          "Halbnusstafel",
+          "Hans und Uta",
+          "Hanfnusstüte"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "marken",
+        "answer": "Haselnusstafel",
+        "source": "https://de.wikipedia.org/wiki/Hanuta"
+      }
+    },
+    {
+      "id": "marken-hakle",
+      "input": {
+        "question": "Wofür steht der Markenname Hakle?",
+        "choices": [
+          "Heinrich Klenk",
+          "Hans Kleber",
+          "Hannes Klemm",
+          "Haus Klenk",
+          "Hamburger Klopapier",
+          "Hanna Klee",
+          "Hans Kleinert",
+          "Hartmut Klein",
+          "Hans Klenk",
+          "Hakenleiste"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "Hans Klenk",
+        "source": "https://de.wikipedia.org/wiki/Hakle"
+      }
+    },
+    {
+      "id": "marken-edeka",
+      "input": {
+        "question": "Wofür stand die Abkürzung Edeka ursprünglich?",
+        "choices": [
+          "Einkaufsgemeinschaft deutscher Kaufhäuser",
+          "Erster deutscher Konsumverein",
+          "Edle Deutsche Kaufhäuser",
+          "Einkaufsverband deutscher Kaufleute",
+          "Einkaufsdienst der Kaufmannschaft",
+          "Erste Deutsche Kolonialwarenanstalt",
+          "Einheitliche Deutsche Kaufmannsläden",
+          "Erste Deutsche Kaufmannsgenossenschaft",
+          "Einkaufsgenossenschaft der Kolonialwarenhändler",
+          "Einzelhandel der Kaufleute"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "marken",
+        "answer": "Einkaufsgenossenschaft der Kolonialwarenhändler",
+        "source": "https://de.wikipedia.org/wiki/Edeka"
+      }
+    },
+    {
+      "id": "marken-rewe",
+      "input": {
+        "question": "Wofür steht der Name Rewe?",
+        "choices": [
+          "Rheinisch-Westfälischer Einzelhandel",
+          "Rhein-Weser-Einkauf",
+          "Regionale Einkaufsgemeinschaft Westfalen",
+          "Regionaler Warenvertrieb",
+          "Reichsverband der Warenhäuser",
+          "Revisionsverband der Westkauf-Genossenschaften",
+          "Rheinische Warenhauseinkauf",
+          "Rheinische Einkaufsgenossenschaft West",
+          "Revisionsverband westdeutscher Einzelhändler",
+          "Rewe ist kein Akronym"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "Revisionsverband der Westkauf-Genossenschaften",
+        "source": "https://de.wikipedia.org/wiki/Rewe_Group"
+      }
+    },
+    {
+      "id": "shop-usb-gen2x2",
+      "input": {
+        "question": "Welche maximale Datenrate hat USB 3.2 Gen 2x2?",
+        "choices": [
+          "5 Gbit/s",
+          "80 Gbit/s",
+          "15 Gbit/s",
+          "20 Gbit/s",
+          "2,5 Gbit/s",
+          "10 Gbit/s",
+          "480 Mbit/s",
+          "40 Gbit/s",
+          "32 Gbit/s",
+          "25 Gbit/s"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "20 Gbit/s",
+        "source": "https://de.wikipedia.org/wiki/Universal_Serial_Bus"
+      }
+    },
+    {
+      "id": "recht-widerruf-erloeschen",
+      "input": {
+        "question": "Wann erlischt das Widerrufsrecht bei einem Online-Kauf in Deutschland spätestens, wenn der Händler nicht ordnungsgemäß über das Widerrufsrecht belehrt hat?",
+        "choices": [
+          "Drei Jahre nach Fristbeginn",
+          "Nie, es besteht unbegrenzt",
+          "Zwölf Monate nach Fristbeginn",
+          "24 Monate nach Fristbeginn",
+          "Drei Monate und 14 Tage nach Fristbeginn",
+          "Ein Monat nach Fristbeginn",
+          "Zwölf Monate und 14 Tage nach Fristbeginn",
+          "Sechs Monate und 14 Tage nach Fristbeginn",
+          "30 Tage nach Fristbeginn",
+          "Sechs Monate nach Fristbeginn"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "Zwölf Monate und 14 Tage nach Fristbeginn",
+        "source": "https://www.gesetze-im-internet.de/bgb/__356.html"
+      }
+    },
+    {
+      "id": "recht-beweislastumkehr",
+      "input": {
+        "question": "Wie lange nach Gefahrübergang wird beim Verbrauchsgüterkauf in Deutschland vermutet, dass ein Mangel schon bei Übergabe vorlag?",
+        "choices": [
+          "Vier Monate",
+          "Drei Monate",
+          "Ein Jahr",
+          "30 Tage",
+          "14 Tage",
+          "Neun Monate",
+          "Zwei Jahre",
+          "Drei Jahre",
+          "18 Monate",
+          "Sechs Monate"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "Ein Jahr",
+        "source": "https://www.gesetze-im-internet.de/bgb/__477.html"
+      }
+    },
+    {
+      "id": "recht-kleinunternehmer",
+      "input": {
+        "question": "Wie hoch darf der Gesamtumsatz im Vorjahr seit 2025 höchstens sein, damit ein Unternehmer in Deutschland die Kleinunternehmerregelung nutzen kann?",
+        "choices": [
+          "24 500 Euro",
+          "100 000 Euro",
+          "17 500 Euro",
+          "20 000 Euro",
+          "60 000 Euro",
+          "50 000 Euro",
+          "25 000 Euro",
+          "30 000 Euro",
+          "22 000 Euro",
+          "15 000 Euro"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "25 000 Euro",
+        "source": "https://www.gesetze-im-internet.de/ustg_1980/__19.html"
+      }
+    },
+    {
+      "id": "recht-oss-schwelle",
+      "input": {
+        "question": "Ab welchem jährlichen Umsatz mit Fernverkäufen an Verbraucher in anderen EU-Staaten muss ein deutscher Online-Händler die Umsatzsteuer des Bestimmungslandes abführen?",
+        "choices": [
+          "20 000 Euro",
+          "50 000 Euro",
+          "22 000 Euro",
+          "35 000 Euro",
+          "10 000 Euro",
+          "15 000 Euro",
+          "25 000 Euro",
+          "100 000 Euro",
+          "5 000 Euro",
+          "1 000 Euro"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "10 000 Euro",
+        "source": "https://www.gesetze-im-internet.de/ustg_1980/__3c.html"
+      }
+    },
+    {
+      "id": "recht-gwg",
+      "input": {
+        "question": "Bis zu welchen Anschaffungskosten (netto) darf ein geringwertiges Wirtschaftsgut in Deutschland im Jahr der Anschaffung voll abgeschrieben werden?",
+        "choices": [
+          "800 Euro",
+          "410 Euro",
+          "250 Euro",
+          "150 Euro",
+          "1 200 Euro",
+          "1 000 Euro",
+          "2 000 Euro",
+          "600 Euro",
+          "500 Euro",
+          "952 Euro"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "800 Euro",
+        "source": "https://www.gesetze-im-internet.de/estg/__6.html"
+      }
+    },
+    {
+      "id": "recht-aufbewahrung-belege",
+      "input": {
+        "question": "Wie lange müssen Buchungsbelege nach der deutschen Abgabenordnung seit 2025 aufbewahrt werden?",
+        "choices": [
+          "Drei Jahre",
+          "Vier Jahre",
+          "Fünf Jahre",
+          "Sechs Jahre",
+          "15 Jahre",
+          "30 Jahre",
+          "Acht Jahre",
+          "Sieben Jahre",
+          "Zehn Jahre",
+          "Zwölf Jahre"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "Acht Jahre",
+        "source": "https://www.gesetze-im-internet.de/ao_1977/__147.html"
+      }
+    },
+    {
+      "id": "recht-verzug-30-tage",
+      "input": {
+        "question": "Spätestens wie viele Tage nach Fälligkeit und Zugang einer Rechnung kommt ein Schuldner in Deutschland auch ohne Mahnung in Verzug?",
+        "choices": [
+          "31",
+          "60",
+          "28",
+          "10",
+          "30",
+          "45",
+          "14",
+          "21",
+          "90",
+          "7"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "30",
+        "source": "https://www.gesetze-im-internet.de/bgb/__286.html"
+      }
+    },
+    {
+      "id": "recht-verzugszins-b2b",
+      "input": {
+        "question": "Wie hoch ist der gesetzliche Verzugszins bei Rechtsgeschäften ohne Verbraucherbeteiligung in Deutschland?",
+        "choices": [
+          "Vier Prozentpunkte über dem Basiszinssatz",
+          "Fünf Prozentpunkte über dem Basiszinssatz",
+          "Neun Prozent pro Jahr, unabhängig vom Basiszinssatz",
+          "Sechs Prozentpunkte über dem Basiszinssatz",
+          "Zwölf Prozentpunkte über dem Basiszinssatz",
+          "Zehn Prozentpunkte über dem Basiszinssatz",
+          "Acht Prozentpunkte über dem Basiszinssatz",
+          "Sieben Prozentpunkte über dem Basiszinssatz",
+          "Neun Prozentpunkte über dem Basiszinssatz",
+          "Drei Prozentpunkte über dem Basiszinssatz"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "Neun Prozentpunkte über dem Basiszinssatz",
+        "source": "https://www.gesetze-im-internet.de/bgb/__288.html"
+      }
+    },
+    {
+      "id": "recht-verzugspauschale",
+      "input": {
+        "question": "Welche Pauschale kann ein Gläubiger in Deutschland bei Zahlungsverzug eines Unternehmers zusätzlich zu den Zinsen verlangen?",
+        "choices": [
+          "100 Euro",
+          "25 Euro",
+          "20 Euro",
+          "15 Euro",
+          "40 Euro",
+          "50 Euro",
+          "5 Euro",
+          "30 Euro",
+          "10 Euro",
+          "80 Euro"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "40 Euro",
+        "source": "https://www.gesetze-im-internet.de/bgb/__288.html"
+      }
+    },
+    {
+      "id": "recht-dsgvo-bussgeld",
+      "input": {
+        "question": "Wie hoch ist der höchste Bußgeldrahmen der DSGVO für ein Unternehmen?",
+        "choices": [
+          "10 Millionen Euro oder 2 Prozent des weltweiten Jahresumsatzes",
+          "20 Millionen Euro oder 4 Prozent des weltweiten Jahresumsatzes",
+          "10 Millionen Euro oder 4 Prozent des weltweiten Jahresumsatzes",
+          "20 Millionen Euro oder 2 Prozent des weltweiten Jahresumsatzes",
+          "100 Millionen Euro oder 10 Prozent des weltweiten Jahresumsatzes",
+          "15 Millionen Euro oder 3 Prozent des weltweiten Jahresumsatzes",
+          "4 Millionen Euro oder 20 Prozent des weltweiten Jahresumsatzes",
+          "1 Million Euro oder 1 Prozent des weltweiten Jahresumsatzes",
+          "35 Millionen Euro oder 7 Prozent des weltweiten Jahresumsatzes",
+          "50 Millionen Euro oder 5 Prozent des weltweiten Jahresumsatzes"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "20 Millionen Euro oder 4 Prozent des weltweiten Jahresumsatzes",
+        "source": "https://de.wikipedia.org/wiki/Datenschutz-Grundverordnung"
+      }
+    },
+    {
+      "id": "recht-dsa",
+      "input": {
+        "question": "Ab welchem Tag gilt der Digital Services Act für alle Online-Plattformen in der EU?",
+        "choices": [
+          "1. Juli 2024",
+          "16. November 2022",
+          "25. Mai 2018",
+          "17. Februar 2024",
+          "25. August 2023",
+          "2. Mai 2023",
+          "28. Juni 2025",
+          "17. Februar 2023",
+          "1. Januar 2025",
+          "1. Januar 2024"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "17. Februar 2024",
+        "source": "https://de.wikipedia.org/wiki/Gesetz_über_digitale_Dienste"
+      }
+    },
+    {
+      "id": "recht-ai-act",
+      "input": {
+        "question": "An welchem Tag trat die KI-Verordnung der EU (AI Act) in Kraft?",
+        "choices": [
+          "2. Februar 2025",
+          "1. August 2025",
+          "1. Januar 2025",
+          "8. Dezember 2023",
+          "1. August 2024",
+          "12. Juli 2024",
+          "2. August 2026",
+          "21. Mai 2024",
+          "13. März 2024",
+          "17. Februar 2024"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "1. August 2024",
+        "source": "https://de.wikipedia.org/wiki/Verordnung_über_künstliche_Intelligenz"
+      }
+    },
+    {
+      "id": "recht-e-rechnung",
+      "input": {
+        "question": "Ab welchem Tag müssen alle Unternehmen in Deutschland elektronische Rechnungen empfangen können?",
+        "choices": [
+          "1. Juli 2026",
+          "1. Januar 2028",
+          "1. Januar 2024",
+          "1. Juli 2025",
+          "1. Januar 2026",
+          "27. November 2020",
+          "18. April 2019",
+          "1. Januar 2027",
+          "1. Januar 2025",
+          "1. Januar 2023"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "1. Januar 2025",
+        "source": "https://de.wikipedia.org/wiki/E-Rechnung"
+      }
+    },
+    {
+      "id": "recht-ust-19",
+      "input": {
+        "question": "Seit welchem Tag beträgt der allgemeine Umsatzsteuersatz in Deutschland 19 Prozent?",
+        "choices": [
+          "1. Januar 2021",
+          "1. Januar 2002",
+          "1. Juli 1983",
+          "1. Januar 2007",
+          "1. Juli 2007",
+          "1. Januar 1993",
+          "1. Januar 2008",
+          "1. Januar 2005",
+          "1. April 1998",
+          "1. Januar 2006"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "1. Januar 2007",
+        "source": "https://de.wikipedia.org/wiki/Umsatzsteuer_(Deutschland)"
+      }
+    },
+    {
+      "id": "recht-mindestlohn-2026",
+      "input": {
+        "question": "Wie hoch ist der gesetzliche Mindestlohn in Deutschland seit dem 1. Januar 2026 je Stunde?",
+        "choices": [
+          "13,82 Euro",
+          "13,50 Euro",
+          "13,00 Euro",
+          "14,00 Euro",
+          "15,00 Euro",
+          "12,41 Euro",
+          "12,00 Euro",
+          "14,60 Euro",
+          "13,90 Euro",
+          "12,82 Euro"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "13,90 Euro",
+        "source": "https://de.wikipedia.org/wiki/Mindestlohn"
+      }
+    },
+    {
+      "id": "recht-minijob-2026",
+      "input": {
+        "question": "Wie hoch ist die monatliche Verdienstgrenze für Minijobs in Deutschland seit dem 1. Januar 2026?",
+        "choices": [
+          "620 Euro",
+          "538 Euro",
+          "556 Euro",
+          "650 Euro",
+          "600 Euro",
+          "575 Euro",
+          "603 Euro",
+          "520 Euro",
+          "450 Euro",
+          "700 Euro"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "recht",
+        "answer": "603 Euro",
+        "source": "https://de.wikipedia.org/wiki/Geringfügige_Beschäftigung"
+      }
+    },
+    {
+      "id": "recht-kindergeld-2026",
+      "input": {
+        "question": "Wie hoch ist das Kindergeld in Deutschland seit dem 1. Januar 2026 je Kind und Monat?",
+        "choices": [
+          "300 Euro",
+          "259 Euro",
+          "245 Euro",
+          "250,50 Euro",
+          "219 Euro",
+          "262 Euro",
+          "250 Euro",
+          "265 Euro",
+          "275 Euro",
+          "255 Euro"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "259 Euro",
+        "source": "https://de.wikipedia.org/wiki/Kindergeld_(Deutschland)"
+      }
+    },
+    {
+      "id": "recht-jugendschutz-bier",
+      "input": {
+        "question": "Ab welchem Alter dürfen Jugendliche in Deutschland in Begleitung einer personensorgeberechtigten Person Bier trinken?",
+        "choices": [
+          "11",
+          "17",
+          "13",
+          "14",
+          "12",
+          "15",
+          "18",
+          "21",
+          "10",
+          "16"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "recht",
+        "answer": "14",
+        "source": "https://de.wikipedia.org/wiki/Jugendschutzgesetz_(Deutschland)"
+      }
+    },
+    {
+      "id": "recht-dsgvo-meldefrist",
+      "input": {
+        "question": "Innerhalb welcher Frist muss eine Datenpanne nach der DSGVO in der Regel der Aufsichtsbehörde gemeldet werden?",
+        "choices": [
+          "24 Stunden",
+          "Drei Werktage",
+          "Ein Monat",
+          "72 Stunden",
+          "36 Stunden",
+          "96 Stunden",
+          "14 Tage",
+          "Zwölf Stunden",
+          "48 Stunden",
+          "Sieben Tage"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "recht",
+        "answer": "72 Stunden",
+        "source": "https://dsgvo-gesetz.de/art-33-dsgvo/"
+      }
+    },
+    {
+      "id": "shop-zugferd",
+      "input": {
+        "question": "Welches E-Rechnungsformat bettet strukturierte XML-Daten in eine PDF-Datei ein?",
+        "choices": [
+          "FatturaPA",
+          "DATEV-Format",
+          "UBL",
+          "ebInterface",
+          "EDIFACT",
+          "Facturae",
+          "openTRANS",
+          "XRechnung",
+          "Peppol BIS",
+          "ZUGFeRD"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "ZUGFeRD",
+        "source": "https://de.wikipedia.org/wiki/ZUGFeRD"
+      }
+    },
+    {
+      "id": "shop-pfand-milch",
+      "input": {
+        "question": "Seit welchem Tag gilt in Deutschland die Pfandpflicht auch für Milchgetränke in Einweg-Plastikflaschen?",
+        "choices": [
+          "1. Januar 2003",
+          "1. Mai 2006",
+          "1. Januar 2021",
+          "1. Januar 2022",
+          "1. Januar 2024",
+          "1. Juli 2023",
+          "1. Januar 2025",
+          "1. Januar 2023",
+          "1. Juli 2024",
+          "1. Juli 2022"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "1. Januar 2024",
+        "source": "https://de.wikipedia.org/wiki/Einwegpfand"
+      }
+    },
+    {
+      "id": "shop-lucid",
+      "input": {
+        "question": "Wie heißt das Verpackungsregister, in dem sich Händler in Deutschland vor dem Verkauf verpackter Ware registrieren müssen?",
+        "choices": [
+          "LUCID",
+          "VERA",
+          "DUALREG",
+          "REACH",
+          "EAR",
+          "EPREL",
+          "PRODIS",
+          "ELSTER",
+          "PackReg",
+          "GREENPACK"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "LUCID",
+        "source": "https://de.wikipedia.org/wiki/Verpackungsgesetz"
+      }
+    },
+    {
+      "id": "shop-eprel",
+      "input": {
+        "question": "Wie heißt die EU-Datenbank, in der Lieferanten Produkte mit Energielabel vor dem Verkauf registrieren müssen?",
+        "choices": [
+          "LABELDB",
+          "EPREL",
+          "ECHA",
+          "EUDAMED",
+          "RAPEX",
+          "LUCID",
+          "ECOREG",
+          "TRACES",
+          "ENERCAT",
+          "EAR"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "EPREL",
+        "source": "https://de.wikipedia.org/wiki/EU-Energielabel"
+      }
+    },
+    {
+      "id": "shop-papier-b5",
+      "input": {
+        "question": "Welches Papierformat hat die Maße 176 × 250 mm?",
+        "choices": [
+          "Letter",
+          "B4",
+          "C5",
+          "A4",
+          "B5",
+          "Legal",
+          "C4",
+          "A5",
+          "A3",
+          "B6"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "B5",
+        "source": "https://de.wikipedia.org/wiki/Papierformat"
+      }
+    },
+    {
+      "id": "shop-umschlag-dl",
+      "input": {
+        "question": "Welche Maße hat ein Briefumschlag im Format DIN lang (DL)?",
+        "choices": [
+          "162 × 229 mm",
+          "110 × 220 mm",
+          "105 × 210 mm",
+          "114 × 162 mm",
+          "114 × 229 mm",
+          "110 × 210 mm",
+          "120 × 235 mm",
+          "99 × 210 mm",
+          "125 × 176 mm",
+          "100 × 210 mm"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "110 × 220 mm",
+        "source": "https://de.wikipedia.org/wiki/DIN_lang"
+      }
+    },
+    {
+      "id": "shop-grossbrief",
+      "input": {
+        "question": "Bis zu welchem Gewicht darf ein Großbrief der Deutschen Post wiegen?",
+        "choices": [
+          "200 g",
+          "250 g",
+          "100 g",
+          "750 g",
+          "400 g",
+          "300 g",
+          "2000 g",
+          "500 g",
+          "1000 g",
+          "50 g"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "500 g",
+        "source": "https://de.wikipedia.org/wiki/Großbrief"
+      }
+    },
+    {
+      "id": "shop-porto-2025",
+      "input": {
+        "question": "Wie viel kostet ein Standardbrief der Deutschen Post innerhalb Deutschlands seit dem 1. Januar 2025?",
+        "choices": [
+          "80 Cent",
+          "99 Cent",
+          "95 Cent",
+          "1,00 Euro",
+          "70 Cent",
+          "75 Cent",
+          "1,10 Euro",
+          "85 Cent",
+          "90 Cent",
+          "1,05 Euro"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "95 Cent",
+        "source": "https://de.wikipedia.org/wiki/Großbrief"
+      }
+    },
+    {
+      "id": "shop-herrengroesse-schlank",
+      "input": {
+        "question": "Welche schlanke Herrengröße entspricht in Deutschland der Normalgröße 50?",
+        "choices": [
+          "98",
+          "106",
+          "96",
+          "94",
+          "48",
+          "25",
+          "52",
+          "26",
+          "100",
+          "102"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "98",
+        "source": "https://de.wikipedia.org/wiki/Konfektionsgröße"
+      }
+    },
+    {
+      "id": "shop-bh-groesse",
+      "input": {
+        "question": "Was gibt bei der BH-Größe 75B die Zahl 75 an?",
+        "choices": [
+          "Den Brustumfang in Zoll",
+          "Den Taillenumfang in Zentimetern",
+          "Den Hüftumfang in Zentimetern",
+          "Den Unterbrustumfang in Zentimetern",
+          "Das Gewicht des BHs in Gramm",
+          "Die Körbchentiefe in Millimetern",
+          "Die Differenz von Brust- und Unterbrustumfang in Millimetern",
+          "Die Trägerlänge in Zentimetern",
+          "Die Konfektionsgröße mal zwei",
+          "Den Brustumfang in Zentimetern"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "shop",
+        "answer": "Den Unterbrustumfang in Zentimetern",
+        "source": "https://de.wikipedia.org/wiki/Büstenhalter"
+      }
+    },
+    {
+      "id": "shop-ringgroesse",
+      "input": {
+        "question": "Was gibt die deutsche Ringgröße 54 an?",
+        "choices": [
+          "Den Fingerumfang in Zoll",
+          "Das Ringgewicht in Zehntelgramm",
+          "Den Innendurchmesser in Millimetern",
+          "Eine Nummer der Größentabelle ohne Maßeinheit",
+          "Den Außendurchmesser in Millimetern",
+          "Den Innenumfang in Millimetern",
+          "Den Innendurchmesser in Zehntelmillimetern",
+          "Die Ringbreite in Zehntelmillimetern",
+          "Den Außenumfang in Millimetern",
+          "Den Innenumfang in Zentimetern mal zehn plus vier"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Den Innenumfang in Millimetern",
+        "source": "https://de.wikipedia.org/wiki/Ringgröße"
+      }
+    },
+    {
+      "id": "shop-ip67",
+      "input": {
+        "question": "Wogegen ist ein Gerät nach der zweiten Ziffer der Schutzart IP67 geschützt?",
+        "choices": [
+          "Gegen Hochdruck- und Dampfstrahlreinigung",
+          "Gegen Staub in schädigender Menge",
+          "Gegen zeitweiliges Untertauchen",
+          "Gegen Sprühwasser",
+          "Gegen starkes Strahlwasser",
+          "Gegen senkrecht fallendes Tropfwasser",
+          "Gegen Strahlwasser",
+          "Gegen Kondenswasser",
+          "Gegen Spritzwasser",
+          "Gegen dauerndes Untertauchen"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Gegen zeitweiliges Untertauchen",
+        "source": "https://de.wikipedia.org/wiki/Schutzart"
+      }
+    },
+    {
+      "id": "shop-gu10",
+      "input": {
+        "question": "Welcher Lampensockel ist ein Stiftsockel für Reflektorlampen, die direkt mit 230 Volt betrieben werden?",
+        "choices": [
+          "GU5.3",
+          "GU10",
+          "E27",
+          "MR16",
+          "E14",
+          "R7s",
+          "GX53",
+          "G4",
+          "G9",
+          "B22"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "GU10",
+        "source": "https://de.wikipedia.org/wiki/Lampensockel"
+      }
+    },
+    {
+      "id": "shop-schuko-typ",
+      "input": {
+        "question": "Unter welchem Steckertyp ist der Schuko-Stecker international eingeordnet?",
+        "choices": [
+          "Typ F",
+          "Typ G",
+          "Typ C",
+          "Typ K",
+          "Typ L",
+          "Typ A",
+          "Typ E",
+          "Typ H",
+          "Typ J",
+          "Typ B"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Typ F",
+        "source": "https://de.wikipedia.org/wiki/Schuko"
+      }
+    },
+    {
+      "id": "shop-etrto-27-5",
+      "input": {
+        "question": "Welcher ETRTO-Durchmesser gehört zu 27,5-Zoll-Fahrradreifen?",
+        "choices": [
+          "590",
+          "609",
+          "584",
+          "635",
+          "559",
+          "571",
+          "600",
+          "630",
+          "507",
+          "622"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "584",
+        "source": "https://de.wikipedia.org/wiki/Fahrradreifen"
+      }
+    },
+    {
+      "id": "shop-alpine-symbol",
+      "input": {
+        "question": "Welches Symbol müssen Winterreifen tragen, die seit 2018 hergestellt wurden, um in Deutschland bei winterlichen Verhältnissen zulässig zu sein?",
+        "choices": [
+          "Das DOT-Zeichen",
+          "Die Kennung XL",
+          "Das E-Prüfzeichen",
+          "Ein blauer Punkt auf der Flanke",
+          "Der Buchstabe W hinter der Größe",
+          "Eine einzelne Schneeflocke ohne Berg",
+          "Der Buchstabe T im Geschwindigkeitsindex",
+          "Ein Thermometer mit Minuszeichen",
+          "Die Kennzeichnung M+S",
+          "Das Alpine-Symbol (Bergpiktogramm mit Schneeflocke)"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "Das Alpine-Symbol (Bergpiktogramm mit Schneeflocke)",
+        "source": "https://de.wikipedia.org/wiki/Winterreifen"
+      }
+    },
+    {
+      "id": "shop-lastindex-91",
+      "input": {
+        "question": "Welche Tragfähigkeit je Reifen bedeutet der Lastindex 91?",
+        "choices": [
+          "650 kg",
+          "515 kg",
+          "615 kg",
+          "600 kg",
+          "910 kg",
+          "580 kg",
+          "91 kg",
+          "690 kg",
+          "710 kg",
+          "545 kg"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "615 kg",
+        "source": "https://de.wikipedia.org/wiki/Lastindex"
+      }
+    },
+    {
+      "id": "shop-speedindex-h",
+      "input": {
+        "question": "Bis zu welcher Geschwindigkeit ist ein Reifen mit dem Geschwindigkeitsindex H zugelassen?",
+        "choices": [
+          "180 km/h",
+          "200 km/h",
+          "210 km/h",
+          "250 km/h",
+          "270 km/h",
+          "230 km/h",
+          "190 km/h",
+          "160 km/h",
+          "220 km/h",
+          "240 km/h"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "210 km/h",
+        "source": "https://de.wikipedia.org/wiki/Reifenbezeichnung"
+      }
+    },
+    {
+      "id": "shop-ei-gewicht",
+      "input": {
+        "question": "Zu welcher Gewichtsklasse gehört in der EU ein Hühnerei von 64 Gramm?",
+        "choices": [
+          "S (klein)",
+          "M (mittel)",
+          "XL (sehr groß)",
+          "Klasse 1",
+          "XXL (extra groß)",
+          "Premium",
+          "L (groß)",
+          "Güteklasse A",
+          "Extra",
+          "Güteklasse B"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "L (groß)",
+        "source": "https://de.wikipedia.org/wiki/Hühnerei"
+      }
+    },
+    {
+      "id": "shop-bio-anteil",
+      "input": {
+        "question": "Wie viel Prozent der Zutaten landwirtschaftlichen Ursprungs müssen bei einem Lebensmittel mit EU-Bio-Logo mindestens ökologisch erzeugt sein?",
+        "choices": [
+          "95 Prozent",
+          "75 Prozent",
+          "60 Prozent",
+          "85 Prozent",
+          "80 Prozent",
+          "70 Prozent",
+          "50 Prozent",
+          "100 Prozent",
+          "98 Prozent",
+          "90 Prozent"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "shop",
+        "answer": "95 Prozent",
+        "source": "https://de.wikipedia.org/wiki/EU-Bio-Logo"
+      }
+    },
+    {
+      "id": "shop-alkohol-angabe",
+      "input": {
+        "question": "Ab welchem Alkoholgehalt muss ein Getränk in der EU den vorhandenen Alkoholgehalt auf dem Etikett angeben?",
+        "choices": [
+          "Mehr als 1,2 Volumenprozent",
+          "Mehr als 1,5 Volumenprozent",
+          "Mehr als 5,0 Volumenprozent",
+          "Mehr als 1,0 Volumenprozent",
+          "Mehr als 2,0 Volumenprozent",
+          "Mehr als 3,0 Volumenprozent",
+          "Mehr als 0,5 Volumenprozent",
+          "Mehr als 0,1 Volumenprozent",
+          "Mehr als 2,5 Volumenprozent",
+          "Mehr als 0,0 Volumenprozent"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "shop",
+        "answer": "Mehr als 1,2 Volumenprozent",
+        "source": "https://de.wikipedia.org/wiki/Lebensmittelinformationsverordnung"
+      }
+    },
+    {
+      "id": "shop-alkoholfrei",
+      "input": {
+        "question": "Bis zu welchem Alkoholgehalt darf Bier in Deutschland als „alkoholfrei“ verkauft werden?",
+        "choices": [
+          "1,2 Volumenprozent",
+          "1,5 Volumenprozent",
+          "0,3 Volumenprozent",
+          "0,2 Volumenprozent",
+          "0,05 Volumenprozent",
+          "0,8 Volumenprozent",
+          "0,1 Volumenprozent",
+          "0,5 Volumenprozent",
+          "1,0 Volumenprozent",
+          "0,0 Volumenprozent"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "shop",
+        "answer": "0,5 Volumenprozent",
+        "source": "https://de.wikipedia.org/wiki/Alkoholfreies_Bier"
+      }
+    },
+    {
+      "id": "reisen-fluggast-400",
+      "input": {
+        "question": "Welche Ausgleichszahlung steht Fluggästen nach der EU-Fluggastrechteverordnung bei einer Annullierung eines innergemeinschaftlichen Flugs über 2000 Kilometer zu?",
+        "choices": [
+          "500 Euro",
+          "125 Euro",
+          "350 Euro",
+          "250 Euro",
+          "600 Euro",
+          "200 Euro",
+          "300 Euro",
+          "1000 Euro",
+          "800 Euro",
+          "400 Euro"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "400 Euro",
+        "source": "https://de.wikipedia.org/wiki/Fluggastrechte"
+      }
+    },
+    {
+      "id": "at-bahn-bagatelle",
+      "input": {
+        "question": "Unter welchem Betrag werden in Österreich Erstattungsansprüche aus den Fahrgastrechten im Bahnverkehr nicht ausgezahlt?",
+        "choices": [
+          "50 Cent",
+          "7,50 Euro",
+          "6 Euro",
+          "5 Euro",
+          "3 Euro",
+          "1 Euro",
+          "4 Euro",
+          "2,50 Euro",
+          "10 Euro",
+          "2 Euro"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "at",
+        "answer": "4 Euro",
+        "source": "https://de.wikipedia.org/wiki/Fahrgastrechte"
+      }
+    },
+    {
+      "id": "reisen-dticket-start",
+      "input": {
+        "question": "An welchem Tag wurde das Deutschlandticket eingeführt?",
+        "choices": [
+          "1. Mai 2022",
+          "1. Januar 2023",
+          "1. Januar 2024",
+          "1. September 2023",
+          "1. Mai 2023",
+          "1. Juni 2023",
+          "1. März 2023",
+          "1. Juli 2023",
+          "1. April 2023",
+          "1. Juni 2022"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "reisen",
+        "answer": "1. Mai 2023",
+        "source": "https://de.wikipedia.org/wiki/Deutschlandticket"
+      }
+    },
+    {
+      "id": "reisen-dticket-2026",
+      "input": {
+        "question": "Wie viel kostet das Deutschlandticket seit dem 1. Januar 2026 im Monat?",
+        "choices": [
+          "59 Euro",
+          "60 Euro",
+          "29 Euro",
+          "55 Euro",
+          "69 Euro",
+          "58 Euro",
+          "64 Euro",
+          "63 Euro",
+          "49 Euro",
+          "65 Euro"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "63 Euro",
+        "source": "https://de.wikipedia.org/wiki/Deutschlandticket"
+      }
+    },
+    {
+      "id": "reisen-klimaticket",
+      "input": {
+        "question": "An welchem Tag startete in Österreich das bundesweite Klimaticket?",
+        "choices": [
+          "1. Juni 2022",
+          "26. September 2021",
+          "1. März 2022",
+          "1. Oktober 2021",
+          "1. Mai 2023",
+          "26. Oktober 2022",
+          "1. Juli 2021",
+          "15. Dezember 2021",
+          "1. Januar 2022",
+          "26. Oktober 2021"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "26. Oktober 2021",
+        "source": "https://de.wikipedia.org/wiki/Klimaticket"
+      }
+    },
+    {
+      "id": "reisen-vignette-ch",
+      "input": {
+        "question": "Wie lange gilt eine Schweizer Autobahnvignette für ein bestimmtes Jahr?",
+        "choices": [
+          "Vom 1. Oktober des Vorjahres bis zum 31. Dezember",
+          "Zwölf Monate ab dem Kaufmonat",
+          "Vom 1. Februar bis zum 31. Januar des Folgejahres",
+          "Vom 1. Dezember des Vorjahres bis zum 31. Januar des Folgejahres",
+          "Vom 1. Dezember des Vorjahres bis zum 31. Dezember",
+          "Vom 1. Dezember des Vorjahres bis zum 28. Februar des Folgejahres",
+          "365 Tage ab dem Kaufdatum",
+          "Vom 1. Januar bis zum 31. Dezember",
+          "Vom 1. Januar bis zum 31. Januar des Folgejahres",
+          "Vom 1. November des Vorjahres bis zum 31. Januar des Folgejahres"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Vom 1. Dezember des Vorjahres bis zum 31. Januar des Folgejahres",
+        "source": "https://de.wikipedia.org/wiki/Autobahnvignette"
+      }
+    },
+    {
+      "id": "reisen-kinderreisepass",
+      "input": {
+        "question": "Seit welchem Tag werden in Deutschland keine Kinderreisepässe mehr ausgestellt?",
+        "choices": [
+          "1. November 2010",
+          "1. März 2022",
+          "1. Januar 2021",
+          "1. Januar 2025",
+          "1. Juli 2023",
+          "1. Juli 2024",
+          "1. Januar 2022",
+          "1. Januar 2024",
+          "1. Mai 2023",
+          "1. Januar 2023"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "1. Januar 2024",
+        "source": "https://de.wikipedia.org/wiki/Kinderreisepass"
+      }
+    },
+    {
+      "id": "reisen-pauschalreise-preis",
+      "input": {
+        "question": "Ab welcher Preiserhöhung nach Vertragsschluss kann ein Pauschalreisender in Deutschland vom Vertrag zurücktreten?",
+        "choices": [
+          "Mehr als 8 Prozent",
+          "Mehr als 15 Prozent",
+          "Mehr als 25 Prozent",
+          "Mehr als 10 Prozent",
+          "Mehr als 6 Prozent",
+          "Mehr als 5 Prozent",
+          "Mehr als 7 Prozent",
+          "Mehr als 20 Prozent",
+          "Mehr als 3 Prozent",
+          "Mehr als 12 Prozent"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Mehr als 8 Prozent",
+        "source": "https://www.gesetze-im-internet.de/bgb/__651g.html"
+      }
+    },
+    {
+      "id": "reisen-ees",
+      "input": {
+        "question": "An welchem Tag startete das Einreise-/Ausreisesystem (EES) der EU?",
+        "choices": [
+          "1. Mai 2025",
+          "6. Oktober 2024",
+          "10. April 2026",
+          "1. Oktober 2025",
+          "1. Januar 2025",
+          "10. November 2024",
+          "9. Juni 2025",
+          "1. Januar 2026",
+          "12. Oktober 2024",
+          "12. Oktober 2025"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "12. Oktober 2025",
+        "source": "https://de.wikipedia.org/wiki/Einreise-/Ausreisesystem"
+      }
+    },
+    {
+      "id": "reisen-hotelstars",
+      "input": {
+        "question": "Welcher Verband vergibt in Deutschland die Hotelsterne nach der Hotelstars Union?",
+        "choices": [
+          "Deutscher Tourismusverband",
+          "IHK",
+          "Deutsche Zentrale für Tourismus",
+          "Guide Michelin",
+          "Deutscher Reiseverband",
+          "DEHOGA",
+          "Deutscher Hotelverband IHA",
+          "TÜV",
+          "ADAC",
+          "Stiftung Warentest"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "DEHOGA",
+        "source": "https://de.wikipedia.org/wiki/Hotelstars_Union"
+      }
+    },
+    {
+      "id": "reisen-dtv-ferienwohnung",
+      "input": {
+        "question": "Welcher Verband klassifiziert in Deutschland Ferienwohnungen und Ferienhäuser mit Sternen?",
+        "choices": [
+          "Stiftung Warentest",
+          "Hotelstars Union",
+          "DEHOGA",
+          "Deutscher Tourismusverband",
+          "Deutscher Ferienhausverband",
+          "TÜV",
+          "Verband Deutscher Ferienhausagenturen",
+          "ADAC",
+          "Deutscher Reiseverband",
+          "Deutsche Zentrale für Tourismus"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Deutscher Tourismusverband",
+        "source": "https://de.wikipedia.org/wiki/Ferienwohnung"
+      }
+    },
+    {
+      "id": "reisen-flughafen-bremen",
+      "input": {
+        "question": "Nach welcher Person ist der Flughafen Bremen benannt?",
+        "choices": [
+          "Hans Koschnick",
+          "Konrad Adenauer",
+          "Wilhelm Kaisen",
+          "Hugo Junkers",
+          "Otto Lilienthal",
+          "Willy Brandt",
+          "Hinrich Wilhelm Kopf",
+          "Henning Scherf",
+          "Adolf Rohde",
+          "Karl Carstens"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Hans Koschnick",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Bremen"
+      }
+    },
+    {
+      "id": "reisen-flughafen-linz",
+      "input": {
+        "question": "Unter welchem Namen trat der Flughafen Linz bis 2019 auf?",
+        "choices": [
+          "Blue Danube Airport",
+          "Danube Airport Linz",
+          "Upper Austria Airport",
+          "Blue Danube Gateway",
+          "Upper Danube Airport",
+          "Danube Gateway",
+          "Kepler Airport",
+          "Bruckner Airport",
+          "Linz Danube Airport",
+          "Blue Sky Linz"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "Blue Danube Airport",
+        "source": "https://de.wikipedia.org/wiki/Flughafen_Linz"
+      }
+    },
+    {
+      "id": "reisen-schengen-bg-ro",
+      "input": {
+        "question": "Seit welchem Tag gibt es an den Landgrenzen zu Bulgarien und Rumänien keine Schengen-Grenzkontrollen mehr?",
+        "choices": [
+          "1. Januar 2024",
+          "1. Januar 2007",
+          "26. März 1995",
+          "1. Januar 2023",
+          "1. Juli 2024",
+          "31. März 2024",
+          "1. Januar 2026",
+          "1. Juli 2025",
+          "31. März 2025",
+          "1. Januar 2025"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "reisen",
+        "answer": "1. Januar 2025",
+        "source": "https://de.wikipedia.org/wiki/Schengener_Abkommen"
+      }
+    },
+    {
+      "id": "reisen-euro-kroatien",
+      "input": {
+        "question": "Seit welchem Tag ist der Euro in Kroatien gesetzliches Zahlungsmittel?",
+        "choices": [
+          "1. Januar 2025",
+          "30. Mai 1994",
+          "1. Januar 2021",
+          "1. Januar 2022",
+          "1. Januar 2024",
+          "1. Januar 2014",
+          "1. Januar 2015",
+          "1. Juli 2023",
+          "1. Juli 2013",
+          "1. Januar 2023"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "reisen",
+        "answer": "1. Januar 2023",
+        "source": "https://de.wikipedia.org/wiki/Kroatische_Kuna"
+      }
+    },
+    {
+      "id": "at-ebinterface",
+      "input": {
+        "question": "Wie heißt das österreichische XML-Format für elektronische Rechnungen?",
+        "choices": [
+          "AustriaPay",
+          "AT-Invoice",
+          "FatturaPA",
+          "ZUGFeRD",
+          "Factur-X",
+          "XRechnung",
+          "Facturae",
+          "ebXML",
+          "e-Rechnung.at",
+          "ebInterface"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "at",
+        "answer": "ebInterface",
+        "source": "https://de.wikipedia.org/wiki/E-Rechnung"
+      }
+    },
+    {
+      "id": "at-firmenbuch",
+      "input": {
+        "question": "Wie heißt in Österreich das öffentliche Verzeichnis, das dem deutschen Handelsregister entspricht?",
+        "choices": [
+          "Zentralregister",
+          "Grundbuch",
+          "Handelsbuch",
+          "Handelsregister",
+          "Firmenbuch",
+          "Firmenregister",
+          "Kammerregister",
+          "Unternehmensregister",
+          "Gewerberegister",
+          "Wirtschaftsregister"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "Firmenbuch",
+        "source": "https://de.wikipedia.org/wiki/Firmenbuch"
+      }
+    },
+    {
+      "id": "at-svnr",
+      "input": {
+        "question": "Wie viele Stellen hat die österreichische Sozialversicherungsnummer?",
+        "choices": [
+          "7",
+          "14",
+          "13",
+          "11",
+          "6",
+          "10",
+          "9",
+          "16",
+          "8",
+          "12"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "10",
+        "source": "https://de.wikipedia.org/wiki/Sozialversicherungsnummer"
+      }
+    },
+    {
+      "id": "at-bundespraesident",
+      "input": {
+        "question": "Für wie viele Jahre wird der österreichische Bundespräsident gewählt?",
+        "choices": [
+          "12",
+          "7",
+          "10",
+          "5",
+          "9",
+          "4",
+          "6",
+          "3",
+          "8",
+          "2"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "6",
+        "source": "https://de.wikipedia.org/wiki/Bundespräsident_(Österreich)"
+      }
+    },
+    {
+      "id": "at-nationalrat",
+      "input": {
+        "question": "Wie viele Abgeordnete hat der österreichische Nationalrat?",
+        "choices": [
+          "245",
+          "165",
+          "175",
+          "120",
+          "193",
+          "183",
+          "150",
+          "138",
+          "180",
+          "200"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "at",
+        "answer": "183",
+        "source": "https://de.wikipedia.org/wiki/Nationalrat_(Österreich)"
+      }
+    },
+    {
+      "id": "at-sommerferien",
+      "input": {
+        "question": "In welchen Bundesländern beginnen die Sommerferien in Österreich eine Woche früher als in den übrigen?",
+        "choices": [
+          "Steiermark, Kärnten und Tirol",
+          "Niederösterreich und Oberösterreich",
+          "Tirol, Vorarlberg und Salzburg",
+          "Burgenland, Kärnten und Wien",
+          "Oberösterreich, Salzburg und Vorarlberg",
+          "Wien, Oberösterreich und Steiermark",
+          "Wien, Niederösterreich und Burgenland",
+          "Vorarlberg und Tirol",
+          "Wien und Salzburg",
+          "Kärnten, Steiermark und Burgenland"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "at",
+        "answer": "Wien, Niederösterreich und Burgenland",
+        "source": "https://de.wikipedia.org/wiki/Schulferien"
+      }
+    },
+    {
+      "id": "at-fisolen",
+      "input": {
+        "question": "Was sind in Österreich „Fisolen“?",
+        "choices": [
+          "Johannisbeeren",
+          "Erbsen",
+          "Linsen",
+          "Rosenkohl",
+          "Kartoffeln",
+          "Grüne Bohnen",
+          "Pfifferlinge",
+          "Kichererbsen",
+          "Blumenkohl",
+          "Aprikosen"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "Grüne Bohnen",
+        "source": "https://de.wikipedia.org/wiki/Gartenbohne"
+      }
+    },
+    {
+      "id": "at-ribisel",
+      "input": {
+        "question": "Was sind in Österreich „Ribiseln“?",
+        "choices": [
+          "Holunderbeeren",
+          "Johannisbeeren",
+          "Preiselbeeren",
+          "Brombeeren",
+          "Heidelbeeren",
+          "Himbeeren",
+          "Moosbeeren",
+          "Rosinen",
+          "Erdbeeren",
+          "Stachelbeeren"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "Johannisbeeren",
+        "source": "https://de.wikipedia.org/wiki/Rote_Johannisbeere"
+      }
+    },
+    {
+      "id": "at-nic-at",
+      "input": {
+        "question": "Wie heißt die Registrierungsstelle für .at-Domains?",
+        "choices": [
+          "DENIC",
+          "IANA",
+          "Verisign",
+          "SWITCH",
+          "EURid",
+          "nic.at",
+          "ICANN",
+          "RTR",
+          "domain.at",
+          "A1 Registry"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "at",
+        "answer": "nic.at",
+        "source": "https://de.wikipedia.org/wiki/.at"
+      }
+    },
+    {
+      "id": "ch-qr-rechnung",
+      "input": {
+        "question": "Was hat in der Schweiz die orangen und roten Einzahlungsscheine ersetzt?",
+        "choices": [
+          "Die Swiss Payment Card",
+          "TWINT",
+          "Die eBill",
+          "Der e-Einzahlungsschein",
+          "Die SEPA-Überweisung",
+          "Der ESR+-Schein",
+          "Die QR-Rechnung",
+          "Die PostCard",
+          "Der IBAN-Beleg",
+          "Das LSV+-Verfahren"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "ch",
+        "answer": "Die QR-Rechnung",
+        "source": "https://de.wikipedia.org/wiki/QR-Rechnung"
+      }
+    },
+    {
+      "id": "ch-mwst",
+      "input": {
+        "question": "Wie hoch ist der Normalsatz der Mehrwertsteuer in der Schweiz seit dem 1. Januar 2024?",
+        "choices": [
+          "8,5 Prozent",
+          "2,6 Prozent",
+          "8,0 Prozent",
+          "8,1 Prozent",
+          "8,2 Prozent",
+          "3,8 Prozent",
+          "9,1 Prozent",
+          "7,7 Prozent",
+          "7,6 Prozent",
+          "7,9 Prozent"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "ch",
+        "answer": "8,1 Prozent",
+        "source": "https://de.wikipedia.org/wiki/Mehrwertsteuer_(Schweiz)"
+      }
+    },
+    {
+      "id": "ch-natel",
+      "input": {
+        "question": "Was ist in der Schweiz ein „Natel“?",
+        "choices": [
+          "Ein Notruf",
+          "Eine Telefonkarte",
+          "Eine Nationalstraße",
+          "Ein Natursteinbelag",
+          "Ein Nachtclub",
+          "Ein Festnetzanschluss",
+          "Eine Telefonzelle",
+          "Ein Mobiltelefon",
+          "Ein Nachtzug",
+          "Ein Navigationsgerät"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "ch",
+        "answer": "Ein Mobiltelefon",
+        "source": "https://de.wikipedia.org/wiki/Natel"
+      }
+    },
+    {
+      "id": "ch-volksinitiative",
+      "input": {
+        "question": "Wie viele Unterschriften braucht eine eidgenössische Volksinitiative in der Schweiz?",
+        "choices": [
+          "200 000",
+          "120 000",
+          "100 000",
+          "80 000",
+          "150 000",
+          "50 000",
+          "30 000",
+          "10 000",
+          "75 000",
+          "250 000"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "ch",
+        "answer": "100 000",
+        "source": "https://de.wikipedia.org/wiki/Volksinitiative_(Schweiz)"
+      }
+    },
+    {
+      "id": "ch-referendum-frist",
+      "input": {
+        "question": "Innerhalb welcher Frist müssen in der Schweiz die Unterschriften für ein fakultatives Referendum gesammelt werden?",
+        "choices": [
+          "18 Monate",
+          "30 Tage",
+          "60 Tage",
+          "Sechs Monate",
+          "Ein Jahr",
+          "100 Tage",
+          "45 Tage",
+          "90 Tage",
+          "180 Tage",
+          "120 Tage"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "ch",
+        "answer": "100 Tage",
+        "source": "https://de.wikipedia.org/wiki/Referendum_(Schweiz)"
+      }
+    },
+    {
+      "id": "ch-switch",
+      "input": {
+        "question": "Welche Organisation verwaltet die Top-Level-Domain .ch?",
+        "choices": [
+          "Swisscom",
+          "EURid",
+          "DENIC",
+          "Die Post",
+          "Verisign",
+          "CHnet",
+          "BAKOM",
+          "ICANN",
+          "SWITCH",
+          "nic.at"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "ch",
+        "answer": "SWITCH",
+        "source": "https://de.wikipedia.org/wiki/.ch"
+      }
+    },
+    {
+      "id": "web-robots-rfc",
+      "input": {
+        "question": "Unter welcher RFC-Nummer ist das Robots Exclusion Protocol (robots.txt) standardisiert?",
+        "choices": [
+          "RFC 9110",
+          "RFC 7540",
+          "RFC 6749",
+          "RFC 2616",
+          "RFC 9309",
+          "RFC 3986",
+          "RFC 1945",
+          "RFC 8259",
+          "RFC 7231",
+          "RFC 5322"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "web",
+        "answer": "RFC 9309",
+        "source": "https://en.wikipedia.org/wiki/Robots.txt"
+      }
+    },
+    {
+      "id": "web-robots-groesse",
+      "input": {
+        "question": "Bis zu welcher Dateigröße liest Google eine robots.txt-Datei aus?",
+        "choices": [
+          "1 MiB",
+          "10 MiB",
+          "100 KiB",
+          "50 KiB",
+          "250 KiB",
+          "5 MiB",
+          "15 MiB",
+          "500 KiB",
+          "2 MiB",
+          "64 KiB"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "web",
+        "answer": "500 KiB",
+        "source": "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt?hl=de"
+      }
+    },
+    {
+      "id": "web-sitemap-urls",
+      "input": {
+        "question": "Wie viele URLs darf eine einzelne XML-Sitemap höchstens enthalten?",
+        "choices": [
+          "1 000",
+          "65 535",
+          "1 000 000",
+          "10 000",
+          "20 000",
+          "100 000",
+          "500 000",
+          "5 000",
+          "50 000",
+          "25 000"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "web",
+        "answer": "50 000",
+        "source": "https://www.sitemaps.org/de/protocol.html"
+      }
+    },
+    {
+      "id": "web-sitemap-groesse",
+      "input": {
+        "question": "Wie groß darf eine unkomprimierte XML-Sitemap höchstens sein?",
+        "choices": [
+          "50 MB",
+          "5 MB",
+          "25 MB",
+          "10 MB",
+          "20 MB",
+          "200 MB",
+          "2 MB",
+          "100 MB",
+          "500 MB",
+          "1 MB"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "web",
+        "answer": "50 MB",
+        "source": "https://www.sitemaps.org/de/protocol.html"
+      }
+    },
+    {
+      "id": "web-hreflang-ch",
+      "input": {
+        "question": "Welcher hreflang-Wert kennzeichnet eine Seite für deutschsprachige Nutzer in der Schweiz?",
+        "choices": [
+          "de-SW",
+          "de-HE",
+          "sw-DE",
+          "de-SZ",
+          "ch",
+          "de-SUI",
+          "ch-DE",
+          "de-SCH",
+          "de-CHE",
+          "de-CH"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "web",
+        "answer": "de-CH",
+        "source": "https://developers.google.com/search/docs/specialty/international/localized-versions?hl=de"
+      }
+    },
+    {
+      "id": "web-308",
+      "input": {
+        "question": "Welcher HTTP-Statuscode steht für eine dauerhafte Weiterleitung, bei der die Anfragemethode nicht geändert werden darf?",
+        "choices": [
+          "308",
+          "304",
+          "303",
+          "307",
+          "410",
+          "309",
+          "301",
+          "305",
+          "300",
+          "302"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "web",
+        "answer": "308",
+        "source": "https://de.wikipedia.org/wiki/HTTP-Statuscode"
+      }
+    },
+    {
+      "id": "web-451",
+      "input": {
+        "question": "Wofür steht der HTTP-Statuscode 451?",
+        "choices": [
+          "Zu viele Anfragen",
+          "Ressource dauerhaft entfernt",
+          "Nicht verfügbar aus rechtlichen Gründen",
+          "Gesperrt",
+          "Upgrade erforderlich",
+          "Vorbedingung erforderlich",
+          "Anfrage-Header zu groß",
+          "Unzulässiger Medientyp",
+          "Zugriff verweigert",
+          "Anfrage-Zeitüberschreitung"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "web",
+        "answer": "Nicht verfügbar aus rechtlichen Gründen",
+        "source": "https://de.wikipedia.org/wiki/HTTP-Statuscode"
+      }
+    },
+    {
+      "id": "web-inp-fid",
+      "input": {
+        "question": "Welche Metrik hat Interaction to Next Paint (INP) am 12. März 2024 als Core Web Vital abgelöst?",
+        "choices": [
+          "Time to First Byte",
+          "Largest Contentful Paint",
+          "Total Blocking Time",
+          "DOM Content Loaded",
+          "Cumulative Layout Shift",
+          "Time to Interactive",
+          "Speed Index",
+          "First Meaningful Paint",
+          "First Contentful Paint",
+          "First Input Delay"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "web",
+        "answer": "First Input Delay",
+        "source": "https://web.dev/blog/inp-cwv-march-12?hl=de"
+      }
+    },
+    {
+      "id": "web-lcp-gut",
+      "input": {
+        "question": "Bis zu welchem Wert gilt der Largest Contentful Paint (LCP) als gut?",
+        "choices": [
+          "3,5 Sekunden",
+          "1,0 Sekunden",
+          "4,0 Sekunden",
+          "2,0 Sekunden",
+          "2,5 Sekunden",
+          "5,0 Sekunden",
+          "3,0 Sekunden",
+          "1,8 Sekunden",
+          "0,5 Sekunden",
+          "1,5 Sekunden"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "web",
+        "answer": "2,5 Sekunden",
+        "source": "https://web.dev/articles/lcp?hl=de"
+      }
+    },
+    {
+      "id": "web-inp-gut",
+      "input": {
+        "question": "Bis zu welchem Wert gilt Interaction to Next Paint (INP) als gut?",
+        "choices": [
+          "300 Millisekunden",
+          "2500 Millisekunden",
+          "200 Millisekunden",
+          "400 Millisekunden",
+          "500 Millisekunden",
+          "150 Millisekunden",
+          "100 Millisekunden",
+          "250 Millisekunden",
+          "1000 Millisekunden",
+          "50 Millisekunden"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "web",
+        "answer": "200 Millisekunden",
+        "source": "https://web.dev/articles/inp?hl=de"
+      }
+    },
+    {
+      "id": "web-schema-org",
+      "input": {
+        "question": "An welchem Tag wurde Schema.org von Google, Bing und Yahoo vorgestellt?",
+        "choices": [
+          "24. April 2012",
+          "16. Mai 2012",
+          "1. November 2011",
+          "12. Mai 2009",
+          "20. Juni 2011",
+          "2. Juni 2011",
+          "15. März 2011",
+          "2. Juni 2010",
+          "1. Juni 2010",
+          "2. Juni 2012"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "web",
+        "answer": "2. Juni 2011",
+        "source": "https://en.wikipedia.org/wiki/Schema.org"
+      }
+    },
+    {
+      "id": "web-penguin",
+      "input": {
+        "question": "An welchem Tag startete Google das erste Penguin-Update?",
+        "choices": [
+          "14. April 2012",
+          "21. April 2015",
+          "4. Oktober 2013",
+          "22. Mai 2012",
+          "24. Februar 2011",
+          "1. August 2018",
+          "26. September 2013",
+          "24. April 2013",
+          "12. August 2011",
+          "24. April 2012"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "web",
+        "answer": "24. April 2012",
+        "source": "https://en.wikipedia.org/wiki/Google_Penguin"
+      }
+    },
+    {
+      "id": "web-mobilegeddon",
+      "input": {
+        "question": "An welchem Tag startete Googles Mobile-Friendly-Update, bekannt als „Mobilegeddon“?",
+        "choices": [
+          "24. April 2012",
+          "21. April 2015",
+          "1. Juli 2019",
+          "21. April 2016",
+          "4. November 2016",
+          "12. Mai 2015",
+          "1. Mai 2015",
+          "26. März 2018",
+          "10. Januar 2017",
+          "15. Juni 2021"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "web",
+        "answer": "21. April 2015",
+        "source": "https://en.wikipedia.org/wiki/Mobilegeddon"
+      }
+    },
+    {
+      "id": "web-eurid",
+      "input": {
+        "question": "Welche Organisation verwaltet die Top-Level-Domain .eu?",
+        "choices": [
+          "CENTR",
+          "nic.at",
+          "Europäische Kommission",
+          "Verisign",
+          "SWITCH",
+          "EURid",
+          "ICANN",
+          "RIPE NCC",
+          "EUnet",
+          "DENIC"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "web",
+        "answer": "EURid",
+        "source": "https://de.wikipedia.org/wiki/.eu"
+      }
+    },
+    {
+      "id": "marken-tesa",
+      "input": {
+        "question": "Nach wem ist die Marke Tesa benannt?",
+        "choices": [
+          "Nach Teodora Sanchez, einer spanischen Lizenznehmerin",
+          "Nach Tessa Beiersdorf, der Frau des Gründers",
+          "Nach dem Erfinder Thomas Esser",
+          "Nach dem Ort Tesa an der Elbe",
+          "Nach der Technischen Sammlung in Hamburg",
+          "Nach Teresa Sander, der Tochter des Firmengründers",
+          "Nach dem Hamburger Kaufmann Ernst Tesar",
+          "Nach dem lateinischen Wort tessera",
+          "Nach dem Chemiker Theodor Sachs",
+          "Nach Elsa Tesmer, einer Mitarbeiterin von Beiersdorf"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "Nach Elsa Tesmer, einer Mitarbeiterin von Beiersdorf",
+        "source": "https://de.wikipedia.org/wiki/Tesa_SE"
+      }
+    },
+    {
+      "id": "marken-persil",
+      "input": {
+        "question": "Aus welchen Bestandteilen ist der Markenname Persil gebildet?",
+        "choices": [
+          "Perfekt und Silber",
+          "Perlmutt und Silikon",
+          "Persien und Seide",
+          "Person und Silhouette",
+          "Perchlorat und Silan",
+          "Peroxid und Silizium",
+          "Persilsäure",
+          "Perborat und Silikat",
+          "Perle und Silber",
+          "Perfekt und Sauber"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "marken",
+        "answer": "Perborat und Silikat",
+        "source": "https://de.wikipedia.org/wiki/Persil"
+      }
+    },
+    {
+      "id": "marken-rimowa",
+      "input": {
+        "question": "Wofür steht der Markenname Rimowa?",
+        "choices": [
+          "Ritter, Morszeck und Wagner",
+          "Rigid Molded Ware",
+          "Richtige Mobilität Waren",
+          "Richard Morszeck Warenzeichen",
+          "Richard Morszeck Wagenbau",
+          "Rheinische Metallwaren",
+          "Rimowa ist ein Ortsname",
+          "Robert Mohr Warenzeichen",
+          "Richard Morszeck Waren",
+          "Rheinisches Möbelwerk Aachen"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "Richard Morszeck Warenzeichen",
+        "source": "https://en.wikipedia.org/wiki/Rimowa"
+      }
+    },
+    {
+      "id": "marken-lidl",
+      "input": {
+        "question": "Woher hat die Handelskette Lidl ihren Namen?",
+        "choices": [
+          "Von Ludwig Lidl, dem ersten Filialleiter in Heilbronn",
+          "Von der Abkürzung für Lager in Deutschland Lokal",
+          "Vom Ort Lidl in Württemberg",
+          "Von der Abkürzung für Lebensmittel im Discount-Laden",
+          "Vom Lidl-Bach bei Neckarsulm",
+          "Vom schwäbischen Wort Lidl für Kleinigkeit",
+          "Von Liesel Lidl, der Großmutter von Dieter Schwarz",
+          "Vom Firmengründer Dieter Lidl",
+          "Von Ludwig Lidl, einem pensionierten Berufsschullehrer, dem Dieter Schwarz die Namensrechte abkaufte",
+          "Vom englischen Wort little"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "Von Ludwig Lidl, einem pensionierten Berufsschullehrer, dem Dieter Schwarz die Namensrechte abkaufte",
+        "source": "https://de.wikipedia.org/wiki/Lidl"
+      }
+    },
+    {
+      "id": "marken-spar",
+      "input": {
+        "question": "Woher stammt der Name der Handelskette Spar?",
+        "choices": [
+          "Vom Gründer Hans Spar",
+          "Von der Sparte Lebensmittel",
+          "Von der Tanne, niederländisch spar",
+          "Vom Sparkassenverband",
+          "Von DESPAR, der Abkürzung eines niederländischen Leitspruchs",
+          "Vom englischen Wort spare",
+          "Vom deutschen Wort sparen",
+          "Von der Abkürzung für Supermarkt-Partner",
+          "Vom Ort Spar in Belgien",
+          "Von der Abkürzung für Selbstbedienungs-Partner"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "Von DESPAR, der Abkürzung eines niederländischen Leitspruchs",
+        "source": "https://en.wikipedia.org/wiki/Spar_(retailer)"
+      }
+    },
+    {
+      "id": "marken-billa",
+      "input": {
+        "question": "Wofür steht der Name der österreichischen Supermarktkette Billa?",
+        "choices": [
+          "Bilanz-Laden",
+          "Billige Lebensmittel",
+          "Billige Ladenkette",
+          "Bio Lebensmittel Austria",
+          "Bildungsanstalt",
+          "Billiger Lagerverkauf",
+          "Billigmarkt",
+          "Bill Lauda",
+          "Billiger Laden",
+          "Billa ist ein Vorname"
+        ]
+      },
+      "reference": {
+        "level": 4,
+        "topic": "marken",
+        "answer": "Billiger Laden",
+        "source": "https://de.wikipedia.org/wiki/Billa"
+      }
+    },
+    {
+      "id": "marken-migros",
+      "input": {
+        "question": "Woher stammt der Name der Schweizer Handelskette Migros?",
+        "choices": [
+          "Vom französischen mi-gros, halb Großhandel",
+          "Vom Ort Migros im Kanton Zürich",
+          "Vom italienischen migliore",
+          "Von Migration und Grossverteiler",
+          "Vom Gründer Max Migros",
+          "Von Minimal und Grosshandel",
+          "Von der Abkürzung für Mittelstand und Grossisten",
+          "Von Milch und Grossmarkt",
+          "Vom griechischen mikros für klein",
+          "Von Mitglied und Grosshandel"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "Vom französischen mi-gros, halb Großhandel",
+        "source": "https://de.wikipedia.org/wiki/Migros"
+      }
+    },
+    {
+      "id": "marken-alando",
+      "input": {
+        "question": "Welches deutsche Auktionshaus übernahm eBay 1999 als Grundstein für eBay.de?",
+        "choices": [
+          "Azubo",
+          "Ricardo",
+          "Atrada",
+          "Allegro",
+          "alando",
+          "Hood.de",
+          "OpenBC",
+          "QXL",
+          "Auxion",
+          "Yatego"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "marken",
+        "answer": "alando",
+        "source": "https://de.wikipedia.org/wiki/EBay"
+      }
+    },
+    {
+      "id": "marken-leica",
+      "input": {
+        "question": "Wofür steht der Markenname Leica?",
+        "choices": [
+          "Leitz Camera",
+          "Lichtstarke Camera",
+          "Leipziger Instrumente",
+          "Leicht-Camera",
+          "Lens Camera",
+          "Leipziger Camera",
+          "Leitz Instrument Camera",
+          "Leitz Industrie Camera",
+          "Lichtbild-Camera",
+          "Leica ist ein Vorname"
+        ]
+      },
+      "reference": {
+        "level": 3,
+        "topic": "marken",
+        "answer": "Leitz Camera",
+        "source": "https://en.wikipedia.org/wiki/Leica_Camera"
+      }
+    },
+    {
+      "id": "geschichte-amazon-de",
+      "input": {
+        "question": "An welchem Tag ging Amazon.de an den Start?",
+        "choices": [
+          "1. März 1998",
+          "1. Oktober 1999",
+          "15. Oktober 1999",
+          "1. Juni 2000",
+          "15. November 1998",
+          "15. Oktober 1998",
+          "5. Juli 1994",
+          "4. September 1998",
+          "28. August 1998",
+          "16. Juli 1995"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "geschichte",
+        "answer": "15. Oktober 1998",
+        "source": "https://de.wikipedia.org/wiki/Amazon"
+      }
+    },
+    {
+      "id": "geschichte-otto",
+      "input": {
+        "question": "An welchem Tag wurde der Otto Versand gegründet?",
+        "choices": [
+          "20. Juni 1948",
+          "17. August 1948",
+          "17. August 1949",
+          "1. Oktober 1949",
+          "1. April 1949",
+          "1. Januar 1950",
+          "17. Juni 1953",
+          "12. September 1951",
+          "17. August 1950",
+          "3. Mai 1948"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "geschichte",
+        "answer": "17. August 1949",
+        "source": "https://de.wikipedia.org/wiki/Otto_Group"
+      }
+    },
+    {
+      "id": "geschichte-euro-bulgarien",
+      "input": {
+        "question": "Seit welchem Tag ist der Euro in Bulgarien gesetzliches Zahlungsmittel?",
+        "choices": [
+          "1. Januar 2026",
+          "1. Januar 2025",
+          "1. Januar 2027",
+          "1. März 2026",
+          "1. Juli 2025",
+          "1. Januar 2028",
+          "1. Juli 2026",
+          "1. Januar 2023",
+          "1. Januar 2007",
+          "1. Januar 2024"
+        ]
+      },
+      "reference": {
+        "level": 5,
+        "topic": "geschichte",
+        "answer": "1. Januar 2026",
+        "source": "https://de.wikipedia.org/wiki/Bulgarischer_Lew"
+      }
+    }
+  ]
+}

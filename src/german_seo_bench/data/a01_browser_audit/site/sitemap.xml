@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://www.example.net/home.html</loc></url>
+  <url><loc>http://www.example.net/kategorie.html</loc></url>
+  <url><loc>http://www.example.net/produkt.html</loc></url>
+  <url><loc>http://www.example.net/galerie.html</loc></url>
+  <url><loc>http://www.example.net/poster.html</loc></url>
+  <url><loc>http://www.example.net/poster-a3.html</loc></url>
+  <url><loc>http://www.example.net/liste.html</loc></url>
+  <url><loc>http://www.example.net/liste-2.html</loc></url>
+  <url><loc>http://www.example.net/preise.html</loc></url>
+  <url><loc>http://www.example.net/sale.html</loc></url>
+  <url><loc>http://www.example.net/angebot.html</loc></url>
+  <url><loc>http://www.example.net/blog.html</loc></url>
+  <url><loc>http://www.example.net/ratgeber.html</loc></url>
+  <url><loc>http://www.example.net/assets.html</loc></url>
+  <url><loc>http://www.example.net/technik.html</loc></url>
+  <url><loc>http://www.example.net/zubehoer.html</loc></url>
+  <url><loc>http://www.example.net/schulen.html</loc></url>
+  <url><loc>http://www.example.net/archiv.html</loc></url>
+  <url><loc>http://www.example.net/scroll.html</loc></url>
+  <url><loc>http://www.example.net/suche.html</loc></url>
+  <url><loc>http://www.example.net/presse.html</loc></url>
+</urlset>

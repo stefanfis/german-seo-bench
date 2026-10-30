@@ -1,0 +1,24 @@
+# Die Prüflandschaft zum Selberansehen — für Browser, Screaming Frog, curl.
+#
+# Warum es diese Datei gibt und nicht einfach einen kleinen Python-Server:
+# Sechs der sechsundzwanzig Adressen haben gar keine Datei. Was dort passiert,
+# entscheidet `testsite.nginx.conf` — Cloaking nach Kennung, Umschalten beim
+# Zweitbesuch, Weiterleitungen. Ein Server, der nur `site/` ausliefert, zeigt
+# eine ANDERE Website als die, die gemessen wird: sechs 404er, und fünf
+# Befunde fehlen. Deshalb dasselbe Image und dieselbe Konfiguration wie in
+# `compose.yaml`, nur mit veröffentlichtem Port und ohne `internal`.
+#
+# Start:  uv run python -m german_seo_bench.testsite
+
+services:
+  testsite:
+    image: nginx:alpine
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./testsite.nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      # Vorgabe 80, damit die Adressen GENAU so stimmen wie im Messlauf:
+      # Die `sitemap.xml` und die Canonicals nennen `http://www.example.net/`
+      # ohne Port. Mit einem abweichenden Port zeigte die Sitemap ins Leere,
+      # und ein Crawler fände die angemeldeten Seiten nicht.
+      - "${BENCH_SITE_PORT:-80}:80"

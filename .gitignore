@@ -1,0 +1,15 @@
+.env
+.venv/
+logs/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+reports/
+auswertung/
+.DS_Store
+.ruff_cache/
+# Die Bilder von M10 werden nicht mitverteilt (siehe src/german_seo_bench/media/).
+# Die Regel fängt den naheliegenden Fehler ab, sie doch ins Paket zu legen.
+src/german_seo_bench/data/m10_alt_text/
+# Dort holt `python -m german_seo_bench.media` sie hin, wenn man im Repo startet.
+bench-media/

@@ -1,0 +1,282 @@
+{
+  "task": "A01",
+  "title": "Browser-Audit einer JS-Site",
+  "version": 1,
+  "samples": [
+    {
+      "id": "kartenshop",
+      "input": {
+        "pages": [
+          "alt.html",
+          "angebot.html",
+          "archiv.html",
+          "assets.html",
+          "blog.html",
+          "filter.html",
+          "galerie.html",
+          "home.html",
+          "kategorie.html",
+          "liste-2.html",
+          "liste.html",
+          "poster-a3.html",
+          "poster.html",
+          "preise.html",
+          "presse.html",
+          "produkt.html",
+          "ratgeber.html",
+          "sale.html",
+          "schulen.html",
+          "scroll.html",
+          "shop.html",
+          "suche.html",
+          "technik.html",
+          "tipps.html",
+          "umzug.html",
+          "zubehoer.html"
+        ],
+        "catalog": [
+          {
+            "issue": "title_changed_by_js",
+            "description": "Der <title> im gerenderten DOM weicht vom Quelltext-<title> ab (per JS geändert)."
+          },
+          {
+            "issue": "noindex_after_render",
+            "description": "meta robots=noindex ist erst nach dem Rendern vorhanden (per JS eingefügt)."
+          },
+          {
+            "issue": "content_requires_js",
+            "description": "Der Hauptinhalt ist im Quelltext leer und wird erst per JS gefüllt."
+          },
+          {
+            "issue": "canonical_only_in_render",
+            "description": "Der Canonical-Link ist nur im gerenderten DOM vorhanden (per JS gesetzt)."
+          },
+          {
+            "issue": "h1_added_by_js",
+            "description": "Im Quelltext fehlt die <h1>; sie wird erst per JS eingefügt."
+          },
+          {
+            "issue": "broken_resource",
+            "description": "Die Seite fordert eine Ressource an, die mit 4xx/5xx antwortet."
+          },
+          {
+            "issue": "client_side_redirect",
+            "description": "Die Seite leitet nach dem Laden clientseitig per JS auf eine andere URL weiter."
+          },
+          {
+            "issue": "lazy_lcp_image",
+            "description": "Das größte Bild im ersten sichtbaren Bereich (der LCP-Kandidat) trägt loading=\"lazy\" und wird dadurch verzögert geladen."
+          },
+          {
+            "issue": "layout_shift_after_load",
+            "description": "Das Layout verschiebt sich nach dem Laden deutlich (CLS über 0,1), weil nachgeschobener Inhalt keinen Platz reserviert hat."
+          },
+          {
+            "issue": "interaction_blocked",
+            "description": "Ein Klick auf ein Bedienelement blockiert den Hauptthread deutlich länger als 200 ms (schlechter INP)."
+          },
+          {
+            "issue": "script_loads_script",
+            "description": "Ein Skript lädt zur Laufzeit ein weiteres Skript nach; im HTML-Quelltext steht dieses zweite Skript nicht."
+          },
+          {
+            "issue": "blocking_script_before_css",
+            "description": "Im <head> steht ein render-blockierendes Skript (ohne async/defer) vor dem Stylesheet."
+          },
+          {
+            "issue": "link_without_href",
+            "description": "Ein Link navigiert nur per JavaScript (onclick o. ä.) und hat kein href — für einen Crawler existiert das Ziel nicht."
+          },
+          {
+            "issue": "infinite_scroll_no_pagination",
+            "description": "Weitere Inhalte erscheinen erst beim Scrollen (Infinite Scroll), und es gibt keine crawlbare Paginierung."
+          },
+          {
+            "issue": "duplicate_title",
+            "description": "Mehrere Seiten der Website tragen denselben <title>."
+          },
+          {
+            "issue": "canonical_to_noindex",
+            "description": "Der Canonical-Link zeigt auf eine ANDERE Seite, die selbst noindex trägt."
+          },
+          {
+            "issue": "redirect_chain",
+            "description": "Die Adresse führt über mehrere Weiterleitungen hintereinander zum Ziel (Kette)."
+          },
+          {
+            "issue": "pagination_404",
+            "description": "Ein Link der Paginierung zeigt auf eine Seite, die mit 404 antwortet."
+          },
+          {
+            "issue": "orphan_page_in_sitemap",
+            "description": "Die Seite steht in der sitemap.xml, wird aber von keiner anderen Seite der Website verlinkt."
+          },
+          {
+            "issue": "cloaked_content",
+            "description": "Der Server liefert für Suchmaschinen-Crawler anderes HTML aus als für Besucher."
+          },
+          {
+            "issue": "noindex_on_second_visit",
+            "description": "Beim erneuten Aufruf derselben Adresse liefert der Server die Seite mit meta robots=noindex aus (sitzungsabhängige Auslieferung)."
+          },
+          {
+            "issue": "hidden_by_css",
+            "description": "Ein Textblock ist im DOM der geladenen Seite vorhanden, für Besucher aber nicht sichtbar, weil CSS ihn ausblendet."
+          }
+        ]
+      },
+      "reference": {
+        "findings": [
+          {
+            "page": "alt.html",
+            "issue": "client_side_redirect"
+          },
+          {
+            "page": "angebot.html",
+            "issue": "noindex_after_render"
+          },
+          {
+            "page": "archiv.html",
+            "issue": "noindex_on_second_visit"
+          },
+          {
+            "page": "assets.html",
+            "issue": "blocking_script_before_css"
+          },
+          {
+            "page": "assets.html",
+            "issue": "script_loads_script"
+          },
+          {
+            "page": "galerie.html",
+            "issue": "layout_shift_after_load"
+          },
+          {
+            "page": "galerie.html",
+            "issue": "lazy_lcp_image"
+          },
+          {
+            "page": "home.html",
+            "issue": "canonical_only_in_render"
+          },
+          {
+            "page": "home.html",
+            "issue": "content_requires_js"
+          },
+          {
+            "page": "kategorie.html",
+            "issue": "h1_added_by_js"
+          },
+          {
+            "page": "liste-2.html",
+            "issue": "pagination_404"
+          },
+          {
+            "page": "liste.html",
+            "issue": "pagination_404"
+          },
+          {
+            "page": "poster-a3.html",
+            "issue": "content_requires_js"
+          },
+          {
+            "page": "poster-a3.html",
+            "issue": "duplicate_title"
+          },
+          {
+            "page": "poster.html",
+            "issue": "broken_resource"
+          },
+          {
+            "page": "poster.html",
+            "issue": "duplicate_title"
+          },
+          {
+            "page": "preise.html",
+            "issue": "cloaked_content"
+          },
+          {
+            "page": "presse.html",
+            "issue": "orphan_page_in_sitemap"
+          },
+          {
+            "page": "presse.html",
+            "issue": "title_changed_by_js"
+          },
+          {
+            "page": "produkt.html",
+            "issue": "broken_resource"
+          },
+          {
+            "page": "produkt.html",
+            "issue": "title_changed_by_js"
+          },
+          {
+            "page": "sale.html",
+            "issue": "canonical_to_noindex"
+          },
+          {
+            "page": "schulen.html",
+            "issue": "cloaked_content"
+          },
+          {
+            "page": "scroll.html",
+            "issue": "infinite_scroll_no_pagination"
+          },
+          {
+            "page": "scroll.html",
+            "issue": "link_without_href"
+          },
+          {
+            "page": "suche.html",
+            "issue": "interaction_blocked"
+          },
+          {
+            "page": "suche.html",
+            "issue": "noindex_after_render"
+          },
+          {
+            "page": "technik.html",
+            "issue": "hidden_by_css"
+          },
+          {
+            "page": "tipps.html",
+            "issue": "noindex_on_second_visit"
+          },
+          {
+            "page": "umzug.html",
+            "issue": "redirect_chain"
+          },
+          {
+            "page": "zubehoer.html",
+            "issue": "lazy_lcp_image"
+          }
+        ],
+        "capability_by_issue": {
+          "title_changed_by_js": "source",
+          "noindex_after_render": "source",
+          "content_requires_js": "source",
+          "canonical_only_in_render": "source",
+          "h1_added_by_js": "source",
+          "broken_resource": "network",
+          "client_side_redirect": "source",
+          "lazy_lcp_image": "render",
+          "layout_shift_after_load": "render",
+          "interaction_blocked": "source",
+          "script_loads_script": "source",
+          "blocking_script_before_css": "source",
+          "link_without_href": "source",
+          "infinite_scroll_no_pagination": "source",
+          "duplicate_title": "source",
+          "canonical_to_noindex": "source",
+          "redirect_chain": "network",
+          "pagination_404": "network",
+          "orphan_page_in_sitemap": "source",
+          "cloaked_content": "request",
+          "noindex_on_second_visit": "second_load",
+          "hidden_by_css": "render"
+        }
+      }
+    }
+  ]
+}

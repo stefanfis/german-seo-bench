@@ -1,0 +1,1381 @@
+{
+  "task": "M10",
+  "title": "Deutsche ALT-Texte für Bilder",
+  "version": 1,
+  "samples": [
+    {
+      "id": "pinguine",
+      "input": {
+        "image": "m10_alt_text/4710224.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Pinguin",
+          "Pinguine",
+          "Pinguinen"
+        ],
+        "context": [
+          "Fels",
+          "Felsen",
+          "felsigem",
+          "felsigen",
+          "Gestein",
+          "Ufer",
+          "Küste",
+          "Strand",
+          "Meer",
+          "Wasser",
+          "Brandung",
+          "Welle",
+          "Wellen"
+        ],
+        "forbidden": [
+          "Schnee",
+          "Eisscholle",
+          "Eisberg",
+          "Antarktis",
+          "Gletscher",
+          "Iglu",
+          "Zoo",
+          "Gehege"
+        ],
+        "oracle": "Pinguine auf felsigem Ufer vor blauem Meer."
+      }
+    },
+    {
+      "id": "schaf",
+      "input": {
+        "image": "m10_alt_text/3739078.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Schaf",
+          "Schafe",
+          "Lamm",
+          "Lämmer"
+        ],
+        "context": [
+          "Gras",
+          "Wiese",
+          "Baum",
+          "Bäumen",
+          "Ufer",
+          "Wasser",
+          "Bach",
+          "Fluss",
+          "Laub",
+          "Herbst",
+          "Stamm",
+          "Halsband",
+          "Schatten"
+        ],
+        "forbidden": [
+          "Herde",
+          "Stall",
+          "Schnee",
+          "Zaun",
+          "Hund"
+        ],
+        "oracle": "Geschorenes Schaf liegt im Gras unter einem Baum am Ufer."
+      }
+    },
+    {
+      "id": "kuerbisse",
+      "input": {
+        "image": "m10_alt_text/4600419.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Kürbis",
+          "Kürbisse",
+          "Kürbissen"
+        ],
+        "context": [
+          "Haufen",
+          "Stapel",
+          "Sorten",
+          "Formen",
+          "Farben",
+          "bunt",
+          "bunten",
+          "Herbst",
+          "Ernte",
+          "orange",
+          "Orange",
+          "Hokkaido",
+          "Größen",
+          "Größe",
+          "Farbe"
+        ],
+        "forbidden": [
+          "Halloween",
+          "Kerze",
+          "Laterne",
+          "Schnee",
+          "Kind"
+        ],
+        "oracle": "Großer Haufen Kürbisse in vielen Farben, Formen und Größen."
+      }
+    },
+    {
+      "id": "altstadt",
+      "input": {
+        "image": "m10_alt_text/983563.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Kutsche",
+          "Kutschen",
+          "Pferdekutsche",
+          "Droschke",
+          "Pferdewagen"
+        ],
+        "context": [
+          "Altstadt",
+          "Marktplatz",
+          "Markt",
+          "Platz",
+          "Haus",
+          "Häuser",
+          "Häusern",
+          "Fassade",
+          "Fassaden",
+          "Giebel",
+          "Giebelhäusern",
+          "Bürgerhaus",
+          "Bürgerhäuser",
+          "Bürgerhäusern",
+          "Pflaster",
+          "Stadt"
+        ],
+        "forbidden": [
+          "Auto",
+          "Straßenbahn",
+          "Kirche",
+          "Brunnen",
+          "Nacht",
+          "Schnee"
+        ],
+        "oracle": "Pferdekutsche vor bunten Giebelhäusern am Alten Markt in der Altstadt."
+      }
+    },
+    {
+      "id": "reichstag",
+      "input": {
+        "image": "m10_alt_text/51058.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Reichstag",
+          "Reichstags",
+          "Bundestag",
+          "Parlament",
+          "Parlamentsgebäude",
+          "Reichstagsgebäude",
+          "Reichstagsgebäudes"
+        ],
+        "context": [
+          "Kuppel",
+          "Glaskuppel",
+          "Säulen",
+          "Säulenportal",
+          "Inschrift",
+          "Flagge",
+          "Flaggen",
+          "Fahne",
+          "Fahnen",
+          "Wiese",
+          "Portal",
+          "Giebel",
+          "Berlin",
+          "Treppe",
+          "Himmel",
+          "Vorplatz",
+          "Menschen"
+        ],
+        "forbidden": [
+          "Schnee",
+          "Nacht",
+          "Demonstration",
+          "Brandenburger Tor",
+          "Fluss",
+          "München",
+          "Münchner"
+        ],
+        "oracle": "Reichstag in Berlin mit Glaskuppel, Säulenportal und wehenden Flaggen."
+      }
+    },
+    {
+      "id": "quadriga",
+      "input": {
+        "image": "m10_alt_text/3601096.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Quadriga",
+          "Figur",
+          "Figuren",
+          "Pferdegespann",
+          "Statue",
+          "Skulptur",
+          "Bronzefigur",
+          "Siegesgöttin",
+          "Victoria",
+          "Viktoria",
+          "Wagen",
+          "Viergespann"
+        ],
+        "context": [
+          "Brandenburger Tor",
+          "Himmel",
+          "Adler",
+          "Patina",
+          "Säulen",
+          "Berlin",
+          "Pferd",
+          "Pferden",
+          "Pferde"
+        ],
+        "forbidden": [
+          "Reiter",
+          "Schnee",
+          "Nacht",
+          "Menschenmenge",
+          "Wolken",
+          "München",
+          "Münchner"
+        ],
+        "oracle": "Quadriga mit vier Pferden und Siegesgöttin auf dem Brandenburger Tor."
+      }
+    },
+    {
+      "id": "brandenburger-tor",
+      "input": {
+        "image": "m10_alt_text/6975808.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Brandenburger Tor",
+          "Brandenburger Tors",
+          "Stadttor",
+          "Torbogen"
+        ],
+        "context": [
+          "Sonnenuntergang",
+          "Abendrot",
+          "Dämmerung",
+          "Straße",
+          "Allee",
+          "Fernsehturm",
+          "Bäume",
+          "Bäumen",
+          "Himmel",
+          "Berlin",
+          "Quadriga",
+          "Bus"
+        ],
+        "forbidden": [
+          "Mauer",
+          "Menschenmenge",
+          "Schnee",
+          "Regen",
+          "Feuerwerk",
+          "München",
+          "Münchner"
+        ],
+        "oracle": "Brandenburger Tor im Abendrot, links der Fernsehturm über einer leeren Straße."
+      }
+    },
+    {
+      "id": "glockenspiel",
+      "input": {
+        "image": "m10_alt_text/1530434.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Glockenspiel",
+          "Glockenspiels",
+          "Figur",
+          "Figuren",
+          "Spielwerk"
+        ],
+        "context": [
+          "Rathaus",
+          "Rathausturm",
+          "Rathausturms",
+          "Turm",
+          "Turms",
+          "Erker",
+          "Fassade",
+          "gotisch",
+          "gotischen",
+          "Stein",
+          "Patina",
+          "Balkon",
+          "München",
+          "Münchner",
+          "gotischem"
+        ],
+        "forbidden": [
+          "Zifferblatt",
+          "Uhrzeiger",
+          "Schnee",
+          "Nacht",
+          "Menschenmenge",
+          "Berlin",
+          "Berliner"
+        ],
+        "oracle": "Figuren des Münchner Glockenspiels im Erker des Rathausturms."
+      }
+    },
+    {
+      "id": "olympiaturm",
+      "input": {
+        "image": "m10_alt_text/2516492.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Olympiaturm",
+          "Olympiaturms",
+          "Fernsehturm",
+          "Turm",
+          "Turms"
+        ],
+        "context": [
+          "Abendhimmel",
+          "Sonnenuntergang",
+          "Dämmerung",
+          "Stadt",
+          "Park",
+          "Olympiapark",
+          "See",
+          "Zeltdach",
+          "Skyline",
+          "Lichter",
+          "Geländer",
+          "Abend",
+          "Abendrot"
+        ],
+        "forbidden": [
+          "Feuerwerk",
+          "Vollmond",
+          "Regenbogen",
+          "Schnee",
+          "Nebel",
+          "Berlin",
+          "Berliner"
+        ],
+        "oracle": "Olympiaturm über dem Olympiapark, dahinter die Stadt im Abendrot nach Sonnenuntergang."
+      }
+    },
+    {
+      "id": "friedensengel",
+      "input": {
+        "image": "m10_alt_text/7042013.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Engel",
+          "Friedensengel",
+          "Statue",
+          "Skulptur",
+          "Figur",
+          "Denkmal"
+        ],
+        "context": [
+          "Säule",
+          "Himmel",
+          "Bäume",
+          "Bäumen",
+          "Balustrade",
+          "Treppe",
+          "golden",
+          "Goldener",
+          "goldenen",
+          "Gold",
+          "Monument",
+          "Park"
+        ],
+        "forbidden": [
+          "Schnee",
+          "Nacht",
+          "Kirche",
+          "Menschenmenge",
+          "Wolken",
+          "Berlin",
+          "Berliner"
+        ],
+        "oracle": "Goldener Friedensengel auf einer hohen Säule zwischen kahlen Bäumen."
+      }
+    },
+    {
+      "id": "bootshaus",
+      "input": {
+        "image": "m10_alt_text/8055954.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Bootshaus",
+          "Bootshäuschen",
+          "Holzhaus",
+          "Hütte",
+          "Holzgebäude"
+        ],
+        "context": [
+          "See",
+          "Steg",
+          "Holzsteg",
+          "Wasser",
+          "Blätter",
+          "Blättern",
+          "Baum",
+          "Bäume",
+          "Ufer",
+          "Himmel",
+          "Geländer",
+          "Holz"
+        ],
+        "forbidden": [
+          "Boot",
+          "Segelboot",
+          "Berge",
+          "Sonnenuntergang",
+          "Schnee"
+        ],
+        "oracle": "Altes Bootshaus aus Holz am See, davor ein Holzsteg zwischen Blättern."
+      }
+    },
+    {
+      "id": "oktoberfest",
+      "input": {
+        "image": "m10_alt_text/1284516.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Oktoberfest",
+          "Oktoberfests",
+          "Volksfest",
+          "Wiesn",
+          "Jahrmarkt",
+          "Kirmes",
+          "Festgelände"
+        ],
+        "context": [
+          "Menschenmenge",
+          "Menge",
+          "Besucher",
+          "Menschen",
+          "Achterbahn",
+          "Fahrgeschäft",
+          "Fahrgeschäften",
+          "Zelt",
+          "Bierzelt",
+          "Bierzelten",
+          "Karussell",
+          "Himmel"
+        ],
+        "forbidden": [
+          "Schnee",
+          "Nacht",
+          "Konzert",
+          "Demonstration",
+          "Strand"
+        ],
+        "oracle": "Dichte Menschenmenge auf dem Oktoberfest zwischen Bierzelten und Fahrgeschäften."
+      }
+    },
+    {
+      "id": "radrennen",
+      "input": {
+        "image": "m10_alt_text/1495377.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Radrennfahrer",
+          "Radfahrer",
+          "Rennradfahrer",
+          "Radrennen",
+          "Radsportler",
+          "Radprofi",
+          "Radprofis",
+          "Radfahrern",
+          "Radrennfahrern",
+          "Radsportlern"
+        ],
+        "context": [
+          "Zuschauer",
+          "Publikum",
+          "Straße",
+          "Straßenrand",
+          "Motorrad",
+          "Kameramotorrad",
+          "Anstieg",
+          "Berg",
+          "Kamera",
+          "Asphalt",
+          "Schriftzug",
+          "Zuschauern",
+          "Motorrädern"
+        ],
+        "forbidden": [
+          "Regen",
+          "Schnee",
+          "Nacht",
+          "Stadion",
+          "Ziellinie"
+        ],
+        "oracle": "Drei Radrennfahrer im Anstieg, dahinter ein Kameramotorrad und Zuschauer am Straßenrand."
+      }
+    },
+    {
+      "id": "ritterturnier",
+      "input": {
+        "image": "m10_alt_text/79119.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Ritter",
+          "Rittern"
+        ],
+        "context": [
+          "Pferd",
+          "Pferde",
+          "Pferden",
+          "Lanze",
+          "Lanzen",
+          "Wappen",
+          "Sand",
+          "sandigen",
+          "Turnierplatz",
+          "Bande",
+          "Zuschauer",
+          "Häuser",
+          "Arena",
+          "Platz",
+          "Rüstung"
+        ],
+        "forbidden": [
+          "Schwert",
+          "Burg",
+          "Drache",
+          "Nacht",
+          "Schnee"
+        ],
+        "oracle": "Zwei Ritter in Rüstung reiten mit Lanzen über einen sandigen Turnierplatz."
+      }
+    },
+    {
+      "id": "weihnachtsmarkt",
+      "input": {
+        "image": "m10_alt_text/7664171.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Weihnachtsmarkt",
+          "Weihnachtsmarkts",
+          "Christkindlmarkt",
+          "Adventsmarkt"
+        ],
+        "context": [
+          "Riesenrad",
+          "Brunnen",
+          "Buden",
+          "Stände",
+          "Lichter",
+          "Beleuchtung",
+          "beleuchtetes",
+          "Tannen",
+          "Häuser",
+          "Platz",
+          "Dämmerung",
+          "Abend",
+          "Schnee",
+          "verschneite"
+        ],
+        "forbidden": [
+          "Feuerwerk",
+          "Sonnenschein",
+          "Sommer",
+          "Meer"
+        ],
+        "oracle": "Beleuchtetes Riesenrad und verschneite Buden auf einem Weihnachtsmarkt am Abend."
+      }
+    },
+    {
+      "id": "kameramann",
+      "input": {
+        "image": "m10_alt_text/2808323.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Kamera",
+          "Schulterkamera",
+          "Filmkamera",
+          "Fernsehkamera",
+          "Videokamera"
+        ],
+        "context": [
+          "Kameramann",
+          "Mann",
+          "Kopfhörer",
+          "Mikrofon",
+          "Stativ",
+          "Sonnenbrille",
+          "Schulter",
+          "Objektiv",
+          "Freien"
+        ],
+        "forbidden": [
+          "Studio",
+          "Innenraum",
+          "Nacht",
+          "Regen"
+        ],
+        "oracle": "Kameramann mit Kopfhörer filmt mit einer Schulterkamera im Freien."
+      }
+    },
+    {
+      "id": "fernseher-rauschen",
+      "input": {
+        "image": "m10_alt_text/5894867.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Fernseher",
+          "Fernsehgerät",
+          "Fernsehapparat",
+          "Bildschirm",
+          "Monitor",
+          "TV",
+          "CRT"
+        ],
+        "context": [
+          "Frau",
+          "Person",
+          "Boden",
+          "Holzboden",
+          "Koffer",
+          "Vorhang",
+          "Rauschen",
+          "Bildrauschen",
+          "Aktentasche",
+          "Tasche",
+          "Jeans",
+          "Latzhose",
+          "barfuß"
+        ],
+        "forbidden": [
+          "Sofa",
+          "Sessel",
+          "Fenster",
+          "Teppich",
+          "Nacht"
+        ],
+        "oracle": "Frau sitzt barfuß auf dem Holzboden neben einem Fernseher mit Bildrauschen."
+      }
+    },
+    {
+      "id": "supermarkt",
+      "input": {
+        "image": "m10_alt_text/1232944.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Obst",
+          "Obstauslage",
+          "Apfel",
+          "Äpfel",
+          "Äpfeln",
+          "Früchte",
+          "Früchten"
+        ],
+        "context": [
+          "Supermarkt",
+          "Supermarkts",
+          "Laden",
+          "Geschäft",
+          "Verkaufsraum",
+          "Regal",
+          "Regalen",
+          "Kiste",
+          "Kisten",
+          "Preisschild",
+          "Schild",
+          "Angebot",
+          "Gang",
+          "Theke"
+        ],
+        "forbidden": [
+          "Kasse",
+          "Einkaufswagen",
+          "Tiefkühltruhe",
+          "Blumen"
+        ],
+        "oracle": "Obstauslage mit verpackten Äpfeln in grünen Kisten im Regal eines Supermarkts."
+      }
+    },
+    {
+      "id": "gemuesemarkt",
+      "input": {
+        "image": "m10_alt_text/3129842.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Gemüse",
+          "Paprika",
+          "Aubergine",
+          "Auberginen",
+          "Limetten"
+        ],
+        "context": [
+          "Markt",
+          "Marktstand",
+          "Kiste",
+          "Kisten",
+          "Auslage",
+          "Stand",
+          "Verkauf"
+        ],
+        "forbidden": [
+          "Supermarkt",
+          "Kühlregal",
+          "Fleisch",
+          "Schnee",
+          "Waage"
+        ],
+        "oracle": "Kisten mit Paprika, Auberginen und Limetten an einem Marktstand."
+      }
+    },
+    {
+      "id": "keramikladen",
+      "input": {
+        "image": "m10_alt_text/999370.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Keramik",
+          "Keramikteller",
+          "Teller",
+          "Geschirr",
+          "Töpferware",
+          "Tonware",
+          "Schüsseln",
+          "Schalen",
+          "Tellern"
+        ],
+        "context": [
+          "Laden",
+          "Geschäft",
+          "Stand",
+          "Markt",
+          "Souk",
+          "Tajine",
+          "Tajines",
+          "Verkäufer",
+          "Mann",
+          "Wand",
+          "bunt",
+          "bunter",
+          "bunten",
+          "Farben",
+          "Regal",
+          "Basar"
+        ],
+        "forbidden": [
+          "Teppich",
+          "Gewürze",
+          "Kunde",
+          "Nacht",
+          "Kamel"
+        ],
+        "oracle": "Verkäufer sitzt in einem Laden voller bunter Keramikteller und Tajines."
+      }
+    },
+    {
+      "id": "schwimmender-markt",
+      "input": {
+        "image": "m10_alt_text/5863391.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Boot",
+          "Boote",
+          "Holzboot",
+          "Kahn",
+          "Einbaum"
+        ],
+        "context": [
+          "Kanal",
+          "Wasser",
+          "Markt",
+          "Marktstand",
+          "Marktständen",
+          "Stand",
+          "Stände",
+          "Souvenir",
+          "Hut",
+          "Hüte",
+          "Waren",
+          "Verkäufer",
+          "Mann",
+          "Paddel",
+          "Ruder",
+          "paddelt"
+        ],
+        "forbidden": [
+          "Meer",
+          "Strand",
+          "Gondel",
+          "Venedig",
+          "Schnee"
+        ],
+        "oracle": "Mann paddelt ein Holzboot durch einen Kanal voller Marktstände."
+      }
+    },
+    {
+      "id": "kassendisplay",
+      "input": {
+        "image": "m10_alt_text/810262.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Kassendisplay",
+          "Kundendisplay",
+          "Display",
+          "Anzeige",
+          "Anzeigetafel",
+          "Monitor",
+          "Bildschirm"
+        ],
+        "context": [
+          "geschlossen",
+          "Schrift",
+          "Ladentheke",
+          "Theke",
+          "Laden",
+          "Geschäft",
+          "Kugelschreiber",
+          "Stift",
+          "Telefon",
+          "Kreditkarte",
+          "Karte",
+          "Bezahlmöglichkeiten",
+          "Kasse 1"
+        ],
+        "forbidden": [
+          "Kunde",
+          "Warteschlange",
+          "Einkaufswagen",
+          "Geldschein",
+          "Scanner"
+        ],
+        "oracle": "Kassendisplay mit der grünen Schrift Kasse 1 geschlossen über einer Ladentheke."
+      }
+    },
+    {
+      "id": "wohnzimmer",
+      "input": {
+        "image": "m10_alt_text/2156954.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Wohnzimmer",
+          "Wohnraum",
+          "Wohnzimmers",
+          "Apartment",
+          "Wohnung"
+        ],
+        "context": [
+          "Sofa",
+          "Couch",
+          "Fernseher",
+          "Couchtisch",
+          "Tisch",
+          "Küche",
+          "Sideboard",
+          "Lampe",
+          "Holzboden",
+          "Parkett",
+          "Sessel",
+          "Kühlschrank",
+          "TV"
+        ],
+        "forbidden": [
+          "Kamin",
+          "Bücherregal",
+          "Teppich",
+          "Balkon"
+        ],
+        "oracle": "Wohnzimmer mit grauem Sofa, Couchtisch und Fernseher, dahinter eine offene Küche."
+      }
+    },
+    {
+      "id": "roehrenfernseher",
+      "input": {
+        "image": "m10_alt_text/4989557.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Röhrenfernseher",
+          "Fernseher",
+          "Fernsehgerät",
+          "Fernsehapparat",
+          "TV",
+          "CRT"
+        ],
+        "context": [
+          "Sideboard",
+          "Schrank",
+          "Radioschrank",
+          "Kommode",
+          "Stube",
+          "Zimmer",
+          "Fenster",
+          "Gardine",
+          "Holzboden",
+          "Dielen",
+          "Wand",
+          "Radio",
+          "Deckchen"
+        ],
+        "forbidden": [
+          "Flachbildschirm",
+          "Sofa",
+          "Teppich",
+          "Fernbedienung",
+          "modern"
+        ],
+        "oracle": "Alter Röhrenfernseher auf einem Radioschrank vor dem Fenster einer Stube."
+      }
+    },
+    {
+      "id": "erdfunkstelle",
+      "input": {
+        "image": "m10_alt_text/6564584.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Parabolantenne",
+          "Parabolantennen",
+          "Satellitenantenne",
+          "Satellitenantennen",
+          "Satellitenschüssel",
+          "Satellitenschüsseln",
+          "Parabolspiegel",
+          "Teleskop",
+          "Erdfunkstelle",
+          "Schüssel",
+          "Schüsseln",
+          "Teleskope"
+        ],
+        "context": [
+          "Himmel",
+          "Wiese",
+          "Feld",
+          "Acker",
+          "Gras",
+          "Zaun",
+          "Landschaft",
+          "Hügel",
+          "blau",
+          "blauem",
+          "blauen",
+          "weiße",
+          "weißen"
+        ],
+        "forbidden": [
+          "Windrad",
+          "Windkraftanlage",
+          "Nacht",
+          "Nachthimmel",
+          "Sternenhimmel",
+          "Rakete",
+          "Stadt"
+        ],
+        "oracle": "Große weiße Parabolantennen einer Erdfunkstelle auf einer Wiese unter blauem Himmel."
+      }
+    },
+    {
+      "id": "alpenbahn",
+      "input": {
+        "image": "m10_alt_text/3775791.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Zug",
+          "Zuges",
+          "Bahn",
+          "Triebwagen",
+          "Eisenbahn",
+          "Regionalzug"
+        ],
+        "context": [
+          "Tal",
+          "Alpental",
+          "Berg",
+          "Berge",
+          "Bergen",
+          "Alpen",
+          "Wiese",
+          "Dorf",
+          "Dörfer",
+          "Dörfern",
+          "Häuser",
+          "Gleis",
+          "Oberleitung",
+          "Landschaft",
+          "Wald"
+        ],
+        "forbidden": [
+          "Tunnel",
+          "Bahnhof",
+          "Brücke",
+          "Nacht",
+          "Nebel",
+          "Seilbahn",
+          "Seilbahnen"
+        ],
+        "oracle": "Roter Zug fährt durch ein grünes Alpental mit Dörfern und Bergen."
+      }
+    },
+    {
+      "id": "porsche",
+      "input": {
+        "image": "m10_alt_text/5665390.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Porsche",
+          "Sportwagen",
+          "Oldtimer",
+          "Coupé"
+        ],
+        "context": [
+          "Straße",
+          "Asphalt",
+          "Hügel",
+          "Hügeln",
+          "Büsche",
+          "Sträucher",
+          "Landschaft",
+          "Fahrbahn",
+          "Scheinwerfer",
+          "Felge",
+          "Gras",
+          "bewaldeten"
+        ],
+        "forbidden": [
+          "Rennstrecke",
+          "Stadt",
+          "Garage",
+          "Schnee",
+          "Meer",
+          "Menschen"
+        ],
+        "oracle": "Weinroter Porsche mit gelben Scheinwerfern auf einer Straße vor bewaldeten Hügeln."
+      }
+    },
+    {
+      "id": "strandstuehle",
+      "input": {
+        "image": "m10_alt_text/6529372.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Stuhl",
+          "Stühle",
+          "Campingstuhl",
+          "Campingstühle",
+          "Klappstuhl",
+          "Klappstühle",
+          "Faltstuhl",
+          "Liegestuhl",
+          "Liegestühle"
+        ],
+        "context": [
+          "Strand",
+          "Sandstrand",
+          "Sand",
+          "Wasser",
+          "Meer",
+          "Ufer",
+          "Berge",
+          "Horizont",
+          "Himmel",
+          "türkis",
+          "türkisfarbenem",
+          "Küste"
+        ],
+        "forbidden": [
+          "Sonnenschirm",
+          "Menschen",
+          "Palme",
+          "Boot",
+          "Schnee"
+        ],
+        "oracle": "Zwei leere Campingstühle am weißen Sandstrand vor türkisfarbenem Wasser."
+      }
+    },
+    {
+      "id": "palmen-strand",
+      "input": {
+        "image": "m10_alt_text/8589436.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Palme",
+          "Palmen"
+        ],
+        "context": [
+          "Strand",
+          "Sand",
+          "Meer",
+          "Wasser",
+          "Himmel",
+          "Horizont",
+          "Häuschen",
+          "Rettungsschwimmerhäuschen",
+          "Hütte",
+          "Turm",
+          "Rettungsschwimmer",
+          "Küste"
+        ],
+        "forbidden": [
+          "Menschen",
+          "Boot",
+          "Schnee",
+          "Berge",
+          "Stadt"
+        ],
+        "oracle": "Drei Palmen und ein Rettungsschwimmerhäuschen am leeren Strand vor dem Meer."
+      }
+    },
+    {
+      "id": "ladestecker",
+      "input": {
+        "image": "m10_alt_text/4077303.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Ladestecker",
+          "Ladesteckers",
+          "Ladekabel",
+          "Ladepistole",
+          "Ladesäule",
+          "Ladesäulen",
+          "Ladestation",
+          "Schnellladesäule",
+          "CHAdeMO",
+          "Stecker"
+        ],
+        "context": [
+          "Halterung",
+          "Halter",
+          "Gehäuse",
+          "Aufkleber",
+          "Warnhinweis",
+          "DANGER",
+          "kW",
+          "blau",
+          "blaue",
+          "blauen",
+          "blauer",
+          "blaues",
+          "Blau",
+          "Blaue",
+          "Blauen",
+          "Blauer",
+          "Blaues",
+          "weiß",
+          "weiße",
+          "weißen",
+          "weißer",
+          "Weiße",
+          "Weißer"
+        ],
+        "forbidden": [
+          "Zapfpistole",
+          "Zapfpistolen",
+          "Zapfhahn",
+          "Zapfsäule",
+          "Zapfsäulen",
+          "Tankstelle",
+          "Tankstellen",
+          "Benzin",
+          "Diesel",
+          "Kraftstoff",
+          "Auto",
+          "Autos",
+          "Fahrzeug",
+          "Fahrzeuge",
+          "Person",
+          "Personen",
+          "Hand",
+          "Hände",
+          "Mann",
+          "Frau"
+        ],
+        "oracle": "Blauer CHAdeMO-Ladestecker in seiner Halterung an einer weiß-blauen Säule."
+      }
+    },
+    {
+      "id": "zapfpistolen",
+      "input": {
+        "image": "m10_alt_text/6999650.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Zapfpistole",
+          "Zapfpistolen",
+          "Zapfhahn",
+          "Zapfhähne",
+          "Tankpistole",
+          "Tankpistolen",
+          "Zapfventil",
+          "Zapfventile"
+        ],
+        "context": [
+          "Tankstelle",
+          "Zapfsäule",
+          "Zapfsäulen",
+          "Tanksäule",
+          "Halterung",
+          "Halterungen",
+          "Schlauch",
+          "Schläuche",
+          "Reihe",
+          "Hintergrund",
+          "unscharf",
+          "unscharfen",
+          "bunt",
+          "bunte",
+          "bunten",
+          "bunter",
+          "Bunte",
+          "Bunter",
+          "grün",
+          "grüne",
+          "grünen",
+          "grüner",
+          "Grüne",
+          "orange",
+          "orangefarbene",
+          "Orange",
+          "gelb",
+          "gelbe",
+          "gelben",
+          "Gelbe",
+          "schwarz",
+          "schwarze",
+          "schwarzen",
+          "Schwarze"
+        ],
+        "forbidden": [
+          "Ladesäule",
+          "Ladesäulen",
+          "Ladestecker",
+          "Ladestation",
+          "Ladestationen",
+          "Elektroauto",
+          "Elektroautos",
+          "Auto",
+          "Autos",
+          "Fahrzeug",
+          "Fahrzeuge",
+          "Person",
+          "Personen",
+          "Hand",
+          "Hände",
+          "Nacht"
+        ],
+        "oracle": "Reihe bunter Zapfpistolen in ihren Halterungen an einer Zapfsäule."
+      }
+    },
+    {
+      "id": "alte-zapfsaeulen",
+      "input": {
+        "image": "m10_alt_text/7908694.jpg"
+      },
+      "reference": {
+        "subject": [
+          "Zapfsäule",
+          "Zapfsäulen",
+          "Tanksäule",
+          "Tanksäulen",
+          "Benzinpumpe",
+          "Benzinpumpen",
+          "Zapfanlage",
+          "Tankstelle"
+        ],
+        "context": [
+          "Gras",
+          "Gräser",
+          "Wiese",
+          "Rost",
+          "Mauer",
+          "Wand",
+          "Gebäude",
+          "Schlauch",
+          "Bäume",
+          "Super",
+          "überwuchert",
+          "Überwuchert",
+          "verwildert",
+          "rostig",
+          "rostige",
+          "rostigen",
+          "rostiger",
+          "verrostet",
+          "verrostete",
+          "verrosteten",
+          "Verrostete",
+          "verwittert",
+          "verwitterte",
+          "verwitterten",
+          "Verwitterte",
+          "verlassen",
+          "verlassene",
+          "verlassenen",
+          "Verlassene",
+          "stillgelegt",
+          "stillgelegte",
+          "Stillgelegte",
+          "alte",
+          "alten",
+          "alter",
+          "Alte",
+          "Alter",
+          "Alten"
+        ],
+        "forbidden": [
+          "Ladesäule",
+          "Ladesäulen",
+          "Ladestecker",
+          "Ladestation",
+          "Ladestationen",
+          "Elektroauto",
+          "Elektroautos",
+          "Auto",
+          "Autos",
+          "Fahrzeug",
+          "Fahrzeuge",
+          "Person",
+          "Personen",
+          "Mensch",
+          "Menschen",
+          "Kunde",
+          "Kunden",
+          "Schnee",
+          "modern",
+          "moderne",
+          "modernen",
+          "moderner",
+          "modernes",
+          "Moderne",
+          "Modernes"
+        ],
+        "oracle": "Zwei verrostete Zapfsäulen mit Schlauch stehen in hohem Gras vor einer verwitterten Mauer."
+      }
+    }
+  ]
+}
