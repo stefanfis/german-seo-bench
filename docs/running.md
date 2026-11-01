@@ -213,7 +213,7 @@ Begründung.
 | A01: `returncode=126 … /var/tmp/.<hash>/inspect-sandbox-tools: Permission denied` | Das Image wechselt auf einen Nicht-root-Benutzer. Inspect legt seine Sandbox-Werkzeuge root-eigen mit 0700 ab und ruft sie als Vorgabebenutzer des Images auf — ein `USER` im Dockerfile bricht damit jeden Werkzeugaufruf. Nicht die Mount-Optionen von `/var/tmp`. |
 | A01 mit `-T agent=goose`: score 0.00, `answer_source: stdout` | Erst `Score.metadata.cli` ansehen: Dort stehen Rückgabewert und die letzten Zeilen von stdout/stderr. Ein CLI, das gar nicht startet, liefert dieselbe Null wie ein Modell, das nichts findet. Häufigster Fall bei lokalen Modellen: `exceeds the available context size` mitten im Audit — das CLI beendet sich danach mit **rc=0**, und übrig bleibt eine Antwort ohne JSON (`parse_error`). Dann ist das Kontextfenster zu klein, nicht das Modell zu schwach. |
 | A01 mit `-T agent=goose`: `'goose' not found` | Das Agent-Image ist älter als die Agent-Achse. `docker compose -f …/compose.yaml build` neu bauen. |
-| A01: die Referenz-Erzeugung meldet Abweichungen nach einer Änderung an `site/` | Genau dafür ist sie da. Absicht? Dann `--write` und `version` in `data/a01_browser_audit.json` hochzählen. Sonst ist die Prüflandschaft kaputt. |
+| A01: die Referenz-Erzeugung meldet Abweichungen nach einer Änderung an `site/` | Genau dafür ist sie da. Absicht? Dann `--write` und `version` in `data/a01_browser_audit.json` hochzählen, falls seit der letzten Veröffentlichung noch nicht geschehen ([Versionen](../README.md#versionen)). Sonst ist die Prüflandschaft kaputt. |
 
 Einen laufenden Eval kann man aus einer zweiten Shell ausfragen — das zeigt,
 welcher Datensatz gerade dran ist und wie lange er schon nichts mehr gesagt hat:

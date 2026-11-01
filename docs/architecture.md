@@ -160,7 +160,8 @@ erreicht es gar nicht — nicht aus Disziplin, sondern weil `load_dataset()` sie
 nicht übergibt. Was in `reference` steht, sieht das Modell nie; es landet in
 `Sample.metadata` und damit nur im Log und beim Scorer.
 
-`version` wird hochgezählt, sobald sich Prompt oder Prüfung ändern. Sie steht
+`version` wird hochgezählt, sobald sich Prompt oder Prüfung ändern, einmal je
+Veröffentlichung (siehe [Versionen](../README.md#versionen)). Sie steht
 in jedem Log — sonst vergleicht man später Zahlen aus zwei verschiedenen
 Aufgaben unter einem Namen.
 

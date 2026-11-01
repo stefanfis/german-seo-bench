@@ -146,6 +146,23 @@ Es gibt zwei Versionsnummern, und sie beantworten verschiedene Fragen:
   sind. Sie steigt, sobald sich Prompt, Datensatz oder Prüfung ändern — auch
   wenn sich nur ein Satz im Prompt ändert.
 
+Hochgezählt wird je Veröffentlichung, nicht je Änderung:
+
+1. **Die erste Änderung nach einer Veröffentlichung** setzt die
+   Benchmark-Version auf die nächste Entwicklungsversion, etwa `2026.2.dev0`.
+   Jede Aufgabe, die sich ändert, zählt dabei **einmal** hoch.
+2. **Weitere Änderungen bis zur nächsten Veröffentlichung** zählen nicht
+   erneut, auch nicht an einer Aufgabe, die schon hochgezählt ist.
+3. **Die Veröffentlichung** setzt die Benchmark-Version ohne `.dev0`
+   (`2026.2`), trägt die Aufgabenversionen in die Tabelle unten ein und setzt den
+   Tag.
+
+Läufe zwischen erster Änderung und Veröffentlichung tragen `.dev0` im Log und
+sind Testläufe: Sie können aus verschiedenen Zwischenständen stammen, obwohl die
+Aufgabenversion dieselbe ist. Zählen sollen nur Läufe der veröffentlichten
+Version. Der Bericht nennt jede Benchmark-Version mit der Zahl ihrer Läufe, ein
+mitgerechneter Testlauf fällt dort also auf.
+
 Die beiden laufen bewusst nicht synchron: Ändert sich eine Aufgabe, bleiben die
 Scores aller anderen vergleichbar. Wer eine Zahl zitiert, nennt beides, etwa
 „german-seo-bench 2026.1, A01 v1". `report` bricht ab, wenn Läufe einer Aufgabe
