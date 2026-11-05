@@ -29,6 +29,13 @@ from german_seo_bench.reference.audit import audit
 DATA = "a01_browser_audit.json"
 COMPOSE = "a01_browser_audit/reference.compose.yaml"
 
+# Wohin das Capture ohne `--out` geht. Nicht ins Temp-Verzeichnis des Systems:
+# Unter macOS liegt das in `/var/folders`, und nicht jede Docker-Umgebung gibt
+# diesen Pfad an Container frei. Dann legt Docker das Verzeichnis still in
+# seiner VM an, der Container schreibt dorthin, und auf dem Mac kommt nichts
+# an. Das Home-Verzeichnis geben Docker Desktop, OrbStack und Colima frei.
+CAPTURE_ROOT = Path.home() / ".cache" / "german-seo-bench"
+
 
 def frozen_reference() -> tuple[list[str], set[tuple[str, str]]]:
     """Seitenliste und eingefrorene Befunde aus dem Datensatz."""
@@ -69,7 +76,15 @@ def render(pages: list[str], out_dir: Path) -> Path:
         env=env,
         cwd=compose.parent,
     )
-    return out_dir / "capture.json"
+    capture = out_dir / "capture.json"
+    if not capture.exists():
+        raise SystemExit(
+            f"Der Container hat sein Capture geschrieben, aber unter {out_dir} "
+            "ist keines angekommen. Vermutlich gibt Docker dieses Verzeichnis "
+            "nicht an Container frei. Abhilfe: `--out` auf ein Verzeichnis "
+            "unter dem Home-Verzeichnis setzen."
+        )
+    return capture
 
 
 def compare(
@@ -121,7 +136,11 @@ def main(argv: list[str] | None = None) -> int:
     if args.capture:
         capture_path = args.capture
     else:
-        out_dir = args.out or Path(tempfile.mkdtemp(prefix="a01-capture-"))
+        if args.out:
+            out_dir = args.out
+        else:
+            CAPTURE_ROOT.mkdir(parents=True, exist_ok=True)
+            out_dir = Path(tempfile.mkdtemp(prefix="a01-capture-", dir=CAPTURE_ROOT))
         out_dir.mkdir(parents=True, exist_ok=True)
         capture_path = render(pages, out_dir)
 

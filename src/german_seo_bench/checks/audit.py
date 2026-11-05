@@ -167,6 +167,12 @@ CLICK_TOOLS = frozenset({"click", "click_at"})
 # Werkzeuge, deren `url`-Argument eine Seite tatsächlich aufruft.
 NAVIGATION_TOOLS = frozenset({"new_page", "navigate_page"})
 SCRIPT_TOOLS = frozenset({"evaluate_script"})
+# pi ruft die Browser-Werkzeuge in seiner Vorgabe nicht einzeln auf, sondern aus
+# einem JavaScript im Werkzeug `codemode` heraus: `tools.mcp__chrome_devtools__click({…})`.
+# Die Aufrufe darin zählen wie eigene Werkzeugaufrufe, sonst sähen
+# `tool_calls`, `clicked` und `scrolled` auf diesem Pfad nur „codemode".
+CODE_TOOLS = frozenset({"codemode"})
+_TOOL_IN_CODE = re.compile(r"\btools\.(\w+)\s*\(")
 KEY_TOOLS = frozenset({"press_key"})
 SCROLL_KEYS = frozenset({"End", "PageDown", "Page_Down", "ArrowDown", "Space", " "})
 
@@ -254,6 +260,9 @@ def tool_usage(messages: Iterable[Any]) -> dict[str, int]:
             name = tool_base_name(getattr(call, "function", ""))
             if name:
                 counts[name] = counts.get(name, 0) + 1
+            if name in CODE_TOOLS:
+                for inner in _tools_in_code(call):
+                    counts[inner] = counts.get(inner, 0) + 1
     return counts
 
 
@@ -268,6 +277,11 @@ def _arguments(call: Any) -> str:
         return json.dumps(arguments, ensure_ascii=False)
     except (TypeError, ValueError):
         return str(arguments)
+
+
+def _tools_in_code(call: Any) -> list[str]:
+    """Die Werkzeuge, die ein `codemode`-Skript aufruft, als Basisnamen."""
+    return [tool_base_name(name) for name in _TOOL_IN_CODE.findall(_arguments(call))]
 
 
 def behaviour(messages: Iterable[Any]) -> dict[str, bool]:
@@ -318,8 +332,15 @@ def behaviour(messages: Iterable[Any]) -> dict[str, bool]:
                 cache_bypassed = True
             if name in CLICK_TOOLS:
                 clicked = True
-            elif name in SCRIPT_TOOLS:
-                clicked = clicked or bool(_CLICK_IN_SCRIPT.search(argumente))
+            elif name in SCRIPT_TOOLS or name in CODE_TOOLS:
+                # Ein `codemode`-Skript enthält beides: eigene Aufrufe der
+                # Werkzeuge und Skripte für `evaluate_script`.
+                inner = set(_tools_in_code(call)) if name in CODE_TOOLS else set()
+                clicked = (
+                    clicked
+                    or bool(inner & CLICK_TOOLS)
+                    or bool(_CLICK_IN_SCRIPT.search(argumente))
+                )
                 scrolled = scrolled or bool(_SCROLL_IN_SCRIPT.search(argumente))
             elif name in KEY_TOOLS and any(
                 key in argumente for key in SCROLL_KEYS

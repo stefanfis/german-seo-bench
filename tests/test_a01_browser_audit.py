@@ -28,19 +28,31 @@ from german_seo_bench.config import MAX_TOKENS
 from german_seo_bench.dataset import data_path, load_dataset
 from german_seo_bench.tasks.a01_browser_audit import (
     AGENT_GOOSE,
+    AGENT_PI,
     ANSWER_MAX_TOKENS,
     CAPABILITY_CLASSES,
     AGENT_REACT,
     AGENTS,
     ANSWER_FILE,
     CHROME_PATH,
+    FROM_FILE,
+    FROM_FINAL,
+    MIN_CONTEXT,
+    STORE_CONTEXT,
+    WINDOW_ASSUMED,
+    WINDOW_FROM_MODEL_INFO,
+    WINDOW_FROM_SERVER,
+    ContextBudget,
+    pick_window,
     COMPOSE,
     DATA,
     MCP_ARGS,
     MCP_COMMAND,
+    MCP_TIMEOUT,
     MESSAGE_LIMIT,
     MODEL_CALL_TIMEOUT,
     SITE_URL,
+    START_PAGE,
     TIME_LIMIT,
     VIEWPORT_HEIGHT,
     VIEWPORT_WIDTH,
@@ -49,6 +61,7 @@ from german_seo_bench.tasks.a01_browser_audit import (
     a01_browser_audit,
     audit_report,
     capability_f1,
+    choose_answer,
     extract_markdown,
     assessment_html,
     evaluate_audit,
@@ -58,6 +71,9 @@ from german_seo_bench.tasks.a01_browser_audit import (
     report_prompt,
     goose_command,
     goose_env,
+    pi_command,
+    pi_config,
+    pi_env,
     prompt,
 )
 
@@ -1244,10 +1260,56 @@ class TestFaehigkeitsklassen:
 
 
 class TestVertrag:
-    def test_prompt_nennt_jede_seite_mit_url(self, dataset, sample) -> None:
+    def test_prompt_nennt_die_startseite_und_keine_liste(self, dataset, sample) -> None:
         text = dataset[0].input
-        for page in sample["input"]["pages"]:
-            assert f"{SITE_URL}{page}" in text, page
+        assert f"{SITE_URL}{START_PAGE}" in text
+        andere = [p for p in sample["input"]["pages"] if p != START_PAGE]
+        assert not [p for p in andere if p in text], "der Prompt nennt Seiten"
+
+    def test_jede_seite_ist_von_der_startseite_erreichbar(self, sample, site) -> None:
+        """Ohne Seitenliste im Prompt findet der Agent nur, was verlinkt ist
+        oder in der Sitemap steht. Eine Seite, die keins von beiden ist, wäre
+        ein Befund, den niemand finden kann — und ihre Null läge nicht am
+        Modell.
+        """
+        sitemap = quelltext(site, "sitemap.xml")
+        erreicht = {START_PAGE} | set(
+            re.findall(r"<loc>[^<]*/([\w.-]+\.html)</loc>", sitemap)
+        )
+        offen = list(erreicht)
+        while offen:
+            for quelle in quellen(site, offen.pop()):
+                for ziel in interne_links(quelle) - erreicht:
+                    erreicht.add(ziel)
+                    offen.append(ziel)
+        fehlen = sorted(set(sample["input"]["pages"]) - erreicht)
+        assert not fehlen, f"weder verlinkt noch in der Sitemap: {fehlen}"
+
+    def test_robots_txt_nennt_die_sitemap(self, site) -> None:
+        # Der einzige Weg zur Sitemap, den der Prompt voraussetzt. Raten muss
+        # niemand.
+        robots = quelltext(site, "robots.txt")
+        assert f"Sitemap: {SITE_URL}sitemap.xml" in robots
+
+    def test_die_werkzeuge_verraten_keine_falle(self, dataset) -> None:
+        """Die Werkzeugzuordnung nennt Fähigkeiten, keine Prüfschritte.
+
+        Welche Bedingung eine Seite ändert (Kennung, Cache, Besuchszahl), ist
+        das, was die Klassen `request` und `second_load` messen. Ein Prompt,
+        der „lade zweimal" oder „prüfe als Googlebot" sagt, nähme ihnen das.
+        Geprüft wird nur dieser Absatz: Der Katalog beschreibt die Befunde und
+        nennt Crawler und erneuten Aufruf zwangsläufig.
+        """
+        text = dataset[0].input
+        start = text.index("Was die Browser-Werkzeuge leisten:")
+        absatz = text[start:text.index("\n\n", start)]
+        for werkzeug in ("take_snapshot", "evaluate_script", "list_network_requests",
+                         "navigate_page", "emulate", "performance_start_trace"):
+            assert werkzeug in absatz, werkzeug
+        klein = absatz.lower()
+        for wort in ("googlebot", "crawler", "cache", "cookie", "zweit", "erneut",
+                     "wiederholt"):
+            assert wort not in klein, wort
 
     def test_prompt_nennt_den_katalog(self, dataset, sample) -> None:
         text = dataset[0].input
@@ -1655,7 +1717,7 @@ class TestAgentAchse:
     """
 
     def test_nur_bekannte_gerueste(self) -> None:
-        assert AGENTS == (AGENT_REACT, AGENT_GOOSE)
+        assert AGENTS == (AGENT_REACT, AGENT_GOOSE, AGENT_PI)
         for name in AGENTS:
             assert a01_browser_audit(agent=name) is not None
         with pytest.raises(ValueError, match="Unbekannter Agent"):
@@ -1669,10 +1731,8 @@ class TestAgentAchse:
         # deshalb nennt der Prompt beide Wege, statt je Gerüst ein eigener zu
         # sein. Zwei Prompts wären eine zweite geänderte Größe.
         assert ANSWER_FILE in dataset[0].input
-        assert (
-            a01_browser_audit(agent=AGENT_REACT).dataset[0].input
-            == a01_browser_audit(agent=AGENT_GOOSE).dataset[0].input
-        )
+        eingaben = {a01_browser_audit(agent=name).dataset[0].input for name in AGENTS}
+        assert len(eingaben) == 1
 
     def test_das_cli_bekommt_denselben_browser(self) -> None:
         """Dieselben MCP-Flags wie im react-Pfad, wörtlich.
@@ -1690,15 +1750,38 @@ class TestAgentAchse:
         for flag in MCP_ARGS:
             assert flag in erweiterung, flag
 
+    def test_pi_bekommt_denselben_browser_ueber_codemode(self) -> None:
+        """Dieselben MCP-Flags wie im react-Pfad, und pi entscheidet selbst,
+        wie das Modell sie sieht: Ein `exposure` stünde für eine Variante, die
+        kein typischer pi-Nutzer fährt."""
+        server = pi_config(13131, ContextBudget(MIN_CONTEXT, "test"))["mcp.json"][
+            "mcpServers"
+        ]["chrome-devtools"]
+        assert server["command"] == MCP_COMMAND
+        assert server["args"] == MCP_ARGS
+        assert server["timeout"] >= MCP_TIMEOUT
+        assert "exposure" not in server
+        # `--no-extensions` schaltete MCP und codemode ab.
+        assert "--no-extensions" not in pi_command()
+        assert "-ne" not in pi_command()
+
     def test_das_cli_fragt_nur_die_bruecke(self) -> None:
         # Der Endpunkt des CLI zeigt in den eigenen Container. Stünde hier eine
         # Adresse eines Anbieters, liefe die Messung am Inspect-Log vorbei —
         # und das `internal`-Netz wäre umgangen.
-        env = goose_env(13131)
+        env = goose_env(13131, ContextBudget(MIN_CONTEXT, "test"))
         assert env["OPENAI_HOST"] == "http://localhost:13131"
         assert not any(
             wert.startswith("http") and "localhost" not in wert for wert in env.values()
         )
+        anbieter = pi_config(13131, ContextBudget(MIN_CONTEXT, "test"))["models.json"][
+            "providers"
+        ]
+        assert [p["baseUrl"] for p in anbieter.values()] == ["http://localhost:13131/v1"]
+        assert pi_command()[pi_command().index("--model") + 1] == "/".join(
+            [next(iter(anbieter)), anbieter[next(iter(anbieter))]["models"][0]["id"]]
+        )
+        assert pi_env()["PI_OFFLINE"] == "1"
 
     def test_das_cli_bringt_seine_eigene_grenze_mit(self) -> None:
         # `MESSAGE_LIMIT` zählt Nachrichten in Inspects Loop. Im CLI-Pfad gibt
@@ -1707,6 +1790,7 @@ class TestAgentAchse:
         # nicht den Agenten meint.
         assert a01_browser_audit(agent=AGENT_REACT).message_limit == MESSAGE_LIMIT
         assert a01_browser_audit(agent=AGENT_GOOSE).message_limit is None
+        assert a01_browser_audit(agent=AGENT_PI).message_limit is None
         assert "--max-turns" in goose_command()
 
     def test_das_image_bringt_das_cli_festgenagelt_mit(self) -> None:
@@ -1724,6 +1808,256 @@ class TestAgentAchse:
         # Binary; `/stable/` wäre wieder ein wandernder Zeiger.
         assert "releases/download/v${GOOSE_VERSION}/download_cli.sh" in befehle
         assert "/stable/" not in befehle
+        assert re.search(r"PI_VERSION=\d+\.\d+\.\d+", dockerfile)
+        assert "pi-coding-agent@${PI_VERSION}" in befehle
+
+
+class TestKontextbudget:
+    """Das Fenster wird ermittelt und genannt, aber nicht gepflegt.
+
+    Der Lauf, der zu dieser Klasse geführt hat: goose kannte das Fenster nicht,
+    nahm 128.000 Tokens an und verdichtete nie. Die 53. Anfrage war mit der
+    Antwortreserve länger als das 64k-Fenster des Servers, goose beendete
+    sich mit rc=0, und alles bis dahin Gefundene zählte null.
+    """
+
+    FENSTER = (MIN_CONTEXT, 131_072, 1_000_000)
+
+    def test_die_rechnung_geht_auf(self) -> None:
+        minimum = ContextBudget(MIN_CONTEXT, "test")
+        assert MIN_CONTEXT == 65_536
+        assert minimum.input_budget == 49_152
+        for fenster in self.FENSTER:
+            budget = ContextBudget(fenster, "test")
+            assert budget.input_budget == fenster - ANSWER_MAX_TOKENS
+
+    def test_der_grund_steht_im_log(self) -> None:
+        # Ein angenommenes Fenster ohne Grund ließ beim ersten Lauf von
+        # Version 2 nur raten, warum die Abfrage gescheitert war.
+        budget = ContextBudget(MIN_CONTEXT, WINDOW_ASSUMED, "ReadTimeout")
+        assert budget.as_dict()["note"] == "ReadTimeout"
+        assert "note" not in ContextBudget(131_072, WINDOW_FROM_SERVER).as_dict()
+
+    def test_lokal_zaehlt_nur_der_server(self) -> None:
+        """Inspects Modelldaten kennen das Fenster des Modells, nicht des Servers.
+
+        Für Qwen 3.5 9B nennen sie 262.144 Tokens; gestartet ist der Server
+        mit 131.072. Wer der Datenbank glaubte, verdichtete zu spät und liefe
+        über — die Gegenprobe ist der zweite Fall.
+        """
+        assert pick_window("local/qwen3.5-9b", 131_072, 262_144) == ContextBudget(
+            131_072, WINDOW_FROM_SERVER
+        )
+        assert pick_window("local/qwen3.5-9b", None, 262_144) == ContextBudget(
+            MIN_CONTEXT, WINDOW_ASSUMED
+        )
+        assert pick_window("openai-api/dirac/x", 32_768, None).window == 32_768
+
+    def test_cloud_aus_den_modelldaten_sonst_das_minimum(self) -> None:
+        assert pick_window("anthropic/claude-haiku-5-5", None, 1_000_000) == (
+            ContextBudget(1_000_000, WINDOW_FROM_MODEL_INFO)
+        )
+        assert pick_window("none/none", None, None) == ContextBudget(
+            MIN_CONTEXT, WINDOW_ASSUMED
+        )
+
+    def test_der_benchmark_pflegt_keinen_kontext(self) -> None:
+        """Kein Verdichten und kein Kürzen durch Inspect, in keinem Gerüst.
+
+        Kontextpflege ist Sache des Prüflings. In der Bridge war Inspects
+        Compaction zudem schädlich: Sie hängte goose' Titelanfrage an den
+        Verlauf des Audits, und das Modell lieferte am Ende einen Titel statt
+        der Befunde.
+        """
+        import inspect as pyinspect
+
+        from german_seo_bench.tasks.a01_browser_audit import (
+            audit_agent,
+            cli_agent,
+        )
+
+        for agent in (audit_agent, cli_agent):
+            quelle = pyinspect.getsource(agent)
+            assert "await plan_context()" in quelle
+            assert "compaction" not in quelle
+            assert "truncation" not in quelle
+
+    def test_goose_kennt_das_fenster_und_verdichtet_selbst(self) -> None:
+        """goose erfährt das Fenster; wann es verdichtet, bleibt seine Sache.
+
+        Ohne `GOOSE_CONTEXT_LIMIT` rechnet goose für den Modellnamen `inspect`
+        mit 128.000 Tokens. Eine Schwelle setzt der Benchmark nicht.
+        """
+        for fenster in self.FENSTER:
+            budget = ContextBudget(fenster, "test")
+            env = goose_env(13131, budget)
+            assert env["GOOSE_CONTEXT_LIMIT"] == str(budget.input_budget)
+            assert "GOOSE_AUTO_COMPACT_THRESHOLD" not in env
+
+    def test_pi_kennt_das_fenster_und_verdichtet_selbst(self) -> None:
+        """pi verdichtet ab `contextWindow - reserveTokens`, die Reserve ist in
+        seiner Vorgabe `ANSWER_MAX_TOKENS`. Die Schwelle ist damit dieselbe wie
+        bei goose, ohne dass der Benchmark eine setzt."""
+        for fenster in self.FENSTER:
+            budget = ContextBudget(fenster, "test")
+            modell = pi_config(13131, budget)["models.json"]["providers"]["inspect"][
+                "models"
+            ][0]
+            assert modell["contextWindow"] == budget.window
+            assert modell["maxTokens"] == ANSWER_MAX_TOKENS
+            assert modell["contextWindow"] - ANSWER_MAX_TOKENS == budget.input_budget
+
+    def test_react_bekommt_ein_dateiwerkzeug_und_keine_shell(self) -> None:
+        # Ohne Dateiwerkzeug kann der react-Pfad keine Befundliste führen, und
+        # der Prompt verlangte etwas Unmögliches. Eine Shell dagegen änderte,
+        # was dieser Pfad misst: das Modell am Browser, nicht an curl.
+        import inspect as pyinspect
+
+        from german_seo_bench.tasks.a01_browser_audit import audit_agent
+
+        quelle = pyinspect.getsource(audit_agent)
+        assert "text_editor()" in quelle
+        assert "bash(" not in quelle
+
+
+class TestBefundliste:
+    """Gewertet wird die laufend geführte Befundliste, sonst die Schlussantwort.
+
+    Damit zählt bei einem vorzeitigen Ende (Zeitgrenze, voller Kontext, ein
+    abgestürztes CLI), was bis dahin feststand, statt einer Null.
+    """
+
+    PAGES = ["home.html", "alt.html"]
+    ISSUES = ["content_requires_js", "client_side_redirect"]
+    HOME = {"page": "home.html", "issue": "content_requires_js"}
+    ALT = {"page": "alt.html", "issue": "client_side_redirect"}
+    LISTE = json.dumps([HOME])
+
+    def _gewertet(self, datei: str | None, schluss: str = "") -> tuple[set, list, str]:
+        from german_seo_bench.checks import parse_findings
+
+        text, quelle = choose_answer(datei, schluss)
+        gefunden, verworfen, _ = parse_findings(text, self.PAGES, self.ISSUES)
+        return gefunden, verworfen, quelle
+
+    def test_die_datei_gewinnt(self) -> None:
+        datei = json.dumps(self.HOME) + "\n"
+        gefunden, _, quelle = self._gewertet(datei, json.dumps([self.ALT]))
+        assert (gefunden, quelle) == ({("home.html", "content_requires_js")}, FROM_FILE)
+
+    def test_ohne_datei_gilt_die_schlussantwort(self) -> None:
+        assert choose_answer(None, self.LISTE) == (self.LISTE, FROM_FINAL)
+
+    def test_eine_kaputte_zeile_kostet_nur_sich_selbst(self) -> None:
+        # Der Grund für JSON Lines: Ein Agent, der mitten im Schreiben
+        # abbricht, verliert die angefangene Zeile, nicht die ganze Liste.
+        datei = json.dumps(self.HOME) + "\n" + json.dumps(self.ALT)[:-5]
+        gefunden, verworfen, quelle = self._gewertet(datei, self.LISTE)
+        assert quelle == FROM_FILE
+        assert gefunden == {("home.html", "content_requires_js")}
+        assert len(verworfen) == 1 and verworfen[0].startswith("kein Objekt")
+
+    def test_doppelte_zeilen_zaehlen_einmal(self) -> None:
+        # Wer anhängt, statt neu zu schreiben, trägt manches doppelt ein.
+        datei = "\n".join([json.dumps(self.HOME)] * 3)
+        gefunden, verworfen, _ = self._gewertet(datei)
+        assert gefunden == {("home.html", "content_requires_js")} and not verworfen
+
+    def test_ein_array_statt_zeilen_gilt_auch(self) -> None:
+        # Die Verpackung ist nicht, was gemessen wird — auch nicht, wenn sie
+        # über mehrere Zeilen eingerückt ist oder Zeilen mit Komma enden.
+        eingerueckt = json.dumps([self.HOME, self.ALT], indent=2)
+        mit_komma = json.dumps(self.HOME) + ",\n" + json.dumps(self.ALT) + ","
+        for datei in (eingerueckt, mit_komma):
+            gefunden, verworfen, quelle = self._gewertet(datei)
+            assert quelle == FROM_FILE and len(gefunden) == 2 and not verworfen, datei
+
+    def test_eine_leere_datei_verdraengt_die_schlussantwort_nicht(self) -> None:
+        for datei in ("", "\n", "kaputt\n{nicht json"):
+            assert choose_answer(datei, self.LISTE) == (self.LISTE, FROM_FINAL), datei
+
+    def test_der_prompt_verlangt_die_laufende_liste(self, dataset) -> None:
+        eingabe = dataset[0].input
+        assert ANSWER_FILE in eingabe
+        assert ANSWER_FILE.endswith(".jsonl")
+        assert "ein Objekt je Zeile" in eingabe
+        assert "anhängst oder die Datei neu schreibst" in eingabe
+        # Der Benchmark entfernt nichts mehr aus dem Verlauf; der Prompt darf
+        # es nicht behaupten.
+        assert "aus dem Verlauf entfernt" not in eingabe
+        assert "vorzeitig" in eingabe
+
+    @staticmethod
+    def _ohne_schlussantwort():
+        """Ein Solver, der abbricht, ohne eine Antwort zu hinterlassen."""
+        from inspect_ai.model import ModelOutput
+        from inspect_ai.solver import Generate, Solver, TaskState, solver
+
+        @solver
+        def abgebrochen() -> Solver:
+            async def solve(state: TaskState, generate: Generate) -> TaskState:
+                state.output = ModelOutput.from_content(
+                    model="abgebrochen",
+                    content="Error code: 400 - {'error': 'request exceeds the context window'}",
+                )
+                return state
+
+            return solve
+
+        return abgebrochen()
+
+    def test_ein_abgebrochener_lauf_wird_aus_der_datei_gewertet(
+        self, log_dir: str, sample, monkeypatch
+    ) -> None:
+        """Der Fall aus dem goose-Lauf: Fehlermeldung statt Antwort, Liste da.
+
+        Die Datei liegt im Container, den der Oracle-Lauf nicht hat — sie wird
+        deshalb an der Stelle eingesetzt, an der sonst gelesen wird.
+        """
+        # Über `sys.modules`: `german_seo_bench.tasks.a01_browser_audit` ist
+        # als Attribut die Task-Funktion, nicht das Modul.
+        import sys
+
+        modul = sys.modules["german_seo_bench.tasks.a01_browser_audit"]
+
+        async def liste() -> str:
+            return "\n".join(json.dumps(f) for f in sample["reference"]["findings"])
+
+        monkeypatch.setattr(modul, "read_answer_file", liste)
+        log = inspect_eval(
+            a01_browser_audit(oracle=True),
+            model="none/none",
+            log_dir=log_dir,
+            solver=[self._ohne_schlussantwort(), audit_report()],
+        )[0]
+        assert log.status == "success", log.error
+        score = next(s for s in log.results.scores if s.name == "score")
+        assert score.metrics["mean"].value == 1.0
+        detail = log.samples[0].scores["audit_scorer"].metadata
+        assert detail["answer_source"] == FROM_FILE
+        assert detail["final_answer_error"]
+
+    def test_gegenprobe_ohne_datei_bleibt_es_bei_null(self, log_dir: str) -> None:
+        """Dieselbe Fehlermeldung ohne Befundliste ergibt null — und keinen Bericht.
+
+        Ein Bericht über eine Fehlermeldung kostete einen langen Modellaufruf
+        und ergäbe ein PDF ohne Inhalt. Der Vermerk muss sagen, warum es keinen
+        gibt, und zwar bevor ein Modell gefragt wird: Im Oracle-Lauf gibt es
+        keines, ein Versuch endete als `Fehler`.
+        """
+        log = inspect_eval(
+            a01_browser_audit(oracle=True),
+            model="none/none",
+            log_dir=log_dir,
+            solver=[self._ohne_schlussantwort(), audit_report()],
+        )[0]
+        assert log.status == "success", log.error
+        score = next(s for s in log.results.scores if s.name == "score")
+        assert score.metrics["mean"].value == 0.0
+        detail = log.samples[0].scores["audit_scorer"].metadata
+        assert detail["answer_source"] == FROM_FINAL
+        vermerk = log.samples[0].store[STORE_REPORT]
+        assert vermerk["status"] == "Antwort nicht auswertbar", vermerk
 
 
 def punkt_komma_hilfe(wert: float) -> str:
@@ -1926,13 +2260,64 @@ class TestBericht:
         )
         assert any("Rückgabewert 1" in n for n in notizen), notizen
 
-    def test_eine_unlesbare_antwort_steht_im_kasten(self) -> None:
+    def test_verworfene_meldungen_stehen_im_kasten(self) -> None:
         bewertung = self._bewertung(tp=0, fp=0, fn=3)
-        bewertung["parse_error"] = "kein JSON in der Antwort"
         bewertung["discarded"] = ["x.html/erfunden", "y.html/auch"]
         notizen = run_notes(self._state(), bewertung)
-        assert any("nicht auswertbar" in n for n in notizen), notizen
         assert any("2 Meldungen wurden verworfen" in n for n in notizen), notizen
+
+    def test_ein_abgebrochenes_cli_steht_im_kasten(self) -> None:
+        from german_seo_bench.tasks.a01_browser_audit import TIME_LIMIT
+
+        offen = {"returncode": None, "finished": False}
+        notizen = run_notes(self._state(**{STORE_CLI: offen}), self._bewertung(1, 0, 1))
+        assert any(f"nach {TIME_LIMIT // 60} Minuten" in n for n in notizen), notizen
+
+        fertig = {"returncode": 0, "finished": True}
+        notizen = run_notes(self._state(**{STORE_CLI: fertig}), self._bewertung(1, 0, 1))
+        assert not any("abgebrochen" in n for n in notizen), notizen
+
+    def test_das_cli_hat_keine_eigene_zeitgrenze(self) -> None:
+        """Der zweite Lauf von A01 v2: 30 von 31 Befunden in der Datei, und
+        der Datensatz endete trotzdem ohne Score, weil eine eigene Zeitgrenze
+        des CLI `sandbox().exec` werfen ließ. An `TIME_LIMIT` wertet Inspect
+        dagegen, und das CLI hat dieselbe Zeit wie react.
+        """
+        import inspect as pyinspect
+
+        from german_seo_bench.tasks.a01_browser_audit import cli_agent
+
+        quelle = pyinspect.getsource(cli_agent)
+        assert "timeout=" not in quelle
+        assert '"finished": False' in quelle
+
+    def test_ein_fenster_unter_dem_minimum_steht_im_kasten(self) -> None:
+        klein = ContextBudget(32_768, "server").as_dict()
+        notizen = run_notes(
+            self._state(**{STORE_CONTEXT: klein}), self._bewertung(1, 0, 1)
+        )
+        assert any("32.768 Tokens" in n for n in notizen), notizen
+        # Gegenprobe: Ein Fenster ab dem Minimum ist keine Störung.
+        gross = ContextBudget(131_072, "server").as_dict()
+        assert run_notes(
+            self._state(**{STORE_CONTEXT: gross}), self._bewertung(1, 0, 1)
+        ) == []
+
+    def test_ein_zwischenstand_steht_im_kasten(self) -> None:
+        """Gewertet wurde die Befundliste, weil die Schlussantwort fehlte.
+
+        Der Bericht sähe sonst aus wie der eines abgeschlossenen Audits. Die
+        Gegenprobe: Kam die Wertung aus der Datei und die Schlussantwort war
+        ebenfalls in Ordnung, ist der Lauf normal zu Ende gegangen.
+        """
+        bewertung = self._bewertung(tp=2, fp=0, fn=1)
+        bewertung["answer_source"] = FROM_FILE
+        bewertung["final_answer_error"] = "leere Antwort"
+        notizen = run_notes(self._state(), bewertung)
+        assert any("Befundliste" in n for n in notizen), notizen
+
+        bewertung["final_answer_error"] = None
+        assert run_notes(self._state(), bewertung) == []
 
     def test_ein_ungestoerter_lauf_bekommt_keine_warnung(self) -> None:
         """Die Gegenprobe. Stünde die Warnung immer da, wäre sie wertlos."""
@@ -1971,12 +2356,15 @@ class TestBericht:
         # selbst, damit der Test nicht am Namen des Checkout-Ordners hängt.
         repo = Path(__file__).resolve().parents[1]
         assert (repo / REPORT_DOCS_PATH).is_file(), repo / REPORT_DOCS_PATH
-        # Und der Link zeigt auf genau diese Datei im Tag der Paketversion.
+        # Und der Link zeigt auf genau diese Datei im Tag der Paketversion —
+        # oder auf `main`, solange ein Entwicklungsstand ohne Tag läuft.
         from importlib.metadata import version
 
+        paket = version("german-seo-bench")
+        stand = "main" if "dev" in paket else f"v{paket}"
         assert REPORT_DOCS == (
             "https://github.com/stefanfis/german-seo-bench/blob/"
-            f"v{version('german-seo-bench')}/{REPORT_DOCS_PATH}"
+            f"{stand}/{REPORT_DOCS_PATH}"
         )
 
     def test_der_kasten_nennt_die_erfundenen_befunde(self) -> None:
@@ -2180,9 +2568,12 @@ class TestOracle:
         assert detail["tool_calls"] == {}
         assert detail["clicked"] is False and detail["scrolled"] is False
         assert detail["ua_switched"] is False
-        # Kein CLI im Spiel: Die beiden Felder müssen leer bleiben, sonst
-        # stünde im Log eine Herkunft, die es nicht gab.
-        assert detail["answer_source"] is None and detail["cli"] is None
+        # Kein CLI und kein Container im Spiel: Die Antwort ist die
+        # Schlussantwort, und das CLI-Feld bleibt leer — sonst stünde im Log
+        # eine Herkunft, die es nicht gab.
+        assert detail["answer_source"] == FROM_FINAL
+        assert detail["final_answer_error"] is None
+        assert detail["cli"] is None
 
     def test_jede_klasse_ist_im_oracle_vollstaendig(self, log) -> None:
         # Eine Klasse, die im Oracle nicht 1.00 erreicht, ist falsch verdrahtet

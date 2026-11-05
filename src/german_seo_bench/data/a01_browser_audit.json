@@ -1,7 +1,7 @@
 {
   "task": "A01",
   "title": "Browser-Audit einer JS-Site",
-  "version": 1,
+  "version": 2,
   "samples": [
     {
       "id": "kartenshop",

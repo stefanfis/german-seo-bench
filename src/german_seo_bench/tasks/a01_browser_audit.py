@@ -53,8 +53,10 @@ Handler), ein Skript (aber `defer` und nach dem CSS). Wer Muster statt Zustände
 meldet, sammelt hier Falschmeldungen.
 """
 
+import json
 import os
 import re
+from dataclasses import dataclass, replace
 from importlib.metadata import version
 from datetime import datetime
 from time import perf_counter
@@ -72,12 +74,12 @@ from inspect_ai.agent import (
     sandbox_agent_bridge,
 )
 from inspect_ai.log import HeadlineMetric
-from inspect_ai.model import ModelOutput, get_model
+from inspect_ai.model import ModelOutput, get_model, get_model_info
 from inspect_ai.scorer import Score, Scorer, Target, mean, scorer, stderr
 from inspect_ai.model import ChatMessageUser
 from inspect_ai.solver import Generate, Solver, TaskState, solver
-from inspect_ai.tool import mcp_connection, mcp_server_sandbox
-from inspect_ai.util import sandbox, store
+from inspect_ai.tool import mcp_connection, mcp_server_sandbox, text_editor
+from inspect_ai.util import OutputLimitExceededError, sandbox, store
 
 from german_seo_bench.checks import (
     as_findings,
@@ -91,7 +93,7 @@ from german_seo_bench.config import run_config
 from german_seo_bench.dataset import data_path, dataset_version, load_dataset
 from german_seo_bench.oracle import oracle_solver
 from german_seo_bench.providers import STORE_CONTEXT_OVERFLOWS
-from german_seo_bench.server import record_endpoint, record_server
+from german_seo_bench.server import record_endpoint, record_server, server_context
 
 DATA = "a01_browser_audit.json"
 
@@ -108,9 +110,16 @@ SYSTEM = (
 )
 
 # Der Dienstname aus `compose.yaml`. Steht hier doppelt, weil der Prompt die
-# URLs nennen muss; `tests/test_a01_browser_audit.py` hält die beiden Stellen
-# zusammen.
+# Startadresse nennen muss; `tests/test_a01_browser_audit.py` hält die beiden
+# Stellen zusammen.
 SITE_URL = "http://www.example.net/"
+
+# Wo der Agent anfängt. Der Prompt nennt keine Seitenliste: Ein Auftrag nennt
+# die Website, die Seiten findet der Prüfer selbst — über die Links und über
+# die Sitemap, die `robots.txt` angibt. Die Startseite steht mit Dateinamen da
+# und nicht als `/`, weil Befunde den Dateinamen tragen und die Startseite
+# selbst welche hat.
+START_PAGE = "home.html"
 
 # Der Viewport, an den die Wertung gebunden ist — siehe Modul-Docstring.
 VIEWPORT_WIDTH = 1280
@@ -160,10 +169,12 @@ MCP_TIMEOUT = 300
 # Die Kommandozeile überschreibt: `--message-limit`.
 MESSAGE_LIMIT = 400
 
-# Obergrenze für den ganzen Datensatz. Großzügig, weil ein Abbruch nach Zeit
-# dieselbe Null erzeugt wie ein unfähiges Modell: Auf langsamer Hardware
-# braucht ein vollständiges Audit weit über eine Stunde. Ein Modell, das sich
-# im Kreis dreht, hält vorher `MESSAGE_LIMIT` an.
+# Obergrenze für den ganzen Datensatz, für beide Achsen dieselbe. Großzügig,
+# weil nach einem Abbruch nur gewertet wird, was bis dahin in der Befundliste
+# steht: Auf langsamer Hardware braucht ein vollständiges Audit weit über eine
+# Stunde. Ein Modell, das sich im Kreis dreht, hält vorher `MESSAGE_LIMIT` an.
+# Inspect wertet auch einen Datensatz, der an dieser Grenze endet; der Scorer
+# liest die Befundliste dann aus dem noch laufenden Container.
 # Die Cache-Frist und die Cookies der Prüflandschaft (`testsite.nginx.conf`)
 # müssen mindestens so lange gelten, sonst hängen die Fallen an der Uhr.
 TIME_LIMIT = 7200
@@ -187,6 +198,112 @@ ANSWER_MAX_TOKENS = 16384
 MODEL_CALL_TIMEOUT = 1800
 
 # --------------------------------------------------------------------------
+# Das Kontextfenster — gemessen und genannt, nicht gepflegt
+# --------------------------------------------------------------------------
+#
+# Der Benchmark pflegt keinen Kontext. Was ein Agent mit einem vollen Fenster
+# macht, ist Sache des Prüflings: im `react`-Pfad die Sparsamkeit des Modells
+# (die Befundliste ist sein Gedächtnis), bei einem Agent-CLI zusätzlich dessen
+# eigene Kontextpflege — die Teil dessen ist, was diese Achse vergleicht.
+#
+# Das Fenster wird trotzdem ermittelt: als Laufbedingung fürs Log, und weil ein
+# CLI wie goose es bei lokalen Modellen nicht selbst herausfindet. Die
+# Rechnung am Beispiel des Minimums:
+#
+#   Fenster             65.536   was der Server je Anfrage hat (`n_ctx`)
+#   - ANSWER_MAX_TOKENS 16.384   jede Anfrage hält so viel für die Antwort frei
+#   = input_budget      49.152   so lang darf eine Anfrage höchstens sein
+
+# Das Minimum, mit dem A01 sinnvoll läuft, und die Annahme, wenn sich das
+# Fenster nicht ermitteln lässt. Darunter wird trotzdem gemessen, aber der
+# Bericht vermerkt es.
+MIN_CONTEXT = 65_536
+
+# Provider, hinter denen ein eigener Server steht. Für sie zählt nur, was der
+# Server meldet: Inspects Modelldatenbank kennt das Fenster des MODELLS
+# (Qwen 3.5 9B: 262.144), nicht das, mit dem der Server gestartet wurde.
+SERVER_PROVIDERS = ("local/", "openai-api/")
+
+# Woher das Fenster stammt (`Score.metadata.context.source`).
+WINDOW_FROM_SERVER = "server"
+WINDOW_FROM_MODEL_INFO = "model_info"
+WINDOW_ASSUMED = "assumed"
+
+
+@dataclass(frozen=True)
+class ContextBudget:
+    """Das Fenster eines Laufs und was daraus folgt."""
+
+    window: int
+    source: str
+    # Warum das Fenster nur angenommen ist — sonst `None`.
+    note: str | None = None
+
+    @property
+    def input_budget(self) -> int:
+        return self.window - ANSWER_MAX_TOKENS
+
+    def as_dict(self) -> dict[str, Any]:
+        eintrag: dict[str, Any] = {
+            "window": self.window,
+            "source": self.source,
+            "input_budget": self.input_budget,
+        }
+        if self.note:
+            eintrag["note"] = self.note
+        return eintrag
+
+
+def pick_window(
+    model: str, server_n_ctx: int | None, model_info_tokens: int | None
+) -> ContextBudget:
+    """Welches Fenster gilt: der Server, sonst Inspects Modelldaten, sonst das Minimum.
+
+    Eine eigene Funktion, damit sich die Reihenfolge ohne Server prüfen lässt.
+    """
+    if model.startswith(SERVER_PROVIDERS):
+        if server_n_ctx:
+            return ContextBudget(server_n_ctx, WINDOW_FROM_SERVER)
+        return ContextBudget(MIN_CONTEXT, WINDOW_ASSUMED)
+    if model_info_tokens:
+        return ContextBudget(model_info_tokens, WINDOW_FROM_MODEL_INFO)
+    return ContextBudget(MIN_CONTEXT, WINDOW_ASSUMED)
+
+
+# Unter diesem Schlüssel steht das Budget im Store; der Scorer schreibt es ins
+# Log, der Bericht vermerkt ein Fenster unter dem Minimum.
+STORE_CONTEXT = "a01_context"
+
+
+async def plan_context() -> ContextBudget:
+    """Das Fenster dieses Laufs ermitteln und im Store festhalten.
+
+    Läuft zu Beginn des Agenten, also vor der ersten Anfrage. Bei llama-swap
+    startet die Abfrage das Modell und wartet, bis es geladen ist; das hätte
+    die erste Anfrage ohnehin getan. Ist das Fenster nur angenommen, steht
+    der Grund mit im Store.
+    """
+    model = get_model()
+    name = str(model)
+    n_ctx, grund = None, None
+    base_url = getattr(model.api, "base_url", None)
+    if name.startswith(SERVER_PROVIDERS):
+        if base_url:
+            n_ctx, grund = await server_context(
+                base_url, getattr(model.api, "model_name", name)
+            )
+        else:
+            grund = "Provider ohne base_url"
+    info = None if name.startswith(SERVER_PROVIDERS) else get_model_info(model)
+    budget = pick_window(name, n_ctx, info.input_tokens if info else None)
+    if budget.source == WINDOW_ASSUMED:
+        budget = replace(
+            budget, note=grund or "Inspect kennt das Fenster dieses Modells nicht"
+        )
+    store().set(STORE_CONTEXT, budget.as_dict())
+    return budget
+
+# --------------------------------------------------------------------------
 # Die zweite Messachse: über WELCHEN Agenten läuft das Audit?
 # --------------------------------------------------------------------------
 #
@@ -194,9 +311,9 @@ MODEL_CALL_TIMEOUT = 1800
 # misst Modellfähigkeit an einem neutralen Gerüst. Das ist die Grundlinie und
 # bleibt Vorgabe.
 #
-# `goose` ist ein echtes Agent-CLI im Container, mit eigenem Systemprompt,
-# eigenem Kontextmanagement und eigenen Werkzeugen. Damit lässt sich die Frage
-# „Welches Agentic Framework taugt für SEO?" messen. Gleicher Prompt, gleiche Wertung, gleiche Referenz — die einzige geänderte Größe ist
+# `goose` und `pi` sind echte Agent-CLIs im Container, jedes mit eigenem
+# Systemprompt, eigenem Kontextmanagement und eigenen Werkzeugen. Damit lässt
+# sich die Frage „Welches Agentic Framework taugt für SEO?" messen. Gleicher Prompt, gleiche Wertung, gleiche Referenz — die einzige geänderte Größe ist
 # das Framework.
 #
 # Der Weg dorthin ist `sandbox_agent_bridge`: Inspect startet IM Container einen
@@ -339,14 +456,130 @@ def evaluate_audit(completion: str, meta: dict[str, Any]) -> dict[str, Any]:
 
 AGENT_REACT = "react"
 AGENT_GOOSE = "goose"
-AGENTS = (AGENT_REACT, AGENT_GOOSE)
+AGENT_PI = "pi"
+AGENTS = (AGENT_REACT, AGENT_GOOSE, AGENT_PI)
 
 # Wo das CLI arbeitet. Derselbe Pfad wie `WORKDIR` im Agent-Image; die Antwort
 # wird von dort absolut gelesen und nicht relativ — `sandbox().read_file` löst
 # einen relativen Pfad gegen das Arbeitsverzeichnis der SANDBOX auf, nicht gegen
 # das des Prozesses, den wir gestartet haben.
 CLI_WORKDIR = "/root"
-ANSWER_FILE = f"{CLI_WORKDIR}/OUT.json"
+
+# Die Befundliste. Der Agent hält sie während des Audits laufend aktuell, und
+# sie ist das Ergebnis, das gewertet wird — in jedem Gerüst dieselbe Datei an
+# derselben Stelle. Das ist der Vertrag mit einem Gerüst: Wer Dateien schreiben
+# kann, kann A01 abgeben. `react` bekommt dafür `text_editor`, ein Agent-CLI
+# bringt seine Dateiwerkzeuge mit.
+#
+# Warum eine Datei und nicht nur die Schlussantwort: Ein Lauf, der an der
+# Zeitgrenze oder am Kontext scheitert, hätte sonst nichts abgegeben, und alles
+# bis dahin Gefundene zählte null. Mit der Datei wird gewertet, was bis zum
+# Abbruch feststand.
+#
+# Warum JSON Lines: Eine kaputte Zeile kostet nur diese Zeile (sie zählt als
+# verworfene Meldung), nicht die ganze Liste. Ob der Agent anhängt oder die
+# Datei neu schreibt, ist ihm überlassen — `react` hat nur `text_editor`, und
+# der kann eine Datei bequem ganz schreiben, aber nicht anhängen.
+ANSWER_FILE = f"{CLI_WORKDIR}/OUT.jsonl"
+
+# Woher die gewertete Antwort kam (`Score.metadata.answer_source`).
+FROM_FILE = "findings_file"
+FROM_FINAL = "final_answer"
+
+
+def findings_from_lines(text: str) -> str | None:
+    """Die Befundliste (JSON Lines) als JSON-Array — oder `None`, wenn sie nichts enthält.
+
+    Jede Zeile wird für sich gelesen. Eine Zeile, die kein JSON ist, kommt als
+    Text ins Array und erscheint damit in der Wertung als verworfene Meldung
+    („kein Objekt“). Ein Komma am Zeilenende wird übergangen, ebenso ein
+    Array in einer Zeile oder in der ganzen Datei: Die Verpackung ist nicht,
+    was gemessen wird (dieselbe Toleranz wie bei der Schlussantwort).
+
+    `None` heißt: kein einziges Objekt. Dann gilt die Schlussantwort — eine
+    leere oder ganz kaputte Datei soll eine gültige Schlussantwort nicht
+    verdrängen.
+    """
+    try:
+        ganz = json.loads(text)
+    except ValueError:
+        ganz = None
+    if isinstance(ganz, list):
+        eintraege = ganz
+    else:
+        eintraege = []
+        for zeile in text.splitlines():
+            zeile = zeile.strip().rstrip(",").strip()
+            if not zeile or zeile in ("[", "]"):
+                continue
+            try:
+                wert = json.loads(zeile)
+            except ValueError:
+                eintraege.append(zeile)
+                continue
+            eintraege.extend(wert if isinstance(wert, list) else [wert])
+    if not any(isinstance(eintrag, dict) for eintrag in eintraege):
+        return None
+    return json.dumps(eintraege, ensure_ascii=False)
+
+
+def choose_answer(file_text: str | None, final_text: str) -> tuple[str, str]:
+    """Welche Antwort gewertet wird: die Befundliste, sonst die Schlussantwort.
+
+    Die Datei gilt, sobald sie mindestens einen Befund als JSON-Objekt
+    enthält (`findings_from_lines`). Die Schlussantwort ist der Rückfall für
+    einen Agenten, der die Datei nie geschrieben hat. Umgekehrt ginge es
+    nicht: Ein Agent-CLI schreibt auf stdout auch Bruchstücke seiner
+    Werkzeugaufrufe, und das erste JSON darin ist nicht zwingend die Liste.
+    """
+    liste = findings_from_lines(file_text) if file_text is not None else None
+    if liste is not None:
+        return liste, FROM_FILE
+    return final_text, FROM_FINAL
+
+
+async def read_answer_file() -> str | None:
+    """Die Befundliste aus dem Container, oder `None`, wenn es keine gibt.
+
+    `ProcessLookupError` heißt: kein Container — der Oracle-Lauf. Die übrigen
+    Fehler heißen, dass der Agent die Datei nicht oder unbrauchbar hinterlassen
+    hat. Beides ist kein Fehler des Laufs, sondern eine Auskunft.
+    """
+    try:
+        return await sandbox().read_file(ANSWER_FILE)
+    except (
+        ProcessLookupError,
+        FileNotFoundError,
+        PermissionError,
+        IsADirectoryError,
+        UnicodeDecodeError,
+        OutputLimitExceededError,
+    ):
+        return None
+
+
+async def graded_answer(state: TaskState) -> dict[str, Any]:
+    """Die gewertete Antwort und ihre Bewertung — für Scorer und Bericht.
+
+    Beide Aufrufer brauchen dieselbe Antwort, sonst stünde im PDF eine andere
+    Zahl als im Log. Die Datei ändert sich nach dem Agenten nicht mehr, zwei
+    Lesevorgänge ergeben also dasselbe.
+    """
+    meta = state.metadata
+    issues = [entry["issue"] for entry in meta["catalog"]]
+    final_text = state.output.completion if state.output else ""
+    text, source = choose_answer(await read_answer_file(), final_text)
+    bewertung = evaluate_audit(text, meta)
+    bewertung["answer"] = text
+    bewertung["answer_source"] = source
+    # Ob die Schlussantwort selbst auswertbar war. Kam die Wertung aus der
+    # Datei und die Schlussantwort fehlt, ist der Lauf vorzeitig zu Ende
+    # gegangen — das gehört in den Bericht und in die Begründung.
+    bewertung["final_answer_error"] = parse_findings(
+        final_text, meta["pages"], issues
+    )[2]
+    return bewertung
+
 
 # Die Kommandozeile von goose. Jeder Schalter einzeln begründet, weil jeder
 # einzelne eine Messbedingung ist:
@@ -362,23 +595,16 @@ ANSWER_FILE = f"{CLI_WORKDIR}/OUT.json"
 #                   Browser und der Viewport bleiben dieselben — sonst wäre der
 #                   Frameworkvergleich ein Vergleich zweier Browser.
 #   --with-builtin developer  Datei- und Shell-Werkzeuge. Sie sind der Weg, auf
-#                   dem das CLI seine Antwort abgibt (OUT.json) — ein CLI hat
-#                   kein `submit`. Dass damit auch `shell` im Werkzeugkasten
+#                   dem das CLI die Befundliste führt (`ANSWER_FILE`) — ein CLI
+#                   hat kein `submit`. Dass damit auch `shell` im Werkzeugkasten
 #                   liegt, ist eine Eigenschaft dieses Frameworks und keine
 #                   Nachlässigkeit: Schwache Modelle weichen darüber auf curl
 #                   aus statt zu rendern. Genau das soll die Achse zeigen; `tool_calls` im Log macht es
 #                   sichtbar.
 #   --max-turns     Das Gegenstück zu `MESSAGE_LIMIT` im react-Pfad.
 #   -q              Nur die Modellantwort auf stdout. Sie ist die Rückfallebene,
-#                   falls kein OUT.json geschrieben wurde.
+#                   falls keine Befundliste geschrieben wurde.
 GOOSE_MAX_TURNS = 150
-
-# Zeitgrenze des CLI-Aufrufs, deutlich unter `TIME_LIMIT`: Läuft das CLI in die
-# Wand, soll der Lauf noch Gelegenheit haben, eine Antwort zu lesen und zu
-# werten. Andernfalls stünde am Ende ein abgebrochener Datensatz ohne Score, und
-# "Agent hat nichts gefunden" wäre von "Aufgabe lief in die Zeitgrenze" nicht zu
-# unterscheiden.
-CLI_TIMEOUT = TIME_LIMIT - 300
 
 
 def goose_command(prompt_text: str = "") -> list[str]:
@@ -413,7 +639,7 @@ def goose_command(prompt_text: str = "") -> list[str]:
     ]
 
 
-def goose_env(port: int) -> dict[str, str]:
+def goose_env(port: int, budget: ContextBudget) -> dict[str, str]:
     """Die Umgebung des CLI. Alles, was es über das Modell weiß, steht hier.
 
     `OPENAI_HOST` zeigt auf den Bridge-Proxy im eigenen Container — kein
@@ -428,6 +654,119 @@ def goose_env(port: int) -> dict[str, str]:
         "GOOSE_MODE": "auto",
         # Ohne das sucht goose im Container einen Schlüsselbund und scheitert.
         "GOOSE_DISABLE_KEYRING": "1",
+        # Das Fenster, mit dem goose rechnet. Für den Modellnamen `inspect`
+        # kennt es keines und nimmt 128.000 Tokens an — dann verdichtet es
+        # erst ab gut 100.000 und läuft vorher in jedes 64k-Fenster. Genannt
+        # wird `input_budget`, nicht das ganze Fenster: Die Antwortreserve
+        # nimmt Inspect jeder Anfrage ohnehin weg. Das ist eine Angabe zum
+        # Aufbau wie die Serveradresse; wann und wie goose verdichtet, bleibt
+        # seine Sache und ist Teil dessen, was diese Achse misst.
+        "GOOSE_CONTEXT_LIMIT": str(budget.input_budget),
+        "HOME": CLI_WORKDIR,
+    }
+
+
+# pi (pi.dev) läuft so, wie ein typischer pi-Nutzer es einrichtet. Das betrifft
+# vor allem den Browser: pi reicht MCP-Werkzeuge in seiner Vorgabe nicht einzeln
+# an das Modell weiter, sondern über `codemode`. Das Modell schreibt dort
+# JavaScript, das die Werkzeuge als `tools.mcp__chrome_devtools__click(…)`
+# aufruft. Gemessen wird damit das Konzept des Frameworks, nicht nur sein Loop.
+#
+# Die Schalter:
+#
+#   --print         Auftrag abarbeiten, Schlussantwort auf stdout, beenden.
+#   --no-session    Kein Sitzungsverlauf auf der Platte, wie bei goose.
+#   --no-context-files / --no-skills / --no-prompt-templates
+#                   Nichts aus der Umgebung lesen (AGENTS.md, Skills, Vorlagen).
+#                   Im Image gibt es nichts davon, aber dann entschiede die
+#                   Umgebung mit, was gemessen wird.
+#   --model         Der Bridge-Proxy aus `pi_config`.
+#
+# Erweiterungen bleiben an: MCP und `codemode` SIND eingebaute Erweiterungen
+# von pi, `--no-extensions` schaltete den Browser ab. Eine Grenze wie
+# `--max-turns` kennt pi nicht; es gilt `TIME_LIMIT`.
+PI_AGENT_DIR = f"{CLI_WORKDIR}/.pi/agent"
+PI_MODEL = "inspect/inspect"
+
+
+def pi_command(prompt_text: str = "") -> list[str]:
+    """Die Kommandozeile, mit der pi im Container startet."""
+    return [
+        "pi",
+        "--print",
+        "--no-session",
+        "--no-context-files",
+        "--no-skills",
+        "--no-prompt-templates",
+        "--model",
+        PI_MODEL,
+        prompt_text,
+    ]
+
+
+def pi_config(port: int, budget: ContextBudget) -> dict[str, dict[str, Any]]:
+    """Die Konfigurationsdateien von pi, je Dateiname ihr Inhalt.
+
+    `models.json` hängt pi an den Bridge-Proxy, `mcp.json` an denselben
+    Browser wie im react-Pfad (`MCP_ARGS`). `exposure` bleibt bei der Vorgabe
+    `codemode`, siehe oben.
+
+    `contextWindow` ist das ganze Fenster: pi verdichtet, sobald der Kontext
+    `contextWindow - reserveTokens` überschreitet, und `reserveTokens` ist in
+    seiner Vorgabe 16.384 Tokens, also `ANSWER_MAX_TOKENS`. Die Schwelle ist
+    damit `input_budget`, wie bei goose. `cost` verlangt pi, für die Bridge
+    ist sie null.
+    """
+    provider, model = PI_MODEL.split("/")
+    return {
+        "models.json": {
+            "providers": {
+                provider: {
+                    "baseUrl": f"http://localhost:{port}/v1",
+                    "api": "openai-completions",
+                    "apiKey": "inspect",
+                    "models": [
+                        {
+                            "id": model,
+                            "contextWindow": budget.window,
+                            "maxTokens": ANSWER_MAX_TOKENS,
+                            "cost": {
+                                "input": 0,
+                                "output": 0,
+                                "cacheRead": 0,
+                                "cacheWrite": 0,
+                            },
+                        }
+                    ],
+                }
+            }
+        },
+        "mcp.json": {
+            "mcpServers": {
+                "chrome-devtools": {
+                    "command": MCP_COMMAND,
+                    "args": MCP_ARGS,
+                    # pi bricht einen MCP-Aufruf sonst nach 60 s ab; ein Trace
+                    # braucht mehr (`MCP_TIMEOUT`).
+                    "timeout": MCP_TIMEOUT,
+                }
+            }
+        },
+    }
+
+
+def pi_env() -> dict[str, str]:
+    """Die Umgebung von pi: sein Konfigurationsverzeichnis, kein Weg nach draußen.
+
+    Versionsprüfung, Katalogabgleich und Telemetrie gingen ins Netz. Das
+    `internal`-Netz ließe sie ohnehin scheitern, aber erst nach einer
+    Wartezeit.
+    """
+    return {
+        "PI_CODING_AGENT_DIR": PI_AGENT_DIR,
+        "PI_OFFLINE": "1",
+        "PI_SKIP_VERSION_CHECK": "1",
+        "PI_TELEMETRY": "0",
         "HOME": CLI_WORKDIR,
     }
 
@@ -438,18 +777,21 @@ def prompt(inputs: dict[str, Any]) -> str:
     Der Fehlerkatalog steht hier drin und ist deshalb Eingabe, keine Referenz:
     Ohne ihn wäre die Aufgabe Vokabelraten — ein Agent könnte denselben Befund
     "lazy-geladenes LCP-Bild" nennen und wäre nicht zu werten. WELCHE Seite
-    welchen Fehler hat, steht nicht im Prompt; das ist die Aufgabe.
+    welchen Fehler hat, steht nicht im Prompt; das ist die Aufgabe. Die
+    Seitenliste (`pages`) steht ebenfalls nicht darin, siehe `START_PAGE`.
+
+    Die Werkzeugzuordnung sagt, was die Werkzeuge leisten, nicht, wonach zu
+    suchen ist. So bekäme ein Agent sie auch in der Praxis mit. Prüfschritte
+    stehen bewusst nicht darin: Welche Bedingung eine Seite ändert, herauszufinden
+    ist Teil der Aufgabe (`test_die_werkzeuge_verraten_keine_falle`).
     """
     catalog = "\n".join(
         f"- \"{entry['issue']}\": {entry['description']}" for entry in inputs["catalog"]
     )
-    urls = "\n".join(
-        f'  {SITE_URL}{page}   (page: "{page}")' for page in inputs["pages"]
-    )
     return (
-        "Diese kleine Website rankt schlecht und wirkt im Betrieb träge. Prüfe "
-        "jede der folgenden Seiten mit den Browser-Werkzeugen auf technische "
-        "SEO- und Performance-Fehler.\n\n"
+        "Diese kleine Website rankt schlecht und wirkt im Betrieb träge. Sie "
+        f"beginnt unter {SITE_URL}{START_PAGE}. Prüfe alle ihre Seiten mit den "
+        "Browser-Werkzeugen auf technische SEO- und Performance-Fehler.\n\n"
         "Wichtig: Beurteile nicht den HTML-Quelltext allein, sondern das, was "
         "der Browser daraus macht — das DOM nach dem Ausführen von JavaScript, "
         "die Netzwerk-Requests samt nachgeladener Ressourcen, Weiterleitungen, "
@@ -461,24 +803,49 @@ def prompt(inputs: dict[str, Any]) -> str:
         "und die Frage, welches Bild im ersten sichtbaren Bereich liegt, hängen "
         "an der Fenstergröße — die Bewertung ist an genau diesen Viewport "
         "gebunden.\n\n"
-        f"Seiten:\n{urls}\n\n"
+        "Was die Browser-Werkzeuge leisten:\n"
+        "- take_snapshot zeigt die sichtbaren Elemente der Seite mit einer uid, "
+        "nicht aber den <head> (Title, Meta-Angaben, Canonical). Die uid "
+        "brauchst du für click, hover und fill.\n"
+        "- evaluate_script führt JavaScript in der geladenen Seite aus. Damit "
+        "liest du den <head> und alles, was der Snapshot nicht zeigt, aus dem "
+        "DOM nach dem Rendern, und damit scrollst du.\n"
+        "- list_network_requests und get_network_request zeigen die Anfragen "
+        "seit dem letzten Laden: Status, Header, Weiterleitungen und den Inhalt "
+        "der Antwort, auch nachgeladener Skripte und Ressourcen.\n"
+        "- navigate_page lädt eine Adresse oder lädt die Seite neu, new_page "
+        "öffnet einen weiteren Tab.\n"
+        "- emulate ändert Eigenschaften des Browsers für die Seite, etwa "
+        "User-Agent, Netzbedingungen oder CPU-Drosselung. Den Viewport lässt "
+        "du dabei unverändert.\n"
+        "- performance_start_trace zeichnet das Laden auf und nennt LCP und CLS "
+        "samt den beteiligten Elementen.\n"
+        "- list_console_messages zeigt Fehler und Meldungen der Seite.\n"
+        "- lighthouse_audit liefert allgemeine Bewertungen, keine Befunde im "
+        "Sinne des Katalogs unten.\n"
+        "Nutze das passende Werkzeug, bevor du eigenen Code schreibst.\n\n"
         "Verwende AUSSCHLIESSLICH diesen Fehlerkatalog (nur diese Ids):\n"
         f"{catalog}\n\n"
         "Eine Seite kann mehrere Probleme haben, keines, oder dasselbe Problem "
         "wie eine andere Seite. Melde NUR tatsächlich vorhandene Probleme — ein "
         "gemeldetes Problem, das es nicht gibt, zählt genauso gegen dich wie ein "
         "übersehenes.\n\n"
-        "Gib dein Ergebnis am Ende als JSON-Array ab. Jedes Objekt: "
+        "Jeder Befund ist ein JSON-Objekt: "
         '{"page": "<dateiname>", "issue": "<id aus dem Katalog>"}. Ein Objekt '
-        "je Seite und Problem, sonst nichts.\n\n"
-        # Derselbe Satz für alle Agenten, und das ist Absicht: Ein Agent-CLI hat
-        # kein `submit`-Werkzeug und gibt seine Antwort über eine Datei ab, ein
-        # `react()`-Loop über `submit`. Zwei Prompts nebeneinander hätten den
-        # Frameworkvergleich still um eine zweite geänderte Größe erweitert —
-        # deshalb steht der Dateiweg als Zusatz drin, den ein Agent ohne
-        # Dateiwerkzeuge folgenlos überliest.
-        "Falls dir Dateiwerkzeuge zur Verfügung stehen, schreibe dasselbe JSON "
-        f"zusätzlich in die Datei {ANSWER_FILE}."
+        "je Seite und Problem, sonst nichts. Die Seite steht als Dateiname "
+        f"ohne Pfad da, die Startseite also als {START_PAGE}.\n\n"
+        # Derselbe Absatz für alle Gerüste: Jedes hat Dateiwerkzeuge (`react`
+        # bekommt `text_editor`), und die Datei ist das, was gewertet wird
+        # (`choose_answer`). Zwei Prompts nebeneinander hätten den
+        # Frameworkvergleich still um eine zweite geänderte Größe erweitert.
+        f"Führe deine Befunde laufend in der Datei {ANSWER_FILE}, ein Objekt "
+        "je Zeile (JSON Lines). Trage jeden Befund ein, sobald er feststeht — "
+        "ob du dazu Zeilen anhängst oder die Datei neu schreibst, ist dir "
+        "überlassen. Die Datei ist dein Ergebnis und wird gewertet, auch wenn "
+        "die Prüfung vorzeitig endet. Dein Kontextfenster ist begrenzt; was "
+        "nicht in der Datei steht, kann verloren gehen.\n\n"
+        "Wenn du fertig bist, gib alle Befunde zusätzlich als JSON-Array in "
+        "der Schlussantwort ab."
     )
 
 
@@ -497,13 +864,19 @@ def audit_agent() -> Agent:
     — geöffnete Seite, Scrollposition, laufende Aufzeichnung — gäbe es nicht.
     Damit wäre genau die Hälfte der Aufgabe unlösbar.
 
-    `truncation="auto"` ist nicht Vorsicht, sondern Bedingung: Browser-Snapshots
-    sind groß, zwei Dutzend Seiten davon sprengen jedes Kontextfenster. Ohne Kürzung
-    stirbt der Lauf mitten im Audit an einer Kontextgrenze, und die Null sähe
-    wie ein Modell aus, das nichts gefunden hat.
+    **Keine Kontextpflege.** Der Benchmark verdichtet und kürzt nicht: Wie
+    sparsam ein Modell mit seinem Fenster umgeht, ist Teil der Messung. Läuft
+    eine Anfrage über (der Server meldet es, `local/` übersetzt die Meldung),
+    beendet `react()` den Agenten sauber, und gewertet wird die Befundliste.
+    `plan_context` ermittelt das Fenster nur fürs Log.
+
+    `text_editor` ist das Dateiwerkzeug für die Befundliste (`ANSWER_FILE`).
+    Mehr bekommt der Agent nicht dazu, insbesondere keine Shell: Der
+    react-Pfad misst das Modell am Browser, nicht an curl.
     """
 
     async def execute(state: AgentState) -> AgentState:
+        await plan_context()
         server = mcp_server_sandbox(
             name="chrome-devtools",
             command=MCP_COMMAND,
@@ -514,35 +887,45 @@ def audit_agent() -> Agent:
             return await react(
                 name="browser_audit",
                 prompt=AgentPrompt(instructions=SYSTEM),
-                tools=[server],
-                truncation="auto",
+                tools=[server, text_editor()],
             )(state)
 
     return execute
 
 
-# Schlüssel im Store, über die der Agent dem Scorer mitteilt, wie der Lauf
-# zustande kam. Der Scorer sieht `TaskState`, nicht die Innereien des Agenten —
-# und "Antwort kam aus OUT.json" bzw. "das CLI ist mit rc=1 gestorben" gehören
-# in die Wertung, nicht in den Verdacht.
-STORE_ANSWER_SOURCE = "a01_answer_source"
+# Schlüssel im Store, über den der Agent dem Scorer mitteilt, wie das CLI
+# geendet hat. Der Scorer sieht `TaskState`, nicht die Innereien des Agenten —
+# und "das CLI ist mit rc=1 gestorben" gehört in die Wertung, nicht in den
+# Verdacht.
+# Vor dem Start steht dort `finished: False`. Endet der Datensatz an
+# `TIME_LIMIT`, kehrt das CLI nie zurück, und genau dieser Eintrag bleibt
+# stehen.
 STORE_CLI = "a01_cli"
 
 
 @agent
-def goose_agent() -> Agent:
-    """Das Agent-CLI im Container, angebunden über `sandbox_agent_bridge`.
+def cli_agent(cli: str = AGENT_GOOSE) -> Agent:
+    """Ein Agent-CLI im Container (goose oder pi), angebunden über `sandbox_agent_bridge`.
 
-    Der Ablauf ist absichtlich kurz: Bridge hochfahren, `goose run` im
-    Container starten, Antwort einsammeln. Alles Weitere — Werkzeuge,
+    Der Ablauf ist absichtlich kurz: Bridge hochfahren, das CLI im Container
+    starten, Antwort einsammeln. pi bekommt vorher seine Konfigurationsdateien
+    (`pi_config`), goose alles über Kommandozeile und Umgebung. Alles Weitere — Werkzeuge,
     Systemprompt, Kontextpflege — macht das CLI, und genau das ist der
     Messgegenstand dieser Achse.
 
-    **Woher die Antwort kommt.** Zuerst aus `OUT.json`; wenn die Datei fehlt,
-    aus der letzten Ausgabe auf stdout (`-q` lässt nur die Modellantwort übrig).
-    Beides wird im Store vermerkt, denn die Unterscheidung ist diagnostisch:
-    Ein CLI, das die Datei nicht schreibt, hat seine Werkzeuge nicht benutzt —
-    und das ist ein anderer Befund als eine falsche Meldung.
+    **Die Bridge verdichtet nicht.** Kontextpflege ist Sache des CLI und Teil
+    dessen, was diese Achse misst; es erfährt nur das Fenster (`goose_env`,
+    `pi_config`).
+    Inspects Compaction in der Bridge wäre zudem falsch: Sie führt einen
+    einzigen Verlauf und hängt jede neue Nachricht daran an — auch die einer
+    Nebenanfrage. goose fragt nebenher nach einem Titel für die Sitzung, und
+    diese Anweisung stand dann in jeder folgenden Anfrage des Audits.
+
+    **Woher die Antwort kommt** entscheidet nicht dieser Agent, sondern
+    `choose_answer`: die Befundliste, sonst die letzte Ausgabe auf stdout
+    (goose mit `-q` und pi mit `--print` lassen dort nur Modellantworten
+    übrig). Hier wird stdout nur als
+    Schlussantwort hinterlegt.
 
     **Der Gesprächsverlauf kommt aus der Bridge** (`bridge.state.messages`),
     nicht aus dem CLI-Log. Werkzeugaufrufe des CLI landen dort als
@@ -561,27 +944,25 @@ def goose_agent() -> Agent:
             for message in state.messages
             if message.role == "user" and message.text
         )
+        budget = await plan_context()
         async with sandbox_agent_bridge(state) as bridge:
-            result = await sandbox().exec(
-                cmd=goose_command(prompt_text),
-                env=goose_env(bridge.port),
-                cwd=CLI_WORKDIR,
-                timeout=CLI_TIMEOUT,
-            )
-            # Erst die Datei, dann stdout. `read_file` wirft, wenn es sie nicht
-            # gibt — das ist kein Fehler des Laufs, sondern die Auskunft, dass
-            # das CLI sie nicht geschrieben hat.
-            try:
-                answer = await sandbox().read_file(ANSWER_FILE)
-                source = "OUT.json"
-            except (FileNotFoundError, PermissionError, IsADirectoryError):
-                answer, source = result.stdout, "stdout"
-
-            store().set(STORE_ANSWER_SOURCE, source)
+            if cli == AGENT_PI:
+                for name, inhalt in pi_config(bridge.port, budget).items():
+                    await sandbox().write_file(
+                        f"{PI_AGENT_DIR}/{name}", json.dumps(inhalt, indent=2)
+                    )
+                cmd, env = pi_command(prompt_text), pi_env()
+            else:
+                cmd = goose_command(prompt_text)
+                env = goose_env(bridge.port, budget)
+            store().set(STORE_CLI, {"returncode": None, "finished": False})
+            # Ohne eigene Zeitgrenze: Es gilt `TIME_LIMIT` wie im react-Pfad.
+            result = await sandbox().exec(cmd=cmd, env=env, cwd=CLI_WORKDIR)
             store().set(
                 STORE_CLI,
                 {
                     "returncode": result.returncode,
+                    "finished": True,
                     # Der Grund, warum das hier steht: Ein CLI, das gar nicht
                     # startet (fehlendes Binary, kaputte Erweiterung), liefert
                     # dieselbe Null wie ein Modell, das nichts findet. Ohne
@@ -594,7 +975,7 @@ def goose_agent() -> Agent:
 
             state = bridge.state
             state.output = ModelOutput.from_content(
-                model=str(get_model().name), content=answer
+                model=str(get_model().name), content=result.stdout or ""
             )
         return state
 
@@ -652,10 +1033,14 @@ REPORT_DIR_DEFAULT = "reports"
 # Er zeigt auf das Tag der Paketversion, mit der der Bericht entstand — auf
 # `main` stünde nach der nächsten Änderung eine Erklärung, die zu diesem
 # Bericht nicht mehr passt.
+# Ein Entwicklungsstand (`2026.2.dev0`) hat kein Tag; dann zeigt der Link auf
+# `main`.
 REPORT_DOCS_PATH = "docs/A01.md"
+_PAKETVERSION = version("german-seo-bench")
 REPORT_DOCS = (
     "https://github.com/stefanfis/german-seo-bench/blob/"
-    f"v{version('german-seo-bench')}/{REPORT_DOCS_PATH}"
+    + ("main" if "dev" in _PAKETVERSION else f"v{_PAKETVERSION}")
+    + f"/{REPORT_DOCS_PATH}"
 )
 
 # Zeitgrenze für den Chromium-Aufruf. Großzügig, weil ein kaltes Chromium im
@@ -850,10 +1235,20 @@ def run_notes(state: TaskState, bewertung: dict[str, Any]) -> list[str]:
     ueberlaeufe = int(state.store.get(STORE_CONTEXT_OVERFLOWS, 0) or 0)
     if ueberlaeufe:
         notizen.append(
-            f"Das Kontextfenster des Modells war {ueberlaeufe}× voll. Der "
-            "Agent hat dann ältere Beobachtungen verworfen und weitergearbeitet "
-            "— Befunde von früh geprüften Seiten können dadurch verloren "
-            "gegangen sein."
+            f"Das Kontextfenster des Modells lief {ueberlaeufe}× über. Was der "
+            "Agent danach noch prüfen konnte, hing davon ab, wie sein Gerüst "
+            "damit umging; gewertet wurde die Befundliste, die er bis dahin "
+            "geführt hatte."
+        )
+
+    kontext = state.store.get(STORE_CONTEXT, None)
+    if kontext and kontext["window"] < MIN_CONTEXT:
+        fenster = f"{kontext['window']:,}".replace(",", ".")
+        minimum = f"{MIN_CONTEXT:,}".replace(",", ".")
+        notizen.append(
+            f"Das Kontextfenster des Modells hatte nur {fenster} Tokens, "
+            f"weniger als die {minimum}, für die diese Prüfung ausgelegt ist. "
+            "Der Platz für Beobachtungen war entsprechend knapp."
         )
 
     cli = state.store.get(STORE_CLI, None)
@@ -862,10 +1257,24 @@ def run_notes(state: TaskState, bewertung: dict[str, Any]) -> list[str]:
             f"Das Agent-Programm endete mit Rückgabewert {cli['returncode']}; "
             "die Prüfung wurde möglicherweise nicht zu Ende geführt."
         )
-
-    if bewertung["parse_error"]:
+    if cli and cli.get("finished") is False:
         notizen.append(
-            f"Die Antwort des Modells war nicht auswertbar: {bewertung['parse_error']}."
+            f"Das Agent-Programm wurde nach {TIME_LIMIT // 60} Minuten "
+            "abgebrochen, bevor es fertig war."
+        )
+
+    # Eine nicht auswertbare Antwort bekommt keinen Bericht (`audit_report`),
+    # deshalb steht sie hier nicht. Wohl aber der Fall, dass nur die
+    # Befundliste auswertbar war: Dann hat der Agent nicht zu Ende geprüft, und
+    # gewertet wurde ein Zwischenstand.
+    if (
+        bewertung.get("answer_source") == FROM_FILE
+        and bewertung.get("final_answer_error")
+    ):
+        notizen.append(
+            "Der Agent hat keine auswertbare Schlussantwort abgegeben. Gewertet "
+            "wurde der letzte Stand seiner laufend geführten Befundliste — die "
+            "Prüfung war womöglich nicht abgeschlossen."
         )
     if bewertung["discarded"]:
         notizen.append(
@@ -1069,10 +1478,23 @@ def audit_report() -> Solver:
         # den Unterschied nicht.
         begonnen = perf_counter()
         try:
-            findings = (antwort.completion or "").strip() if antwort else ""
-            if not findings:
-                vermerk = {"status": "keine Antwort zum Berichten"}
+            # Die Bewertung wird HIER gerechnet und nicht abgewartet: Der
+            # Scorer läuft erst nach diesem Schritt. Gerechnet wird mit
+            # derselben Funktion, die auch er benutzt (`graded_answer`) —
+            # sonst stünde im PDF eine andere Zahl als im Log, oder ein Bericht
+            # über eine andere Antwort als die gewertete.
+            bewertung = await graded_answer(state)
+            # Ohne auswertbare Antwort gibt es nichts zu berichten. Ein Modell
+            # schriebe sonst einen Bericht über eine Fehlermeldung — das
+            # kostet bei einem lokalen Modell eine Viertelstunde und ergibt
+            # ein PDF ohne Inhalt.
+            if bewertung["parse_error"]:
+                vermerk = {
+                    "status": "Antwort nicht auswertbar",
+                    "error": bewertung["parse_error"],
+                }
                 return state
+            findings = bewertung["answer"].strip()
 
             # Ein eigener Aufruf mit kurzem Kontext — NICHT `generate()`, das
             # führte das ganze Audit-Gespräch fort. Die Nachrichten landen
@@ -1095,12 +1517,6 @@ def audit_report() -> Solver:
             # `report_html`. Der Modellname steht im Kopf des Berichts: Wer
             # später drei Berichte nebeneinanderlegt, muss nicht raten, welcher
             # von welchem Modell ist.
-            #
-            # Die Bewertung wird HIER gerechnet und nicht abgewartet: Der
-            # Scorer läuft erst nach diesem Schritt. Gerechnet wird mit
-            # derselben Funktion, die auch er benutzt (`evaluate_audit`) —
-            # sonst stünde im PDF eine andere Zahl als im Log.
-            bewertung = evaluate_audit(findings, state.metadata)
             html = report_html(
                 markdown,
                 str(get_model().name),
@@ -1229,10 +1645,10 @@ def audit_scorer() -> Scorer:
 
     async def score(state: TaskState, target: Target) -> Score:
         meta = state.metadata
-        # Dieselbe Rechnung, die auch der Bericht benutzt — siehe
-        # `evaluate_audit`. Zwei Fassungen liefen auseinander, und im PDF
-        # stünde eine andere Zahl als im Log.
-        bewertung = evaluate_audit(state.output.completion, meta)
+        # Dieselbe Antwort und dieselbe Rechnung, die auch der Bericht benutzt
+        # — siehe `graded_answer`. Zwei Fassungen liefen auseinander, und im
+        # PDF stünde eine andere Zahl als im Log.
+        bewertung = await graded_answer(state)
         reported = bewertung["reported"]
         discarded, error = bewertung["discarded"], bewertung["parse_error"]
         verdict = bewertung["verdict"]
@@ -1252,7 +1668,8 @@ def audit_scorer() -> Scorer:
         f1_by_capability = bewertung["f1_by_capability"]
 
         cli = state.store.get(STORE_CLI, None)
-        source = state.store.get(STORE_ANSWER_SOURCE, None)
+        kontext = state.store.get(STORE_CONTEXT, None)
+        source = bewertung["answer_source"]
         report = state.store.get(STORE_REPORT, None)
 
         return Score(
@@ -1298,6 +1715,15 @@ def audit_scorer() -> Scorer:
                     else ""
                 )
                 + (f"; Antwort aus {source}" if source else "")
+                # Das Fenster steht in der Begründung, weil es eine
+                # Laufbedingung ist: Derselbe Agent kommt mit 128k weiter als
+                # mit 64k, und ein angenommenes Fenster heißt, dass goose mit
+                # einer falschen Grenze gerechnet hat.
+                + (
+                    f"; Kontextfenster {kontext['window']} ({kontext['source']})"
+                    if kontext
+                    else ""
+                )
                 # Der Bericht steht in der Begründung, weil er sonst niemandem
                 # auffiele: Er geht nicht in die Wertung ein, und eine Zahl,
                 # die ihn verrät, gibt es folgerichtig nicht.
@@ -1339,11 +1765,18 @@ def audit_scorer() -> Scorer:
                 # Der ganze Werkzeugverlauf als Histogramm — die Grundlage für
                 # die Frage, ob ein Agent untersucht oder nur lädt.
                 "tool_calls": tools,
-                # Woher die Antwort kam und was das CLI gemeldet hat. Leer im
-                # react-Pfad — dort gibt es kein CLI und die Antwort kommt
-                # über `submit`.
+                # Woher die gewertete Antwort kam: `findings_file` (die
+                # Befundliste) oder `final_answer`. Steht die Datei hier und
+                # `final_answer_error` ist gesetzt, ist ein Zwischenstand
+                # gewertet worden — der Lauf ging vorzeitig zu Ende.
                 "answer_source": source,
+                "final_answer_error": bewertung["final_answer_error"],
+                # Was das CLI gemeldet hat. Leer im react-Pfad, dort gibt es
+                # kein CLI.
                 "cli": cli,
+                # Fenster, Herkunft und die Schwellen, die daraus folgten
+                # (`ContextBudget`). Leer im Oracle-Lauf.
+                "context": kontext,
                 # Wo der Kundenbericht liegt und was er gekostet hat. KEIN
                 # Wertungsfeld — es gibt bewusst keine Spalte dazu, sonst wäre
                 # das Beiwerk am Ende doch eine Note. `tokens` steht hier,
@@ -1398,10 +1831,11 @@ def a01_browser_audit(
             wenn nur die Zahlen gebraucht werden oder das Kontextbudget eines
             kleinen Modells knapp ist.
         agent: Über welches Gerüst das Audit läuft — `react` (Inspects eigener
-            Werkzeug-Loop, Vorgabe) oder `goose` (Agent-CLI im Container, über
-            `sandbox_agent_bridge` an den Modell-Provider des Laufs gehängt).
-            Prompt, Wertung und Referenz sind in beiden Fällen dieselben; die
-            einzige geänderte Größe ist das Framework. `-T agent=goose`.
+            Werkzeug-Loop, Vorgabe), `goose` oder `pi` (Agent-CLIs im
+            Container, über `sandbox_agent_bridge` an den Modell-Provider des
+            Laufs gehängt). Prompt, Wertung und Referenz sind in allen Fällen
+            dieselben; die einzige geänderte Größe ist das Framework.
+            `-T agent=goose`, `-T agent=pi`.
     """
     if agent not in AGENTS:
         raise ValueError(
@@ -1419,7 +1853,7 @@ def a01_browser_audit(
         if oracle
         else [
             record_endpoint(),
-            as_solver(audit_agent() if agent == AGENT_REACT else goose_agent()),
+            as_solver(audit_agent() if agent == AGENT_REACT else cli_agent(agent)),
             # Der Bericht steht NACH dem Agenten und VOR `record_server()`:
             # Er ist ein weiterer Modellaufruf, und `record_server()` soll
             # festhalten, was der Server nach der LETZTEN Anfrage geladen
@@ -1437,7 +1871,8 @@ def a01_browser_audit(
         display_name="A01 — Browser-Audit einer JS-Site",
         # Nur der react-Pfad zählt Nachrichten: Ein CLI führt sein eigenes
         # Gespräch, und `MESSAGE_LIMIT` träfe dort nicht den Agenten, sondern
-        # die Bridge. Seine Grenze ist `--max-turns` (siehe `goose_command`).
+        # die Bridge. Bei goose gilt `--max-turns` (siehe `goose_command`), pi
+        # kennt keine solche Grenze.
         message_limit=None if oracle or agent != AGENT_REACT else MESSAGE_LIMIT,
         time_limit=None if oracle else TIME_LIMIT,
         headline_metric=HeadlineMetric(score="score", metric="mean"),

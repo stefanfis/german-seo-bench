@@ -20,7 +20,8 @@ abgefragt, was der Server wirklich geladen hat:
 
 Abgefragt wird NACH der Antwort, nicht davor. llama-swap lädt ein Modell erst
 mit der ersten Anfrage; eine Abfrage davor liefert die Werte des Modells, das
-vorher dran war, und etikettiert die Messung still falsch.
+vorher dran war, und etikettiert die Messung still falsch. Die eine Ausnahme,
+`server_context()` für A01, prüft deshalb, ob die Werte zum Modell gehören.
 
 Je Datensatz aufgezeichnet und nicht einmal je Lauf: Tauscht llama-swap mitten
 im Lauf das Modell aus, fällt genau das auf.
@@ -45,6 +46,12 @@ from inspect_ai.solver import Generate, Solver, TaskState, solver
 from german_seo_bench.providers import DEFAULT_BASE_URL
 
 TIMEOUT_SECONDS = 5.0
+
+# Zeitgrenze für `server_context()`. Die Abfrage läuft vor der ersten Anfrage
+# und lädt bei llama-swap das Modell; das dauert bei großen Modellen Minuten.
+# Mit `TIMEOUT_SECONDS` gäbe sie vorher auf, und der Lauf rechnete mit einem
+# angenommenen Fenster. Die erste Modellanfrage hätte genauso lange gewartet.
+LOAD_TIMEOUT_SECONDS = 600.0
 
 # Aus `/props` übernommen. `params` wird VOLLSTÄNDIG gespeichert und nicht in
 # ein eigenes Schema übersetzt: Die Feldnamen ändern sich zwischen
@@ -169,7 +176,9 @@ def record_endpoint() -> Solver:
     return solve
 
 
-async def probe_server(base_url: str, model: str) -> dict[str, Any]:
+async def probe_server(
+    base_url: str, model: str, timeout: float = TIMEOUT_SECONDS
+) -> dict[str, Any]:
     """Fragt den Serverzustand ab. Scheitert nie, meldet aber jeden Fehlschlag.
 
     Ein stiller Fehlschlag wäre hier besonders teuer: Es entstünde eine Messung
@@ -177,7 +186,7 @@ async def probe_server(base_url: str, model: str) -> dict[str, Any]:
     """
     root = _root(base_url)
     recorded: dict[str, Any] = {"base_url": base_url, "model": model}
-    async with httpx.AsyncClient(timeout=TIMEOUT_SECONDS) as client:
+    async with httpx.AsyncClient(timeout=timeout) as client:
 
         async def fetch(path: str) -> Any | None:
             try:
@@ -209,6 +218,42 @@ async def probe_server(base_url: str, model: str) -> dict[str, Any]:
                 entry if entry else {"note": f"{model!r} nicht in /running"}
             )
     return recorded
+
+
+async def server_context(
+    base_url: str, model: str
+) -> tuple[int | None, str | None]:
+    """Das Kontextfenster je Anfrage (`n_ctx`) für dieses Modell, sonst der Grund.
+
+    Gibt `(n_ctx, None)` zurück oder `(None, grund)` — der Grund kommt ins
+    Log, damit ein angenommenes Fenster nicht erst erraten werden muss.
+
+    Die eine Abfrage, die VOR der ersten Anfrage läuft: A01 richtet seine
+    Kontextpflege danach aus. Die Warnung oben gilt dabei weiter — Props eines
+    anderen Modells wären hier schlimmer als keine, denn mit einem falschen
+    Fenster verdichtet der Agent zu spät und läuft über. Deshalb zählt der Wert
+    nur, wenn er sicher zu diesem Modell gehört:
+
+    - llama-server ohne llama-swap kennt nur ein Modell (kein `/running`).
+    - llama-swap muss das Modell in `/running` führen. Die Abfrage unter
+      `/upstream/<modell>/props` startet es, wenn es noch nicht läuft, und
+      wartet bis zu `LOAD_TIMEOUT_SECONDS`, bis es geladen ist.
+
+    `n_ctx` aus `default_generation_settings` ist das Fenster je Slot, also
+    das, was eine einzelne Anfrage tatsächlich hat.
+    """
+    recorded = await probe_server(base_url, model, timeout=LOAD_TIMEOUT_SECONDS)
+    upstream = recorded.get("upstream")
+    if isinstance(upstream, dict) and "note" in upstream:
+        return None, upstream["note"]
+    n_ctx = recorded.get("n_ctx")
+    if isinstance(n_ctx, int) and n_ctx > 0:
+        return n_ctx, None
+    gruende = [
+        f"{pfad}: {fehler}" for pfad, fehler in recorded.get("errors", {}).items()
+    ]
+    gruende.append(recorded.get("props_note") or "kein n_ctx in /props")
+    return None, "; ".join(gruende)
 
 
 @solver

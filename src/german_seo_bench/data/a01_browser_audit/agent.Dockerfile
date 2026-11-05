@@ -41,13 +41,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && goose --version
 
+# pi (`-T agent=pi`), festgenagelt wie goose und als eigene Schicht danach: Ein
+# neuer Build mit pi lässt Chromium und goose aus dem Cache. `--ignore-scripts`
+# empfiehlt pi selbst für die Installation über npm. pi braucht Node 22.19 oder
+# neuer; welche Version das Basisimage hat, steht in `/versions.json`.
+ARG PI_VERSION=1.5.0
+RUN npm install -g --ignore-scripts "@earendil-works/pi-coding-agent@${PI_VERSION}" \
+    && npm cache clean --force \
+    && pi --version
+
 # Die Versionen zum Nachlesen. Ein Lauf, dessen Zahlen man später erklären
 # muss, braucht die Angabe, mit welchem Browser gerendert wurde.
-RUN printf '{"chromium":"%s","chrome_devtools_mcp":"%s","node":"%s","goose":"%s"}\n' \
+RUN printf '{"chromium":"%s","chrome_devtools_mcp":"%s","node":"%s","goose":"%s","pi":"%s"}\n' \
         "$(chromium --version)" \
         "$(npm ls -g --depth 0 chrome-devtools-mcp | sed -n 's/.*chrome-devtools-mcp@//p')" \
         "$(node --version)" \
-        "$(goose --version | tr -d ' \n')" > /versions.json
+        "$(goose --version | tr -d ' \n')" \
+        "$(pi --version | tr -d ' \n')" > /versions.json
 
 ENV PUPPETEER_SKIP_DOWNLOAD=1 \
     CHROME_PATH=/usr/bin/chromium

@@ -318,6 +318,45 @@ class TestWerkzeugnamen:
         assert behaviour([nachricht(("chrome-devtools__click", {"uid": "1"}))])["clicked"]
 
 
+class TestCodemode:
+    """pi ruft die Browser-Werkzeuge aus einem Skript im Werkzeug `codemode` auf.
+
+    Ohne Blick in das Skript stünde im Log nur „codemode", und `clicked` meldete
+    „nicht geklickt" für einen Agenten, der geklickt hat.
+    """
+
+    SKRIPT = (
+        'await tools.mcp__chrome_devtools__navigate_page({url: "http://www.example.net/liste.html"});\n'
+        'const s = await tools.mcp__chrome_devtools__take_snapshot({});\n'
+        'await tools.mcp__chrome_devtools__click({uid: "1_16"});\n'
+        'await tools.bash({command: "ls"});'
+    )
+
+    def test_die_aufrufe_im_skript_zaehlen_mit(self) -> None:
+        verlauf = [nachricht(("codemode", {"code": self.SKRIPT}))]
+        assert tool_usage(verlauf) == {
+            "codemode": 1,
+            "navigate_page": 1,
+            "take_snapshot": 1,
+            "click": 1,
+            "bash": 1,
+        }
+
+    def test_klick_und_scrollen_im_skript(self) -> None:
+        verlauf = [nachricht(("codemode", {"code": self.SKRIPT}))]
+        assert behaviour(verlauf)["clicked"]
+        scrollen = (
+            "await tools.mcp__chrome_devtools__evaluate_script("
+            '{function: "() => window.scrollTo(0, 9999)"});'
+        )
+        assert behaviour([nachricht(("codemode", scrollen))])["scrolled"]
+
+    def test_ein_skript_ohne_klick_klickt_nicht(self) -> None:
+        # Die Gegenprobe: Lesen ist keine Handlung, auch nicht in codemode.
+        lesen = 'await tools.mcp__chrome_devtools__take_snapshot({});'
+        assert behaviour([nachricht(("codemode", lesen))]) == UNTAETIG
+
+
 class TestUserAgentWechsel:
     """`ua_switched` — die Spalte zu `cloaked_content`.
 

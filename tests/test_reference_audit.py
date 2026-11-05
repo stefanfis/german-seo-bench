@@ -536,3 +536,26 @@ class TestZweitbesuch:
         Befund, den sie nicht hat."""
         doc = capture({"filter.html": seite(html=self.MIT, second_visit_html=self.MIT)})
         assert befunde(doc) == set()
+
+
+class TestCaptureVerzeichnis:
+    """Der zweite Lauf auf dem Mac: Das Capture lag in `/var/folders`, Docker
+    gab den Pfad nicht frei, und der Vergleich starb an einem FileNotFoundError
+    statt an einer Erklärung.
+    """
+
+    def test_die_vorgabe_liegt_unter_dem_home(self) -> None:
+        from pathlib import Path
+
+        from german_seo_bench.reference.__main__ import CAPTURE_ROOT
+
+        assert CAPTURE_ROOT.is_relative_to(Path.home())
+
+    def test_ein_fehlendes_capture_wird_erklaert(self, tmp_path, monkeypatch) -> None:
+        import subprocess
+
+        from german_seo_bench.reference import __main__ as treiber
+
+        monkeypatch.setattr(subprocess, "run", lambda *a, **k: None)
+        with pytest.raises(SystemExit, match="--out"):
+            treiber.render(["home.html"], tmp_path)

@@ -31,9 +31,8 @@ PLACEHOLDER_API_KEY = "kein-schluessel-noetig"
 # Ereignisliste ist im bounded-Modus nicht verlässlich abfragbar, und ein
 # Zähler, der manchmal nichts findet, ist schlimmer als keiner.
 #
-# Die Zahl ist eine Laufbedingung, keine Modelleigenschaft: Ein Lauf, in dem
-# gekürzt wurde, hat Teile seiner eigenen Beobachtungen vergessen und ist mit
-# einem ungekürzten nicht vergleichbar. Deshalb gehört sie in die
+# Ein Überlauf beendet den Agenten oder zwingt sein Gerüst zum Verdichten;
+# beides verändert, was der Lauf noch findet. Deshalb gehört die Zahl in die
 # Ergebnisdatei und in den Kundenbericht.
 STORE_CONTEXT_OVERFLOWS = "context_overflows"
 
@@ -81,13 +80,12 @@ def _zaehle_ueberlauf() -> None:
 #
 # Ohne diese Übersetzung wird der Fehler nicht als Kontextüberlauf erkannt, sondern
 # durchgereicht — der ganze Lauf endet mit `status: error` und **ohne Score**.
-# Damit greift auch `truncation="auto"` im Agenten nie, denn der reagiert auf
-# `stop_reason == "model_length"`.
+# Inspects `react`-Schleife reagiert nur auf `stop_reason == "model_length"`.
 #
 # Großzügig gefasst, weil hier vier Server auflaufen (llama.cpp, Ollama,
 # LM Studio, vLLM) und jeder es anders formuliert. Ein Fehlalarm ist billig:
-# Er kostet eine Kürzung der Nachrichten statt eines Abbruchs. Ein
-# übersehener Überlauf kostet den ganzen Lauf.
+# Er beendet den Agenten etwas früher. Ein übersehener Überlauf kostet den
+# ganzen Lauf.
 _CONTEXT_OVERFLOW = re.compile(
     r"exceed_context_size_error"
     r"|context_length_exceeded"
@@ -153,17 +151,14 @@ def local() -> type[ModelAPI]:
             """Kontextüberlauf in `stop_reason="model_length"` übersetzen.
 
             Erst damit wird aus einem abgebrochenen Lauf ein verwertbarer:
-            Inspects `react`-Schleife kürzt bei `model_length` die
-            Nachrichten und macht weiter (`truncation="auto"`), und wenn das
-            nicht mehr reicht, beendet sie den Agenten **sauber** mit dem, was
-            er bis dahin hat. Ohne die Übersetzung stürbe der ganze Lauf an
-            einem Fehler, den niemand einer Ursache zuordnen könnte.
+            Inspects `react`-Schleife beendet den Agenten bei `model_length`
+            **sauber** mit dem, was er bis dahin hat (A01 wertet dann die
+            Befundliste). Ohne die Übersetzung stürbe der ganze Lauf an einem
+            Fehler, den niemand einer Ursache zuordnen könnte.
 
-            Die Kürzung ist kein Gratisgewinn: Ein Lauf, in dem gekürzt wurde,
-            misst nicht mehr dasselbe wie einer ohne — er hat Teile seiner
-            eigenen Beobachtungen vergessen. Das steht als
-            `stop_reason: model_length` in den Modellereignissen des Logs und
-            gehört beim Zitieren einer Zahl dazu.
+            Der Überlauf steht als `stop_reason: model_length` in den
+            Modellereignissen des Logs und wird gezählt
+            (`STORE_CONTEXT_OVERFLOWS`).
             """
             if _CONTEXT_OVERFLOW.search(_fehlertext(ex)):
                 _zaehle_ueberlauf()

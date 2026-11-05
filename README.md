@@ -82,7 +82,7 @@ man ohnehin kennen muss.
 | M02 | Weltwissen für SEO im deutschsprachigen Raum, Multiple Choice: 195 Fragen mit je zehn Optionen, darunter Reisen, E-Commerce mit Normen und Handelsrecht, technisches SEO, Österreich und Schweiz; `score`, `invalid`, Profil nach Thema | one-shot | [m02_knowledge_mc](docs/tasks/m02_knowledge_mc.md) |
 | M03 | Fakten-Extraktion aus Produkttexten: 30 Texte, sieben Felder | one-shot | [m03_facts](docs/tasks/m03_facts.md) |
 | M10 | Deutsche ALT-Texte: 32 Bilder, sieben Prüfungen — **braucht ein bildfähiges Modell** und [einmalig die Bilder](#die-bilder-für-m10) | one-shot | [m10_alt_text](docs/tasks/m10_alt_text.md) |
-| A01 | Browser-Audit einer JS-Site: 26 Seiten, 22 Fehlertypen, wahlweise über `react` oder `goose` — **braucht Docker** | agentisch | [a01_browser_audit](docs/tasks/a01_browser_audit.md), [zum Mitspielen](docs/A01.md) |
+| A01 | Browser-Audit einer JS-Site: 26 Seiten, 22 Fehlertypen, wahlweise über `react`, `goose` oder `pi` — **braucht Docker** | agentisch | [a01_browser_audit](docs/tasks/a01_browser_audit.md), [zum Mitspielen](docs/A01.md) |
 
 In M01, M03 und M10 ist `score` **alles oder nichts**: Ein Datensatz zählt, wenn
 er vollständig richtig ist, sonst nicht. Die Einzelspalten daneben sagen, woran

@@ -121,3 +121,60 @@ class TestRunnerSendetKeinSampling:
     @pytest.mark.parametrize("field", SAMPLING_FIELDS)
     def test_feld_bleibt_ungesetzt(self, field: str) -> None:
         assert getattr(run_config(), field) is None
+
+
+class TestServerContext:
+    """Das Fenster vor der ersten Anfrage — nur, wenn es sicher zum Modell gehört.
+
+    A01 nennt es goose und schreibt es ins Log. Props des vorher geladenen
+    Modells wären schlimmer als keine: Mit einem zu großen Fenster verdichtet
+    goose zu spät und läuft über.
+    """
+
+    @staticmethod
+    def _mit(monkeypatch, recorded: dict, zeiten: list | None = None):
+        import asyncio
+
+        import german_seo_bench.server as server
+
+        async def probe(base_url: str, model: str, timeout: float = 0) -> dict:
+            if zeiten is not None:
+                zeiten.append(timeout)
+            return recorded
+
+        monkeypatch.setattr(server, "probe_server", probe)
+        return asyncio.run(server.server_context("http://dirac:8080/v1", "m"))
+
+    def test_llama_server_allein(self, monkeypatch) -> None:
+        # Kein `/running`: Es gibt nur ein Modell, die Props gehören zu ihm.
+        assert self._mit(monkeypatch, {"n_ctx": 131072}) == (131072, None)
+
+    def test_llama_swap_mit_laufendem_modell(self, monkeypatch) -> None:
+        recorded = {"n_ctx": 65536, "upstream": {"cmd": "llama-server …"}}
+        assert self._mit(monkeypatch, recorded) == (65536, None)
+
+    def test_gegenprobe_llama_swap_ohne_das_modell(self, monkeypatch) -> None:
+        # Das Modell steht nicht in `/running`: Die Props könnten vom
+        # Vorgänger stammen.
+        recorded = {"n_ctx": 131072, "upstream": {"note": "'m' nicht in /running"}}
+        assert self._mit(monkeypatch, recorded) == (None, "'m' nicht in /running")
+
+    def test_ohne_props_kein_fenster_aber_ein_grund(self, monkeypatch) -> None:
+        recorded = {
+            "errors": {"/upstream/m/props": "ReadTimeout: "},
+            "props_note": "keine Props",
+        }
+        n_ctx, grund = self._mit(monkeypatch, recorded)
+        assert n_ctx is None
+        assert "ReadTimeout" in grund and "keine Props" in grund
+
+    def test_die_abfrage_wartet_auf_das_laden(self, monkeypatch) -> None:
+        # Der erste Lauf von A01 v2: Das Modell lud länger als die 5 s der
+        # gewöhnlichen Abfrage, und gerechnet wurde mit einem angenommenen
+        # Fenster statt der 131.072 Tokens des Servers.
+        from german_seo_bench.server import LOAD_TIMEOUT_SECONDS, TIMEOUT_SECONDS
+
+        zeiten: list = []
+        self._mit(monkeypatch, {"n_ctx": 131072}, zeiten)
+        assert zeiten == [LOAD_TIMEOUT_SECONDS]
+        assert LOAD_TIMEOUT_SECONDS >= 300 > TIMEOUT_SECONDS

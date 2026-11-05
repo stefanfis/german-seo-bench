@@ -1,6 +1,6 @@
 [project]
 name = "german-seo-bench"
-version = "2026.1"
+version = "2026.2.dev0"
 description = "Nachvollziehbare Benchmarks für Sprachmodelle in deutschen SEO-Aufgaben"
 readme = "README.md"
 requires-python = ">=3.11"

@@ -43,6 +43,26 @@ Crawler ausgibt. Wer den Browser als Snapshot-Werkzeug benutzt, verliert alle.
 Der Zuschnitt in Zahlen: 26 Adressen (sechs davon ohne eigene Datei), 22
 Fehlertypen, 31 Befunde, 4 Kontrollseiten ohne Befund, 14 Fehlalarm-Fallen.
 
+**Der Auftrag nennt nur die Startseite** (`START_PAGE`, `home.html`), keine
+Seitenliste. So sieht ein echter Auftrag aus: Die Seiten findet der Prüfer
+über die Links und über die Sitemap, die `robots.txt` angibt. Jede gewertete
+Seite ist auf einem dieser Wege erreichbar
+(`test_jede_seite_ist_von_der_startseite_erreichbar`); `presse.html` steht nur
+in der Sitemap, und genau das ist der Befund `orphan_page_in_sitemap`. Die
+Seitenliste bleibt im Datensatz, für die Wertung und den Bericht.
+
+**Der Auftrag erklärt die Werkzeuge, nicht die Prüfschritte.** Ein Absatz
+sagt, was `take_snapshot`, `evaluate_script`, die Netzwerk-Werkzeuge,
+`emulate`, `performance_start_trace` und die übrigen leisten — so, wie man
+einem Agenten in der Praxis eine Werkzeugübersicht mitgibt. Anlass waren die
+Logs der ersten Läufe: `evaluate_script` war bei schwachen wie starken Modellen
+das meistgenutzte Werkzeug, vor allem zum Lesen von `<head>` und Links, die der
+Snapshot nicht zeigt; `click`, `get_network_request`, die Konsole und der
+Performance-Trace kamen kaum vor. Der Absatz nennt keine Bedingung, unter der
+eine Seite anders ausgeliefert wird — kein Googlebot, kein Cache, kein zweiter
+Aufruf (`test_die_werkzeuge_verraten_keine_falle`). Das herauszufinden, bleibt
+Teil der Aufgabe.
+
 **Die Leitfrage beim Bau jedes Items: Was ist die billigste Strategie, die
 diesen Punkt holt?** Lautet die Antwort „ein Skript pro Seite", ist das Item
 wertlos. Ein mittelgroßes lokales Modell kann sich über `evaluate_script` ein
@@ -251,7 +271,7 @@ Zwei Modelle können denselben Gesamtwert auf völlig verschiedene Weise
 erreichen — das eine bedient die Seiten (navigiert, klickt, scrollt), das
 andere liest sie in einer `fetch`-Schleife und rendert nur für Geometrie. Die
 achtzehn `source`-Befunde bekommt jeder geschenkt, der eine `fetch`-Schleife
-über die Seitenliste schreiben kann; für starke Kandidaten entscheiden die
+über die gefundenen Seiten schreiben kann; für starke Kandidaten entscheiden die
 wenigen Befunde in `render`, `request` und `second_load`. Der Scorer weist
 deshalb `recall_<klasse>` einzeln aus.
 
@@ -294,6 +314,45 @@ das). Und **eine Klasse ohne Befunde zählt nicht mit**, sie steht als `None` in
 der Aufschlüsselung: Als 0.0 gezählt, drückte sie den Score auf einem Ausschnitt
 der Aufgabe auch dann, wenn der Agent alles gefunden hat, was dort zu finden
 war.
+
+### Gewertet wird die Befundliste
+
+Seit Aufgabenversion 2 führt der Agent seine Befunde laufend in der Datei
+`/root/OUT.jsonl` im Agent-Container, ein JSON-Objekt je Zeile (JSON Lines).
+Ob er Zeilen anhängt oder die Datei neu schreibt, ist ihm überlassen: goose
+hängt per Shell bequem an, `react` hat nur `text_editor`, und der schreibt eine
+Datei leicht ganz, hängt aber nicht an. Am Ende gibt der Agent alle Befunde
+zusätzlich als JSON-Array in der Schlussantwort ab. Gewertet wird
+(`choose_answer`):
+
+1. die Datei, wenn sie mindestens einen Befund als JSON-Objekt enthält,
+2. sonst die Schlussantwort.
+
+Jede Zeile wird für sich gelesen (`findings_from_lines`). Eine kaputte Zeile,
+etwa die halb geschriebene letzte eines abgebrochenen Laufs, kostet nur sich
+selbst: Sie erscheint als verworfene Meldung. Doppelte Zeilen zählen einmal,
+die Wertung arbeitet auf einer Menge. Toleriert werden wie bei der
+Schlussantwort auch die Verpackungen, die nicht gemessen werden sollen: ein
+Komma am Zeilenende, ein JSON-Array statt Zeilen.
+
+Damit zählt bei einem vorzeitigen Ende — Zeitgrenze, voller Kontext, ein
+abgestürztes CLI —, was bis dahin feststand. In Version 1 zählte ein solcher
+Lauf null, auch wenn der Agent die Hälfte der Befunde schon gesehen hatte.
+
+Die Datei kommt vor der Schlussantwort, weil ein Agent-CLI auf stdout auch
+Bruchstücke seiner Werkzeugaufrufe ausgibt und das erste JSON darin nicht
+zwingend die Liste ist. Eine leere Datei oder eine ohne ein einziges gültiges
+Objekt fällt auf die Schlussantwort zurück.
+
+Im Log steht die Herkunft in `Score.metadata.answer_source` (`findings_file`
+oder `final_answer`). Ist zusätzlich `final_answer_error` gesetzt, war die
+Schlussantwort nicht auswertbar, und gewertet wurde ein Zwischenstand. Der
+Kundenbericht vermerkt das im Bewertungskasten.
+
+Ein Lauf, der mit einem Fehler abbricht (etwa eine Modellanfrage, die der
+Server endgültig ablehnt), bekommt weiterhin keinen Score: Inspect wertet
+einen Datensatz mit Fehler gar nicht. Teilwertung gibt es also für Zeit- und
+Nachrichtengrenzen und für ein CLI, das sich selbst beendet.
 
 ## Was die Aufgabe ausgibt
 
@@ -405,17 +464,84 @@ einem Snapshot erschließbar, ohne zu scrollen.
 `test_keine_seite_kuendigt_ihren_befund_an` hält das fest: Der Mechanismus
 gehört ins Markup und ins Skript, die Ankündigung in keinen sichtbaren Text.
 
-**Das Kontextfenster ist eine Messbedingung.** Eine A01-Sitzung liegt im
-**Median** bei 30 000 bis 53 000 Tokens Promptlänge, die Spitzen reichen bis
-knapp 88 000 — der Agent schickt bei jedem Zug das ganze Gespräch mit, und ein
-Browser-Snapshot kostet mehrere tausend Tokens. Daraus: **32k unbrauchbar, 64k
-Minimum, 128k sicher.**
+**Der Benchmark pflegt keinen Kontext.** Ein Agent schickt bei jedem Zug das
+ganze Gespräch mit: jeden Browser-Snapshot, jede Werkzeugantwort und jedes
+Messskript, das er sich selbst geschrieben hat. In Testläufen der Version 1 lag
+der Median der Promptlänge bei 30.000 bis 53.000 Tokens, die Spitzen reichten
+bis knapp 88.000. Wie ein Agent damit umgeht, ist Teil der Messung und nicht
+Sache des Benchmarks:
 
-Inspect erkennt einen Überlauf nur an OpenAIs `context_length_exceeded`,
-llama.cpp meldet `exceed_context_size_error`. Der `local/`-Provider übersetzt
-das, damit `truncation="auto"` greift und der Agent kürzt statt abzubrechen. Ein
-gekürzter Lauf ist mit einem ungekürzten nicht vergleichbar; erkennbar an
-`stop_reason: model_length` in den Modellereignissen.
+- Im **`react`-Pfad** misst A01 das Modell. Inspect verdichtet und kürzt dort
+  nichts. Sparsam abzufragen und die Befunde in die Datei zu schreiben, ist die
+  Kontextpflege, die ein Modell hier leisten kann.
+- Bei einem **Agent-CLI** gehört dessen eigene Kontextpflege zu dem, was die
+  Achse vergleicht. goose und pi verdichten selbst, nach ihren eigenen Regeln.
+
+Inspects Compaction in der Bridge wäre dort nicht nur ein Eingriff in den
+Prüfling, sondern schlicht falsch. Sie führt einen einzigen Verlauf und hängt
+jede neue Nachricht daran an, auch die einer Nebenanfrage. goose fragt
+nebenher nach einem Titel für die Sitzung. Im ersten Lauf von Version 2 stand
+diese Anweisung danach in jeder Anfrage des Audits, und das Modell lieferte am
+Ende einen Titel statt der Befunde.
+
+**Das Fenster wird trotzdem ermittelt** (`plan_context`, einmal zu Beginn des
+Agenten). Es ist eine Laufbedingung, und ein CLI braucht es: Für den
+Modellnamen `inspect` kennt goose kein Fenster und rechnet mit 128.000 Tokens.
+Damit wäre es in jedes 64k-Fenster gelaufen, bevor es verdichtet. Genau daran
+ist ein Lauf von Version 1 gescheitert. goose bekommt deshalb `input_budget`
+als `GOOSE_CONTEXT_LIMIT`, eine Angabe zum Aufbau wie die Serveradresse. pi
+bekommt das ganze Fenster als `contextWindow` und verdichtet ab
+`contextWindow - reserveTokens`; seine Reserve ist in der Vorgabe 16.384 Tokens,
+die Schwelle also ebenfalls `input_budget`. Eine Schwelle setzt der Benchmark
+nicht, beide verdichten nach ihrer Vorgabe.
+
+```
+Fenster              65.536   131.072   was das Modell je Anfrage hat
+- ANSWER_MAX_TOKENS  16.384    16.384   Reserve für die Antwort, je Anfrage
+= input_budget       49.152   114.688   so lang darf eine Anfrage höchstens sein
+```
+
+Woher das Fenster kommt:
+
+1. **Lokale Server** (`local/…`, `openai-api/…`): `n_ctx` aus `/props` von
+   llama-server, also das Fenster je Slot. Bei llama-swap gilt der Wert nur,
+   wenn das Modell in `/running` steht; sonst könnten die Props vom vorher
+   geladenen Modell stammen. Die Abfrage unter `/upstream/<alias>/props` lädt
+   das Modell und wartet darauf bis zu 10 Minuten (`LOAD_TIMEOUT_SECONDS`).
+   Die erste Modellanfrage hätte genauso lange gewartet. Inspects Modelldaten
+   zählen hier ausdrücklich nicht: Sie kennen das Fenster des Modells
+   (Qwen 3.5 9B: 262.144), nicht das, mit dem der Server gestartet wurde.
+2. **Cloud-Modelle**: Inspects Modelldaten (Claude Haiku 5.5: 1.000.000).
+3. **Sonst** 65.536, das Minimum.
+
+Im Log steht das Ergebnis unter `Score.metadata.context` (`window`, `source`
+mit `server`, `model_info` oder `assumed`, dazu `input_budget`) und in der
+Begründung. Bei `assumed` nennt `note` den Grund, etwa eine Zeitüberschreitung
+der Abfrage. Ein Fenster unter 65.536 wird gemessen, steht aber als Störung im
+Bewertungskasten des Berichts.
+
+Zwei Läufe desselben Modells mit verschiedenen Fenstern sind damit zwei
+verschiedene Bedingungen, so wie zwei Quantisierungen. Wer vergleicht, liest
+das Fenster mit.
+
+**Wenn es überläuft.** Dann meldet der Server den Fehler, und der
+`local/`-Provider übersetzt ihn (llama.cpp schreibt
+`exceed_context_size_error`, Inspect erkennt nur OpenAIs
+`context_length_exceeded`). `react()` beendet den Agenten dann sauber, und
+gewertet wird die Befundliste. Bei goose geht der Fehler an das CLI zurück, und
+was es daraus macht, gehört zur Messung. Wie oft das passiert ist, steht in
+`Score.metadata.context_overflows` und im Bewertungskasten des Berichts.
+
+**Ein weiteres Gerüst anbinden** heißt damit dreierlei:
+
+- die Modellanfragen über `sandbox_agent_bridge(state)` leiten, ohne
+  `compaction`,
+- dem Gerüst mit `budget = await plan_context()` das Fenster
+  `budget.input_budget` nennen, in seiner eigenen Schreibweise, falls es das
+  nicht selbst herausfindet,
+- ihm ein Dateiwerkzeug geben, damit es die Befundliste führen kann.
+
+Wie es seinen Kontext pflegt, bleibt seine Sache.
 
 ## Woher die Referenz kommt
 
@@ -426,6 +552,10 @@ uv run python -m german_seo_bench.reference                      # rendern und v
 uv run python -m german_seo_bench.reference --capture c.json     # vorhandenes Capture, kein Docker
 uv run python -m german_seo_bench.reference --write              # Abweichung übernehmen
 ```
+
+Das Capture landet ohne `--out` unter `~/.cache/german-seo-bench/`, nicht im
+Temp-Verzeichnis des Systems: Das liegt unter macOS in `/var/folders`, und nicht
+jede Docker-Umgebung gibt diesen Pfad an Container frei.
 
 Der Lauf fährt einen eigenen Container (`reference.compose.yaml`, Puppeteer
 direkt statt chrome-devtools-mcp) gegen **dieselbe** testsite mit derselben
@@ -452,48 +582,67 @@ seitenübergreifenden Befunde ebenso wie für die vierzehn Fallen und für die
 dreiteilige Kaskade hinter `hidden_by_css`. Fasst jemand `site/` an, ohne die
 Referenz nachzuziehen, schlägt das an, ohne dass ein Container laufen muss.
 
-## Über welches Gerüst — `react` oder `goose`?
+## Über welches Gerüst — `react`, `goose` oder `pi`?
 
 Das ist die zweite Messachse der Aufgabe, und sie beantwortet eine andere Frage
 als die erste:
 
 ```bash
 uv run inspect eval german_seo_bench/a01_browser_audit                       # react (Vorgabe)
-uv run inspect eval german_seo_bench/a01_browser_audit -T agent=goose        # Agent-CLI im Container
+uv run inspect eval german_seo_bench/a01_browser_audit -T agent=goose        # Agent-CLI goose im Container
+uv run inspect eval german_seo_bench/a01_browser_audit -T agent=pi           # Agent-CLI pi im Container
 ```
 
-| | `react` | `goose` |
-|---|---|---|
-| misst | Modellfähigkeit an einem neutralen Werkzeug-Loop | „welches Agentic Framework taugt für SEO?" |
-| Werkzeuge | chrome-devtools-mcp, direkt von Inspect verdrahtet | dieselben, plus die eingebauten Datei- und Shell-Werkzeuge von goose |
-| Antwort | über `submit` | über `OUT.json` im Arbeitsverzeichnis, ersatzweise stdout |
-| Grenze | `MESSAGE_LIMIT` (Nachrichten) | `--max-turns` |
-| Zeit | `TIME_LIMIT` (120 Min. je Datensatz), `MODEL_CALL_TIMEOUT` (1800 s je Modellanfrage) | `TIME_LIMIT`, `CLI_TIMEOUT` (115 Min. für das CLI) |
-| Antwortlänge | `ANSWER_MAX_TOKENS` (16384 Tokens je Modellanfrage) | nicht geprüft: Die Anfragen stellt goose selbst |
-| Modellanfragen | Inspect stellt sie | das CLI stellt sie, über den Bridge-Proxy im Container |
+| | `react` | `goose` | `pi` |
+|---|---|---|---|
+| misst | Modellfähigkeit an einem neutralen Werkzeug-Loop | „welches Agentic Framework taugt für SEO?" | ebenso |
+| Werkzeuge | chrome-devtools-mcp, direkt von Inspect verdrahtet, dazu `text_editor` für die Befundliste | dieselben, plus die eingebauten Datei- und Shell-Werkzeuge von goose | dieselben, aber über `codemode` (siehe unten), plus `read`, `bash`, `edit`, `write` |
+| Antwort | Befundliste `/root/OUT.jsonl`, ersatzweise `submit` | Befundliste `/root/OUT.jsonl`, ersatzweise stdout | ebenso (`--print`) |
+| Kontextpflege | keine: Das Modell muss mit seinem Fenster auskommen | goose selbst; es erfährt `input_budget` als `GOOSE_CONTEXT_LIMIT` | pi selbst; es erfährt das Fenster als `contextWindow` in `models.json` |
+| Grenze | `MESSAGE_LIMIT` (Nachrichten) | `--max-turns` | keine eigene |
+| Zeit | `TIME_LIMIT` (120 Min. je Datensatz), `MODEL_CALL_TIMEOUT` (1800 s je Modellanfrage) | `TIME_LIMIT`, ohne eigene Grenze für das CLI | ebenso |
+| Antwortlänge | `ANSWER_MAX_TOKENS` (16384 Tokens je Modellanfrage) | dieselbe: Inspect setzt sie auch für die Anfragen über die Bridge | ebenso |
+| Modellanfragen | Inspect stellt sie | das CLI stellt sie, über den Bridge-Proxy im Container | ebenso |
 
-Prompt, Wertung, Referenz, Browser und Viewport sind in beiden Fällen dieselben
+**pi läuft so, wie ein typischer pi-Nutzer es einrichtet.** pi gibt
+MCP-Werkzeuge in seiner Vorgabe nicht einzeln an das Modell weiter, sondern über
+das Werkzeug `codemode`: Das Modell schreibt JavaScript, das die
+Browser-Werkzeuge als `tools.mcp__chrome_devtools__click({…})` aufruft. Der
+Benchmark lässt das so. Gemessen wird das Konzept des Frameworks, nicht ein
+nachgebauter Werkzeugkasten. Der Browser ist trotzdem derselbe: `mcp.json`
+startet chrome-devtools-mcp mit `MCP_ARGS`. Die Konfiguration schreibt der
+Agent vor dem Start nach `/root/.pi/agent/` (`pi_config`); Versionsprüfung,
+Katalogabgleich und Telemetrie sind abgeschaltet, Kontextdateien, Skills und
+Vorlagen ebenso. Erweiterungen bleiben an, denn MCP und `codemode` sind
+eingebaute Erweiterungen von pi.
+
+Prompt, Wertung, Referenz, Browser und Viewport sind in allen Fällen dieselben
 — die einzige geänderte Größe ist das Framework, sonst wäre die Differenz nicht
-zuzuordnen. Der Prompt nennt deshalb **beide** Wege zur Antwort: Ein CLI hat
-kein `submit`-Werkzeug, ein `react()`-Loop keine Dateiwerkzeuge, und zwei
-Prompts nebeneinander wären eine zweite geänderte Größe.
+zuzuordnen. Deshalb gibt jedes Gerüst seine Antwort auf demselben Weg ab, über
+die Befundliste: Ein CLI hat kein `submit`-Werkzeug, und der `react()`-Loop
+bekommt dafür `text_editor`. Eine Shell bekommt er nicht; der react-Pfad misst
+das Modell am Browser, nicht an curl.
 
 Technisch hängt der CLI-Pfad an `sandbox_agent_bridge`: Inspect startet **im**
 Container einen Proxy (Port 13131), der die OpenAI-API spricht und an den
 Modell-Provider des Laufs weiterreicht. goose bekommt
-`OPENAI_HOST=http://localhost:13131` und den Modellnamen `inspect`. Damit gilt
+`OPENAI_HOST=http://localhost:13131` und den Modellnamen `inspect`, pi
+denselben Endpunkt als Anbieter `inspect` in `models.json`. Damit gilt
 dreierlei: Jede Modellanfrage des CLI steht im Inspect-Log (Nachrichten,
 Werkzeuge, Tokens), `local/<alias>` funktioniert unverändert, und das
 `internal: true`-Netz bleibt — der Proxy läuft im Container, es braucht keinen
 Weg nach draußen.
 
-Zwei Dinge, die man beim Lesen eines goose-Laufs wissen muss:
+Was man beim Lesen eines CLI-Laufs wissen muss:
 
 - **Die Werkzeuge heißen anders.** Über das CLI heißen sie
   `chrome-devtools__click`, über `react()` schlicht `click`. `clicked`,
   `scrolled` und `ua_switched` vergleichen deshalb den letzten Namensteil —
   sonst wären die Spalten auf dem CLI-Pfad blind und meldeten „nicht geklickt"
   für einen Agenten, der geklickt hat.
+- **Bei pi stecken die Browser-Aufrufe im Skript.** `tool_calls` zählt
+  `codemode` und zusätzlich jeden Aufruf `tools.<werkzeug>(` darin. `clicked`
+  und `scrolled` sehen ebenfalls in das Skript.
 - **goose fragt das Modell auch für sich selbst.** Es lässt sich den
   Sitzungstitel vom selben Endpunkt erzeugen; diese Anfrage steht mit im Log.
   Der Tokenverbrauch eines CLI-Laufs ist damit **Framework plus Aufgabe**, nie
@@ -502,7 +651,7 @@ Zwei Dinge, die man beim Lesen eines goose-Laufs wissen muss:
 
 Wenn ein CLI-Lauf 0.00 ergibt, steht die Ursache im Score: `Score.metadata.cli`
 hält Rückgabewert und die letzten Zeilen von stderr/stdout fest, und
-`answer_source` sagt, ob die Antwort aus `OUT.json` kam oder von stdout. Ohne
+`answer_source` sagt, ob die Befundliste gewertet wurde oder stdout. Ohne
 diese Felder bliebe von einem CLI, das gar nicht startet, nur eine Null übrig,
 und die Suche landete beim Modell statt beim Aufruf.
 
@@ -590,9 +739,9 @@ wichtigste: Sie sagt einem Leser, welche Empfehlung auf nichts beruht.
 den Zahlen, weil es entscheidet, wie sie zu lesen sind:
 
 ```
-Dieser Lauf war gestört. Das Kontextfenster des Modells war 9× voll. Der Agent
-hat dann ältere Beobachtungen verworfen und weitergearbeitet — Befunde von früh
-geprüften Seiten können dadurch verloren gegangen sein.
+Dieser Lauf war gestört. Das Kontextfenster des Modells lief 1× über. Was der
+Agent danach noch prüfen konnte, hing davon ab, wie sein Gerüst damit umging;
+gewertet wurde die Befundliste, die er bis dahin geführt hatte.
 ```
 
 Vermerkt werden Kontextüberläufe (aus `Score.metadata.context_overflows`, im
